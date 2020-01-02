@@ -3,6 +3,8 @@ use_frameworks!
 
 target 'CorporateAlbum' do
 
+source 'https://github.com/CocoaPods/Specs.git'
+
 pod 'RxSwift', '~> 4.4.0'
 pod 'RxCocoa', '~> 4.4.0'
 pod 'RxDataSources', '~> 3.1.0'
