@@ -57,7 +57,7 @@ class SiteInfoModel: HJModel {
     
     var siteStateText: String {
         get {
-            return ["离线站点", "上线站点", "已禁用"][SiteState]!
+            return ["离线站点", "上线站点", "已禁用"][SiteState]
         }
     }
     
