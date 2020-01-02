@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineHeaderView" customModule="CorporateAlbum" customModuleProvider="target">
+            <connections>
+                <outlet property="avatarOutlet" destination="hTt-f3-hGh" id="UJU-VG-on5"/>
+                <outlet property="contentView" destination="XFv-96-jgD" id="uGx-Ay-EPG"/>
+                <outlet property="fundsOutlet" destination="FBk-sw-U2B" id="spr-Vd-Hdd"/>
+                <outlet property="nickNameOutlet" destination="0zZ-dm-5WJ" id="IjP-8G-XmR"/>
+                <outlet property="remindOutlet" destination="WBd-Qk-EpI" id="Vx1-vd-v1E"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="XFv-96-jgD">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTt-f3-hGh">
+                    <rect key="frame" x="20" y="35" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hTt-f3-hGh" secondAttribute="height" multiplier="1:1" id="AI0-i6-LDH"/>
+                        <constraint firstAttribute="width" constant="60" id="gOB-Dt-hYk"/>
+                    </constraints>
+                </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zZ-dm-5WJ">
+                    <rect key="frame" x="95" y="42" width="260" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资金：6分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBk-sw-U2B">
+                    <rect key="frame" x="95" y="70" width="260" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.98039215690000003" green="0.22352941179999999" blue="0.1137254902" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请先登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBd-Qk-EpI">
+                    <rect key="frame" x="95" y="56" width="61.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.12549019610000001" green="0.52941176469999995" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstItem="0zZ-dm-5WJ" firstAttribute="top" secondItem="hTt-f3-hGh" secondAttribute="top" constant="7" id="2ab-aU-saT"/>
+                <constraint firstAttribute="trailing" secondItem="0zZ-dm-5WJ" secondAttribute="trailing" constant="20" id="8Fv-pH-uNh"/>
+                <constraint firstItem="0zZ-dm-5WJ" firstAttribute="leading" secondItem="hTt-f3-hGh" secondAttribute="trailing" constant="15" id="8rp-41-wKr"/>
+                <constraint firstItem="FBk-sw-U2B" firstAttribute="leading" secondItem="0zZ-dm-5WJ" secondAttribute="leading" id="BmJ-V2-IVn"/>
+                <constraint firstItem="hTt-f3-hGh" firstAttribute="leading" secondItem="XFv-96-jgD" secondAttribute="leading" constant="20" id="HhA-gz-xho"/>
+                <constraint firstAttribute="bottom" secondItem="hTt-f3-hGh" secondAttribute="bottom" constant="35" id="N7h-G8-HLC"/>
+                <constraint firstItem="WBd-Qk-EpI" firstAttribute="centerY" secondItem="hTt-f3-hGh" secondAttribute="centerY" id="fkW-Pa-M8f"/>
+                <constraint firstItem="FBk-sw-U2B" firstAttribute="trailing" secondItem="0zZ-dm-5WJ" secondAttribute="trailing" id="rFW-uE-zVy"/>
+                <constraint firstItem="FBk-sw-U2B" firstAttribute="bottom" secondItem="hTt-f3-hGh" secondAttribute="bottom" constant="-7" id="stb-aj-vhm"/>
+                <constraint firstItem="WBd-Qk-EpI" firstAttribute="leading" secondItem="0zZ-dm-5WJ" secondAttribute="leading" id="wQW-Pw-1hC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-302" y="-226"/>
+        </view>
+    </objects>
+</document>

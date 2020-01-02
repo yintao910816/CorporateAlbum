@@ -1,0 +1,73 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Differentiator (3.1.0)
+  - HandyJSON (5.0.0)
+  - Kingfisher (4.6.4)
+  - MJRefresh (3.1.15.3)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - Result (4.1.0)
+  - RxAtomic (4.4.2)
+  - RxCocoa (4.4.2):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+  - SnapKit (4.0.0)
+  - SQLite.swift (0.11.6):
+    - SQLite.swift/standard (= 0.11.6)
+  - SQLite.swift/standard (0.11.6)
+
+DEPENDENCIES:
+  - HandyJSON (~> 5.0.0-beta.1)
+  - Kingfisher (~> 4.6.1)
+  - MJRefresh (~> 3.1.15.3)
+  - Moya/RxSwift (~> 12.0.1)
+  - RxCocoa (~> 4.4.0)
+  - RxDataSources (~> 3.1.0)
+  - RxSwift (~> 4.4.0)
+  - SnapKit (~> 4.0.0)
+  - SQLite.swift (~> 0.11.5)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Kingfisher
+    - MJRefresh
+    - SnapKit
+  trunk:
+    - Alamofire
+    - Differentiator
+    - HandyJSON
+    - Moya
+    - Result
+    - RxAtomic
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+    - SQLite.swift
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SQLite.swift: 46d890be8601964454bd3392527f863d1b802d45
+
+PODFILE CHECKSUM: 49b5f88324f23c3fd56a5941dc80d355c24a214a
+
+COCOAPODS: 1.8.3
