@@ -15,13 +15,17 @@ import RxCocoa
 class RegisterViewModel: BaseViewModel {
     
     private var authorPhone: String = ""
-    
-    var phoneObser: Driver<Bool>!
-    var nickNameObser: Driver<Bool>!
-    var passObser: Driver<Bool>!
-    var repassObser: Driver<Bool>!
-    var authorCodeObser: Driver<Bool>!
-    
+    public var phoneObser: Driver<Bool>!
+    public var nickNameObser: Driver<Bool>!
+    public var passObser: Driver<Bool>!
+    public var repassObser: Driver<Bool>!
+    public var authorCodeObser: Driver<Bool>!
+    public var agreeObser = Variable(true)
+
+    public let codeSendComplenmentSubject = PublishSubject<Bool>()
+    public let codeEnable = Variable(true)
+    public var submitEnableObser: Driver<Bool>!
+
     init(input:(phone: Driver<String>, nickName: Driver<String>, pass: Driver<String>, repass: Driver<String>, authorCode: Driver<String>),
          tap:(authorCode: Driver<Void>, register: Driver<Void>)) {
         super.init()
@@ -31,7 +35,9 @@ class RegisterViewModel: BaseViewModel {
                 if ValidateNum.phoneNum(phoneNum).isRight == true { return true }
                 NoticesCenter.alert(title: "提示", message: "请输入正确的手机号码", okTitle: "知道了")
                 return false
-            }).drive(onNext: { [unowned self] phone in
+            })
+            ._doNext(forNotice: hud)
+            .drive(onNext: { [unowned self] phone in
                 self.getAuthorCodeRequest(phone: phone)
             })
             .disposed(by: disposeBag)
@@ -57,14 +63,18 @@ class RegisterViewModel: BaseViewModel {
         
         authorCodeObser = input.authorCode.map { return $0.count > 0 }
         
-        let submitEnableObser = Driver.combineLatest(phoneObser, nickNameObser, passObser, repassObser, authorCodeObser).map {
+        submitEnableObser = Driver.combineLatest(phoneObser, nickNameObser, passObser, repassObser, authorCodeObser).map {
             return ($0 && $1 && $2 && $3 && $4)
         }
         
         let validate = Driver.combineLatest(input.phone, input.nickName, input.pass, input.repass, input.authorCode, submitEnableObser){ ($0, $1, $2, $3, $4, $5) }
         
         tap.register.withLatestFrom(validate)
-            .filter({ data -> Bool in
+            .filter({ [unowned self] data -> Bool in
+                if !self.agreeObser.value {
+                    NoticesCenter.alert(title: "提示", message: "请先同意注册协议")
+                    return false
+                }
                 if data.5 == false { NoticesCenter.alert(title: "提示", message: "请填写正确的信息！") }
                 return data.5
             })
@@ -97,14 +107,23 @@ class RegisterViewModel: BaseViewModel {
     
     // 获取短信验证码
     private func getAuthorCodeRequest(phone: String) {
+        codeEnable.value = false
+
         CARProvider.rx.request(.smsSendCode(phone: phone))
             .mapResponseStatus()
             .subscribe(onSuccess: { [weak self] model in
-                if model.error == 0 { self?.hud.successHidden(model.message) }
-                else { self?.hud.failureHidden(model.message) }
+                if model.error == 0 {
+                    self?.hud.successHidden(model.message)
+                    self?.codeSendComplenmentSubject.onNext(true)
+                }else {
+                    self?.hud.failureHidden(model.message)
+                    self?.codeSendComplenmentSubject.onNext(false)
+                }
                 self?.authorPhone = phone
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
+                self?.codeSendComplenmentSubject.onNext(false)
+                self?.codeEnable.value = true
             }
             .disposed(by: disposeBag)
     }
@@ -118,6 +137,8 @@ class LoginViewModel: BaseViewModel {
     var phoneObser: Driver<Bool>!
     var passObser: Driver<Bool>!
 
+    public var loginSubmitDriver: Driver<Bool>!
+    
     init(input:(phone: Driver<String>, pass: Driver<String>),
          loginDriver: Driver<Void>) {
         super.init()
@@ -125,8 +146,8 @@ class LoginViewModel: BaseViewModel {
         phoneObser = input.phone.map{ ValidateNum.phoneNum($0).isRight }
         passObser = input.pass.map{ ValidateNum.string($0, min: 3, max: 16).isRight }
         
-        let loginSubmit = Driver.combineLatest(phoneObser, passObser) { $0 && $1 }
-        let validate = Driver.combineLatest(input.phone, input.pass, loginSubmit)
+        loginSubmitDriver = Driver.combineLatest(phoneObser, passObser) { $0 && $1 }
+        let validate = Driver.combineLatest(input.phone, input.pass, loginSubmitDriver)
             
         loginDriver.withLatestFrom(validate)
             .filter { (_, _, ret) -> Bool in
@@ -162,10 +183,14 @@ class ResetPassViewModel: BaseViewModel {
     
     private var authorPhone: String = ""
     
-    var phoneObser: Driver<Bool>!
-    var passObser: Driver<Bool>!
-    var repassObser: Driver<Bool>!
-    var authorCodeObser: Driver<Bool>!
+    public var phoneObser: Driver<Bool>!
+    public var passObser: Driver<Bool>!
+    public var repassObser: Driver<Bool>!
+    public var authorCodeObser: Driver<Bool>!
+
+    public let codeEnable = Variable(true)
+    public var submitEnableObser: Driver<Bool>!
+    public let codeSendComplenmentSubject = PublishSubject<Bool>()
 
     init(input:(phone: Driver<String>, pass: Driver<String>, repass: Driver<String>, authorCode: Driver<String>),
          tap:(authorCode: Driver<Void>, register: Driver<Void>)) {
@@ -198,7 +223,7 @@ class ResetPassViewModel: BaseViewModel {
         
         authorCodeObser = input.authorCode.map { return $0.count > 0 }
         
-        let submitEnableObser = Driver.combineLatest(phoneObser, passObser, repassObser, authorCodeObser).map {
+        submitEnableObser = Driver.combineLatest(phoneObser, passObser, repassObser, authorCodeObser).map {
             return ($0 && $1 && $2 && $3)
         }
         
@@ -235,14 +260,23 @@ class ResetPassViewModel: BaseViewModel {
     
     // 获取短信验证码
     private func getAuthorCodeRequest(phone: String) {
+        codeEnable.value = false
+
         CARProvider.rx.request(.smsSendCode(phone: phone))
             .mapResponseStatus()
             .subscribe(onSuccess: { [weak self] model in
-                if model.error == 0 { self?.hud.successHidden(model.message) }
-                else { self?.hud.failureHidden(model.message) }
+                if model.error == 0 {
+                    self?.hud.successHidden(model.message)
+                    self?.codeSendComplenmentSubject.onNext(true)
+                }else {
+                    self?.hud.failureHidden(model.message)
+                    self?.codeSendComplenmentSubject.onNext(false)
+                }
                 self?.authorPhone = phone
             }) { [weak self] error in
+                self?.codeEnable.value = true
                 self?.hud.failureHidden(self?.errorMessage(error))
+                self?.codeSendComplenmentSubject.onNext(false)
             }
             .disposed(by: disposeBag)
     }

@@ -20,19 +20,14 @@ class CALoginViewController: BaseViewController {
 
     private var viewModel: LoginViewModel!
     
-    @IBAction func dismissVC(_ sender: UIButton) {
-        userDefault.userType = .tourist
-        self.dismiss(animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func setupUI() {
-        loginOutlet.layer.cornerRadius = 4
-        
-        for idx in 100 ..< 102 {
-            let view = contentView.viewWithTag(idx)
-            view?.layer.borderWidth  = 1
-            view?.layer.borderColor  = UIColor.red.cgColor
-        }
+
     }
     
     override func rxBind() {
@@ -52,6 +47,10 @@ class CALoginViewController: BaseViewController {
         viewModel.popSubject.subscribe(onNext: { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
         }).disposed(by: disposeBag)
+        
+        viewModel.loginSubmitDriver
+            .drive(loginOutlet.rx.actionEnabled)
+            .disposed(by: disposeBag)
     }
 
 }

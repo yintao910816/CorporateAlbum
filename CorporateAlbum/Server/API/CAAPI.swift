@@ -9,6 +9,17 @@
 import Foundation
 import Moya
 
+enum CAH5Type: String {
+    /// 用户协议
+    case contract = "contract"
+    /// 关于我们
+    case aboutus = "aboutus"
+    /// 服务协议
+    case services = "services"
+    /// 关于奖励
+    case bonus = "bonus"
+}
+
 //MARK:
 //MARK: 接口定义
 enum API{
@@ -28,6 +39,8 @@ enum API{
      */
     case register(phone: String, nickName: String, password: String, smscode: String)
     
+    /// 获取h5地址
+    case document(type: CAH5Type)
     /**
      * 注册、找回密码 获取短息验证码
      */
@@ -177,6 +190,8 @@ extension API: TargetType{
             return "Sms/SendCode"
         case .login(_, _):
             return "User/Login"
+        case .document(_):
+            return "Document/Get"
         case .setPassword(_, _, _):
             return "User/SetPassword"
         case .setAvatar(_):
@@ -295,6 +310,8 @@ extension API {
             params["token"]  = userDefault.appToken ?? ""
             params["phone"]  = phone
             params["password"]  = pass.sha1()
+        case .document(let type):
+            params["name"]  = type.rawValue
         case .setPassword(let phone, let password, let smscode):
             params["token"]  = userDefault.appToken ?? ""
             params["phone"]  = phone

@@ -19,8 +19,10 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = RGB(242, 242, 242)
-        setupUI()
         
+        modalPresentationStyle = .fullScreen
+        
+        setupUI()
         rxBind()
     }
     

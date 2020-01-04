@@ -2,15 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bg_login.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "未选中圆圈-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "未选中圆圈.png",
       "scale" : "3x"
     }
   ],

@@ -21,15 +21,30 @@ extension Reactive where Base: UIButton {
     public var enabled: Binder<Bool> {
         return Binder(self.base) { control, value in
             if value == true {
-                control.backgroundColor = CA_MAIN_COLOR
+                control.backgroundColor = .clear
+                control.setTitleColor(RGB(8, 172, 222), for: .normal)
                 control.isUserInteractionEnabled = true
             }else {
-                control.backgroundColor = .gray
+                control.backgroundColor = .clear
+                control.setTitleColor(.gray, for: .normal)
                 control.isUserInteractionEnabled = false
             }
         }
     }
  
+    public var actionEnabled: Binder<Bool> {
+        return Binder(self.base) { control, value in
+            PrintLog("actionEnabled -- \(value)")
+            if value == true {
+                control.backgroundColor = RGB(42, 176, 230)
+                control.isUserInteractionEnabled = true
+            }else {
+                control.backgroundColor = RGB(204, 204, 204)
+                control.isUserInteractionEnabled = false
+            }
+        }
+    }
+
     public var image: Binder<String?> {
         return Binder(self.base) { button, url in
             button.setImage(url)

@@ -46,7 +46,7 @@ struct APIAssistance {
     /** 使用帮助 */
     static let userHelp = "http://aapi.dazongg.com/help/index"
     
-    static let base     = "http://aapi.dazongg.com/"
+    static let base     = "http://aapi.dazongg.net/"
     
     static public func baseURL(API: API) ->URL{
         /**

@@ -30,6 +30,8 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        modalPresentationStyle = .fullScreen
+        
         isSideBackEnable = true
         
         self.navigationBar.barTintColor        =  CA_MAIN_COLOR

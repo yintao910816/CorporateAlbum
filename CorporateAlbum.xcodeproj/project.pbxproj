@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -386,6 +386,7 @@
 		B8D92AD42109BCE000BAB001 /* Response+ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92AD02109BCE000BAB001 /* Response+ModelMapper.swift */; };
 		B8D92AD52109BCE000BAB001 /* Observable+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92AD12109BCE000BAB001 /* Observable+ObjectMapper.swift */; };
 		B8D92AD62109BCE000BAB001 /* HandyJSON+MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92AD22109BCE000BAB001 /* HandyJSON+MapModel.swift */; };
+		B8F7A27523C08EC700369B6A /* CADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A27423C08EC700369B6A /* CADocument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1025,6 +1026,7 @@
 		B8D92AD02109BCE000BAB001 /* Response+ModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ModelMapper.swift"; sourceTree = "<group>"; };
 		B8D92AD12109BCE000BAB001 /* Observable+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+ObjectMapper.swift"; sourceTree = "<group>"; };
 		B8D92AD22109BCE000BAB001 /* HandyJSON+MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HandyJSON+MapModel.swift"; sourceTree = "<group>"; };
+		B8F7A27423C08EC700369B6A /* CADocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CADocument.swift; sourceTree = "<group>"; };
 		C21F4F6E09AD95A6D04340A8 /* Pods-CorporateAlbum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorporateAlbum.release.xcconfig"; path = "Pods/Target Support Files/Pods-CorporateAlbum/Pods-CorporateAlbum.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2133,6 +2135,7 @@
 				B84FC321210EBB3800DA30DC /* Corporate.swift */,
 				B84FC33F210F004300DA30DC /* Bill.swift */,
 				B831856B2111B77C00F05D49 /* Page.swift */,
+				B8F7A27423C08EC700369B6A /* CADocument.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2500,6 +2503,7 @@
 				B8CCDFC921212C5100E94681 /* ZXPDF417BoundingBox.m in Sources */,
 				B84FC332210EE1C700DA30DC /* AccountSetCell.swift in Sources */,
 				B8CCDF8821212C5100E94681 /* ZXAztecReader.m in Sources */,
+				B8F7A27523C08EC700369B6A /* CADocument.swift in Sources */,
 				B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */,
 				B8CCDFA221212C5100E94681 /* ZXQRCodeFinderPatternFinder.m in Sources */,
 				B8CCDF8D21212C5100E94681 /* ZXQRCode.m in Sources */,
