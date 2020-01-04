@@ -64,8 +64,9 @@ enum API{
     /**
      * 首页数据列表/搜索
      * limit：默认32
+     * category 0:全部,1:推荐,2:收藏
      */
-    case book(search: String, skip: Int, limit: Int)
+    case bookList(search: String, skip: Int, limit: Int, category: Int)
     
     /**
      * 获取画册信息
@@ -198,8 +199,8 @@ extension API: TargetType{
             return "User/SetPhoto"
         case .getUserInfo():
             return "User/Get"
-        case .book(_, _, _):
-            return "Book"
+        case .bookList(_):
+            return "Book/List"
         case .getBookInfo(_):
             return "Book/Get"
         case .favoriteBook(_, _, _):
@@ -317,11 +318,11 @@ extension API {
             params["phone"]  = phone
             params["password"] = password.sha1()
             params["smscode"]  = smscode
-        case .book(let search, let skip, let limit):
-            params["token"]  = userDefault.appToken ?? ""
+        case .bookList(let search, let skip, let limit, let category):
             params["search"] = search
             params["skip"]   = skip
             params["limit"]  = limit
+            params["category"]  = category
         case .getBookInfo(let id):
             params["token"]  = userDefault.appToken ?? ""
             params["id"]     = id

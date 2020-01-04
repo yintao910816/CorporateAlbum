@@ -60,12 +60,12 @@ struct APIAssistance {
      */
     static public func mothed(API: API) ->Moya.Method{
         switch API {
-        case .book(_, _, _),
+        case .bookList(_),
              .getBookInfo(_),
-             .bill(_, _, _),
-             .mySite(_, _),
+             .bill(_),
+             .mySite(_),
              .albumPage(_),
-             .favoriteBook(_, _, _):
+             .favoriteBook(_):
             return .get
         default:
             return .post

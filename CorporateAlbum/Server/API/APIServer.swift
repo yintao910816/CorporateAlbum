@@ -47,35 +47,18 @@ public final class RequestLoadingPlugin: PluginType {
 
     }
     
-//    public func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
-//        switch result {
-//        case .success(let response):
-//            if let headerFields = response.response?.allHeaderFields as? [String: String],
-//                let URL = response.request?.url
-//            {
-//                let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
-//                PrintLog(cookies)
-//                for cookie in cookies {
-//                    PrintLog(cookie.name)
-//                    PrintLog(cookie.value)
-//                }
-////                if let cookie = cookies.first, let expiresDate = cookie.expiresDate  {
-////                    if expiresDate.compare(Date()) == ComparisonResult.orderedAscending {
-////                        // cookie已过期
-////                        DispatchQueue.main.async {
-////                            CACoreLogic.pressentLoginVC()
-////                        }
-////                    }
-////                }
-////                HTTPCookieStorage.shared.removeCookies(since: Date())
-////                PrintLog(HTTPCookieStorage.shared.cookies)
-////                HTTPCookieStorage.shared.setCookies(cookies, for: nil, mainDocumentURL: nil)
-//            }
-//            break
-//        case .failure(let error):
-//            PrintLog(error)
-//            break
-//        }
-//    }
+    public func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
+        switch result {
+        case .success(let response):
+            do {
+                let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments)
+                PrintLog("didReceive -- \(target) -- \(json)")
+            } catch  {
+                PrintLogDetail(error)
+            }
+        case .failure(let error):
+            PrintLog(error)
+        }
+    }
 
 }

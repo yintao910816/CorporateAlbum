@@ -27,7 +27,7 @@ class SetAvatarViewModel: BaseViewModel {
     
     private func postSetAvatarRequest(image: UIImage) {
         CARProvider.rx.request(.setAvatar(image: image))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] ret in
                 if ret.error == 0 {
                     self?.hud.successHidden("操作成功！")

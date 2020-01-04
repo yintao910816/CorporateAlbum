@@ -26,8 +26,8 @@ class CAMyCorporateViewController: BaseViewController {
         menu.menuChooseObser.asDriver()
             .skip(1)
             .do(onNext: { [unowned self] idx in
-                self.searchBar.changeLeftItemState()
-                self.searchBar.leftItemTitle = idx == 0 ? "全部" : "收藏"
+//                self.searchBar.changeLeftItemState()
+//                self.searchBar.leftItemTitle = idx == 0 ? "全部" : "收藏"
             })
             .distinctUntilChanged()
             .drive(onNext: { [unowned self] row in

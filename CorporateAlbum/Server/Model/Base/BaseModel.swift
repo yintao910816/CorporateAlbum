@@ -9,33 +9,36 @@
 import Foundation
 import HandyJSON
 
+enum RequestCode: Int {
+    /// 请求成功
+    case success = 0
+    case badRequest
+}
+
 // MARK:
-// MARK: 只返回请求结果 -- 状态
-class ResponseStatusModel: HJModel{
- 
-    var data: String?
+// MARK: 所有请求数据
+class ResponseModel: HJModel{
+    
     var error: Int!
     var message: String = "操作失败"
         
     override func mapping(mapper: HelpingMapper) {
         mapper <<<
-            [data       <-- "Data",
-             error      <-- "Error",
+            [error      <-- "Error",
              message    <-- "Message"]
     }
+}
+
+class DataModel<T>: ResponseModel {
+    
+    var Data: T?
     
 }
 
-// MARK:
-// MARK: 列表数据类型
-class ResponseListModel: HJModel {
-
-}
-
-// MARK:
-// MARK: 单一模型数据
-class ResponseModel: HJModel {
-   
+/// 只返回请求是否成功
+class RequestResultModel: ResponseModel {
+    
+    var data: String = ""
 }
 
 // MARK:

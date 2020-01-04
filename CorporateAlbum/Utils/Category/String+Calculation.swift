@@ -9,28 +9,35 @@
 import Foundation
 import UIKit
 
+public let ty_fontName          = "Helvetica Neue"
+public let ty_fontSize: CGFloat = 15
+
 // MARK:
 // MARK: 字符串size计算
 extension String {
     
-    func getTextHeigh(fontSize: Float, width: CGFloat, fontName: String = "Helvetica Neue") -> CGFloat {
+    func ty_textSize(font: UIFont, width: CGFloat, height: CGFloat) ->CGSize {
+        let size = CGSize.init(width: width, height: height)
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
+        return self.boundingRect(with: size, options: [.usesLineFragmentOrigin, .truncatesLastVisibleLine, .usesFontLeading], attributes: attributes, context:nil).size
+    }
+
+    func getTextHeigh(fontSize: Float, width: CGFloat, fontName: String = ty_fontName) -> CGFloat {
         
         return self.textSize(fontSize: fontSize, width: width, height: CGFloat(MAXFLOAT), fontName: fontName).height
     }
     
-    func getTexWidth(fontSize: Float, height: CGFloat, fontName: String = "Helvetica Neue") -> CGFloat {
+    func getTexWidth(fontSize: Float, height: CGFloat, fontName: String = ty_fontName) -> CGFloat {
         
         return self.textSize(fontSize: fontSize, width: CGFloat(MAXFLOAT), height: height, fontName: fontName).width
     }
 
     private func textSize(fontSize: Float, width: CGFloat, height: CGFloat, fontName: String) ->CGSize {
     
-        let font = UIFont.init(name: fontName, size: CGFloat(fontSize))
-        let size = CGSize(width: width, height: height)
-        
-        let attributes = [NSAttributedStringKey.font: font]
-        return self.boundingRect(with: size, options: [.usesLineFragmentOrigin, .truncatesLastVisibleLine, .usesFontLeading], attributes: attributes, context:nil).size
+        let font = UIFont.init(name: fontName, size: CGFloat(fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(fontSize))
+        return ty_textSize(font: font, width: width, height: height)
     }
+    
 }
 
 // MARK:

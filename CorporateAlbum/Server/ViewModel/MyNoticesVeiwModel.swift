@@ -33,7 +33,7 @@ class MyNoticesViewModel: RefreshVM<NoticeInfoModel> {
     
     private func setNoticeRead(noticeModel: NoticeInfoModel) {
         CARProvider.rx.request(.noticeRead(id: noticeModel.Id))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { ret in
                 if ret.error == 0 {
                     PrintLog("设置消息已读成功")

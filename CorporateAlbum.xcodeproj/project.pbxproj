@@ -382,11 +382,16 @@
 		B8D92AC92109990700BAB001 /* SharedSequenceConvertibleType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92AC72109990700BAB001 /* SharedSequenceConvertibleType+Extension.swift */; };
 		B8D92ACB2109B48400BAB001 /* String+Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92ACA2109B48400BAB001 /* String+Encryption.swift */; };
 		B8D92ACD2109BA7900BAB001 /* Date+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92ACC2109BA7900BAB001 /* Date+TimeInterval.swift */; };
-		B8D92AD32109BCE000BAB001 /* Single+ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92ACF2109BCE000BAB001 /* Single+ModelMapper.swift */; };
-		B8D92AD42109BCE000BAB001 /* Response+ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92AD02109BCE000BAB001 /* Response+ModelMapper.swift */; };
-		B8D92AD52109BCE000BAB001 /* Observable+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92AD12109BCE000BAB001 /* Observable+ObjectMapper.swift */; };
-		B8D92AD62109BCE000BAB001 /* HandyJSON+MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92AD22109BCE000BAB001 /* HandyJSON+MapModel.swift */; };
 		B8F7A27523C08EC700369B6A /* CADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A27423C08EC700369B6A /* CADocument.swift */; };
+		B8F7A27A23C09EC400369B6A /* Single+ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A27723C09EC400369B6A /* Single+ModelMapper.swift */; };
+		B8F7A27B23C09EC400369B6A /* Response+ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A27823C09EC400369B6A /* Response+ModelMapper.swift */; };
+		B8F7A27C23C09EC400369B6A /* HandyJSON+MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A27923C09EC400369B6A /* HandyJSON+MapModel.swift */; };
+		B8F7A28223C0A40D00369B6A /* TYFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A28123C0A40D00369B6A /* TYFont.swift */; };
+		B8F7A28723C0A46000369B6A /* TYListMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A28423C0A45F00369B6A /* TYListMenuData.swift */; };
+		B8F7A28823C0A46000369B6A /* TYSlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A28623C0A45F00369B6A /* TYSlideMenuView.swift */; };
+		B8F7A28B23C0AC4500369B6A /* TYSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A28A23C0AC4500369B6A /* TYSearchBar.swift */; };
+		B8F7A28E23C0AC8E00369B6A /* TYClickedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A28D23C0AC8E00369B6A /* TYClickedButton.swift */; };
+		B8F7A29023C0ACF600369B6A /* TYIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A28F23C0ACF600369B6A /* TYIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1022,11 +1027,16 @@
 		B8D92AC72109990700BAB001 /* SharedSequenceConvertibleType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SharedSequenceConvertibleType+Extension.swift"; sourceTree = "<group>"; };
 		B8D92ACA2109B48400BAB001 /* String+Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Encryption.swift"; sourceTree = "<group>"; };
 		B8D92ACC2109BA7900BAB001 /* Date+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeInterval.swift"; sourceTree = "<group>"; };
-		B8D92ACF2109BCE000BAB001 /* Single+ModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+ModelMapper.swift"; sourceTree = "<group>"; };
-		B8D92AD02109BCE000BAB001 /* Response+ModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ModelMapper.swift"; sourceTree = "<group>"; };
-		B8D92AD12109BCE000BAB001 /* Observable+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+ObjectMapper.swift"; sourceTree = "<group>"; };
-		B8D92AD22109BCE000BAB001 /* HandyJSON+MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HandyJSON+MapModel.swift"; sourceTree = "<group>"; };
 		B8F7A27423C08EC700369B6A /* CADocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CADocument.swift; sourceTree = "<group>"; };
+		B8F7A27723C09EC400369B6A /* Single+ModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+ModelMapper.swift"; sourceTree = "<group>"; };
+		B8F7A27823C09EC400369B6A /* Response+ModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ModelMapper.swift"; sourceTree = "<group>"; };
+		B8F7A27923C09EC400369B6A /* HandyJSON+MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HandyJSON+MapModel.swift"; sourceTree = "<group>"; };
+		B8F7A28123C0A40D00369B6A /* TYFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYFont.swift; sourceTree = "<group>"; };
+		B8F7A28423C0A45F00369B6A /* TYListMenuData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYListMenuData.swift; sourceTree = "<group>"; };
+		B8F7A28623C0A45F00369B6A /* TYSlideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYSlideMenuView.swift; sourceTree = "<group>"; };
+		B8F7A28A23C0AC4500369B6A /* TYSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYSearchBar.swift; sourceTree = "<group>"; };
+		B8F7A28D23C0AC8E00369B6A /* TYClickedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYClickedButton.swift; sourceTree = "<group>"; };
+		B8F7A28F23C0ACF600369B6A /* TYIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYIcon.swift; sourceTree = "<group>"; };
 		C21F4F6E09AD95A6D04340A8 /* Pods-CorporateAlbum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorporateAlbum.release.xcconfig"; path = "Pods/Target Support Files/Pods-CorporateAlbum/Pods-CorporateAlbum.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2017,6 +2027,11 @@
 		B8D929B82109646C00BAB001 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B8F7A28C23C0AC8E00369B6A /* TYView */,
+				B8F7A28923C0AC4500369B6A /* TYSearchBar */,
+				B8F7A28023C0A40D00369B6A /* Others */,
+				B8F7A27D23C0A39500369B6A /* TYSlideMenu */,
+				B8F7A27623C09EC400369B6A /* ModelMap */,
 				B835D8CB213920C8003019FF /* LaunchView */,
 				B8CCDD6621212C5000E94681 /* LBXScan */,
 				B83B9A422119A80100284FE6 /* CoinDrop */,
@@ -2127,7 +2142,6 @@
 			isa = PBXGroup;
 			children = (
 				B862ADA2211AF84B00B9F058 /* Person.swift */,
-				B8D92ACE2109BCE000BAB001 /* Map */,
 				B8D92A092109646C00BAB001 /* Base */,
 				B8D92A0E2109646C00BAB001 /* AuthorCode.swift */,
 				B82E2FBF210AE9A500FA299F /* User.swift */,
@@ -2323,15 +2337,64 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
-		B8D92ACE2109BCE000BAB001 /* Map */ = {
+		B8F7A27623C09EC400369B6A /* ModelMap */ = {
 			isa = PBXGroup;
 			children = (
-				B8D92ACF2109BCE000BAB001 /* Single+ModelMapper.swift */,
-				B8D92AD02109BCE000BAB001 /* Response+ModelMapper.swift */,
-				B8D92AD22109BCE000BAB001 /* HandyJSON+MapModel.swift */,
-				B8D92AD12109BCE000BAB001 /* Observable+ObjectMapper.swift */,
+				B8F7A27723C09EC400369B6A /* Single+ModelMapper.swift */,
+				B8F7A27823C09EC400369B6A /* Response+ModelMapper.swift */,
+				B8F7A27923C09EC400369B6A /* HandyJSON+MapModel.swift */,
 			);
-			path = Map;
+			path = ModelMap;
+			sourceTree = "<group>";
+		};
+		B8F7A27D23C0A39500369B6A /* TYSlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				B8F7A28323C0A45F00369B6A /* Model */,
+				B8F7A28523C0A45F00369B6A /* View */,
+			);
+			path = TYSlideMenu;
+			sourceTree = "<group>";
+		};
+		B8F7A28023C0A40D00369B6A /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				B8F7A28F23C0ACF600369B6A /* TYIcon.swift */,
+				B8F7A28123C0A40D00369B6A /* TYFont.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		B8F7A28323C0A45F00369B6A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8F7A28423C0A45F00369B6A /* TYListMenuData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B8F7A28523C0A45F00369B6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8F7A28623C0A45F00369B6A /* TYSlideMenuView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8F7A28923C0AC4500369B6A /* TYSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				B8F7A28A23C0AC4500369B6A /* TYSearchBar.swift */,
+			);
+			path = TYSearchBar;
+			sourceTree = "<group>";
+		};
+		B8F7A28C23C0AC8E00369B6A /* TYView */ = {
+			isa = PBXGroup;
+			children = (
+				B8F7A28D23C0AC8E00369B6A /* TYClickedButton.swift */,
+			);
+			path = TYView;
 			sourceTree = "<group>";
 		};
 		C1672C0D5214A67A0857E8DD /* Frameworks */ = {
@@ -2488,6 +2551,7 @@
 				B8CCE00321212C5100E94681 /* ZXAI01393xDecoder.m in Sources */,
 				B84FC340210F004300DA30DC /* Bill.swift in Sources */,
 				B8CCE02321212C5100E94681 /* ZXUPCEANExtensionSupport.m in Sources */,
+				B8F7A27B23C09EC400369B6A /* Response+ModelMapper.swift in Sources */,
 				B8D92A852109684F00BAB001 /* Bundle+Extension.swift in Sources */,
 				B8CCDF7C21212C5100E94681 /* ZXMultiFormatWriter.m in Sources */,
 				B8CCDF6D21212C5100E94681 /* LBXScanNetAnimation.m in Sources */,
@@ -2590,6 +2654,7 @@
 				B8D92AB721097FDE00BAB001 /* CAResetPassViewController.swift in Sources */,
 				B8CCE04921212C5100E94681 /* ZXCapture.m in Sources */,
 				B8CCE04421212C5100E94681 /* ZXSMSParsedResult.m in Sources */,
+				B8F7A29023C0ACF600369B6A /* TYIcon.swift in Sources */,
 				B8D92ACD2109BA7900BAB001 /* Date+TimeInterval.swift in Sources */,
 				B83B9A3F211941AF00284FE6 /* ImagePickerControl.swift in Sources */,
 				B8CCDF7521212C5100E94681 /* ZXDimension.m in Sources */,
@@ -2662,7 +2727,6 @@
 				B8CCDFDA21212C5100E94681 /* ZXDataMatrixEncoderContext.m in Sources */,
 				B8CCDFC521212C5100E94681 /* ZXModulusPoly.m in Sources */,
 				B88E4776212127470012D237 /* SearchBar.swift in Sources */,
-				B8D92AD42109BCE000BAB001 /* Response+ModelMapper.swift in Sources */,
 				B8CCE02021212C5100E94681 /* ZXUPCEReader.m in Sources */,
 				B83B9A542119A80100284FE6 /* coinImageView.m in Sources */,
 				B8CCDFD021212C5100E94681 /* ZXPDF417DetectionResultRowIndicatorColumn.m in Sources */,
@@ -2674,7 +2738,6 @@
 				B8D92AA1210970A100BAB001 /* ViewControllerServer.swift in Sources */,
 				B8CCDF7121212C5100E94681 /* ZXBinarizer.m in Sources */,
 				B8D92A182109646C00BAB001 /* HUDIndicatorView.swift in Sources */,
-				B8D92AD62109BCE000BAB001 /* HandyJSON+MapModel.swift in Sources */,
 				B8CCE02B21212C5100E94681 /* ZXProductResultParser.m in Sources */,
 				B8CCDFE221212C5100E94681 /* ZXDataMatrixDecodedBitStreamParser.m in Sources */,
 				B84FC33A210EEA3E00DA30DC /* CASetNickNameViewController.swift in Sources */,
@@ -2690,6 +2753,7 @@
 				B8CCDF9321212C5100E94681 /* ZXQRCodeMultiReader.m in Sources */,
 				B8CCDF8921212C5100E94681 /* ZXAztecDetector.m in Sources */,
 				B8CCDFE521212C5100E94681 /* ZXDataMatrixDecoder.m in Sources */,
+				B8F7A28E23C0AC8E00369B6A /* TYClickedButton.swift in Sources */,
 				B8CCDF8121212C5100E94681 /* ZXAztecState.m in Sources */,
 				B8D92AC92109990700BAB001 /* SharedSequenceConvertibleType+Extension.swift in Sources */,
 				B8CCDF8E21212C5100E94681 /* ZXQRCodeEncoder.m in Sources */,
@@ -2705,6 +2769,7 @@
 				B8CCDFC021212C5100E94681 /* ZXPDF417Dimensions.m in Sources */,
 				B8CCDFC321212C5100E94681 /* ZXPDF417.m in Sources */,
 				B8CCDFA421212C5100E94681 /* ZXQRCodeReader.m in Sources */,
+				B8F7A28B23C0AC4500369B6A /* TYSearchBar.swift in Sources */,
 				B8D92A632109646C00BAB001 /* APIAdapt.swift in Sources */,
 				B8CCDFD121212C5100E94681 /* ZXPDF417DetectorResult.m in Sources */,
 				B8D92A622109646C00BAB001 /* AuthorCode.swift in Sources */,
@@ -2727,7 +2792,6 @@
 				B8CCDFEF21212C5100E94681 /* ZXCodaBarReader.m in Sources */,
 				B8D92ABB210982DF00BAB001 /* CAMyCorporateViewController.swift in Sources */,
 				B8D92A7B210966CA00BAB001 /* DB+Extension.swift in Sources */,
-				B8D92AD52109BCE000BAB001 /* Observable+ObjectMapper.swift in Sources */,
 				B8CCDF8721212C5100E94681 /* ZXAztecDecoder.m in Sources */,
 				B8CCE02721212C5100E94681 /* ZXAbstractDoCoMoResultParser.m in Sources */,
 				B83F279221144577005CA5C3 /* UINavigationController+BarButtonItem.swift in Sources */,
@@ -2741,11 +2805,11 @@
 				B8CCDF6C21212C5100E94681 /* LBXScanView.m in Sources */,
 				B862AD9F211ACDDB00B9F058 /* ArchiverTools.swift in Sources */,
 				B8CCE04021212C5100E94681 /* ZXWifiParsedResult.m in Sources */,
+				B8F7A27A23C09EC400369B6A /* Single+ModelMapper.swift in Sources */,
 				B8CCDFE121212C5100E94681 /* ZXDataMatrixTextEncoder.m in Sources */,
 				B84FC322210EBB3800DA30DC /* Corporate.swift in Sources */,
 				B8CCE01F21212C5100E94681 /* ZXUPCEANExtension2Support.m in Sources */,
 				B84FC353210FEF7000DA30DC /* MyalbumCell.swift in Sources */,
-				B8D92AD32109BCE000BAB001 /* Single+ModelMapper.swift in Sources */,
 				B8D92AB9210982C800BAB001 /* CAAlbumViewController.swift in Sources */,
 				B84FC334210EE55F00DA30DC /* CASetEmailViewController.swift in Sources */,
 				B8CCE02221212C5100E94681 /* ZXEAN13Writer.m in Sources */,
@@ -2758,11 +2822,14 @@
 				B8D92A7D210966CA00BAB001 /* CacheKey.swift in Sources */,
 				B8CCDFD921212C5100E94681 /* ZXDataMatrixC40Encoder.m in Sources */,
 				B8CCDFC721212C5100E94681 /* ZXPDF417ECErrorCorrection.m in Sources */,
+				B8F7A28223C0A40D00369B6A /* TYFont.swift in Sources */,
 				B8D92AA5210970A100BAB001 /* BaseTableViewController.swift in Sources */,
 				B8CCDFB521212C5100E94681 /* ZXBitSource.m in Sources */,
+				B8F7A28723C0A46000369B6A /* TYListMenuData.swift in Sources */,
 				B83185712111BA4B00F05D49 /* AlbumPagesCell.swift in Sources */,
 				B8D92A88210968B700BAB001 /* NoticesCenter.swift in Sources */,
 				B8CCE04B21212C5100E94681 /* ZXingWrapper.m in Sources */,
+				B8F7A27C23C09EC400369B6A /* HandyJSON+MapModel.swift in Sources */,
 				B8CCE00621212C5100E94681 /* ZXRSSExpandedGeneralAppIdDecoder.m in Sources */,
 				B8CCDFCA21212C5100E94681 /* ZXPDF417BarcodeMetadata.m in Sources */,
 				B8CCDFAC21212C5100E94681 /* ZXGlobalHistogramBinarizer.m in Sources */,
@@ -2804,6 +2871,7 @@
 				B8CCE00F21212C5100E94681 /* ZXRSS14Reader.m in Sources */,
 				B8CCE00821212C5100E94681 /* ZXAbstractExpandedDecoder.m in Sources */,
 				B8D92ABF210993AD00BAB001 /* LoginServer.swift in Sources */,
+				B8F7A28823C0A46000369B6A /* TYSlideMenuView.swift in Sources */,
 				B8CCDFBF21212C5100E94681 /* ZXPDF417BarcodeMatrix.m in Sources */,
 				B8CCE03A21212C5100E94681 /* ZXAddressBookAUResultParser.m in Sources */,
 				B8D92AC3210997D700BAB001 /* Validate.swift in Sources */,

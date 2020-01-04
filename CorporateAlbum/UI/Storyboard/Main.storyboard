@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="n0v-l2-yra">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="n0v-l2-yra">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,7 +32,7 @@
                 <navigationController id="g6N-Ak-gom" customClass="MainNavagationController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="企业" image="corporate_un_selected" selectedImage="corporate_selected" id="MHT-tq-1x2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JId-Xe-gap">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -105,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdG-Zz-apU">
-                                <rect key="frame" x="147" y="124" width="80" height="80"/>
+                                <rect key="frame" x="147.5" y="104" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kdG-Zz-apU" secondAttribute="height" multiplier="1:1" id="0vn-0x-6sE"/>
@@ -116,7 +113,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54w-Tc-64H">
-                                <rect key="frame" x="150" y="249" width="75" height="35"/>
+                                <rect key="frame" x="150" y="229" width="75" height="35"/>
                                 <color key="backgroundColor" red="0.90196078431372551" green="0.47843137254901957" blue="0.18823529411764706" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="ajc-IC-mqx"/>
@@ -155,7 +152,7 @@
                 <navigationController id="m6M-M9-Tfr" customClass="MainNavagationController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" image="mine_un_selected" selectedImage="mine_selected" id="g6B-gp-Ezr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="osT-16-oRW">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -183,7 +180,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mineCellID" id="mZu-uV-szO">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZu-uV-szO" id="8gw-ri-dFX">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -228,7 +225,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-kX-fLj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZyV-rI-BaP">
                                     <size key="itemSize" width="50" height="50"/>
@@ -377,7 +374,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="O6D-hZ-Z09">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O6D-hZ-Z09" id="hNI-z7-EgA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -414,7 +411,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1s6-So-VIY" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -447,7 +444,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fyl-We-qBu" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -480,7 +477,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mYN-oo-MsT" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -513,7 +510,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlH-pH-dsb">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xrO-Ml-n2k">
                                         <rect key="frame" x="15" y="10" width="345" height="20"/>
@@ -531,7 +528,7 @@
                                 </constraints>
                             </view>
                             <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYb-ES-ra9">
-                                <rect key="frame" x="0.0" y="105" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新密保邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piZ-ga-ea6">
                                         <rect key="frame" x="15" y="10" width="345" height="20"/>
@@ -549,7 +546,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQl-36-Atu">
-                                <rect key="frame" x="20" y="225" width="335" height="40"/>
+                                <rect key="frame" x="20" y="205" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.68627450980000004" blue="0.90980392160000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Eh6-BE-kNL"/>
@@ -560,7 +557,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igB-jh-Cpv">
-                                <rect key="frame" x="134" y="170" width="108" height="30"/>
+                                <rect key="frame" x="133.5" y="150" width="108" height="30"/>
                                 <state key="normal" title="获取短信验证码">
                                     <color key="titleColor" red="0.031372549020000001" green="0.67450980390000004" blue="0.87058823529999996" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
@@ -598,7 +595,7 @@
                 <navigationController id="zF1-0K-yOj" customClass="MainNavagationController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="画册" image="album_un_selected" selectedImage="album_selected" id="Q46-AP-gAw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LiV-S9-TVu">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -622,7 +619,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VbQ-DC-Xzh">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="89" width="375" height="529"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yhN-UJ-uNH">
                                     <size key="itemSize" width="50" height="50"/>
@@ -641,17 +638,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdA-9w-oDA" customClass="SearchBar" customModule="CorporateAlbum" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdA-9w-oDA" customClass="TYSearchBar" customModule="CorporateAlbum" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="trH-83-kep"/>
+                                    <constraint firstAttribute="height" constant="44" id="trH-83-kep"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wP2-Zf-XOp" customClass="TYSlideMenuView" customModule="CorporateAlbum" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="tB9-NZ-geg"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VbQ-DC-Xzh" firstAttribute="top" secondItem="jdA-9w-oDA" secondAttribute="bottom" id="CiC-u1-geG"/>
+                            <constraint firstItem="VbQ-DC-Xzh" firstAttribute="top" secondItem="wP2-Zf-XOp" secondAttribute="bottom" id="2qC-0v-jAm"/>
+                            <constraint firstItem="wP2-Zf-XOp" firstAttribute="leading" secondItem="ROB-Wb-dxR" secondAttribute="leading" id="4uJ-SA-7jG"/>
+                            <constraint firstItem="wP2-Zf-XOp" firstAttribute="top" secondItem="jdA-9w-oDA" secondAttribute="bottom" id="5CZ-HM-he2"/>
+                            <constraint firstAttribute="trailing" secondItem="wP2-Zf-XOp" secondAttribute="trailing" id="8lh-mx-fQU"/>
                             <constraint firstAttribute="trailing" secondItem="VbQ-DC-Xzh" secondAttribute="trailing" id="F0a-wx-CEy"/>
                             <constraint firstItem="jdA-9w-oDA" firstAttribute="leading" secondItem="ROB-Wb-dxR" secondAttribute="leading" id="Meo-cc-yjI"/>
                             <constraint firstAttribute="trailing" secondItem="jdA-9w-oDA" secondAttribute="trailing" id="OZ7-ug-MBm"/>
@@ -663,16 +670,18 @@
                     <navigationItem key="navigationItem" id="0Q8-9n-jt0">
                         <nil key="title"/>
                     </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="VbQ-DC-Xzh" id="tlU-EJ-eMU"/>
-                        <outlet property="searchBar" destination="jdA-9w-oDA" id="TXD-da-EcP"/>
+                        <outlet property="searchBar" destination="jdA-9w-oDA" id="w22-4f-oGu"/>
                         <outlet property="searchBarHeightCns" destination="trH-83-kep" id="2Tp-qs-YGA"/>
+                        <outlet property="slideMenu" destination="wP2-Zf-XOp" id="0oo-YV-AHZ"/>
                         <segue destination="i8i-fQ-BpY" kind="show" identifier="siteAlbumSegue" id="Y8q-hm-foQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPS-a0-sRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="-359"/>
+            <point key="canvasLocation" x="1132" y="-359.37031484257875"/>
         </scene>
         <!--修改手机号码-->
         <scene sceneID="CIc-3Y-9Ad">
@@ -687,7 +696,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avw-pK-psn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入邮箱验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3XZ-sE-I9z">
                                         <rect key="frame" x="15" y="10" width="345" height="20"/>
@@ -705,7 +714,7 @@
                                 </constraints>
                             </view>
                             <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzZ-oo-imv">
-                                <rect key="frame" x="0.0" y="105" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-OF-HFa">
                                         <rect key="frame" x="15" y="10" width="345" height="20"/>
@@ -723,7 +732,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fh-SF-BGd">
-                                <rect key="frame" x="20" y="225" width="335" height="40"/>
+                                <rect key="frame" x="20" y="205" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.68627450980000004" blue="0.90980392160000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gTo-sz-h7m"/>
@@ -734,7 +743,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvD-3X-XBM">
-                                <rect key="frame" x="134" y="170" width="108" height="30"/>
+                                <rect key="frame" x="133.5" y="150" width="108" height="30"/>
                                 <state key="normal" title="获取邮箱验证码">
                                     <color key="titleColor" red="0.031372549020000001" green="0.67450980390000004" blue="0.87058823529999996" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
@@ -779,7 +788,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmn-9H-Ur0">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dk3-Qy-Mgo">
                                         <rect key="frame" x="15" y="10" width="345" height="20"/>
@@ -797,7 +806,7 @@
                                 </constraints>
                             </view>
                             <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shr-45-pPa">
-                                <rect key="frame" x="0.0" y="105" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输新支付宝账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EeB-eF-ZGC">
                                         <rect key="frame" x="15" y="10" width="345" height="20"/>
@@ -815,7 +824,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s86-Ae-573">
-                                <rect key="frame" x="20" y="225" width="335" height="40"/>
+                                <rect key="frame" x="20" y="205" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.68627450980000004" blue="0.90980392160000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="f91-MG-lR3"/>
@@ -826,7 +835,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snh-f1-g2u">
-                                <rect key="frame" x="134" y="170" width="108" height="30"/>
+                                <rect key="frame" x="133.5" y="150" width="108" height="30"/>
                                 <state key="normal" title="获取短信验证码">
                                     <color key="titleColor" red="0.031372549020000001" green="0.67450980390000004" blue="0.87058823529999996" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
@@ -871,7 +880,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVS-XK-feM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zDl-EE-9fh">
                                         <rect key="frame" x="15" y="10" width="345" height="20"/>
@@ -889,7 +898,7 @@
                                 </constraints>
                             </view>
                             <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDy-Nn-apS">
-                                <rect key="frame" x="0.0" y="105" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j6Q-mO-MKb">
                                         <rect key="frame" x="15" y="10" width="345" height="20"/>
@@ -907,7 +916,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msx-po-4jO">
-                                <rect key="frame" x="20" y="225" width="335" height="40"/>
+                                <rect key="frame" x="20" y="205" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.68627450980000004" blue="0.90980392160000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mr3-zn-fjb"/>
@@ -918,7 +927,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNl-3H-uwD">
-                                <rect key="frame" x="134" y="170" width="108" height="30"/>
+                                <rect key="frame" x="133.5" y="150" width="108" height="30"/>
                                 <state key="normal" title="获取短信验证码">
                                     <color key="titleColor" red="0.031372549020000001" green="0.67450980390000004" blue="0.87058823529999996" alpha="1" colorSpace="deviceRGB"/>
                                 </state>

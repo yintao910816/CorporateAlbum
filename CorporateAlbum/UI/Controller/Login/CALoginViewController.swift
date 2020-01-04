@@ -27,7 +27,12 @@ class CALoginViewController: BaseViewController {
     }
     
     override func setupUI() {
+        #if DEBUG
+        phoneOutlet.text = "13000088888"
+        passOutlet.text  = "11111111"
+        #else
 
+        #endif
     }
     
     override func rxBind() {

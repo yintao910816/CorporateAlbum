@@ -71,13 +71,13 @@ class AlbumInfoViewModel: BaseViewModel {
         if pageModel.HasAward == false { return }
         
         CARProvider.rx.request(.readAward(siteName: pageModel.SiteName,
-                                          siteTitle: bookInfo.SiteTitle,
+                                          siteTitle: bookInfo.Title,
                                           siteLogo: bookInfo.SiteLogo,
                                           bookId: bookInfo.Id,
                                           bookTitle: bookInfo.Title,
                                           pageId: pageModel.Id,
                                           pageTitle: pageModel.Title))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 var data = self?.colDatasourceObser.value.0
                 if let idx = data?.index(of: pageModel) {
@@ -88,10 +88,10 @@ class AlbumInfoViewModel: BaseViewModel {
                     }
                 }
 
-                if let coinCount = Int(model.data ?? "0"), coinCount > 0  {
-                    PrintLog("奖励金币为：\(coinCount)")
-                    self?.dropCoinObser.onNext((coinCount, pageModel))
-                }
+//                if let coinCount = Int(model.data ?? "0"), coinCount > 0  {
+//                    PrintLog("奖励金币为：\(coinCount)")
+//                    self?.dropCoinObser.onNext((coinCount, pageModel))
+//                }
             }) { error in
                 PrintLog(error)
             }

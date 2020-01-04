@@ -51,7 +51,7 @@ class MyAlbumViewModel: RefreshVM<SiteInfoModel> {
     private func awardRequest(model: SiteInfoModel) {
         let data = datasource.value
         CARProvider.rx.request(.siteEnableAward(siteName: model.SiteName))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] ret in
                 if ret.error == 0 {
                     model.AwardState = model.AwardState == 0 ? 1 : 0
@@ -70,7 +70,7 @@ class MyAlbumViewModel: RefreshVM<SiteInfoModel> {
     private func siteStateRequest(model: SiteInfoModel) {
         let data = datasource.value
         CARProvider.rx.request(.siteOnline(siteName: model.SiteName))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] ret in
                 if ret.error == 0 {
                     model.SiteState = model.SiteState == 0 ? 1 : 0
@@ -88,7 +88,7 @@ class MyAlbumViewModel: RefreshVM<SiteInfoModel> {
 
     private func resetAwardRequest(model: SiteInfoModel) {
         CARProvider.rx.request(.siteResetAward(siteName: model.SiteName))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] ret in
                 if ret.error == 0 {
                     self?.hud.successHidden("操作成功！")

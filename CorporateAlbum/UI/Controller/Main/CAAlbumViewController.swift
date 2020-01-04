@@ -13,7 +13,8 @@ class CAAlbumViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var searchBarHeightCns: NSLayoutConstraint!
-    @IBOutlet weak var searchBar: SearchBar!
+    @IBOutlet weak var searchBar: TYSearchBar!
+    @IBOutlet weak var slideMenu: TYSlideMenuView!
     
     private var viewModel: AlbumViewModel!
     
@@ -21,34 +22,25 @@ class CAAlbumViewController: BaseViewController {
         let owner = AlbumShareFilesOwner.init(show: self.view)
         return owner
     }()
-    
-    lazy var menuView: MenuListView = {
-        let menu = MenuListView.init(width: 100, datasource: ["全部", "收藏"])
-        menu.menuChooseObser.asDriver()
-            .skip(1)
-            .do(onNext: { [unowned self] idx in
-                self.searchBar.changeLeftItemState()
-                self.searchBar.leftItemTitle = idx == 0 ? "全部" : "收藏"
-            })
-            .distinctUntilChanged()
-            .drive(onNext: { [unowned self] row in
-                self.viewModel.dataTypeObser.value = row
-                self.collectionView.headerRefreshing()
-            })
-            .disposed(by: self.disposeBag)
-        return menu
-    }()
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func setupUI() {
-        view.insertSubview(menuView, belowSubview: searchBar)
-        
         searchBarHeightCns.constant += LayoutSize.topVirtualArea
                 
+        searchBar.tfSearchIcon = "tf_search"
+        searchBar.rightItemIcon = "nav_qr_scan"
+        searchBar.searchPlaceholder = "画册名称/域名"
+        searchBar.backgroundColor = CA_MAIN_COLOR
+        searchBar.tfBgColor = .white
+        searchBar.coverButtonEnable = false
+        searchBar.returnKeyType = .search
+        
+        slideMenu.datasource = TYListMenuModel.createHomeMenu()
+        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .init(width: PPScreenW/2.0, height: AlbumCell.cellHeight)
         layout.minimumLineSpacing = 0
@@ -61,7 +53,8 @@ class CAAlbumViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = AlbumViewModel.init(searchTextObser: searchBar.searchText)
+        
+        viewModel = AlbumViewModel.init()
         
         collectionView.prepare(viewModel, AlbumBookModel.self, true)
         
@@ -82,22 +75,23 @@ class CAAlbumViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        searchBar.leftItemTap.drive(onNext: { [unowned self] in
-            self.menuView.menuAnimation()
-        })
+        searchBar.beginSearch = { [unowned self] _ in
+            self.viewModel.beginSearchSubject.onNext(Void())
+        }
+
+        searchBar.textObser
+            .bind(to: viewModel.searchTextObser)
             .disposed(by: disposeBag)
         
-        searchBar.rightItemTap.drive(onNext: { [unowned self] in
+        searchBar.rightItemTapBack = { [unowned self] in
             let scanCtrl = CAScanViewController()
             self.navigationController?.pushViewController(scanCtrl, animated: true)
-        })
-        .disposed(by: disposeBag)
+        }
         
-        searchBar.searchActionPublic.subscribe(onNext: { [unowned self] _ in
-            self.collectionView.headerRefreshing()
-        })
-            .disposed(by: disposeBag)
-        
+        slideMenu.menuSelect = { [unowned self] page in
+            self.viewModel.menuChangeSubject.onNext(page)
+        }
+                
         collectionView.headerRefreshing()
     }
     
@@ -105,7 +99,7 @@ class CAAlbumViewController: BaseViewController {
         if segue.identifier == "siteAlbumSegue" {
             let controller = segue.destination as! CASiteAlbumBookViewController
             let book = sender as! AlbumBookModel
-            controller.prepare(parameters: ["siteName": book.SiteName, "title": book.SiteTitle])
+            controller.prepare(parameters: ["siteName": book.SiteName, "title": book.Title])
         }
     }
 }

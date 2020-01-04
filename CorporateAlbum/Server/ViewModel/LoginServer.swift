@@ -89,7 +89,7 @@ class RegisterViewModel: BaseViewModel {
     // 注册
     private func registerRequest(phone: String, nickName: String, pass: String, authorCode: String) {
         CARProvider.rx.request(.register(phone: phone, nickName: nickName, password: pass, smscode: authorCode))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     userDefault.userType = .platform
@@ -110,7 +110,7 @@ class RegisterViewModel: BaseViewModel {
         codeEnable.value = false
 
         CARProvider.rx.request(.smsSendCode(phone: phone))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     self?.hud.successHidden(model.message)
@@ -162,7 +162,7 @@ class LoginViewModel: BaseViewModel {
     
     private func postLoginRequest(_ phone: String, _ pass: String) {
         CARProvider.rx.request(.login(phone: phone, pass: pass))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     userDefault.userType = .platform
@@ -245,7 +245,7 @@ class ResetPassViewModel: BaseViewModel {
     // 修改密码
     private func resetPass(phone: String, pass: String, smsCode: String) {
         CARProvider.rx.request(.setPassword(phone: phone, password: pass, smscode: smsCode))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     self?.hud.successHidden("密码修改成功，请登录！", {
@@ -263,7 +263,7 @@ class ResetPassViewModel: BaseViewModel {
         codeEnable.value = false
 
         CARProvider.rx.request(.smsSendCode(phone: phone))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     self?.hud.successHidden(model.message)

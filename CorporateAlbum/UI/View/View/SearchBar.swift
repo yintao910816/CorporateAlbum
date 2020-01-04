@@ -48,23 +48,7 @@ class SearchBar: UIView {
         inputBgView.clipsToBounds = true
         return inputBgView
     }()
-    
-    private lazy var leftBarItem: UIButton = {
-        let button = UIButton.init(type: .custom)
-        button.tintColor = .clear
-
-        button.setImage(UIImage.init(named: "arrow_down")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.setImage(UIImage.init(named: "arrow_up")?.withRenderingMode(.alwaysOriginal), for: .selected)
-        button.setTitle("全部", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.imageEdgeInsets = .init(top: 0, left: 35, bottom: 0, right: 0)
-        button.titleEdgeInsets = .init(top: 0, left: -40, bottom: 0, right: 0)
-
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.sizeToFit()
-        return button
-    }()
-    
+        
     private lazy var rightBarItem: UIButton = {
         let button = UIButton.init(type: .custom)
         button.setImage(UIImage.init(named: "nav_qr_scan"), for: .normal)
@@ -89,21 +73,10 @@ class SearchBar: UIView {
             rightBarItem.isHidden = rightItemIsHidden
         }
     }
-    
-    var leftItemTitle: String = "" {
-        didSet {
-            leftBarItem.setTitle(leftItemTitle, for: .normal)
-        }
-    }
-    
-    func changeLeftItemState() {
-        leftBarItem.isSelected = !leftBarItem.isSelected
-    }
-    
+        
     private func setupView() {
         backgroundColor = CA_MAIN_COLOR
 
-        addSubview(leftBarItem)
         addSubview(rightBarItem)
         addSubview(inputBgView)
         
@@ -112,10 +85,6 @@ class SearchBar: UIView {
     }
     
     private func rxBind() {
-        leftItemTap = leftBarItem.rx.tap.asDriver()
-            .do(onNext: { [unowned self] in
-                self.leftBarItem.isSelected = !self.leftBarItem.isSelected
-            })
         rightItemTap = rightBarItem.rx.tap.asDriver()
 
         searchText = searchTextField.rx.text.orEmpty.asDriver()
@@ -123,22 +92,17 @@ class SearchBar: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        leftBarItem.snp.makeConstraints {
-            $0.left.equalTo(self).offset(10)
-            $0.bottom.equalTo(self).offset(-12)
-        }
-        
+                
         rightBarItem.snp.makeConstraints {
             $0.right.equalTo(self).offset(-10)
-            $0.centerY.equalTo(leftBarItem.snp.centerY)
+            $0.bottom.equalTo(self).offset(-12)
             $0.size.equalTo(CGSize.init(width: 25, height: 25))
         }
 
         inputBgView.snp.makeConstraints {
-            $0.left.equalTo(leftBarItem.snp.right).offset(10)
+            $0.left.equalTo(self).offset(10)
             $0.right.equalTo(rightBarItem.snp.left).offset(-10)
-            $0.centerY.equalTo(leftBarItem.snp.centerY)
+            $0.centerY.equalTo(rightBarItem.snp.centerY)
             $0.height.equalTo(30)
         }
 

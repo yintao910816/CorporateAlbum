@@ -11,7 +11,16 @@ import Foundation
 extension UIDevice {
     
     /**
-     判断是否为iPhone X
+     判断是否为刘海屏
      */
-    public var isX: Bool { return UIScreen.main.bounds.size.height == 812 }
+    public var isX: Bool {
+        if #available(iOS 11, *) {
+            guard let w = UIApplication.shared.delegate?.window, let unwrapedWindow = w else { return false }
+            
+            if unwrapedWindow.safeAreaInsets.left > 0 || unwrapedWindow.safeAreaInsets.bottom > 0 {
+                return true
+            }
+        }
+        return false
+    }
 }

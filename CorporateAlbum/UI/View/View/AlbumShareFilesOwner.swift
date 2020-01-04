@@ -35,7 +35,7 @@ class AlbumShareFilesOwner: BaseFilesOwner {
     
     init(show inView: UIView) {
         super.init()
-        contentView = Bundle.main.loadNibNamed("AlbumShareView", owner: self, options: nil)?.first as! UIView
+        contentView = (Bundle.main.loadNibNamed("AlbumShareView", owner: self, options: nil)?.first as! UIView)
         inView.addSubview(contentView)
         inView.bringSubview(toFront: contentView)
         
@@ -65,8 +65,8 @@ class AlbumShareFilesOwner: BaseFilesOwner {
         lastOutlet.isHidden = true
 
         titleOutlet.text = "标题：\(bookModel!.Title)"
-        siteOutlet.text = "站点：\(bookModel!.SiteTitle)"
-        awardOutlet.text = "奖励：\(bookModel!.HasAward ) X \(bookModel!.PageAward)分"
+        siteOutlet.text = "站点：\(bookModel!.Title)"
+        awardOutlet.text = "奖励：\(bookModel!.PageCount ) X \(bookModel!.PageAward)分"
         webaddressOutlet.text = "网址：http://\(bookModel!.SiteName)"
         summaryOutlet.text = "简介：\(bookModel!.Summary)"
         

@@ -100,7 +100,7 @@ class SetNickNameViewModel: BaseViewModel {
 
     private func postRequest(nickName: String, smsCode: String) {
         CARProvider.rx.request(.setNickName(nickName: nickName, smsCode: smsCode))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     self?.hud.successHidden(model.message, {
@@ -117,7 +117,7 @@ class SetNickNameViewModel: BaseViewModel {
     
     private func getSmsCode() {
         CARProvider.rx.request(.sendSmsCodeForMe())
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { model in
                 if model.error == 0 {
                     NoticesCenter.alert(title: "提示", message: model.message)
@@ -170,7 +170,7 @@ class SetPhoneViewModel: BaseViewModel {
     
     private func postRequest(phone: String, emailCode: String) {
         CARProvider.rx.request(.setPhone(phone: phone, emailCode: emailCode))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     self?.hud.successHidden(model.message, {
@@ -187,7 +187,7 @@ class SetPhoneViewModel: BaseViewModel {
     
     private func getEmailCode() {
         CARProvider.rx.request(.setEmailCodeForMe())
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { model in
                 if model.error == 0 {
                     NoticesCenter.alert(title: "提示", message: model.message)
@@ -241,7 +241,7 @@ class SetEmailViewModel: BaseViewModel {
     
     private func postRequest(email: String, smsCode: String) {
         CARProvider.rx.request(.setEmail(email: email, smsCode: smsCode))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     self?.hud.successHidden(model.message, {
@@ -258,7 +258,7 @@ class SetEmailViewModel: BaseViewModel {
 
     private func getSmsCode() {
         CARProvider.rx.request(.sendSmsCodeForMe())
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { model in
                 if model.error == 0 {
                     NoticesCenter.alert(title: "提示", message: model.message)
@@ -311,7 +311,7 @@ class SetAlipayViewModel: BaseViewModel {
 
     private func postRequest(account: String, smsCode: String) {
         CARProvider.rx.request(.setAlipay(account: account, smsCode: smsCode))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     self?.hud.successHidden(model.message, {
@@ -328,7 +328,7 @@ class SetAlipayViewModel: BaseViewModel {
 
     private func getSmsCode() {
         CARProvider.rx.request(.sendSmsCodeForMe())
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { model in
                 if model.error == 0 {
                     NoticesCenter.alert(title: "提示", message: model.message)

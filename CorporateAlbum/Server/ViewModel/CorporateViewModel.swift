@@ -85,7 +85,7 @@ class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
     
     private func collectSite(model: SiteInfoModel) {
         CARProvider.rx.request(.addSite(siteName: model.SiteName, siteId: model.Id))
-            .mapResponseStatus()
+            .mapResponse()
             .subscribe(onSuccess: { [unowned self] model in
                 if model.error == 0 {
                     self.hud.successHidden("收藏成功！")
