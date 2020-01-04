@@ -15,6 +15,8 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
     // 0:全部,1:推荐,2:收藏
     private var dataType: Int = 0
     
+    private var allData: [String: [AlbumBookModel]] = [:]
+
     public let collectePublic = PublishSubject<AlbumBookModel>()
     public let menuChangeSubject = PublishSubject<Int>()
     public let beginSearchSubject = PublishSubject<Void>()
@@ -24,6 +26,8 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
     override init() {
         super.init()
         
+        allData["0"] = [AlbumBookModel]()
+
         collectePublic
             .filter({ [unowned self] _ -> Bool in
                 if CACoreLogic.isUserLogin() == true {
@@ -39,7 +43,12 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
         menuChangeSubject
             .subscribe(onNext: { [unowned self] in
                 self.dataType = $0
-                self.requestData(true)
+                if self.allData["\($0)"] == nil {
+                    self.allData["\($0)"] = [AlbumBookModel]()
+                    self.requestData(true)
+                }else {
+                    self.datasource.value = self.allData["\($0)"]!
+                }
             })
             .disposed(by: disposeBag)
         
@@ -63,15 +72,18 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
     }
     
     override func requestData(_ refresh: Bool) {
-        super.requestData(refresh)
+        super.updatePage(for: "\(dataType)", refresh: refresh)
         
         CARProvider.rx.request(.bookList(search: searchTextObser.value,
-                                         skip: pageModel.skip,
+                                         skip: pageModel.currentPage,
                                          limit: pageModel.pageSize,
                                          category: dataType))
             .map(models: AlbumBookModel.self)
             .subscribe(onSuccess: { [unowned self] datas in
-                self.updateRefresh(refresh, datas, datas.count)
+                self.updateRefresh(refresh: refresh, models: datas,
+                                   dataModels: &(self.allData["\(self.dataType)"]!),
+                                   pageKey: "\(self.dataType)")
+                self.datasource.value = self.allData["\(self.dataType)"]!
                 AlbumBookModel.insert(datas: datas)
             }) { [unowned self] error in
                 self.revertCurrentPageAndRefreshStatus()
@@ -80,7 +92,7 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
     }
     
     private func collectBook(model: AlbumBookModel) {
-        CARProvider.rx.request(.addBook(siteName: model.SiteName, bookId: model.Id))
+        CARProvider.rx.request(.addBook(bookId: model.Id))
             .mapResponse()
             .subscribe(onSuccess: { [unowned self] model in
                 if model.error == 0 {
@@ -97,6 +109,7 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
     private func loadCacheDatas() {
         Observable<[AlbumBookModel]>.selectedDB(type: AlbumBookModel.self, tbName: AlbumBookTB)
             .subscribe(onNext: { [weak self] in
+                self?.allData["0"] = $0
                 self?.datasource.value = $0
             })
             .disposed(by: disposeBag)

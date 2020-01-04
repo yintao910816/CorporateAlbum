@@ -15,6 +15,8 @@ class BaseViewModel: NSObject {
 
     public let disposeBag = DisposeBag()
 
+    public var isEmptyContentObser = Variable(false)
+
     lazy var hud: NoticesCenter = {
         return NoticesCenter()
     }()

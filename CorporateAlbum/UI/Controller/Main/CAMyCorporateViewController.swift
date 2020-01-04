@@ -54,7 +54,7 @@ class CAMyCorporateViewController: BaseViewController {
     override func rxBind() {
         viewModel = CorporateViewModel(searchTextObser: searchBar.searchText)
         
-        tableView.prepare(viewModel, SiteInfoModel.self, true)
+        tableView.prepare(viewModel)
         
         viewModel.datasource.asDriver()
             .drive(tableView.rx.items(cellIdentifier: "cell", cellType: SiteInfoCell.self)){ (row, model, cell) in

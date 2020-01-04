@@ -24,7 +24,7 @@ class CAMyAlbumViewController: BaseViewController {
     override func rxBind() {
         viewModel = MyAlbumViewModel.init()
         
-        tableView.prepare(viewModel, SiteInfoModel.self, false)
+        tableView.prepare(viewModel, showFooter: false)
         
         viewModel.datasource.asDriver()
             .drive(tableView.rx.items(cellIdentifier: "Cell", cellType: MyalbumCell.self)){ [weak self] (row, model, cell) in

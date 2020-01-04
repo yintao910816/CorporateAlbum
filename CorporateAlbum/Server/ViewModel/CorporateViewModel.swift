@@ -57,13 +57,13 @@ class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
         super.requestData(refresh)
         
         if dataTypeObser.value == 0 {
-            let request = CARProvider.rx.request(.site(search: searchText, skip: pageModel.skip, limit: pageModel.pageSize))
+            let request = CARProvider.rx.request(.site(search: searchText, skip: pageModel.currentPage, limit: pageModel.pageSize))
                 .map(models: SiteInfoModel.self)
             
             Observable<SiteInfoModel>.selectedDB(type: SiteInfoModel.self, tbName: SiteInfoTB)
                 .concat(request.asObservable())
                 .subscribe(onNext: { [unowned self] datas in
-                    self.updateRefresh(refresh, datas, datas.count)
+                    self.updateRefresh(refresh, datas)
                     SiteInfoModel.insert(datas: datas)
                 }, onError: { [unowned self] error in
                     self.revertCurrentPageAndRefreshStatus()
@@ -71,10 +71,10 @@ class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
                 })
                 .disposed(by: disposeBag)
         }else {
-            CARProvider.rx.request(.favoriteSite(search: searchText, skip: pageModel.skip, limit: pageModel.pageSize))
+            CARProvider.rx.request(.favoriteSite(search: searchText, skip: pageModel.currentPage, limit: pageModel.pageSize))
                 .map(models: SiteInfoModel.self)
                 .subscribe(onSuccess: { [weak self] models in
-                    self?.updateRefresh(refresh, models, models.count)
+                    self?.updateRefresh(refresh, models)
                 }) { [weak self] error in
                     self?.revertCurrentPageAndRefreshStatus()
                     self?.hud.failureHidden(self?.errorMessage(error))

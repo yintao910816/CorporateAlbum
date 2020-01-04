@@ -12,7 +12,7 @@ import RxCocoa
 
 //MARK:
 //MARK: 注册
-class RegisterViewModel: BaseViewModel {
+class RegisterViewModel: BaseViewModel, VMNavigation {
     
     private var authorPhone: String = ""
     public var phoneObser: Driver<Bool>!
@@ -23,12 +23,19 @@ class RegisterViewModel: BaseViewModel {
     public var agreeObser = Variable(true)
 
     public let codeSendComplenmentSubject = PublishSubject<Bool>()
+    public let agreementDriverSubject = PublishSubject<Void>()
     public let codeEnable = Variable(true)
     public var submitEnableObser: Driver<Bool>!
 
     init(input:(phone: Driver<String>, nickName: Driver<String>, pass: Driver<String>, repass: Driver<String>, authorCode: Driver<String>),
          tap:(authorCode: Driver<Void>, register: Driver<Void>)) {
         super.init()
+        
+        agreementDriverSubject
+            .subscribe(onNext: {
+                RegisterViewModel.push(WebViewController.self, ["url": APIAssistance.registerAggrement, "title": "注册协议"])
+            })
+            .disposed(by: disposeBag)
         
         tap.authorCode.withLatestFrom(input.phone)
             .filter({ phoneNum -> Bool in

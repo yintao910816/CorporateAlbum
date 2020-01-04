@@ -21,7 +21,7 @@ class CABillViewController: BaseViewController {
     override func rxBind() {
         viewModel = BillViewModel()
         
-        tableView.prepare(viewModel, BillInfoModel.self, true)
+        tableView.prepare(viewModel)
         
         viewModel.datasource.asDriver()
             .drive(tableView.rx.items(cellIdentifier: "Cell", cellType: BillCell.self)) { (row, model, cell) in

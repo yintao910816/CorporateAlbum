@@ -10,36 +10,12 @@ import UIKit
 
 class PageModel: NSObject {
 
-    //
-    lazy var skip  = 0
-    // 总共分页数
-    lazy var totlePage    = 1
-    // 每页多少条数据
-    lazy var pageSize     = 32
-    // 总共数据条数
-    lazy var totle        = 1
-
-//    public var hasNext: Bool {
-//        get {
-//            totlePage = (totle / pageSize) + (totle % pageSize == 0 ? 0 : 1)
-//            return currentPage < totlePage
-//        }
-//    }
-
-//    public var hasNext: Bool {
-//        get {
-//            return totlePage > 0
-//        }
-//    }
+    /// 当前总共加载了多少条数据
+    public var currentPage  = 0
+    /// 每次最多加载d多少条数据
+    public var pageSize     = 32
     
-    public func hasNext(dataCount: Int) ->Bool {
-        return dataCount == pageSize
-    }
-
-    /**
-     发起请求钱调用
-     */
-    public func setupSkip(refresh: Bool, totleData: Int) {
-        skip = refresh ? 0 : totleData
-    }
+    public func hasNext(_ currentPageDataCount: Int) ->Bool {
+        return currentPageDataCount >= pageSize
+    }    
 }

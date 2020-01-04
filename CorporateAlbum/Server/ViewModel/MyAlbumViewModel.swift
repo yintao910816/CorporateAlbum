@@ -37,10 +37,10 @@ class MyAlbumViewModel: RefreshVM<SiteInfoModel> {
     override func requestData(_ refresh: Bool) {
         super.requestData(refresh)
         
-        CARProvider.rx.request(.mySite(skip: pageModel.skip, limit: pageModel.pageSize))
+        CARProvider.rx.request(.mySite(skip: pageModel.currentPage, limit: pageModel.pageSize))
             .map(models: SiteInfoModel.self)
             .subscribe(onSuccess: { models in
-                self.updateRefresh(refresh, models, models.count)
+                self.updateRefresh(refresh, models)
             }) { [weak self] error in
                 self?.revertCurrentPageAndRefreshStatus()
                 self?.hud.failureHidden(self?.errorMessage(error))

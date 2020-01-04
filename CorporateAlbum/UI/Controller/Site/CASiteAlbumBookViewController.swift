@@ -33,7 +33,7 @@ class CASiteAlbumBookViewController: BaseViewController {
     
     override func rxBind() {
         
-        collectionView.prepare(viewModel, AlbumBookModel.self, true)
+        collectionView.prepare(viewModel)
         
         viewModel.datasource.asDriver()
             .drive(collectionView.rx.items(cellIdentifier: "cell", cellType: AlbumCell.self)) { (row, model, cell) in

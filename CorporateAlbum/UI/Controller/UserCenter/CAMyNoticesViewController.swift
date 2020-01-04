@@ -22,7 +22,7 @@ class CAMyNoticesViewController: BaseViewController {
     override func rxBind() {
         viewModel = MyNoticesViewModel()
         
-        tableView.prepare(viewModel, NoticeInfoModel.self, true)
+        tableView.prepare(viewModel)
         
         viewModel.datasource.asDriver()
             .drive(tableView.rx.items(cellIdentifier: "Cell", cellType: MyNoticesCell.self)) { (row, model, cell) in

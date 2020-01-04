@@ -42,8 +42,6 @@ class CARegisterViewController: BaseViewController {
     
     override func rxBind() {
         
-        
-        
         let submitDriver = submitOutlet.rx.tap.asDriver()
             .do(onNext: { [unowned self] _ in
                 self.view.endEditing(true)
@@ -60,6 +58,10 @@ class CARegisterViewController: BaseViewController {
                                                    authorCode: authorCodeOutlet.rx.text.orEmpty.asDriver()),
                                            tap: (authorCode: sendCodeDriver,
                                                  register: submitDriver))
+        
+        registerRemindOutlet.rx.tap.asDriver()
+            .drive(viewModel.agreementDriverSubject)
+            .disposed(by: disposeBag)
         
         viewModel.popSubject.asObserver()
             .subscribe(onNext: { [weak self] _ in

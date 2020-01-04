@@ -37,11 +37,11 @@ class SiteAlbumBookViewModel: RefreshVM<AlbumBookModel> {
     override func requestData(_ refresh: Bool) {
         super.requestData(refresh)
         
-        CARProvider.rx.request(.bookList(search: siteName, skip: pageModel.skip, limit: pageModel.pageSize, category: 0))
+        CARProvider.rx.request(.bookList(search: siteName, skip: pageModel.currentPage, limit: pageModel.pageSize, category: 0))
             .map(models: AlbumBookModel.self)
             .subscribe(onSuccess: { [weak self] datas in
                 self?.navTitleObser.value = datas.first?.Title ?? ""
-                self?.updateRefresh(refresh, datas, 0)
+                self?.updateRefresh(refresh, datas)
             }) { [weak self] error in
                 self?.revertCurrentPageAndRefreshStatus()
                 self?.hud.failureHidden(self?.errorMessage(error))
@@ -50,7 +50,7 @@ class SiteAlbumBookViewModel: RefreshVM<AlbumBookModel> {
     }
     
     private func collectBook(model: AlbumBookModel) {
-        CARProvider.rx.request(.addBook(siteName: model.SiteName, bookId: model.Id))
+        CARProvider.rx.request(.addBook(bookId: model.Id))
             .mapResponse()
             .subscribe(onSuccess: { [unowned self] model in
                 if model.error == 0 {

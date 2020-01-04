@@ -46,6 +46,9 @@ struct APIAssistance {
     /** 使用帮助 */
     static let userHelp = "http://aapi.dazongg.com/help/index"
     
+    /// 注册协议
+    static let registerAggrement = "http://aapi.dazongg.net/document/get?name=contract"
+    
     static let base     = "http://aapi.dazongg.net/"
     
     static public func baseURL(API: API) ->URL{

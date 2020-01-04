@@ -168,7 +168,7 @@ enum API{
     /**
      *  添加画册收藏
      */
-    case addBook(siteName: String, bookId: String)
+    case addBook(bookId: String)
     
     /**
      * 设置通知为已读
@@ -243,8 +243,8 @@ extension API: TargetType{
             return "Read/Award"
         case .addSite(_, _):
             return "Favorite/AddSite"
-        case .addBook(_, _):
-            return "Favorite/AddBook"
+        case .addBook(_):
+            return "Book/Favorite"
             
         case .noticeRead(_):
             return "Notice/Read"
@@ -402,9 +402,7 @@ extension API {
             params["token"]  = userDefault.appToken ?? ""
             params["siteName"] = siteName
             params["siteId"] = siteId
-        case .addBook(let siteName, let bookId):
-            params["token"]  = userDefault.appToken ?? ""
-            params["siteName"] = siteName
+        case .addBook(let bookId):
             params["bookId"] = bookId
             
         case .noticeRead(let id):
