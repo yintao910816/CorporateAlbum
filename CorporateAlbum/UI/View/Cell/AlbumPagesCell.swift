@@ -16,7 +16,7 @@ class AlbumPagesCell: UICollectionViewCell {
     var model: AlbumPageModel! {
         didSet {
             coverOutlet.setImage(model.Picture)
-            awardOutlet.isHidden = !model.HasAward
+            awardOutlet.isHidden = !model.EnabledAward
         }
     }
     

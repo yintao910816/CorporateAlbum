@@ -156,11 +156,11 @@ enum API{
      *  获取画册所有页面列表
      *  bookId - 画册id
      */
-    case albumPage(bookId: String)
+    case albumPage(siteName: String, skip: Int, limit: Int)
     /**
      * 阅读画册页面,执行奖励
      */
-    case readAward(siteName: String, siteTitle: String, siteLogo: String, bookId: String, bookTitle: String, pageId: String, pageTitle: String)
+    case readAward(siteName: String, bookId: String, bookTitle: String, pageId: String, pageTitle: String)
     /**
      * 添加站点收藏
      */
@@ -238,9 +238,9 @@ extension API: TargetType{
             return "Site/ResetAward"
             
         case .albumPage(_):
-            return "Page"
-        case .readAward(_, _, _, _, _, _, _):
-            return "Read/Award"
+            return "Book/ListBySite"
+        case .readAward(_):
+            return "Page/Read"
         case .addSite(_, _):
             return "Favorite/AddSite"
         case .addBook(_):
@@ -324,7 +324,6 @@ extension API {
             params["limit"]  = limit
             params["category"]  = category
         case .getBookInfo(let id):
-            params["token"]  = userDefault.appToken ?? ""
             params["id"]     = id
         case .favoriteBook(let search, let skip, let limit):
             params["token"]  = userDefault.appToken ?? ""
@@ -385,19 +384,16 @@ extension API {
             params["token"]  = userDefault.appToken ?? ""
             params["siteName"]   = siteName
             
-        case .albumPage(let bookId):
-            params["token"]  = userDefault.appToken ?? ""
-            params["bookId"] = bookId
-        case .readAward(let siteName, let siteTitle, let siteLogo, let bookId, let bookTitle, let pageId, let pageTitle):
-            params["token"]  = userDefault.appToken ?? ""
+        case .albumPage(let siteName, let skip, let limit):
             params["siteName"] = siteName
-            params["siteTitle"] = siteTitle
-            params["siteLogo"] = siteLogo
-            params["bookTitle"] = bookTitle
+            params["skip"]   = skip
+            params["limit"]  = limit
+        case .readAward(let siteName, let bookId, let bookTitle, let pageId, let pageTitle):
+            params["siteName"] = siteName
             params["bookId"] = bookId
+            params["bookTitle"] = bookTitle
             params["pageId"] = pageId
             params["pageTitle"] = pageTitle
-            params["bookId"] = bookId
         case .addSite(let siteName, let siteId):
             params["token"]  = userDefault.appToken ?? ""
             params["siteName"] = siteName

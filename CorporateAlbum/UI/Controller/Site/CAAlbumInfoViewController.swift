@@ -54,10 +54,12 @@ class CAAlbumInfoViewController: BaseViewController {
         
         if let image = pageCtrl.imageView.image {
             DBQueue.share.save(toPhotosAlbum: image) { (ret, message) in
-                if ret == true {
-                    NoticesCenter.alert(title: "提示", message: "保存成功！")
-                }else {
-                    NoticesCenter.alert(title: "提示", message: "保存失败 \(message)")
+                DispatchQueue.main.async {
+                    if ret == true {
+                        NoticesCenter.alert(title: "提示", message: "保存成功！")
+                    }else {
+                        NoticesCenter.alert(title: "提示", message: "保存失败 \(message)")
+                    }
                 }
             }
         }
@@ -156,7 +158,7 @@ class CAAlbumInfoViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         collectionView.rx.modelSelected(AlbumPageModel.self)
-            .do(onNext: { PrintLog($0.HasAward) })
+            .do(onNext: { PrintLog($0.EnabledAward) })
             .bind(to: viewModel.pageSendAward)
             .disposed(by: disposeBag)
 

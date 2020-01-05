@@ -56,7 +56,7 @@ class AlbumInfoViewModel: BaseViewModel {
     }
     
     private func loadBookPages() {
-        CARProvider.rx.request(.albumPage(bookId: bookId))
+        CARProvider.rx.request(.albumPage(siteName: bookInfo.SiteName, skip: 0, limit: 32))
             .map(models: AlbumPageModel.self)
             .subscribe(onSuccess: { datas in
                 self.hud.noticeHidden()
@@ -68,11 +68,9 @@ class AlbumInfoViewModel: BaseViewModel {
     }
     
     private func postAward(pageModel: AlbumPageModel) {
-        if pageModel.HasAward == false { return }
-        
+        if pageModel.EnabledAward == false { return }
+                
         CARProvider.rx.request(.readAward(siteName: pageModel.SiteName,
-                                          siteTitle: bookInfo.Title,
-                                          siteLogo: bookInfo.SiteLogo,
                                           bookId: bookInfo.Id,
                                           bookTitle: bookInfo.Title,
                                           pageId: pageModel.Id,
@@ -81,7 +79,7 @@ class AlbumInfoViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] model in
                 var data = self?.colDatasourceObser.value.0
                 if let idx = data?.index(of: pageModel) {
-                    pageModel.HasAward = false
+                    pageModel.EnabledAward = false
                     data?[idx] = pageModel
                     if let tempData = data {
                         self?.colDatasourceObser.value = (tempData, false)

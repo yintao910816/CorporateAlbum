@@ -1170,6 +1170,7 @@
 		B83F278821141FED005CA5C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B8B2F3F023C2449800F50078 /* CAAlbum */,
 				B88E4775212127460012D237 /* SearchBar.swift */,
 				B83F278921142091005CA5C3 /* AlbumShareView.xib */,
 				B83F278D211420CE005CA5C3 /* AlbumShareFilesOwner.swift */,
@@ -1212,6 +1213,13 @@
 				B862ADA0211ACECB00B9F058 /* ArchiverModel.swift */,
 			);
 			path = KeyedArchiver;
+			sourceTree = "<group>";
+		};
+		B8B2F3F023C2449800F50078 /* CAAlbum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CAAlbum;
 			sourceTree = "<group>";
 		};
 		B8CCDD6621212C5000E94681 /* LBXScan */ = {
