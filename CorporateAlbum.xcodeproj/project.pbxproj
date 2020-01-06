@@ -84,6 +84,8 @@
 		B862ADA3211AF84C00B9F058 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862ADA2211AF84B00B9F058 /* Person.swift */; };
 		B88E4776212127470012D237 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E4775212127460012D237 /* SearchBar.swift */; };
 		B8950B9E2109D37200310551 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8950B9D2109D37200310551 /* MineViewModel.swift */; };
+		B8B2F3F223C3916400F50078 /* CARewardsAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3F123C3916400F50078 /* CARewardsAlertView.swift */; };
+		B8B2F3F423C3917200F50078 /* CARewardsAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B2F3F323C3917200F50078 /* CARewardsAlertView.xib */; };
 		B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF6F1421378C87004A13CE /* AppNotifications.swift */; };
 		B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8CCDD6821212C5000E94681 /* CodeScan.bundle */; };
 		B8CCDF6821212C5100E94681 /* LBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDD6B21212C5000E94681 /* LBXScanViewController.m */; };
@@ -479,6 +481,8 @@
 		B862ADA2211AF84B00B9F058 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		B88E4775212127460012D237 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B8950B9D2109D37200310551 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
+		B8B2F3F123C3916400F50078 /* CARewardsAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CARewardsAlertView.swift; sourceTree = "<group>"; };
+		B8B2F3F323C3917200F50078 /* CARewardsAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CARewardsAlertView.xib; sourceTree = "<group>"; };
 		B8BF6F1421378C87004A13CE /* AppNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
 		B8CCDD6821212C5000E94681 /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		B8CCDD6921212C5000E94681 /* LBXScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanView.h; sourceTree = "<group>"; };
@@ -1218,6 +1222,8 @@
 		B8B2F3F023C2449800F50078 /* CAAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				B8B2F3F123C3916400F50078 /* CARewardsAlertView.swift */,
+				B8B2F3F323C3917200F50078 /* CARewardsAlertView.xib */,
 			);
 			path = CAAlbum;
 			sourceTree = "<group>";
@@ -2496,6 +2502,7 @@
 				B8D929AE21095EA900BAB001 /* Assets.xcassets in Resources */,
 				B83B9A572119A80100284FE6 /* stars2.png in Resources */,
 				B862AD97211ACAB700B9F058 /* Resource.bundle in Resources */,
+				B8B2F3F423C3917200F50078 /* CARewardsAlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2904,6 +2911,7 @@
 				B8D92AB321097FB700BAB001 /* CALoginViewController.swift in Sources */,
 				B8D92AB521097FC200BAB001 /* CARegisterViewController.swift in Sources */,
 				B8D92A482109646C00BAB001 /* RefreshServer.swift in Sources */,
+				B8B2F3F223C3916400F50078 /* CARewardsAlertView.swift in Sources */,
 				B8CCDFE921212C5100E94681 /* ZXMaxiCodeDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

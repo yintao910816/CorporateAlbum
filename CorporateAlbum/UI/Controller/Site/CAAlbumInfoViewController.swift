@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CAAlbumInfoViewController: BaseViewController {
 
@@ -23,7 +24,7 @@ class CAAlbumInfoViewController: BaseViewController {
     private var viewModel: AlbumInfoViewModel!
     
     private var pageViewController:UIPageViewController!
-    
+        
     private var tapGes: UITapGestureRecognizer!
     
     private var currentPage: Int = 0
@@ -31,8 +32,6 @@ class CAAlbumInfoViewController: BaseViewController {
     private var coinView: CoinView!
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         UIApplication.shared.statusBarStyle = .default
 
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -74,6 +73,17 @@ class CAAlbumInfoViewController: BaseViewController {
             navigationController?.popViewController(animated: true)
         }
     }
+    
+    private lazy var rewardsView: CARewardsAlertView = {
+        let alertView = CARewardsAlertView.init(frame: self.view.bounds)
+        view.addSubview(alertView)
+        view.bringSubview(toFront: alertView)
+        alertView.getRewardsCallBack = { [unowned self] in
+            self.viewModel.postRewordsSubject.onNext($0)
+        }
+        return alertView
+    }()
+
     
     @objc private func toolBarAnimotion() {
         UIApplication.shared.isStatusBarHidden = self.topBarTopCns.constant == 0
@@ -129,12 +139,20 @@ class CAAlbumInfoViewController: BaseViewController {
     
     override func rxBind() {
         
+        viewModel.shouldShowAlertSubject
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.rewardsView.model = $0
+                self?.rewardsView.excuteAnimotion()
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.colDatasourceObser.asDriver()
             .map({ [weak self] data -> [AlbumPageModel] in
                 if data.0.count > 0 && data.1 == true {
                     self?.pageViewController.setViewControllers([AlbumPageViewController.init(albumPageModel: data.0.first!)], direction: .forward, animated: true, completion: nil)
                     
-                    self?.viewModel.pageSendAward.onNext(data.0.first!)
+                    self?.viewModel.pageSelctedAward.onNext(data.0.first!)
                 }
                 return data.0
             })
@@ -158,8 +176,7 @@ class CAAlbumInfoViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         collectionView.rx.modelSelected(AlbumPageModel.self)
-            .do(onNext: { PrintLog($0.EnabledAward) })
-            .bind(to: viewModel.pageSendAward)
+            .bind(to: viewModel.pageSelctedAward)
             .disposed(by: disposeBag)
 
         viewModel.dropCoinObser.subscribe(onNext: { [weak self] (coinCount, pageModel) in
@@ -224,7 +241,7 @@ extension CAAlbumInfoViewController: UIPageViewControllerDelegate, UIPageViewCon
             }
             
             currentPage -= 1
-            viewModel.pageSendAward.onNext(viewModel.colDatasourceObser.value.0[currentPage])
+            viewModel.pageSelctedAward.onNext(viewModel.colDatasourceObser.value.0[currentPage])
             let pageVC = AlbumPageViewController.init(albumPageModel: viewModel.colDatasourceObser.value.0[currentPage])
             return pageVC
         }
@@ -239,7 +256,7 @@ extension CAAlbumInfoViewController: UIPageViewControllerDelegate, UIPageViewCon
             }
 
             currentPage += 1
-            viewModel.pageSendAward.onNext(viewModel.colDatasourceObser.value.0[currentPage])
+            viewModel.pageSelctedAward.onNext(viewModel.colDatasourceObser.value.0[currentPage])
             let pageVC = AlbumPageViewController.init(albumPageModel: viewModel.colDatasourceObser.value.0[currentPage])
             return pageVC
         }

@@ -14,26 +14,57 @@ class AlbumInfoViewModel: BaseViewModel {
     private var bookId: String!
     private var bookInfo: AlbumBookModel!
     
+    private let timer = CountdownTimer.init(totleCount: 3)
+    private var pageModel: AlbumPageModel?
+    
     // (collectionView数据源，刷新col时是否重新设置pageVC)
-    var colDatasourceObser = Variable(([AlbumPageModel](), true))
+    public var colDatasourceObser = Variable(([AlbumPageModel](), true))
     
-    var pageSendAward = PublishSubject<AlbumPageModel>()
-    
-    var dropCoinObser = PublishSubject<(Int, AlbumPageModel)>()
+    public var pageSelctedAward = PublishSubject<AlbumPageModel>()
+    public var shouldShowAlertSubject = PublishSubject<AlbumPageModel>()
+    public var postRewordsSubject = PublishSubject<AlbumPageModel>()
+
+    public var dropCoinObser = PublishSubject<(Int, AlbumPageModel)>()
     
     init(bookId: String) {
         super.init()
         
         self.bookId = bookId
         
-        pageSendAward
+        timer.showText.asObservable()
+            .skip(1)
+            .observeOn(MainScheduler.instance)
+            .filter({ [weak self] seconds -> Bool in
+                guard let strongSelf = self else { return false }
+                if seconds == 0 {
+                    PrintLog("暂停")
+                    strongSelf.timer.timerPause()
+                    return true
+                }
+                return false
+            })
+            .map { [weak self] _ in (self?.pageModel ?? AlbumPageModel()) }
+            .bind(to: shouldShowAlertSubject)
+            .disposed(by: disposeBag)
+        
+        pageSelctedAward
             .filter{ _ in CACoreLogic.isUserLogin() }
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] model in
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
-                    self?.postAward(pageModel: model)
-                })
-        })
-        .disposed(by: disposeBag)
+                if model.EnabledAward == true {
+                    self?.timer.timerPause()
+                    self?.pageModel = model
+                    self?.timer.timerStar()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        postRewordsSubject
+            ._doNext(forNotice: hud)
+            .subscribe(onNext: { [weak self] in
+                self?.postAward(pageModel: $0)
+            })
+            .disposed(by: disposeBag)
         
         reloadSubject.subscribe(onNext: { [unowned self] _ in
             self.loadBookInfoRequest()
@@ -67,9 +98,7 @@ class AlbumInfoViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
     
-    private func postAward(pageModel: AlbumPageModel) {
-        if pageModel.EnabledAward == false { return }
-                
+    private func postAward(pageModel: AlbumPageModel) {                
         CARProvider.rx.request(.readAward(siteName: pageModel.SiteName,
                                           bookId: bookInfo.Id,
                                           bookTitle: bookInfo.Title,
@@ -77,21 +106,27 @@ class AlbumInfoViewModel: BaseViewModel {
                                           pageTitle: pageModel.Title))
             .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
-                var data = self?.colDatasourceObser.value.0
-                if let idx = data?.index(of: pageModel) {
-                    pageModel.EnabledAward = false
-                    data?[idx] = pageModel
-                    if let tempData = data {
-                        self?.colDatasourceObser.value = (tempData, false)
+                if model.error == 0 {
+                    var data = self?.colDatasourceObser.value.0
+                    if let idx = data?.index(of: pageModel) {
+                        pageModel.EnabledAward = false
+                        data?[idx] = pageModel
+                        if let tempData = data {
+                            self?.colDatasourceObser.value = (tempData, false)
+                        }
                     }
+                    
+                    self?.hud.successHidden("领取成功！")
+                }else {
+                    self?.hud.failureHidden(model.message)
                 }
 
 //                if let coinCount = Int(model.data ?? "0"), coinCount > 0  {
 //                    PrintLog("奖励金币为：\(coinCount)")
 //                    self?.dropCoinObser.onNext((coinCount, pageModel))
 //                }
-            }) { error in
-                PrintLog(error)
+            }) { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
             }
             .disposed(by: disposeBag)
     }

@@ -63,7 +63,7 @@ class CountdownTimer {
     //MARK: public
     public final func timerPause() {
         timer.fireDate = Date.distantFuture
-        showText.value = 0
+//        showText.value = 0
         cutdown = totleCount
     }
 
