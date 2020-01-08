@@ -86,6 +86,9 @@
 		B8950B9E2109D37200310551 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8950B9D2109D37200310551 /* MineViewModel.swift */; };
 		B8B2F3F223C3916400F50078 /* CARewardsAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3F123C3916400F50078 /* CARewardsAlertView.swift */; };
 		B8B2F3F423C3917200F50078 /* CARewardsAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B2F3F323C3917200F50078 /* CARewardsAlertView.xib */; };
+		B8B2F3F623C624C700F50078 /* CAShareAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3F523C624C700F50078 /* CAShareAlbumViewController.swift */; };
+		B8B2F3F823C625C400F50078 /* CAShareAlbumContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3F723C625C400F50078 /* CAShareAlbumContentView.swift */; };
+		B8B2F3FA23C625D000F50078 /* CAShareAlbumContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B2F3F923C625D000F50078 /* CAShareAlbumContentView.xib */; };
 		B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF6F1421378C87004A13CE /* AppNotifications.swift */; };
 		B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8CCDD6821212C5000E94681 /* CodeScan.bundle */; };
 		B8CCDF6821212C5100E94681 /* LBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDD6B21212C5000E94681 /* LBXScanViewController.m */; };
@@ -483,6 +486,9 @@
 		B8950B9D2109D37200310551 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
 		B8B2F3F123C3916400F50078 /* CARewardsAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CARewardsAlertView.swift; sourceTree = "<group>"; };
 		B8B2F3F323C3917200F50078 /* CARewardsAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CARewardsAlertView.xib; sourceTree = "<group>"; };
+		B8B2F3F523C624C700F50078 /* CAShareAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShareAlbumViewController.swift; sourceTree = "<group>"; };
+		B8B2F3F723C625C400F50078 /* CAShareAlbumContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShareAlbumContentView.swift; sourceTree = "<group>"; };
+		B8B2F3F923C625D000F50078 /* CAShareAlbumContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAShareAlbumContentView.xib; sourceTree = "<group>"; };
 		B8BF6F1421378C87004A13CE /* AppNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
 		B8CCDD6821212C5000E94681 /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		B8CCDD6921212C5000E94681 /* LBXScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanView.h; sourceTree = "<group>"; };
@@ -1107,6 +1113,7 @@
 				B83185652111AAB600F05D49 /* CASiteAlbumBookViewController.swift */,
 				B83185672111B4E000F05D49 /* CAAlbumInfoViewController.swift */,
 				B83185732111BD6900F05D49 /* AlbumPageViewController.swift */,
+				B8B2F3F523C624C700F50078 /* CAShareAlbumViewController.swift */,
 			);
 			path = Site;
 			sourceTree = "<group>";
@@ -1181,6 +1188,8 @@
 				B83F278F21144120005CA5C3 /* MenuListView.swift */,
 				B83B9A3521192DAC00284FE6 /* MineHeaderView.swift */,
 				B83B9A3721192DCF00284FE6 /* MineHeaderView.xib */,
+				B8B2F3F723C625C400F50078 /* CAShareAlbumContentView.swift */,
+				B8B2F3F923C625D000F50078 /* CAShareAlbumContentView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2494,6 +2503,7 @@
 				B83B9A562119A80100284FE6 /* coin.png in Resources */,
 				B84FC34C210F0D3D00DA30DC /* MyNoticesCell.xib in Resources */,
 				B83F278A21142091005CA5C3 /* AlbumShareView.xib in Resources */,
+				B8B2F3FA23C625D000F50078 /* CAShareAlbumContentView.xib in Resources */,
 				B83B9A552119A80100284FE6 /* bgm_coin_01.mp3 in Resources */,
 				B83185722111BA4B00F05D49 /* AlbumPagesCell.xib in Resources */,
 				B84FC354210FEF7000DA30DC /* MyalbumCell.xib in Resources */,
@@ -2585,6 +2595,7 @@
 				B8F7A27523C08EC700369B6A /* CADocument.swift in Sources */,
 				B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */,
 				B8CCDFA221212C5100E94681 /* ZXQRCodeFinderPatternFinder.m in Sources */,
+				B8B2F3F823C625C400F50078 /* CAShareAlbumContentView.swift in Sources */,
 				B8CCDF8D21212C5100E94681 /* ZXQRCode.m in Sources */,
 				B82E2FBB210AB0C300FA299F /* UIControl+_Rx.swift in Sources */,
 				B8CCDF8621212C5100E94681 /* ZXAztecSimpleToken.m in Sources */,
@@ -2602,6 +2613,7 @@
 				B8CCDF7621212C5100E94681 /* ZXResultPoint.m in Sources */,
 				B8CCDFD321212C5100E94681 /* ZXPDF417Reader.m in Sources */,
 				B83185682111B4E000F05D49 /* CAAlbumInfoViewController.swift in Sources */,
+				B8B2F3F623C624C700F50078 /* CAShareAlbumViewController.swift in Sources */,
 				B84FC329210EC67500DA30DC /* BaseTB.swift in Sources */,
 				B8D92A8C21096A7C00BAB001 /* UIView+Frame.swift in Sources */,
 				B8CCE02621212C5100E94681 /* ZXURIResultParser.m in Sources */,

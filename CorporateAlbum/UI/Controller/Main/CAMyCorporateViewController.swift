@@ -69,10 +69,10 @@ class CAMyCorporateViewController: BaseViewController {
             .drive(viewModel.itemSelected)
             .disposed(by: disposeBag)
         
-        searchBar.leftItemTap.drive(onNext: { [unowned self] in
-            self.menuView.menuAnimation()
-        })
-            .disposed(by: disposeBag)
+//        searchBar.leftItemTap.drive(onNext: { [unowned self] in
+//            self.menuView.menuAnimation()
+//        })
+//            .disposed(by: disposeBag)
         
         searchBar.rightItemTap.drive(onNext: { [unowned self] in
             let scanCtrl = CAScanViewController()

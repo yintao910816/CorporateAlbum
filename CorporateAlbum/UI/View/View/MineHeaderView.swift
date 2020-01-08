@@ -23,7 +23,7 @@ class MineHeaderView: BaseFilesOwner {
     init(disposebag: DisposeBag) {
         super.init()
         
-        contentView = Bundle.main.loadNibNamed("MineHeaderView", owner: self, options: nil)?.first as! UIView
+        contentView = (Bundle.main.loadNibNamed("MineHeaderView", owner: self, options: nil)?.first as! UIView)
         
         userInfoObser.asDriver()
             .skip(1)

@@ -14,6 +14,7 @@ class CAAlbumInfoViewController: BaseViewController {
     @IBOutlet weak var bottomToolBar: UIView!
     @IBOutlet weak var topToolBar: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var iconOutlet: UIButton!
     
     @IBOutlet weak var botomBarHeightCns: NSLayoutConstraint!
     @IBOutlet weak var botomBarCns: NSLayoutConstraint!
@@ -159,6 +160,10 @@ class CAAlbumInfoViewController: BaseViewController {
             .drive(collectionView.rx.items(cellIdentifier: "AlbumPagesCellID", cellType: AlbumPagesCell.self)) { (row, model, cell) in
                 cell.model = model
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.iconObser
+            .bind(to: iconOutlet.rx.image)
             .disposed(by: disposeBag)
         
         collectionView.rx.itemSelected

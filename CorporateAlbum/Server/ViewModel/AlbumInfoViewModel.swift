@@ -25,7 +25,8 @@ class AlbumInfoViewModel: BaseViewModel {
     public var postRewordsSubject = PublishSubject<AlbumPageModel>()
 
     public var dropCoinObser = PublishSubject<(Int, AlbumPageModel)>()
-    
+    public var iconObser = PublishSubject<String>()
+
     init(bookId: String) {
         super.init()
         
@@ -79,6 +80,7 @@ class AlbumInfoViewModel: BaseViewModel {
             .map(model: AlbumBookModel.self)
             .subscribe(onSuccess: { [weak self] book in
                 self?.bookInfo = book
+                self?.iconObser.onNext(book.AppLogo)
                 self?.loadBookPages()
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))

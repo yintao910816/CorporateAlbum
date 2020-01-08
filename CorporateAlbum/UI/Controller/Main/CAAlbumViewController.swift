@@ -100,6 +100,8 @@ class CAAlbumViewController: BaseViewController {
             let controller = segue.destination as! CASiteAlbumBookViewController
             let book = sender as! AlbumBookModel
             controller.prepare(parameters: ["siteName": book.SiteName, "title": book.Title])
+        }else if segue.identifier == "shareAlbumSegue" {
+            segue.destination.prepare(parameters: ["model": sender!])
         }
     }
 }
@@ -107,7 +109,8 @@ class CAAlbumViewController: BaseViewController {
 extension CAAlbumViewController: AlbumCellActions {
     
     func share(model: AlbumBookModel) {
-        qrViewFilesOwner.show(shareBook: model)
+//        qrViewFilesOwner.show(shareBook: model)
+        performSegue(withIdentifier: "shareAlbumSegue", sender: model)
     }
     
     func collecte(model: AlbumBookModel) {
