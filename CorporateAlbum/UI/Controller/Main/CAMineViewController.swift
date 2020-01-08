@@ -56,18 +56,23 @@ class CAMineViewController: BaseViewController {
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         tableView.tableFooterView = UIView()
+        tableView.rowHeight = 50
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
     }
     
     override func rxBind() {
         
+        let datasource = RxTableViewSectionedReloadDataSource<SectionModel<Int, MineCellModel>>.init(configureCell: { _, tb, indexPath, model -> UITableViewCell in
+            let cell = tb.dequeueReusableCell(withIdentifier: "cellID")!
+            cell.textLabel?.text = model.title
+            cell.accessoryType = .disclosureIndicator
+            return cell
+        })
+        
         viewModel.datasource.asDriver()
-            .drive(tableView.rx.items(cellIdentifier: "cellID", cellType: UITableViewCell.self)) { (row, model, cell) in
-                cell.textLabel?.text = model.title
-                cell.accessoryType = .disclosureIndicator
-        }
-        .disposed(by: disposeBag)
+            .drive(tableView.rx.items(dataSource: datasource))
+            .disposed(by: disposeBag)
         
         viewModel.userInfoObser.asDriver()
             .skip(1)
@@ -76,6 +81,9 @@ class CAMineViewController: BaseViewController {
         
         tableView.rx.itemSelected
             .asDriver().drive(onNext: { [unowned self] in self.pushVC($0) })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
         headerView.avatarOutlet.rx.tap.asDriver()
@@ -142,4 +150,20 @@ class CAMineViewController: BaseViewController {
         }
     }
 
+}
+
+extension CAMineViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            let header = UIView.init(frame: .init(x: 0, y: 0, width: view.width, height: 10))
+            header.backgroundColor = RGB(236, 236, 236)
+            return header
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 1 ? 10 : 0
+    }
 }

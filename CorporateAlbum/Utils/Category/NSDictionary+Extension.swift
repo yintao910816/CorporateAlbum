@@ -15,6 +15,9 @@ extension NSDictionary {
     /// - Parameter params: 键值对
     /// - Returns: url 字符串
     public func keyValues() ->String {
+        guard count > 0 else {
+            return ""
+        }
         let string = NSMutableString.init(string: "?")
         enumerateKeysAndObjects({ (key, value, stop) in
             string.append("\(key)=\(value)&")

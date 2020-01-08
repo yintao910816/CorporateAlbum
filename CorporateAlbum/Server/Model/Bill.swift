@@ -29,3 +29,37 @@ class BillInfoModel: HJModel {
     /** 交易类型标题 */
     var CashTypeTitle: String!
 }
+
+class CASumIncomeModel: HJModel {
+    /// 今日奖励收益
+    var TodayIncome: Double = 0.0
+    /// 本月奖励收益
+    var MonthIncome: Double = 0.0
+    /// 累计奖励收益
+    var TotalIncome: Double = 0.0
+    
+    var todayIncomeText: NSAttributedString {
+        get {
+            let fundsText = "￥\(TodayIncome)元"
+            let text = "今日收益\n\(fundsText)"
+            return text.attributed(NSMakeRange(5, fundsText.count), .white, .systemFont(ofSize: 17))
+        }
+    }
+    
+    var monthIncomeText: NSAttributedString {
+        get {
+            let fundsText = "￥\(MonthIncome)元"
+            let text = "本月收益\n\(fundsText)"
+            return text.attributed(NSMakeRange(5, fundsText.count), .white, .systemFont(ofSize: 17))
+        }
+    }
+
+    var totalIncomeText: NSAttributedString {
+        get {
+            let fundsText = "￥\(TotalIncome)元"
+            let text = "累计收益\n\(fundsText)"
+            return text.attributed(NSMakeRange(5, fundsText.count), .white, .systemFont(ofSize: 17))
+        }
+    }
+
+}

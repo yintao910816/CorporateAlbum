@@ -61,6 +61,9 @@ enum API{
      */
     case getUserInfo()
     
+    /// 获取奖励账单统计 - 个人中心用到
+    case sumIncome
+    
     /**
      * 首页数据列表/搜索
      * limit：默认32
@@ -199,6 +202,8 @@ extension API: TargetType{
             return "User/SetPhoto"
         case .getUserInfo():
             return "User/Get"
+        case .sumIncome:
+            return "Bill/SumIncome"
         case .bookList(_):
             return "Book/List"
         case .getBookInfo(_):
@@ -404,6 +409,8 @@ extension API {
         case .noticeRead(let id):
             params["token"]  = userDefault.appToken ?? ""
             params["id"] = id
+        default:
+            break
         }
         return params
     }

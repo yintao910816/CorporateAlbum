@@ -15,10 +15,16 @@ class MineHeaderView: BaseFilesOwner {
     
     @IBOutlet weak var avatarOutlet: UIButton!
     @IBOutlet weak var nickNameOutlet: UILabel!
+    @IBOutlet weak var accountOutlet: UILabel!
     @IBOutlet weak var fundsOutlet: UILabel!
+    
+    @IBOutlet weak var todayFoundsOutlet: UILabel!
+    @IBOutlet weak var monthFoundsOutlet: UILabel!
+    @IBOutlet weak var totleFundsOutlet: UILabel!
+    
     @IBOutlet weak var remindOutlet: UILabel!
     
-    var userInfoObser = Variable(UserInfoModel())
+    var userInfoObser = Variable((UserInfoModel(), CASumIncomeModel()))
 
     init(disposebag: DisposeBag) {
         super.init()
@@ -27,20 +33,33 @@ class MineHeaderView: BaseFilesOwner {
         
         userInfoObser.asDriver()
             .skip(1)
-            .drive(onNext: { [unowned self] user in
+            .drive(onNext: { [unowned self] data in
+                let user = data.0
+                let sumInfo = data.1
                 if user.Id.count > 0 {
                     self.remindOutlet.isHidden = true
                     self.nickNameOutlet.isHidden = false
                     self.fundsOutlet.isHidden = false
-                    
+                    self.todayFoundsOutlet.isHidden = false
+                    self.monthFoundsOutlet.isHidden = false
+                    self.totleFundsOutlet.isHidden = false
+
                     self.avatarOutlet.setImage(user.PhotoUrl, .userIcon)
                     self.nickNameOutlet.text = user.NickName
-                    self.fundsOutlet.text = "资金：\(user.Funds)"
+                    self.accountOutlet.text = "账号: \(user.Mobile)"
+                    self.fundsOutlet.text = "钱包: ￥\(user.Funds)元"
+                    
+                    self.todayFoundsOutlet.attributedText = sumInfo.todayIncomeText
+                    self.monthFoundsOutlet.attributedText = sumInfo.monthIncomeText
+                    self.totleFundsOutlet.attributedText = sumInfo.totalIncomeText
                 }else {
                     self.remindOutlet.isHidden = false
                     self.nickNameOutlet.isHidden = true
                     self.fundsOutlet.isHidden = true
-                    
+                    self.todayFoundsOutlet.isHidden = true
+                    self.monthFoundsOutlet.isHidden = true
+                    self.totleFundsOutlet.isHidden = true
+
                     self.avatarOutlet.setImage(nil, .userIcon)
                 }
             })
