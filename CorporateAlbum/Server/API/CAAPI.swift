@@ -90,6 +90,9 @@ enum API{
      */
     case favoriteSite(search: String, skip: Int, limit: Int)
     
+    /// 获取用户奖励账单列表
+    case billListAward(search: String, skip: Int, limit: Int)
+    
     /**
      * 修改手机号获取邮箱验证码
      */
@@ -212,6 +215,8 @@ extension API: TargetType{
             return "Favorite/Book"
         case .siteList(_):
             return "Site/List"
+        case .billListAward(_):
+            return "Bill/ListAward"
         case .favoriteSite(_, _, _):
             return "Favorite/Site"
             
@@ -337,6 +342,10 @@ extension API {
             params["limit"]  = limit
         case .siteList(let category, let search, let skip, let limit):
             params["category"]   = category
+            params["search"] = search
+            params["skip"]   = skip
+            params["limit"]  = limit
+        case .billListAward(let search, let skip, let limit):
             params["search"] = search
             params["skip"]   = skip
             params["limit"]  = limit

@@ -14,6 +14,7 @@ class BillCell: UITableViewCell {
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var createTimeOutlet: UILabel!
     @IBOutlet weak var summaryOutlet: UILabel!
+    @IBOutlet weak var amountOutlet: UILabel!
     
     var model: BillInfoModel! {
         didSet {            
@@ -21,6 +22,7 @@ class BillCell: UITableViewCell {
             titleOutlet.text = model.CashTypeTitle
             createTimeOutlet.text = model.CreateTime
             summaryOutlet.text = model.Summary
+            amountOutlet.text = "+\(model.Amount)元"
         }
     }
 }

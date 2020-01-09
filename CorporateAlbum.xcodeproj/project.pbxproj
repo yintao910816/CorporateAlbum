@@ -92,6 +92,8 @@
 		B8B2F3FC23C781A800F50078 /* CAShareCorporateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3FB23C781A800F50078 /* CAShareCorporateViewController.swift */; };
 		B8B2F3FE23C782B200F50078 /* CAShareCorporateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3FD23C782B200F50078 /* CAShareCorporateContentView.swift */; };
 		B8B2F40023C782BD00F50078 /* CAShareCorporateContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B2F3FF23C782BD00F50078 /* CAShareCorporateContentView.xib */; };
+		B8B2F40223C78AA300F50078 /* CAListAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F40123C78AA300F50078 /* CAListAwardViewController.swift */; };
+		B8B2F40423C78BF200F50078 /* CAListAwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F40323C78BF200F50078 /* CAListAwardViewModel.swift */; };
 		B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF6F1421378C87004A13CE /* AppNotifications.swift */; };
 		B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8CCDD6821212C5000E94681 /* CodeScan.bundle */; };
 		B8CCDF6821212C5100E94681 /* LBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDD6B21212C5000E94681 /* LBXScanViewController.m */; };
@@ -495,6 +497,8 @@
 		B8B2F3FB23C781A800F50078 /* CAShareCorporateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShareCorporateViewController.swift; sourceTree = "<group>"; };
 		B8B2F3FD23C782B200F50078 /* CAShareCorporateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShareCorporateContentView.swift; sourceTree = "<group>"; };
 		B8B2F3FF23C782BD00F50078 /* CAShareCorporateContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAShareCorporateContentView.xib; sourceTree = "<group>"; };
+		B8B2F40123C78AA300F50078 /* CAListAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListAwardViewController.swift; sourceTree = "<group>"; };
+		B8B2F40323C78BF200F50078 /* CAListAwardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListAwardViewModel.swift; sourceTree = "<group>"; };
 		B8BF6F1421378C87004A13CE /* AppNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
 		B8CCDD6821212C5000E94681 /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		B8CCDD6921212C5000E94681 /* LBXScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanView.h; sourceTree = "<group>"; };
@@ -2142,6 +2146,7 @@
 				B8950B9D2109D37200310551 /* MineViewModel.swift */,
 				B82E2FCA210AF9BD00FA299F /* AlbumViewModel.swift */,
 				B84FC31F210EBB0500DA30DC /* CorporateViewModel.swift */,
+				B8B2F40323C78BF200F50078 /* CAListAwardViewModel.swift */,
 				B84FC32D210EDBBC00DA30DC /* UserCenter.swift */,
 				B84FC33D210F001800DA30DC /* BillViewModel.swift */,
 				B84FC347210F0BA600DA30DC /* MyNoticesVeiwModel.swift */,
@@ -2345,6 +2350,7 @@
 				B8D92AB8210982C800BAB001 /* CAAlbumViewController.swift */,
 				B8D92ABA210982DF00BAB001 /* CAMyCorporateViewController.swift */,
 				B8D92ABC210982E700BAB001 /* CAMineViewController.swift */,
+				B8B2F40123C78AA300F50078 /* CAListAwardViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -2603,6 +2609,7 @@
 				B84FC332210EE1C700DA30DC /* AccountSetCell.swift in Sources */,
 				B8CCDF8821212C5100E94681 /* ZXAztecReader.m in Sources */,
 				B8F7A27523C08EC700369B6A /* CADocument.swift in Sources */,
+				B8B2F40423C78BF200F50078 /* CAListAwardViewModel.swift in Sources */,
 				B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */,
 				B8CCDFA221212C5100E94681 /* ZXQRCodeFinderPatternFinder.m in Sources */,
 				B8B2F3F823C625C400F50078 /* CAShareAlbumContentView.swift in Sources */,
@@ -2918,6 +2925,7 @@
 				B8CCE01521212C5100E94681 /* ZXCode128Writer.m in Sources */,
 				B8CCE03821212C5100E94681 /* ZXResultParser.m in Sources */,
 				B84FC33C210EFFE200DA30DC /* CABillViewController.swift in Sources */,
+				B8B2F40223C78AA300F50078 /* CAListAwardViewController.swift in Sources */,
 				B8CCDFD721212C5100E94681 /* ZXDataMatrixEdifactEncoder.m in Sources */,
 				B83B9A532119A80100284FE6 /* CoinView.m in Sources */,
 				B8CCDFAB21212C5100E94681 /* ZXCharacterSetECI.m in Sources */,
