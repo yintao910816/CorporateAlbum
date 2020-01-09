@@ -79,12 +79,19 @@ class CAMyCorporateViewController: BaseViewController {
 
         viewModel.reloadSubject.onNext(true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "shareCorporateSegue" {
+            segue.destination.prepare(parameters: ["model": sender!])
+        }
+    }
 }
 
 extension CAMyCorporateViewController: SiteInfoCellActions {
     
     func share(model: SiteInfoModel) {
-        qrViewFilesOwner.show(shareSite: model)
+        performSegue(withIdentifier: "shareCorporateSegue", sender: model)
+//        qrViewFilesOwner.show(shareSite: model)
     }
     
     func collecte(model: SiteInfoModel) {

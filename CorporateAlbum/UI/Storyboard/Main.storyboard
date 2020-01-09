@@ -95,6 +95,7 @@
                         <outlet property="searchBarHeightCns" destination="z5h-SS-3su" id="d3O-zH-VER"/>
                         <outlet property="slideMenu" destination="yPf-lH-xWC" id="SEz-Nr-20K"/>
                         <outlet property="tableView" destination="M1p-jw-5Pr" id="RpN-4L-vAH"/>
+                        <segue destination="7gO-yp-RDt" kind="show" identifier="shareCorporateSegue" id="zAu-WY-44L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PI-iE-4z3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WC4-EI-OoW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2606" y="-359"/>
+            <point key="canvasLocation" x="1991" y="-761"/>
         </scene>
         <!--Album Info View Controller-->
         <scene sceneID="d8k-AS-VBl">
@@ -389,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIb-KF-N3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4028" y="-359"/>
+            <point key="canvasLocation" x="2809" y="-761"/>
         </scene>
         <!--账号设置-->
         <scene sceneID="RbD-JS-7vx">
@@ -633,6 +634,40 @@
             </objects>
             <point key="canvasLocation" x="241" y="45"/>
         </scene>
+        <!--分享企业-->
+        <scene sceneID="FIc-87-YKo">
+            <objects>
+                <viewController id="7gO-yp-RDt" customClass="CAShareCorporateViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DkO-Zp-abM"/>
+                        <viewControllerLayoutGuide type="bottom" id="2bB-Y7-7sT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="szQ-TE-L9M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98n-ii-wxL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="98n-ii-wxL" firstAttribute="top" secondItem="DkO-Zp-abM" secondAttribute="bottom" id="Cz0-bF-eyq"/>
+                            <constraint firstAttribute="trailing" secondItem="98n-ii-wxL" secondAttribute="trailing" id="a2A-M9-sdU"/>
+                            <constraint firstItem="98n-ii-wxL" firstAttribute="leading" secondItem="szQ-TE-L9M" secondAttribute="leading" id="qpi-0c-cEG"/>
+                            <constraint firstAttribute="bottom" secondItem="98n-ii-wxL" secondAttribute="bottom" id="yO9-1q-66f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="分享企业" id="lqF-Is-Ajp"/>
+                    <connections>
+                        <outlet property="tableView" destination="98n-ii-wxL" id="F55-pd-5Eh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kmG-BK-1nX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="-31"/>
+        </scene>
         <!--分享画册-->
         <scene sceneID="rB2-Zo-hLD">
             <objects>
@@ -665,7 +700,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUw-pO-kJf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="-1034"/>
+            <point key="canvasLocation" x="1132" y="-1457"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="dCN-cb-NKZ">
@@ -743,7 +778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPS-a0-sRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="-359.37031484257875"/>
+            <point key="canvasLocation" x="1132" y="-761"/>
         </scene>
         <!--修改手机号码-->
         <scene sceneID="CIc-3Y-9Ad">

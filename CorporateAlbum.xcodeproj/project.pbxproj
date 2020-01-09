@@ -89,6 +89,9 @@
 		B8B2F3F623C624C700F50078 /* CAShareAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3F523C624C700F50078 /* CAShareAlbumViewController.swift */; };
 		B8B2F3F823C625C400F50078 /* CAShareAlbumContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3F723C625C400F50078 /* CAShareAlbumContentView.swift */; };
 		B8B2F3FA23C625D000F50078 /* CAShareAlbumContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B2F3F923C625D000F50078 /* CAShareAlbumContentView.xib */; };
+		B8B2F3FC23C781A800F50078 /* CAShareCorporateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3FB23C781A800F50078 /* CAShareCorporateViewController.swift */; };
+		B8B2F3FE23C782B200F50078 /* CAShareCorporateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F3FD23C782B200F50078 /* CAShareCorporateContentView.swift */; };
+		B8B2F40023C782BD00F50078 /* CAShareCorporateContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B2F3FF23C782BD00F50078 /* CAShareCorporateContentView.xib */; };
 		B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF6F1421378C87004A13CE /* AppNotifications.swift */; };
 		B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8CCDD6821212C5000E94681 /* CodeScan.bundle */; };
 		B8CCDF6821212C5100E94681 /* LBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDD6B21212C5000E94681 /* LBXScanViewController.m */; };
@@ -489,6 +492,9 @@
 		B8B2F3F523C624C700F50078 /* CAShareAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShareAlbumViewController.swift; sourceTree = "<group>"; };
 		B8B2F3F723C625C400F50078 /* CAShareAlbumContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShareAlbumContentView.swift; sourceTree = "<group>"; };
 		B8B2F3F923C625D000F50078 /* CAShareAlbumContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAShareAlbumContentView.xib; sourceTree = "<group>"; };
+		B8B2F3FB23C781A800F50078 /* CAShareCorporateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShareCorporateViewController.swift; sourceTree = "<group>"; };
+		B8B2F3FD23C782B200F50078 /* CAShareCorporateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShareCorporateContentView.swift; sourceTree = "<group>"; };
+		B8B2F3FF23C782BD00F50078 /* CAShareCorporateContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAShareCorporateContentView.xib; sourceTree = "<group>"; };
 		B8BF6F1421378C87004A13CE /* AppNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
 		B8CCDD6821212C5000E94681 /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		B8CCDD6921212C5000E94681 /* LBXScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanView.h; sourceTree = "<group>"; };
@@ -1114,6 +1120,7 @@
 				B83185672111B4E000F05D49 /* CAAlbumInfoViewController.swift */,
 				B83185732111BD6900F05D49 /* AlbumPageViewController.swift */,
 				B8B2F3F523C624C700F50078 /* CAShareAlbumViewController.swift */,
+				B8B2F3FB23C781A800F50078 /* CAShareCorporateViewController.swift */,
 			);
 			path = Site;
 			sourceTree = "<group>";
@@ -1190,6 +1197,8 @@
 				B83B9A3721192DCF00284FE6 /* MineHeaderView.xib */,
 				B8B2F3F723C625C400F50078 /* CAShareAlbumContentView.swift */,
 				B8B2F3F923C625D000F50078 /* CAShareAlbumContentView.xib */,
+				B8B2F3FD23C782B200F50078 /* CAShareCorporateContentView.swift */,
+				B8B2F3FF23C782BD00F50078 /* CAShareCorporateContentView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2510,6 +2519,7 @@
 				B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */,
 				B8D929B121095EA900BAB001 /* LaunchScreen.storyboard in Resources */,
 				B8D929AE21095EA900BAB001 /* Assets.xcassets in Resources */,
+				B8B2F40023C782BD00F50078 /* CAShareCorporateContentView.xib in Resources */,
 				B83B9A572119A80100284FE6 /* stars2.png in Resources */,
 				B862AD97211ACAB700B9F058 /* Resource.bundle in Resources */,
 				B8B2F3F423C3917200F50078 /* CARewardsAlertView.xib in Resources */,
@@ -2777,6 +2787,7 @@
 				B8D92A1C2109646C00BAB001 /* HUD.swift in Sources */,
 				B8D92A202109646C00BAB001 /* Constants.swift in Sources */,
 				B8CCE01921212C5100E94681 /* ZXUPCEANExtension5Support.m in Sources */,
+				B8B2F3FE23C782B200F50078 /* CAShareCorporateContentView.swift in Sources */,
 				B8CCDF9321212C5100E94681 /* ZXQRCodeMultiReader.m in Sources */,
 				B8CCDF8921212C5100E94681 /* ZXAztecDetector.m in Sources */,
 				B8CCDFE521212C5100E94681 /* ZXDataMatrixDecoder.m in Sources */,
@@ -2790,6 +2801,7 @@
 				B8CCDF6921212C5100E94681 /* LBXScanViewStyle.m in Sources */,
 				B831856C2111B77C00F05D49 /* Page.swift in Sources */,
 				B8CCDF7321212C5100E94681 /* ZXResult.m in Sources */,
+				B8B2F3FC23C781A800F50078 /* CAShareCorporateViewController.swift in Sources */,
 				B8D92A652109646C00BAB001 /* CAAPI.swift in Sources */,
 				B84FC346210F0B2200DA30DC /* CAMyNoticesViewController.swift in Sources */,
 				B83F278E211420CE005CA5C3 /* AlbumShareFilesOwner.swift in Sources */,
