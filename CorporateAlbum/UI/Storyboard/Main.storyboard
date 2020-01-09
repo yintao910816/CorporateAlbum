@@ -56,14 +56,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M1p-jw-5Pr" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="89" width="375" height="529"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJg-Rr-vyl" customClass="SearchBar" customModule="CorporateAlbum" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJg-Rr-vyl" customClass="TYSearchBar" customModule="CorporateAlbum" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="z5h-SS-3su"/>
+                                    <constraint firstAttribute="height" constant="44" id="z5h-SS-3su"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPf-lH-xWC" customClass="TYSlideMenuView" customModule="CorporateAlbum" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="F3g-Wz-Lmp"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -71,23 +78,28 @@
                         <constraints>
                             <constraint firstItem="0Ad-z5-MLd" firstAttribute="top" secondItem="M1p-jw-5Pr" secondAttribute="bottom" id="Av6-hd-CQS"/>
                             <constraint firstAttribute="trailing" secondItem="jJg-Rr-vyl" secondAttribute="trailing" id="CHK-Yy-Cvx"/>
+                            <constraint firstItem="yPf-lH-xWC" firstAttribute="top" secondItem="jJg-Rr-vyl" secondAttribute="bottom" id="DEG-6I-8PN"/>
                             <constraint firstItem="M1p-jw-5Pr" firstAttribute="leading" secondItem="erS-dE-alJ" secondAttribute="leading" id="HC4-xB-26U"/>
                             <constraint firstAttribute="trailing" secondItem="M1p-jw-5Pr" secondAttribute="trailing" id="IJb-lZ-xEx"/>
+                            <constraint firstItem="yPf-lH-xWC" firstAttribute="leading" secondItem="erS-dE-alJ" secondAttribute="leading" id="ZLW-k6-9fV"/>
+                            <constraint firstAttribute="trailing" secondItem="yPf-lH-xWC" secondAttribute="trailing" id="cDa-CG-ro0"/>
                             <constraint firstItem="jJg-Rr-vyl" firstAttribute="top" secondItem="erS-dE-alJ" secondAttribute="top" id="d4o-ed-02d"/>
-                            <constraint firstItem="M1p-jw-5Pr" firstAttribute="top" secondItem="jJg-Rr-vyl" secondAttribute="bottom" id="lOP-Qe-TfZ"/>
+                            <constraint firstItem="M1p-jw-5Pr" firstAttribute="top" secondItem="yPf-lH-xWC" secondAttribute="bottom" id="fdh-GF-MNs"/>
                             <constraint firstItem="jJg-Rr-vyl" firstAttribute="leading" secondItem="erS-dE-alJ" secondAttribute="leading" id="nmx-jF-od8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="企业" id="p1b-zc-Cyl"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="searchBar" destination="jJg-Rr-vyl" id="djX-NB-5n0"/>
+                        <outlet property="searchBar" destination="jJg-Rr-vyl" id="jd3-AT-wFT"/>
                         <outlet property="searchBarHeightCns" destination="z5h-SS-3su" id="d3O-zH-VER"/>
+                        <outlet property="slideMenu" destination="yPf-lH-xWC" id="SEz-Nr-20K"/>
                         <outlet property="tableView" destination="M1p-jw-5Pr" id="RpN-4L-vAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PI-iE-4z3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="717"/>
+            <point key="canvasLocation" x="1132" y="716.49175412293857"/>
         </scene>
         <!--设置头像-->
         <scene sceneID="Q9A-Zj-8lS">

@@ -82,9 +82,9 @@ enum API{
     case favoriteBook(search: String, skip: Int, limit: Int)
     
     /**
-     * 企业数据列表
+     * 企业数据列表 Site/List
      */
-    case site(search: String, skip: Int, limit: Int)
+    case siteList(category: Int, search: String, skip: Int, limit: Int)
     /**
      * 搜索所有收藏的企业
      */
@@ -167,7 +167,7 @@ enum API{
     /**
      * 添加站点收藏
      */
-    case addSite(siteName: String, siteId: String)
+    case siteFavorite(siteName: String, isFavorite: Bool)
     /**
      *  添加画册收藏
      */
@@ -210,8 +210,8 @@ extension API: TargetType{
             return "Book/Get"
         case .favoriteBook(_, _, _):
             return "Favorite/Book"
-        case .site(_, _, _):
-            return "Site"
+        case .siteList(_):
+            return "Site/List"
         case .favoriteSite(_, _, _):
             return "Favorite/Site"
             
@@ -246,8 +246,8 @@ extension API: TargetType{
             return "Book/ListBySite"
         case .readAward(_):
             return "Page/Read"
-        case .addSite(_, _):
-            return "Favorite/AddSite"
+        case .siteFavorite(_):
+            return "Site/Favorite"
         case .addBook(_):
             return "Book/Favorite"
             
@@ -335,8 +335,8 @@ extension API {
             params["search"] = search
             params["skip"]   = skip
             params["limit"]  = limit
-        case .site(let search, let skip, let limit):
-            params["token"]  = userDefault.appToken ?? ""
+        case .siteList(let category, let search, let skip, let limit):
+            params["category"]   = category
             params["search"] = search
             params["skip"]   = skip
             params["limit"]  = limit
@@ -399,10 +399,9 @@ extension API {
             params["bookTitle"] = bookTitle
             params["pageId"] = pageId
             params["pageTitle"] = pageTitle
-        case .addSite(let siteName, let siteId):
-            params["token"]  = userDefault.appToken ?? ""
-            params["siteName"] = siteName
-            params["siteId"] = siteId
+        case .siteFavorite(let siteName, let isFavorite):
+            params["siteName"]   = siteName
+            params["isFavorite"] = isFavorite
         case .addBook(let bookId):
             params["bookId"] = bookId
             

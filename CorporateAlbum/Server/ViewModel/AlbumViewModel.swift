@@ -67,6 +67,7 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
         reloadSubject
             .subscribe(onNext: { [unowned self] _ in
                 self.loadCacheDatas()
+                self.requestData(true)
             })
             .disposed(by: disposeBag)
     }
@@ -96,7 +97,7 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
             .mapResponse()
             .subscribe(onSuccess: { [unowned self] model in
                 if model.error == 0 {
-                    self.hud.successHidden("收藏成功！")
+                    self.hud.successHidden(model.message)
                 }else {
                     self.hud.failureHidden(model.message)
                 }

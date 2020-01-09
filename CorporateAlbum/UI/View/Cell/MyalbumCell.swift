@@ -42,15 +42,15 @@ class MyalbumCell: UITableViewCell {
     
     var model: SiteInfoModel! {
         didSet {
-            coverOutlet.setImage(model.Logo)
-            titleOutlet.text = model.SiteTitle
-            expireDateOutlet.text = "有效期：\(model.ExpireDate)"
-            fundsOutlet.text = "资金余额：\(model.Funds)"
-            controlUrlOutlet.text = "管理地址：\(model.ControlUrl)"
-            
-            (contentView.viewWithTag(100) as! UIButton).setTitle(model.awardStateText, for: .normal)
-            (contentView.viewWithTag(101) as! UIButton).setTitle(model.siteStateText, for: .normal)
-            (contentView.viewWithTag(101) as! UIButton).isEnabled = model.SiteState != 2
+//            coverOutlet.setImage(model.Logo)
+//            titleOutlet.text = model.SiteTitle
+//            expireDateOutlet.text = "有效期：\(model.ExpireDate)"
+//            fundsOutlet.text = "资金余额：\(model.Funds)"
+//            controlUrlOutlet.text = "管理地址：\(model.ControlUrl)"
+//            
+//            (contentView.viewWithTag(100) as! UIButton).setTitle(model.awardStateText, for: .normal)
+//            (contentView.viewWithTag(101) as! UIButton).setTitle(model.siteStateText, for: .normal)
+//            (contentView.viewWithTag(101) as! UIButton).isEnabled = model.SiteState != 2
         }
     }
 }

@@ -12,18 +12,43 @@ import RxCocoa
 
 class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
     
-    // 0 - 全部，1 - 收藏
-    let dataTypeObser = Variable(0)
+    // 0:全部,1:推荐,2:收藏
+    private var dataType: Int = 0
+    private var allData: [String: [SiteInfoModel]] = [:]
 
-    var collectePublic = PublishSubject<SiteInfoModel>()
+    public var collectePublic = PublishSubject<SiteInfoModel>()
+    public let menuChangeSubject = PublishSubject<Int>()
+    public let beginSearchSubject = PublishSubject<Void>()
+    
     private var searchText: String = ""
     
-    init(searchTextObser: Driver<String>) {
+    init(searchTextObser: Observable<String>) {
         super.init()
     
-        searchTextObser.drive(onNext: { [unowned self] in
-            self.searchText = $0
-        })
+        allData["0"] = [SiteInfoModel]()
+
+        searchTextObser
+            .subscribe(onNext: { [unowned self] in
+                self.searchText = $0
+            })
+            .disposed(by: disposeBag)
+        
+        menuChangeSubject
+            .subscribe(onNext: { [unowned self] in
+                self.dataType = $0
+                if self.allData["\($0)"] == nil {
+                    self.allData["\($0)"] = [SiteInfoModel]()
+                    self.requestData(true)
+                }else {
+                    self.datasource.value = self.allData["\($0)"]!
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        beginSearchSubject
+            .subscribe(onNext: { [unowned self] in
+                self.requestData(true)
+            })
             .disposed(by: disposeBag)
         
         collectePublic
@@ -51,50 +76,56 @@ class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
                 self?.requestData(true)
             })
             .disposed(by: disposeBag)
+        
+        reloadSubject
+            .subscribe(onNext: { [unowned self] _ in
+                self.loadCacheDatas()
+                self.requestData(true)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func requestData(_ refresh: Bool) {
-        super.requestData(refresh)
+        super.updatePage(for: "\(dataType)", refresh: refresh)
         
-        if dataTypeObser.value == 0 {
-            let request = CARProvider.rx.request(.site(search: searchText, skip: pageModel.currentPage, limit: pageModel.pageSize))
-                .map(models: SiteInfoModel.self)
-            
-            Observable<SiteInfoModel>.selectedDB(type: SiteInfoModel.self, tbName: SiteInfoTB)
-                .concat(request.asObservable())
-                .subscribe(onNext: { [unowned self] datas in
-                    self.updateRefresh(refresh, datas)
-                    SiteInfoModel.insert(datas: datas)
-                }, onError: { [unowned self] error in
-                    self.revertCurrentPageAndRefreshStatus()
-                    self.hud.failureHidden(self.errorMessage(error))
-                })
-                .disposed(by: disposeBag)
-        }else {
-            CARProvider.rx.request(.favoriteSite(search: searchText, skip: pageModel.currentPage, limit: pageModel.pageSize))
-                .map(models: SiteInfoModel.self)
-                .subscribe(onSuccess: { [weak self] models in
-                    self?.updateRefresh(refresh, models)
-                }) { [weak self] error in
-                    self?.revertCurrentPageAndRefreshStatus()
-                    self?.hud.failureHidden(self?.errorMessage(error))
-                }
-                .disposed(by: disposeBag)
+        CARProvider.rx.request(.siteList(category: dataType,
+                                         search: searchText,
+                                         skip: pageModel.currentPage,
+                                         limit: pageModel.pageSize))
+            .map(models: SiteInfoModel.self)
+            .subscribe(onSuccess: { [unowned self] datas in
+                self.updateRefresh(refresh: refresh, models: datas,
+                                   dataModels: &(self.allData["\(self.dataType)"]!),
+                                   pageKey: "\(self.dataType)")
+                self.datasource.value = self.allData["\(self.dataType)"]!
+                SiteInfoModel.insert(datas: datas)
+            }) { [unowned self] error in
+                self.revertCurrentPageAndRefreshStatus()
         }
+        .disposed(by: disposeBag)
     }
     
     private func collectSite(model: SiteInfoModel) {
-        CARProvider.rx.request(.addSite(siteName: model.SiteName, siteId: model.Id))
+        CARProvider.rx.request(.siteFavorite(siteName: model.SiteName, isFavorite: model.IsFavorite))
             .mapResponse()
-            .subscribe(onSuccess: { [unowned self] model in
-                if model.error == 0 {
-                    self.hud.successHidden("收藏成功！")
+            .subscribe(onSuccess: { [unowned self] res in
+                if res.error == 0 {
+                    self.hud.successHidden(res.message)
                 }else {
-                    self.hud.failureHidden(model.message)
+                    self.hud.failureHidden(res.message)
                 }
             }) { [unowned self] error in
                 self.hud.failureHidden(self.errorMessage(error))
             }
+            .disposed(by: disposeBag)
+    }
+    
+    private func loadCacheDatas() {
+        Observable<[SiteInfoModel]>.selectedDB(type: SiteInfoModel.self, tbName: SiteInfoTB)
+            .subscribe(onNext: { [weak self] in
+                self?.allData["0"] = $0
+                self?.datasource.value = $0
+            })
             .disposed(by: disposeBag)
     }
 }

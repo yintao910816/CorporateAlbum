@@ -92,7 +92,7 @@ class CAAlbumViewController: BaseViewController {
             self.viewModel.menuChangeSubject.onNext(page)
         }
                 
-        collectionView.headerRefreshing()
+        viewModel.reloadSubject.onNext(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -28,7 +28,9 @@ class AlbumCell: UICollectionViewCell {
     }
     
     @IBAction func collecteAction(_ sender: Any) {
+        model.IsFavorite = !model.IsFavorite
         delegate?.collecte(model: model)
+        collecteButton.isSelected = model.IsFavorite
     }
     
     @IBAction func goToSiteBook(_ sender: UIButton) {

@@ -42,7 +42,8 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoO-AZ-qdD">
                         <rect key="frame" x="112" y="409" width="25" height="25"/>
-                        <state key="normal" image="collection"/>
+                        <state key="normal" image="collection_unselect"/>
+                        <state key="selected" image="collection"/>
                         <connections>
                             <action selector="collecteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="81u-UU-CW3"/>
                         </connections>
@@ -132,7 +133,8 @@
     </objects>
     <resources>
         <image name="bonus" width="45" height="47"/>
-        <image name="collection" width="120" height="120"/>
-        <image name="share" width="120" height="120"/>
+        <image name="collection" width="210" height="210"/>
+        <image name="collection_unselect" width="210" height="210"/>
+        <image name="share" width="210" height="210"/>
     </resources>
 </document>

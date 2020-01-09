@@ -81,9 +81,9 @@ class AlbumShareFilesOwner: BaseFilesOwner {
         qrCodeOutlet.setImage(siteModel!.QRCode)
         lastOutlet.isHidden = false
         
-        titleOutlet.text = "标题：\(siteModel!.SiteTitle)"
-        siteOutlet.text = "资金：\(siteModel!.Funds)"
-        awardOutlet.text = "奖励：\(siteModel!.AwardTotal)分"
+//        titleOutlet.text = "标题：\(siteModel!.SiteTitle)"
+//        siteOutlet.text = "资金：\(siteModel!.Funds)"
+//        awardOutlet.text = "奖励：\(siteModel!.AwardTotal)分"
         webaddressOutlet.text = "电话：\(siteModel!.Mobile)"
         lastOutlet.text = "网址：http://\(siteModel!.SiteName)"
         summaryOutlet.text = "简介：\(siteModel!.Summary)"

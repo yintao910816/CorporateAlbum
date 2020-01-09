@@ -11,7 +11,8 @@ import UIKit
 class CAMyCorporateViewController: BaseViewController {
 
     @IBOutlet weak var tableView: BaseTB!
-    @IBOutlet weak var searchBar: SearchBar!
+    @IBOutlet weak var searchBar: TYSearchBar!
+    @IBOutlet weak var slideMenu: TYSlideMenuView!
     @IBOutlet weak var searchBarHeightCns: NSLayoutConstraint!
     
     var viewModel: CorporateViewModel!
@@ -21,38 +22,31 @@ class CAMyCorporateViewController: BaseViewController {
         return owner
     }()
     
-    lazy var menuView: MenuListView = {
-        let menu = MenuListView.init(width: 100, datasource: ["全部", "收藏"])
-        menu.menuChooseObser.asDriver()
-            .skip(1)
-            .do(onNext: { [unowned self] idx in
-//                self.searchBar.changeLeftItemState()
-//                self.searchBar.leftItemTitle = idx == 0 ? "全部" : "收藏"
-            })
-            .distinctUntilChanged()
-            .drive(onNext: { [unowned self] row in
-                self.viewModel.dataTypeObser.value = row
-                self.tableView.headerRefreshing()
-            })
-            .disposed(by: self.disposeBag)
-        return menu
-    }()
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     override func setupUI() {
-        view.insertSubview(menuView, belowSubview: searchBar)
         searchBarHeightCns.constant += LayoutSize.topVirtualArea
+                
+        searchBar.tfSearchIcon = "tf_search"
+        searchBar.rightItemIcon = "nav_qr_scan"
+        searchBar.searchPlaceholder = "企业名称/域名"
+        searchBar.backgroundColor = CA_MAIN_COLOR
+        searchBar.tfBgColor = .white
+        searchBar.coverButtonEnable = false
+        searchBar.returnKeyType = .search
+        
+        slideMenu.datasource = TYListMenuModel.createHomeMenu()
 
-        tableView.rowHeight = 155
+        tableView.rowHeight = 110
         tableView.register(UINib.init(nibName: "SiteInfoCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")        
     }
     
     override func rxBind() {
-        viewModel = CorporateViewModel(searchTextObser: searchBar.searchText)
+
+        viewModel = CorporateViewModel(searchTextObser: searchBar.textObser)
         
         tableView.prepare(viewModel)
         
@@ -68,24 +62,22 @@ class CAMyCorporateViewController: BaseViewController {
         tableView.rx.itemSelected.asDriver()
             .drive(viewModel.itemSelected)
             .disposed(by: disposeBag)
-        
-//        searchBar.leftItemTap.drive(onNext: { [unowned self] in
-//            self.menuView.menuAnimation()
-//        })
-//            .disposed(by: disposeBag)
-        
-        searchBar.rightItemTap.drive(onNext: { [unowned self] in
+                
+        searchBar.rightItemTapBack = { [unowned self] in
             let scanCtrl = CAScanViewController()
             self.navigationController?.pushViewController(scanCtrl, animated: true)
-        })
-            .disposed(by: disposeBag)
+        }
+        
+        searchBar.beginSearch = { [unowned self] _ in
+            self.viewModel.beginSearchSubject.onNext(Void())
+        }
 
-        searchBar.searchActionPublic.subscribe(onNext: { [unowned self] _ in
-            self.tableView.headerRefreshing()
-        })
-            .disposed(by: disposeBag)
+        
+        slideMenu.menuSelect = { [unowned self] page in
+            self.viewModel.menuChangeSubject.onNext(page)
+        }
 
-        tableView.headerRefreshing()
+        viewModel.reloadSubject.onNext(true)
     }
 }
 

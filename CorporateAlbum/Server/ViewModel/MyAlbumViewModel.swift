@@ -54,7 +54,7 @@ class MyAlbumViewModel: RefreshVM<SiteInfoModel> {
             .mapResponse()
             .subscribe(onSuccess: { [weak self] ret in
                 if ret.error == 0 {
-                    model.AwardState = model.AwardState == 0 ? 1 : 0
+//                    model.AwardState = model.AwardState == 0 ? 1 : 0
                     self?.hud.successHidden("操作成功！", {
                         self?.datasource.value = data
                     })
@@ -73,7 +73,7 @@ class MyAlbumViewModel: RefreshVM<SiteInfoModel> {
             .mapResponse()
             .subscribe(onSuccess: { [weak self] ret in
                 if ret.error == 0 {
-                    model.SiteState = model.SiteState == 0 ? 1 : 0
+//                    model.SiteState = model.SiteState == 0 ? 1 : 0
                     self?.hud.successHidden("操作成功！", {
                         self?.datasource.value = data
                     })
