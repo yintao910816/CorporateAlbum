@@ -96,7 +96,7 @@ enum API{
     /**
      * 修改手机号获取邮箱验证码
      */
-    case setPhone(phone: String, emailCode: String)
+    case setPhone(phone: String, smsCode: String)
     
     /**
      * 修改收款账号（支付宝）
@@ -111,7 +111,7 @@ enum API{
     /**
      * 修改昵称
      */
-    case setNickName(nickName: String, smsCode: String)
+    case setNickName(nickName: String)
     
     /**
      * 修改头像
@@ -226,7 +226,7 @@ extension API: TargetType{
             return "User/SetPay"
         case .setEmail(_, _):
             return "User/SetEmail"
-        case .setNickName(_, _):
+        case .setNickName(_):
             return "User/SetName"
             
         case .sendSmsCodeForMe():
@@ -355,9 +355,8 @@ extension API {
             params["skip"]   = skip
             params["limit"]  = limit
 
-        case .setPhone(let phone, let emailCode):
-            params["emailcode"] = emailCode
-            params["token"]  = userDefault.appToken ?? ""
+        case .setPhone(let phone, let smsCode):
+            params["smsCode"] = smsCode
             params["phone"]  = phone
         case .setEmail(let email, let smsCode):
             params["token"]  = userDefault.appToken ?? ""
@@ -368,12 +367,9 @@ extension API {
             params["account"] = account
             params["smscode"]  = smsCode
             break
-        case .setNickName(let nickName, let smsCode):
-            params["token"]  = userDefault.appToken ?? ""
+        case .setNickName(let nickName):
             params["nickName"] = nickName
-            params["smscode"]  = smsCode
-            break
-            
+
         case .bill(let search, let skip, let limit):
             params["token"]  = userDefault.appToken ?? ""
             params["search"] = search

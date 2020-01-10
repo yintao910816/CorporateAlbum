@@ -22,20 +22,11 @@ class MineViewModel: BaseViewModel , VMNavigation{
     
     override init() {
         super.init()
-        
-        let sections = [SectionModel.init(model: 0, items: [MineCellModel.init("账号设置"),
-                                                            MineCellModel.init("奖励提现"),
-                                                            MineCellModel.init("开通画册"),
-                                                            MineCellModel.init("我的订单"),
-                                                            MineCellModel.init("我的画册")]),
-                        SectionModel.init(model: 1, items: [MineCellModel.init("关于我们"),
-                                                            MineCellModel.init("退出登录")])]
-        
-        datasource.value = sections
-        
+                
         UserInfoModel.loginUser { [unowned self] user in
             if let _user = user, _user.Id.count > 0 {
                 self.userInfoObser.value = (_user, CASumIncomeModel())
+                self.prepareCellData()
                 self.userIsLoginObser.value = true
             }else {
                 self.userIsLoginObser.value = false
@@ -62,6 +53,27 @@ class MineViewModel: BaseViewModel , VMNavigation{
 //                self.datasource.value = tempDatas
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func prepareCellData() {
+        let sections = [SectionModel.init(model: 0, items: [MineCellModel(title: "账号设置",
+                                                                          icon: UIImage(named: "mine_account_setting"),
+                                                                          segue: "accountSegue",
+                                                                          params: ["model":userInfoObser.value.0]),
+                                                            MineCellModel(title: "奖励提现",
+                                                                          icon: UIImage(named: "mine_funds")),
+                                                            MineCellModel(title: "开通画册",
+                                                                          icon: UIImage(named: "mine_open_album")),
+                                                            MineCellModel(title: "我的订单",
+                                                                          icon: UIImage(named: "mine_order")),
+                                                            MineCellModel(title: "我的画册",
+                                                                          icon: UIImage(named: "mine_album"))]),
+                        SectionModel.init(model: 1, items: [MineCellModel(title: "关于我们",
+                                                                          icon: UIImage(named: "mine_about")),
+                                                            MineCellModel(title: "退出登录",
+                                                                          icon: UIImage(named: "mine_login_out"))])]
+        
+        datasource.value = sections
     }
     
     private func getUserInfoRequest() {
@@ -96,9 +108,8 @@ class MineViewModel: BaseViewModel , VMNavigation{
 }
 
 struct MineCellModel {
-    var title: String!
-    
-    init(_ title: String) {
-        self.title = title
-    }
+    var title: String = ""
+    var icon: UIImage?
+    var segue: String = ""
+    var params: [String: Any] = [:]
 }

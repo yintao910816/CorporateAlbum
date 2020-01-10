@@ -18,7 +18,7 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = RGB(242, 242, 242)
+        self.view.backgroundColor = .white
         
         modalPresentationStyle = .fullScreen
         

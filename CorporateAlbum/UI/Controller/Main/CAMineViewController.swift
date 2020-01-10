@@ -66,6 +66,7 @@ class CAMineViewController: BaseViewController {
         let datasource = RxTableViewSectionedReloadDataSource<SectionModel<Int, MineCellModel>>.init(configureCell: { _, tb, indexPath, model -> UITableViewCell in
             let cell = tb.dequeueReusableCell(withIdentifier: "cellID")!
             cell.textLabel?.text = model.title
+            cell.imageView?.image = model.icon
             cell.accessoryType = .disclosureIndicator
             return cell
         })
@@ -79,7 +80,7 @@ class CAMineViewController: BaseViewController {
             .drive(headerView.userInfoObser)
             .disposed(by: disposeBag)
         
-        tableView.rx.itemSelected
+        tableView.rx.modelSelected(MineCellModel.self)
             .asDriver().drive(onNext: { [unowned self] in self.pushVC($0) })
             .disposed(by: disposeBag)
         
@@ -93,61 +94,65 @@ class CAMineViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    private func pushVC(_ indexPath: IndexPath) {
-        if indexPath.row == 3 {
-            performSegue(withIdentifier: mynoticeSegue, sender: nil)
-            return
-        }else if indexPath.row == 6 {
-            let webVC = WebViewController()
-            webVC.htmlURL = APIAssistance.userHelp
-            webVC.navigationItem.title = "使用帮助"
-            navigationController?.pushViewController(webVC, animated: true)
-            return
-        }else if indexPath.row == 7 {
-            CACoreLogic.clearCookie()
-
-            CACoreLogic.pressentLoginVC()
-            return
-        }
+    private func pushVC(_ model: MineCellModel) {
+//        if indexPath.row == 3 {
+//            performSegue(withIdentifier: mynoticeSegue, sender: nil)
+//            return
+//        }else if indexPath.row == 6 {
+//            let webVC = WebViewController()
+//            webVC.htmlURL = APIAssistance.userHelp
+//            webVC.navigationItem.title = "使用帮助"
+//            navigationController?.pushViewController(webVC, animated: true)
+//            return
+//        }else if indexPath.row == 7 {
+//            CACoreLogic.clearCookie()
+//
+//            CACoreLogic.pressentLoginVC()
+//            return
+//        }
         if viewModel.userIsLoginObser.value == true {
-            switch indexPath.row {
-            case 0:
-                performSegue(withIdentifier: accountSetSegue, sender: nil)
-                break
-            case 1:
-                performSegue(withIdentifier: billSegue, sender: nil)
-                break
-            case 2:
-                let webVC = WebViewController()
-                webVC.htmlURL = APIAssistance.cash
-                webVC.navigationItem.title = "奖励提现"
-                navigationController?.pushViewController(webVC, animated: true)
-                break
-            case 4:
-                performSegue(withIdentifier: myalbumSegue, sender: nil)
-                break
-            case 5:
-                let webVC = WebViewController()
-                webVC.htmlURL = APIAssistance.openAlbum
-                webVC.navigationItem.title = "开通画册"
-                navigationController?.pushViewController(webVC, animated: true)
-                break
-            default:
-                break
+            if model.segue.count > 0 {
+                performSegue(withIdentifier: model.segue, sender: model.params)
             }
+//            switch indexPath.row {
+//            case 0:
+//                performSegue(withIdentifier: accountSetSegue, sender: nil)
+//                break
+//            case 1:
+//                performSegue(withIdentifier: billSegue, sender: nil)
+//                break
+//            case 2:
+//                let webVC = WebViewController()
+//                webVC.htmlURL = APIAssistance.cash
+//                webVC.navigationItem.title = "奖励提现"
+//                navigationController?.pushViewController(webVC, animated: true)
+//                break
+//            case 4:
+//                performSegue(withIdentifier: myalbumSegue, sender: nil)
+//                break
+//            case 5:
+//                let webVC = WebViewController()
+//                webVC.htmlURL = APIAssistance.openAlbum
+//                webVC.navigationItem.title = "开通画册"
+//                navigationController?.pushViewController(webVC, animated: true)
+//                break
+//            default:
+//                break
+//            }
         }else {
             NoticesCenter.alert(title: "提示", message: "请先登录后操作")
         }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == accountSetSegue {
-            let controller = segue.destination as! CAAccountSetTableViewController
-            controller.prepare(parameters: ["model": viewModel.userInfoObser.value])
-        }else if segue.identifier == avatarSetSegue {
-            let controller = segue.destination as! CASetAvatarViewController
-            controller.prepare(parameters: ["user": viewModel.userInfoObser.value])
-        }
+        segue.destination.prepare(parameters: sender as! [String: Any])
+//        if segue.identifier == accountSetSegue {
+//            let controller = segue.destination as! CAAccountSetTableViewController
+//            controller.prepare(parameters: ["model": viewModel.userInfoObser.value])
+//        }else if segue.identifier == avatarSetSegue {
+//            let controller = segue.destination as! CASetAvatarViewController
+//            controller.prepare(parameters: ["user": viewModel.userInfoObser.value])
+//        }
     }
 
 }

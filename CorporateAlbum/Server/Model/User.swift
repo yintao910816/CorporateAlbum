@@ -10,81 +10,75 @@ import Foundation
 import SQLite
 
 fileprivate let IdEx         = Expression<String>("Id")
-fileprivate let RolesEx      = Expression<String>("Roles")
-fileprivate let FundsEx      = Expression<String>("Funds")
+fileprivate let IsClientEx      = Expression<Bool>("IsClient")
+fileprivate let FundsEx      = Expression<Double>("Funds")
 fileprivate let MobileEx     = Expression<String>("Mobile")
-fileprivate let NickNameEx   = Expression<String>("NickName")
+fileprivate let NickNameEx     = Expression<String>("NickName")
+fileprivate let IsRealNameEx     = Expression<Bool>("IsRealName")
 fileprivate let AlipayEx     = Expression<String>("Alipay")
-fileprivate let WeixinPayEx  = Expression<String>("WeixinPay")
-fileprivate let IDCardEx     = Expression<String>("IDCard")
-fileprivate let TrulyNameEx  = Expression<String>("TrulyName")
-fileprivate let ExperienceEx = Expression<String>("Experience")
-fileprivate let CreateTimeEx = Expression<String>("CreateTime")
-fileprivate let VisitTimeEx  = Expression<String>("VisitTime")
-fileprivate let LoginCountEx = Expression<Int>("LoginCount")
-fileprivate let CompanyEx    = Expression<String>("Company")
-fileprivate let SexEx        = Expression<Int>("Sex")
-fileprivate let QQEx         = Expression<String>("QQ")
-fileprivate let WeixinEx     = Expression<String>("Weixin")
-fileprivate let EmailEx      = Expression<String>("Email")
-fileprivate let UrlEx        = Expression<String>("Url")
-fileprivate let RegionCodeEx = Expression<String>("RegionCode")
-fileprivate let RegionTitleEx = Expression<String>("RegionTitle")
-fileprivate let IndustryEx    = Expression<String>("Industry")
+fileprivate let ExperienceEx     = Expression<Int>("Experience")
+fileprivate let CreateTimeEx     = Expression<String>("CreateTime")
+fileprivate let VisitTimeEx     = Expression<String>("VisitTime")
+fileprivate let SessionIdEx     = Expression<String>("SessionId")
+fileprivate let LoginCountEx     = Expression<Int>("LoginCount")
+fileprivate let CompanyEx     = Expression<String>("Company")
+fileprivate let SexEx     = Expression<String>("Sex")
+fileprivate let QQEx     = Expression<String>("QQ")
+fileprivate let EmailEx     = Expression<String>("Email")
+fileprivate let UrlEx     = Expression<String>("Url")
+fileprivate let RegionCodeEx     = Expression<String>("RegionCode")
+fileprivate let RegionTitleEx     = Expression<String>("RegionTitle")
+fileprivate let IndustryEx     = Expression<String>("Industry")
 fileprivate let AddressEx     = Expression<String>("Address")
 fileprivate let SummaryEx     = Expression<String>("Summary")
-fileprivate let RoleTitleEx   = Expression<String>("RoleTitle")
-fileprivate let SexTitleEx    = Expression<String>("SexTitle")
-fileprivate let PhotoUrlEx    = Expression<String>("PhotoUrl")
+fileprivate let PhotoUrlEx     = Expression<String>("PhotoUrl")
 
 class UserInfoModel: HJModel {
     var Id: String = ""
-    var Roles: String = ""
-    /** 资金余额 */
-    var Funds: String = ""
+    /// 是否企业用户
+    var IsClient: Bool = false
+    /// 资金余额
+    var Funds: Double = 0
+    /// 手机号码
     var Mobile: String = ""
+    /// 昵称
     var NickName: String = ""
-    /** 支付宝收款账号 */
+    /// 是否实名认证
+    var IsRealName: Bool = false
+    /// 支付宝收款账号
     var Alipay: String = ""
-    /** 微信开放平台ID  */
-    var WeixinPay: String = ""
-    /** 身份证号 */
-    var IDCard: String = ""
-    /** 真实姓名 */
-    var TrulyName: String = ""
-    /** 经验值 */
-    var Experience: String = ""
-    /** 注册时间 */
+    /// 经验值
+    var Experience: Int = 0
+    /// 注册时间
     var CreateTime: String = ""
-    /** 最后访问时间 */
+    /// 最后访问时间
     var VisitTime: String = ""
-    /** 登录次数 */
+    /// 最后访问会话Id
+    var SessionId: String = ""
+    /// 登录次数
     var LoginCount: Int = 0
-    /** 所在单位 */
+    /// 所在单位
     var Company: String = ""
-    /** 性别 */
-    var Sex: Int = 0
+    /// 性别
+    var Sex: String = ""
+    /// QQ
     var QQ: String = ""
-    var Weixin: String = ""
+    /// 安全邮箱
     var Email: String = ""
-    /** 个人主页 */
+    /// 个人主页
     var Url: String = ""
-    /** 区域代码 */
+    /// 区域代码
     var RegionCode: String = ""
-    /** 区域标题 */
+    /// 区域标题
     var RegionTitle: String = ""
-    /** 职业 */
+    /// 职业
     var Industry: String = ""
+    /// 住址
     var Address: String = ""
-    /** 备注 */
+    /// 备注
     var Summary: String = ""
-    /** 角色说明 */
-    var RoleTitle: String = ""
-    /** 性别标题 */
-    var SexTitle: String = ""
-    /** 头像 */
+    /// 头像ID
     var PhotoUrl: String = ""
-    
 }
 
 extension UserInfoModel {
@@ -112,6 +106,14 @@ extension UserInfoModel {
         }
     }
 
+    /// 修改昵称
+    static public func update(nickName: String) {
+        if let uid = userDefault.uid {
+            let filier = (IdEx == uid)
+            let setters = [NickNameEx <- nickName]
+            DBQueue.share.updateQueue(filier, setters, userTB, UserInfoModel.self)
+        }
+    }
 }
 
 extension UserInfoModel: DBOperation {
@@ -125,31 +127,27 @@ extension UserInfoModel: DBOperation {
     
     func setters() -> [Setter] {
         return [IdEx           <- Id,
-                RolesEx        <- Roles,
+                IsClientEx        <- IsClient,
                 FundsEx        <- Funds,
                 MobileEx       <- Mobile,
                 NickNameEx     <- NickName,
-                AlipayEx       <- Alipay,
-                WeixinPayEx    <- WeixinPay,
-                IDCardEx       <- IDCard,
-                TrulyNameEx    <- TrulyName,
-                ExperienceEx   <- Experience,
-                CreateTimeEx   <- CreateTime,
-                VisitTimeEx    <- VisitTime,
-                LoginCountEx   <- LoginCount,
-                CompanyEx      <- Company,
-                SexEx          <- Sex,
+                IsRealNameEx       <- IsRealName,
+                AlipayEx    <- Alipay,
+                ExperienceEx       <- Experience,
+                CreateTimeEx    <- CreateTime,
+                VisitTimeEx   <- VisitTime,
+                SessionIdEx   <- SessionId,
+                LoginCountEx    <- LoginCount,
+                CompanyEx   <- Company,
+                SexEx      <- Sex,
                 QQEx           <- QQ,
-                WeixinEx       <- Weixin,
-                EmailEx        <- Email,
+                EmailEx       <- Email,
                 UrlEx          <- Url,
                 RegionCodeEx   <- RegionCode,
                 RegionTitleEx  <- RegionTitle,
                 IndustryEx     <- Industry,
                 AddressEx      <- Address,
                 SummaryEx      <- Summary,
-                RoleTitleEx    <- RoleTitle,
-                SexTitleEx     <- SexTitle,
                 PhotoUrlEx     <- PhotoUrl
         ]
     }
@@ -160,22 +158,20 @@ extension UserInfoModel: DBOperation {
         
     static func dbBind(_ builder: TableBuilder) {
         builder.column(IdEx)
-        builder.column(RolesEx)
+        builder.column(IsClientEx)
         builder.column(FundsEx)
         builder.column(MobileEx)
         builder.column(NickNameEx)
+        builder.column(IsRealNameEx)
         builder.column(AlipayEx)
-        builder.column(WeixinPayEx)
-        builder.column(IDCardEx)
-        builder.column(TrulyNameEx)
         builder.column(ExperienceEx)
         builder.column(CreateTimeEx)
         builder.column(VisitTimeEx)
+        builder.column(SessionIdEx)
         builder.column(LoginCountEx)
         builder.column(CompanyEx)
         builder.column(SexEx)
         builder.column(QQEx)
-        builder.column(WeixinEx)
         builder.column(EmailEx)
         builder.column(UrlEx)
         builder.column(RegionCodeEx)
@@ -183,8 +179,6 @@ extension UserInfoModel: DBOperation {
         builder.column(IndustryEx)
         builder.column(AddressEx)
         builder.column(SummaryEx)
-        builder.column(RoleTitleEx)
-        builder.column(SexTitleEx)
         builder.column(PhotoUrlEx)
     }
     
@@ -203,32 +197,28 @@ extension UserInfoModel: DBOperation {
             for user in try db.prepare(t) {
                 let model = UserInfoModel();
                 model.Id           = user[IdEx]
-                model.Roles        = user[RolesEx]
+                model.IsClient        = user[IsClientEx]
                 model.Funds        = user[FundsEx]
                 model.Mobile       = user[MobileEx]
                 model.NickName     = user[NickNameEx]
-                model.Alipay       = user[AlipayEx]
-                model.WeixinPay    = user[WeixinPayEx]
-                model.IDCard       = user[IDCardEx]
-                model.TrulyName    = user[TrulyNameEx]
-                model.Experience   = user[ExperienceEx]
-                model.CreateTime   = user[CreateTimeEx]
+                model.IsRealName    = user[IsRealNameEx]
+                model.Alipay    = user[AlipayEx]
+                model.Experience    = user[ExperienceEx]
+                model.CreateTime    = user[CreateTimeEx]
                 model.VisitTime    = user[VisitTimeEx]
-                model.LoginCount   = user[LoginCountEx]
-                model.Company      = user[CompanyEx]
-                model.Sex          = user[SexEx]
-                model.QQ           = user[QQEx]
-                model.Weixin          = user[WeixinPayEx]
-                model.Email           = user[EmailEx]
-                model.Url             = user[UrlEx]
-                model.RegionCode      = user[RegionCodeEx]
-                model.RegionTitle     = user[RegionTitleEx]
-                model.Industry        = user[IndustryEx]
-                model.Address         = user[AddressEx]
-                model.Summary         = user[SummaryEx]
-                model.RoleTitle       = user[RoleTitleEx]
-                model.SexTitle        = user[SexTitleEx]
-                model.PhotoUrl        = user[PhotoUrlEx]
+                model.SessionId    = user[SessionIdEx]
+                model.LoginCount    = user[LoginCountEx]
+                model.Company    = user[CompanyEx]
+                model.Sex    = user[SexEx]
+                model.QQ    = user[QQEx]
+                model.Email    = user[EmailEx]
+                model.Url    = user[UrlEx]
+                model.RegionCode    = user[RegionCodeEx]
+                model.RegionTitle    = user[RegionTitleEx]
+                model.Industry    = user[IndustryEx]
+                model.Address    = user[AddressEx]
+                model.Summary    = user[SummaryEx]
+                model.PhotoUrl    = user[PhotoUrlEx]
 
                 datas.append(model)
             }

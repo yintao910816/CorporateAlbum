@@ -10,41 +10,52 @@ import UIKit
 
 class CASetPhoneViewController: BaseViewController {
 
-    @IBOutlet weak var authorCodeOutlet: UITextField!
-    @IBOutlet weak var newPhoneOutlet: UITextField!
+    @IBOutlet weak var phoneOutlet: UITextField!
+    @IBOutlet weak var codeOutlet: UITextField!
     @IBOutlet weak var getAuthorCodeOutlet: UIButton!
     @IBOutlet weak var submitOutlet: UIButton!
     
     private var viewModel: SetPhoneViewModel!
+    private var userInfo: UserInfoModel!
 
     override func setupUI() {
-        submitOutlet.layer.cornerRadius = 4
+        phoneOutlet.text = userInfo.Mobile
         
-        for idx in 100 ..< 102 {
-            let aview = view.viewWithTag(idx)
-            aview?.layer.borderWidth  = 1
-            aview?.layer.borderColor  = UIColor.red.cgColor
-        }
+        getAuthorCodeOutlet.layer.borderWidth = 1
+        getAuthorCodeOutlet.layer.borderColor = RGB(8, 172, 222).cgColor
     }
     
     override func rxBind() {
         
-        viewModel = SetPhoneViewModel.init(input: (authorCode:authorCodeOutlet.rx.text.orEmpty.asDriver(),
-                                                      newPhone: newPhoneOutlet.rx.text.orEmpty.asDriver()),
-                                              tap: (getAuthorCode: getAuthorCodeOutlet.rx.tap.asDriver(),
-                                                    submit: submitOutlet.rx.tap.asDriver()))
+        viewModel = SetPhoneViewModel.init(input: (phone: phoneOutlet.rx.text.orEmpty.asDriver(),
+                                                   code: codeOutlet.rx.text.orEmpty.asDriver(),
+                                                   userInfo: userInfo),
+                                           tap: (getAuthorCode: getAuthorCodeOutlet.rx.tap.asDriver(),
+                                                 submit: submitOutlet.rx.tap.asDriver()))
         
-        viewModel.authorCodeObser.map{ return $0 == true ? UIColor.clear : UIColor.red }
-            .asDriver().drive(view.viewWithTag(100)!.rx.borderColor)
+        viewModel.enabelSubject.asObservable()
+            .do(onNext: { [weak self] in
+                PrintLog("绑定数据：\($0)")
+                self?.submitOutlet.backgroundColor = $0 ? RGB(254, 163, 41) : RGB(200, 200, 200)
+            })
+            .bind(to: submitOutlet.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        viewModel.phoneObser.map{ return $0 == true ? UIColor.clear : UIColor.red }
-            .asDriver().drive(view.viewWithTag(101)!.rx.borderColor)
+        viewModel.secondsSubject
+            .bind(to: getAuthorCodeOutlet.rx.title(for: .normal))
             .disposed(by: disposeBag)
         
+        viewModel.codeEnableSubject.asObservable()
+            .bind(to: getAuthorCodeOutlet.rx.isEnabled)
+            .disposed(by: disposeBag)
+                
         viewModel.popSubject.subscribe(onNext: { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
+    }
+
+    override func prepare(parameters: [String : Any]?) {
+        userInfo = (parameters!["model"] as! UserInfoModel)
     }
 
 }

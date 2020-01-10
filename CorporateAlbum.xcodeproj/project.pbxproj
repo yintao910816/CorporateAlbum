@@ -29,6 +29,9 @@
 		B83185722111BA4B00F05D49 /* AlbumPagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83185702111BA4B00F05D49 /* AlbumPagesCell.xib */; };
 		B83185742111BD6900F05D49 /* AlbumPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83185732111BD6900F05D49 /* AlbumPageViewController.swift */; };
 		B835D8CD213920C9003019FF /* AppLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835D8CC213920C8003019FF /* AppLaunchView.swift */; };
+		B836AB1E23C8C9AD009FBA5D /* CAAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B836AB1D23C8C9AD009FBA5D /* CAAccountViewController.swift */; };
+		B836AB2123C8CA1C009FBA5D /* CAAccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B836AB2023C8CA1C009FBA5D /* CAAccountHeaderView.swift */; };
+		B836AB2323C8CA25009FBA5D /* CAAccountHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B836AB2223C8CA25009FBA5D /* CAAccountHeaderView.xib */; };
 		B8396236211A7E7A0064A11E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8396235211A7E7A0064A11E /* AudioToolbox.framework */; };
 		B8396238211A7E830064A11E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8396237211A7E820064A11E /* QuartzCore.framework */; };
 		B839623A211A7E8E0064A11E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8396239211A7E8E0064A11E /* OpenGLES.framework */; };
@@ -428,6 +431,9 @@
 		B83185702111BA4B00F05D49 /* AlbumPagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumPagesCell.xib; sourceTree = "<group>"; };
 		B83185732111BD6900F05D49 /* AlbumPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPageViewController.swift; sourceTree = "<group>"; };
 		B835D8CC213920C8003019FF /* AppLaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLaunchView.swift; sourceTree = "<group>"; };
+		B836AB1D23C8C9AD009FBA5D /* CAAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAAccountViewController.swift; sourceTree = "<group>"; };
+		B836AB2023C8CA1C009FBA5D /* CAAccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAAccountHeaderView.swift; sourceTree = "<group>"; };
+		B836AB2223C8CA25009FBA5D /* CAAccountHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAAccountHeaderView.xib; sourceTree = "<group>"; };
 		B8396235211A7E7A0064A11E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B8396237211A7E820064A11E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B8396239211A7E8E0064A11E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1137,6 +1143,15 @@
 			path = LaunchView;
 			sourceTree = "<group>";
 		};
+		B836AB1F23C8CA0C009FBA5D /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				B836AB2023C8CA1C009FBA5D /* CAAccountHeaderView.swift */,
+				B836AB2223C8CA25009FBA5D /* CAAccountHeaderView.xib */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		B83B9A3D2119419D00284FE6 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1192,6 +1207,7 @@
 		B83F278821141FED005CA5C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B836AB1F23C8CA0C009FBA5D /* Mine */,
 				B8B2F3F023C2449800F50078 /* CAAlbum */,
 				B88E4775212127460012D237 /* SearchBar.swift */,
 				B83F278921142091005CA5C3 /* AlbumShareView.xib */,
@@ -1228,6 +1244,7 @@
 				B84FC345210F0B2200DA30DC /* CAMyNoticesViewController.swift */,
 				B84FC34F210FEE7C00DA30DC /* CAMyAlbumViewController.swift */,
 				B83B9A392119360800284FE6 /* CASetAvatarViewController.swift */,
+				B836AB1D23C8C9AD009FBA5D /* CAAccountViewController.swift */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -2511,6 +2528,7 @@
 				B8CCE0552121531C00E94681 /* CAScanRemindViewController.xib in Resources */,
 				B83B9A3821192DCF00284FE6 /* MineHeaderView.xib in Resources */,
 				B84FC344210F02BC00DA30DC /* BillCell.xib in Resources */,
+				B836AB2323C8CA25009FBA5D /* CAAccountHeaderView.xib in Resources */,
 				B84FC326210EBECF00DA30DC /* SiteInfoCell.xib in Resources */,
 				B8D92AAF210974C400BAB001 /* Login.storyboard in Resources */,
 				B8D92AAD210974AD00BAB001 /* Main.storyboard in Resources */,
@@ -2586,6 +2604,7 @@
 				B8CCDFB121212C5100E94681 /* ZXPerspectiveTransform.m in Sources */,
 				B8CCDF9021212C5100E94681 /* ZXQRCodeBlockPair.m in Sources */,
 				B8CCDF9A21212C5100E94681 /* ZXQRCodeMode.m in Sources */,
+				B836AB2123C8CA1C009FBA5D /* CAAccountHeaderView.swift in Sources */,
 				B8CCE03121212C5100E94681 /* ZXVINResultParser.m in Sources */,
 				B8CCDFB821212C5100E94681 /* ZXReedSolomonEncoder.m in Sources */,
 				B8CCDFB621212C5100E94681 /* ZXGenericGF.m in Sources */,
@@ -2622,6 +2641,7 @@
 				B8CCDF8021212C5100E94681 /* ZXAztecToken.m in Sources */,
 				B84FC343210F02BC00DA30DC /* BillCell.swift in Sources */,
 				B8CCDF9121212C5100E94681 /* ZXMultiFinderPatternFinder.m in Sources */,
+				B836AB1E23C8C9AD009FBA5D /* CAAccountViewController.swift in Sources */,
 				B84FC32C210EDB8300DA30DC /* CAAccountSetTableViewController.swift in Sources */,
 				B8CCDFE721212C5100E94681 /* ZXDataMatrixDetector.m in Sources */,
 				B8950B9E2109D37200310551 /* MineViewModel.swift in Sources */,
