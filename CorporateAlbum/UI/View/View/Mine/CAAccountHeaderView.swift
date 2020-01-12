@@ -11,6 +11,14 @@ import UIKit
 
 class CAAccountHeaderView: UIView {
 
+    enum ActionType {
+        case nickName
+        case phone
+        case alipay
+        case city
+        case avatar
+    }
+    
     @IBOutlet weak var accountNumOutlet: UILabel!
     @IBOutlet weak var nickNameOutlet: UILabel!
     @IBOutlet weak var phoneOutlet: UILabel!
@@ -20,7 +28,7 @@ class CAAccountHeaderView: UIView {
     
     @IBOutlet var contentView: UIView!
     
-    public var selectedCallBack:(((String, [String: Any]))->())?
+    public var selectedCallBack:(((ActionType, String, [String: Any]))->())?
     
     @IBAction func actions(_ sender: UIButton) {
         switch sender.tag {
@@ -33,19 +41,20 @@ class CAAccountHeaderView: UIView {
             break
         case 202:
             // 昵称
-            selectedCallBack?(("editNickNameSegue", ["model": model]))
+            selectedCallBack?((.nickName, "editNickNameSegue", ["model": model]))
         case 203:
             // 手机号码
-            selectedCallBack?(("editPhoneSegue", ["model": model]))
+            selectedCallBack?((.phone ,"editPhoneSegue", ["model": model]))
         case 204:
             // 支付宝账号
-            break
+//            selectedCallBack?((.alipay ,"setAlipaySegue", ["model": model]))
+            NoticesCenter.alert(message: "开发中，敬请期待...")
         case 205:
             // 所在城市
-            break
+            selectedCallBack?((.city ,"setCitySegue", ["model": model]))
         case 206:
             // 更换头像
-            break
+            selectedCallBack?((.avatar ,"", [:]))
         default:
             break
         }
@@ -73,6 +82,10 @@ class CAAccountHeaderView: UIView {
             cityOutlet.text = model.RegionTitle
             iconOutlet.setImage(model.PhotoUrl)
         }
+    }
+    
+    public func reloadAvatar(_ avatar: UIImage?) {
+        iconOutlet.image = avatar
     }
     
     override func layoutSubviews() {

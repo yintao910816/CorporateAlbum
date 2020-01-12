@@ -10,7 +10,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="9fR-es-NM8">
             <objects>
-                <tabBarController id="n0v-l2-yra" customClass="CATabBarController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="n0v-l2-yra" customClass="CATabBarController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zV2-y3-MZP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -30,7 +30,7 @@
         <!--企业-->
         <scene sceneID="77X-rF-aVT">
             <objects>
-                <navigationController id="g6N-Ak-gom" customClass="MainNavagationController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="g6N-Ak-gom" customClass="MainNavagationController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="企业" image="corporate_un_selected" selectedImage="corporate_selected" id="MHT-tq-1x2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JId-Xe-gap">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -47,7 +47,7 @@
         <!--企业-->
         <scene sceneID="HK7-Ks-Rsz">
             <objects>
-                <viewController id="wH2-ME-xih" customClass="CAMyCorporateViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wH2-ME-xih" customClass="CAMyCorporateViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w6C-l7-7lM"/>
                         <viewControllerLayoutGuide type="bottom" id="0Ad-z5-MLd"/>
@@ -56,18 +56,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M1p-jw-5Pr" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M1p-jw-5Pr" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="89" width="375" height="529"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJg-Rr-vyl" customClass="TYSearchBar" customModule="CorporateAlbum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJg-Rr-vyl" customClass="TYSearchBar" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="z5h-SS-3su"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPf-lH-xWC" customClass="TYSlideMenuView" customModule="CorporateAlbum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPf-lH-xWC" customClass="TYSlideMenuView" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -106,7 +106,7 @@
         <!--奖励-->
         <scene sceneID="aGB-ZP-RGy">
             <objects>
-                <navigationController id="0kc-op-vkg" customClass="MainNavagationController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="0kc-op-vkg" customClass="MainNavagationController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="奖励" image="funds_record_un_selected" selectedImage="funds_record_selected" id="Eyr-YX-1ag"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SeT-G1-67G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -123,7 +123,7 @@
         <!--List Award View Controller-->
         <scene sceneID="Gj2-9r-NXM">
             <objects>
-                <viewController id="46z-do-dw5" customClass="CAListAwardViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="46z-do-dw5" customClass="CAListAwardViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lZI-Ar-XLW"/>
                         <viewControllerLayoutGuide type="bottom" id="RaQ-ju-IGx"/>
@@ -132,14 +132,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIl-r0-E2I" customClass="TYSearchBar" customModule="CorporateAlbum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIl-r0-E2I" customClass="TYSearchBar" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3oN-JH-jFg"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A7W-3A-elj" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A7W-3A-elj" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
@@ -170,7 +170,7 @@
         <!--设置头像-->
         <scene sceneID="Q9A-Zj-8lS">
             <objects>
-                <viewController title="设置头像" id="Agx-R2-P8Q" customClass="CASetAvatarViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="设置头像" id="Agx-R2-P8Q" customClass="CASetAvatarViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kv0-F7-mZS"/>
                         <viewControllerLayoutGuide type="bottom" id="8gI-L8-JrH"/>
@@ -228,7 +228,7 @@
         <!--我-->
         <scene sceneID="IPR-Gc-r85">
             <objects>
-                <navigationController id="m6M-M9-Tfr" customClass="MainNavagationController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="m6M-M9-Tfr" customClass="MainNavagationController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" image="mine_un_selected" selectedImage="mine_selected" id="g6B-gp-Ezr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="osT-16-oRW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -245,7 +245,7 @@
         <!--我-->
         <scene sceneID="OwB-Xl-Z4e">
             <objects>
-                <viewController id="rMP-MW-dDo" customClass="CAMineViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rMP-MW-dDo" customClass="CAMineViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y9a-AJ-E4Q"/>
                         <viewControllerLayoutGuide type="bottom" id="XTX-4U-nnL"/>
@@ -254,7 +254,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XUv-fP-gHg" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XUv-fP-gHg" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -285,6 +285,9 @@
                         <segue destination="oN5-tx-Prk" kind="show" identifier="myalbumSegue" id="Uom-Bh-wKg"/>
                         <segue destination="Agx-R2-P8Q" kind="show" identifier="avatarSetSegue" id="CVh-mt-3FN"/>
                         <segue destination="tvB-jc-RPO" kind="show" identifier="accountSegue" id="jsZ-1d-eCk"/>
+                        <segue destination="yPk-QU-pg4" kind="show" identifier="refundsSegue" id="h3k-cB-5jw"/>
+                        <segue destination="LCa-bW-MRl" kind="show" identifier="openAlbumSegue" id="5uc-7n-JyA"/>
+                        <segue destination="86T-um-F99" kind="show" identifier="orderSegue" id="q8S-37-fUY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XV-q5-8Ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,7 +297,7 @@
         <!--Site Album Book View Controller-->
         <scene sceneID="eY0-tJ-zEg">
             <objects>
-                <viewController storyboardIdentifier="siteAlbumCtrlID" id="i8i-fQ-BpY" customClass="CASiteAlbumBookViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="siteAlbumCtrlID" id="i8i-fQ-BpY" customClass="CASiteAlbumBookViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8jf-jH-gXS"/>
                         <viewControllerLayoutGuide type="bottom" id="N4v-L4-Mms"/>
@@ -344,7 +347,7 @@
         <!--Album Info View Controller-->
         <scene sceneID="d8k-AS-VBl">
             <objects>
-                <viewController storyboardIdentifier="bookInfoID" hidesBottomBarWhenPushed="YES" id="ihQ-Te-Of9" customClass="CAAlbumInfoViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bookInfoID" hidesBottomBarWhenPushed="YES" id="ihQ-Te-Of9" customClass="CAAlbumInfoViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WkW-3e-kN8"/>
                         <viewControllerLayoutGuide type="bottom" id="dot-k1-xo2"/>
@@ -461,7 +464,7 @@
         <!--我的画册-->
         <scene sceneID="byQ-ec-K9F">
             <objects>
-                <viewController title="我的画册" id="oN5-tx-Prk" customClass="CAMyAlbumViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="我的画册" id="oN5-tx-Prk" customClass="CAMyAlbumViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MPB-Ez-oNj"/>
                         <viewControllerLayoutGuide type="bottom" id="NWu-a8-fPB"/>
@@ -470,7 +473,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1s6-So-VIY" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1s6-So-VIY" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -495,7 +498,7 @@
         <!--收益明细-->
         <scene sceneID="dns-hm-mpt">
             <objects>
-                <viewController title="收益明细" id="Gd8-uj-QZt" customClass="CABillViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="收益明细" id="Gd8-uj-QZt" customClass="CABillViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hpw-sS-WOJ"/>
                         <viewControllerLayoutGuide type="bottom" id="yMm-ay-T31"/>
@@ -504,7 +507,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fyl-We-qBu" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fyl-We-qBu" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -529,7 +532,7 @@
         <!--我的消息-->
         <scene sceneID="T94-1J-rzP">
             <objects>
-                <viewController title="我的消息" id="kMw-Di-EVS" customClass="CAMyNoticesViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="我的消息" id="kMw-Di-EVS" customClass="CAMyNoticesViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h5a-TN-vb4"/>
                         <viewControllerLayoutGuide type="bottom" id="jYP-1k-90N"/>
@@ -538,7 +541,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mYN-oo-MsT" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mYN-oo-MsT" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -563,7 +566,7 @@
         <!--账号设置-->
         <scene sceneID="k1M-j5-rlM">
             <objects>
-                <viewController id="tvB-jc-RPO" customClass="CAAccountViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tvB-jc-RPO" customClass="CAAccountViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Oe-PK-iaQ"/>
                         <viewControllerLayoutGuide type="bottom" id="z7W-Pf-ty9"/>
@@ -572,7 +575,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fb7-aQ-q2D" customClass="BaseTB" customModule="CorporateAlbum" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fb7-aQ-q2D" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
@@ -590,6 +593,8 @@
                         <outlet property="tableView" destination="fb7-aQ-q2D" id="iez-91-WG6"/>
                         <segue destination="SkT-PH-Hjf" kind="show" identifier="editNickNameSegue" id="h8m-KZ-GzO"/>
                         <segue destination="Zfx-h3-PId" kind="show" identifier="editPhoneSegue" id="uRT-p0-Hgk"/>
+                        <segue destination="hbx-nB-lEf" kind="show" identifier="setCitySegue" id="nDc-hb-4rN"/>
+                        <segue destination="oyY-a3-s7A" kind="show" identifier="setAlipaySegue" id="RXe-qa-ohX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJB-t5-2yM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -599,7 +604,7 @@
         <!--修改密保邮箱-->
         <scene sceneID="AtB-kw-Txg">
             <objects>
-                <viewController title="修改密保邮箱" id="4wq-xZ-zI5" customClass="CASetEmailViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="修改密保邮箱" id="4wq-xZ-zI5" customClass="CASetEmailViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M0g-2m-gEi"/>
                         <viewControllerLayoutGuide type="bottom" id="5m3-La-F6x"/>
@@ -687,12 +692,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrI-lP-kW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3663" y="2255"/>
+            <point key="canvasLocation" x="8590" y="2583"/>
         </scene>
         <!--画册-->
         <scene sceneID="XbN-Fk-MLp">
             <objects>
-                <navigationController id="zF1-0K-yOj" customClass="MainNavagationController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="zF1-0K-yOj" customClass="MainNavagationController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="画册" image="album_un_selected" selectedImage="album_selected" id="Q46-AP-gAw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LiV-S9-TVu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -709,7 +714,7 @@
         <!--分享企业-->
         <scene sceneID="FIc-87-YKo">
             <objects>
-                <viewController id="7gO-yp-RDt" customClass="CAShareCorporateViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7gO-yp-RDt" customClass="CAShareCorporateViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DkO-Zp-abM"/>
                         <viewControllerLayoutGuide type="bottom" id="2bB-Y7-7sT"/>
@@ -743,7 +748,7 @@
         <!--分享画册-->
         <scene sceneID="rB2-Zo-hLD">
             <objects>
-                <viewController id="Q2C-66-nvO" customClass="CAShareAlbumViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Q2C-66-nvO" customClass="CAShareAlbumViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cYG-y4-XTZ"/>
                         <viewControllerLayoutGuide type="bottom" id="ULT-aw-ga3"/>
@@ -777,7 +782,7 @@
         <!--Album View Controller-->
         <scene sceneID="dCN-cb-NKZ">
             <objects>
-                <viewController id="c1Y-6O-sqy" customClass="CAAlbumViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c1Y-6O-sqy" customClass="CAAlbumViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="igl-6p-uBW"/>
                         <viewControllerLayoutGuide type="bottom" id="7bZ-Pb-nl2"/>
@@ -806,14 +811,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdA-9w-oDA" customClass="TYSearchBar" customModule="CorporateAlbum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdA-9w-oDA" customClass="TYSearchBar" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="trH-83-kep"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wP2-Zf-XOp" customClass="TYSlideMenuView" customModule="CorporateAlbum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wP2-Zf-XOp" customClass="TYSlideMenuView" customModule="有名画册" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -852,10 +857,372 @@
             </objects>
             <point key="canvasLocation" x="1132" y="-761"/>
         </scene>
+        <!--更换城市-->
+        <scene sceneID="jqf-bg-Bds">
+            <objects>
+                <viewController id="hbx-nB-lEf" customClass="CASetCityViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ibN-8C-8ju"/>
+                        <viewControllerLayoutGuide type="bottom" id="swc-o0-Mux"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yKj-wA-War">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vlZ-QO-VI2">
+                                <rect key="frame" x="0.0" y="44" width="375" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请获取定位信息" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t6C-Xk-rEf">
+                                        <rect key="frame" x="15" y="15" width="114.5" height="20"/>
+                                        <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHY-SB-qD2">
+                                        <rect key="frame" x="335" y="12.5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mHY-SB-qD2" secondAttribute="height" multiplier="1:1" id="DBy-Gc-fY0"/>
+                                            <constraint firstAttribute="width" constant="25" id="XW0-PB-Sg9"/>
+                                        </constraints>
+                                        <state key="normal" image="location"/>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRE-rA-L8M">
+                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="A4J-V5-HqU"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="t6C-Xk-rEf" firstAttribute="centerY" secondItem="vlZ-QO-VI2" secondAttribute="centerY" id="2HH-oD-G8x"/>
+                                    <constraint firstAttribute="height" constant="50" id="3X0-hf-Bk5"/>
+                                    <constraint firstItem="mHY-SB-qD2" firstAttribute="centerY" secondItem="vlZ-QO-VI2" secondAttribute="centerY" id="4IJ-lm-5Ux"/>
+                                    <constraint firstAttribute="trailing" secondItem="fRE-rA-L8M" secondAttribute="trailing" id="4i3-Qt-sxS"/>
+                                    <constraint firstAttribute="bottom" secondItem="fRE-rA-L8M" secondAttribute="bottom" id="7vf-L6-af2"/>
+                                    <constraint firstItem="t6C-Xk-rEf" firstAttribute="leading" secondItem="vlZ-QO-VI2" secondAttribute="leading" constant="15" id="URU-vL-O7m"/>
+                                    <constraint firstItem="fRE-rA-L8M" firstAttribute="leading" secondItem="vlZ-QO-VI2" secondAttribute="leading" id="YnI-yx-X5Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="mHY-SB-qD2" secondAttribute="trailing" constant="15" id="wWg-cq-jaB"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请开启本应用的定位权限后选择城市，您只能获得本地区的企业画册奖励" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiz-Z4-0cm">
+                                <rect key="frame" x="80" y="124" width="245" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.16078431369999999" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOB-ar-3He">
+                                <rect key="frame" x="20" y="217.5" width="335" height="45"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.16078431369999999" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="5CF-n0-gvO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="保 存">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remind_icon" translatesAutoresizingMaskIntoConstraints="NO" id="oGE-De-dxE">
+                                <rect key="frame" x="50" y="128.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="0dj-xk-7GN"/>
+                                    <constraint firstAttribute="width" secondItem="oGE-De-dxE" secondAttribute="height" multiplier="1:1" id="2x6-kA-TpH"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vlZ-QO-VI2" firstAttribute="top" secondItem="ibN-8C-8ju" secondAttribute="bottom" id="36N-Kl-poG"/>
+                            <constraint firstItem="oGE-De-dxE" firstAttribute="centerY" secondItem="jiz-Z4-0cm" secondAttribute="centerY" id="8qC-UL-rcd"/>
+                            <constraint firstAttribute="trailing" secondItem="vlZ-QO-VI2" secondAttribute="trailing" id="FQr-Dq-q82"/>
+                            <constraint firstItem="sOB-ar-3He" firstAttribute="top" secondItem="jiz-Z4-0cm" secondAttribute="bottom" constant="60" id="LEJ-Bh-3Ac"/>
+                            <constraint firstItem="jiz-Z4-0cm" firstAttribute="leading" secondItem="yKj-wA-War" secondAttribute="leading" constant="80" id="S4X-dQ-FqM"/>
+                            <constraint firstItem="jiz-Z4-0cm" firstAttribute="top" secondItem="vlZ-QO-VI2" secondAttribute="bottom" constant="30" id="Wr2-II-ZOg"/>
+                            <constraint firstAttribute="trailing" secondItem="jiz-Z4-0cm" secondAttribute="trailing" constant="50" id="czM-AL-M9h"/>
+                            <constraint firstItem="jiz-Z4-0cm" firstAttribute="leading" secondItem="oGE-De-dxE" secondAttribute="trailing" constant="5" id="iRp-S1-zw0"/>
+                            <constraint firstItem="sOB-ar-3He" firstAttribute="leading" secondItem="yKj-wA-War" secondAttribute="leading" constant="20" id="jSJ-ew-uGi"/>
+                            <constraint firstItem="vlZ-QO-VI2" firstAttribute="leading" secondItem="yKj-wA-War" secondAttribute="leading" id="oVT-DV-IhU"/>
+                            <constraint firstAttribute="trailing" secondItem="sOB-ar-3He" secondAttribute="trailing" constant="20" id="qvH-Hd-wc3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="更换城市" id="yoU-N5-sev"/>
+                    <connections>
+                        <outlet property="cityOutlet" destination="t6C-Xk-rEf" id="aab-UO-ODg"/>
+                        <outlet property="locationOutlet" destination="mHY-SB-qD2" id="H81-hD-9B9"/>
+                        <outlet property="saveOutlet" destination="sOB-ar-3He" id="7N7-QB-BMv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrJ-Al-vQr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3538" y="1612"/>
+        </scene>
+        <!--奖励提现-->
+        <scene sceneID="fii-nw-dmQ">
+            <objects>
+                <viewController id="yPk-QU-pg4" customClass="CAReFundsViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gb4-Zn-jAN"/>
+                        <viewControllerLayoutGuide type="bottom" id="ekE-jf-v0Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VYK-5F-tS7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-Em-HIm">
+                                <rect key="frame" x="0.0" y="44" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收款账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB9-Yz-9PD">
+                                        <rect key="frame" x="15" y="16.5" width="58" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收款账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5Y-Wr-2Li">
+                                        <rect key="frame" x="83" y="16.5" width="58" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7X-xH-ocm">
+                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="VdL-le-Xte"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="i7X-xH-ocm" secondAttribute="trailing" id="4LH-O8-nJw"/>
+                                    <constraint firstItem="B5Y-Wr-2Li" firstAttribute="centerY" secondItem="fB9-Yz-9PD" secondAttribute="centerY" id="4Mh-kX-ghn"/>
+                                    <constraint firstItem="B5Y-Wr-2Li" firstAttribute="leading" secondItem="fB9-Yz-9PD" secondAttribute="trailing" constant="10" id="CyG-05-xOQ"/>
+                                    <constraint firstItem="fB9-Yz-9PD" firstAttribute="centerY" secondItem="ydv-Em-HIm" secondAttribute="centerY" id="W4i-pC-dsr"/>
+                                    <constraint firstAttribute="bottom" secondItem="i7X-xH-ocm" secondAttribute="bottom" id="Xvo-bs-L2E"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="B5Y-Wr-2Li" secondAttribute="trailing" constant="15" id="bm6-NR-RC4"/>
+                                    <constraint firstAttribute="height" constant="50" id="cjK-6h-2Eo"/>
+                                    <constraint firstItem="fB9-Yz-9PD" firstAttribute="leading" secondItem="ydv-Em-HIm" secondAttribute="leading" constant="15" id="mI0-vY-U5T"/>
+                                    <constraint firstItem="i7X-xH-ocm" firstAttribute="leading" secondItem="ydv-Em-HIm" secondAttribute="leading" id="q51-mS-TQM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UyO-42-0gU">
+                                <rect key="frame" x="0.0" y="94" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="钱包余额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCZ-8R-ER2">
+                                        <rect key="frame" x="15" y="16.5" width="58" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LX1-go-ofV">
+                                        <rect key="frame" x="345.5" y="16.5" width="14.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rl-hw-ucg">
+                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="hIE-BO-x2j"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收款账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvY-wN-mRw">
+                                        <rect key="frame" x="83" y="16.5" width="58" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="LX1-go-ofV" firstAttribute="centerY" secondItem="OCZ-8R-ER2" secondAttribute="centerY" id="0RY-na-0Hd"/>
+                                    <constraint firstItem="OCZ-8R-ER2" firstAttribute="centerY" secondItem="UyO-42-0gU" secondAttribute="centerY" id="0fX-7s-jpu"/>
+                                    <constraint firstItem="hvY-wN-mRw" firstAttribute="leading" secondItem="OCZ-8R-ER2" secondAttribute="trailing" constant="10" id="8Zp-dh-Hwe"/>
+                                    <constraint firstAttribute="trailing" secondItem="LX1-go-ofV" secondAttribute="trailing" constant="15" id="Gng-Zl-WDI"/>
+                                    <constraint firstItem="5rl-hw-ucg" firstAttribute="leading" secondItem="UyO-42-0gU" secondAttribute="leading" id="HrO-kb-HJT"/>
+                                    <constraint firstItem="OCZ-8R-ER2" firstAttribute="leading" secondItem="UyO-42-0gU" secondAttribute="leading" constant="15" id="NpX-AF-20V"/>
+                                    <constraint firstAttribute="height" constant="50" id="QIh-Pk-7x8"/>
+                                    <constraint firstAttribute="bottom" secondItem="5rl-hw-ucg" secondAttribute="bottom" id="Tdw-KH-Oan"/>
+                                    <constraint firstItem="hvY-wN-mRw" firstAttribute="centerY" secondItem="OCZ-8R-ER2" secondAttribute="centerY" id="e9C-07-LhY"/>
+                                    <constraint firstAttribute="trailing" secondItem="5rl-hw-ucg" secondAttribute="trailing" id="eks-qx-oTU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfb-J3-lBY">
+                                <rect key="frame" x="0.0" y="144" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgW-U4-FP1">
+                                        <rect key="frame" x="15" y="16.5" width="58" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAa-vP-u36">
+                                        <rect key="frame" x="345.5" y="16.5" width="14.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jad-4a-QG9">
+                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="xCE-Oh-xPl"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入提现金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CKu-jV-krQ">
+                                        <rect key="frame" x="83" y="16.5" width="252.5" height="17"/>
+                                        <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jad-4a-QG9" secondAttribute="bottom" id="71e-Je-xfj"/>
+                                    <constraint firstAttribute="trailing" secondItem="OAa-vP-u36" secondAttribute="trailing" constant="15" id="9bd-av-2DL"/>
+                                    <constraint firstAttribute="height" constant="50" id="BQa-xT-4WK"/>
+                                    <constraint firstItem="CKu-jV-krQ" firstAttribute="centerY" secondItem="pgW-U4-FP1" secondAttribute="centerY" id="C0g-Ic-mdR"/>
+                                    <constraint firstItem="OAa-vP-u36" firstAttribute="leading" secondItem="CKu-jV-krQ" secondAttribute="trailing" constant="10" id="HgF-M9-Xie"/>
+                                    <constraint firstItem="CKu-jV-krQ" firstAttribute="leading" secondItem="pgW-U4-FP1" secondAttribute="trailing" constant="10" id="OsI-Bj-Sbd"/>
+                                    <constraint firstItem="pgW-U4-FP1" firstAttribute="leading" secondItem="kfb-J3-lBY" secondAttribute="leading" constant="15" id="bbq-bf-bmK"/>
+                                    <constraint firstItem="pgW-U4-FP1" firstAttribute="centerY" secondItem="kfb-J3-lBY" secondAttribute="centerY" id="r8g-qL-ima"/>
+                                    <constraint firstItem="OAa-vP-u36" firstAttribute="centerY" secondItem="pgW-U4-FP1" secondAttribute="centerY" id="ue2-Ug-F8A"/>
+                                    <constraint firstAttribute="trailing" secondItem="jad-4a-QG9" secondAttribute="trailing" id="wMn-0L-vxB"/>
+                                    <constraint firstItem="jad-4a-QG9" firstAttribute="leading" secondItem="kfb-J3-lBY" secondAttribute="leading" id="xfB-xq-ZKj"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最低提现额度：50元 服务费率: 0.01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbq-dc-WiH">
+                                <rect key="frame" x="15" y="224" width="345" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.16078431369999999" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3T-da-g3b">
+                                <rect key="frame" x="30" y="271" width="315" height="45"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.63921568630000003" blue="0.16078431369999999" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="GWF-jb-MHQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="确认提现">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vbq-dc-WiH" firstAttribute="top" secondItem="kfb-J3-lBY" secondAttribute="bottom" constant="30" id="5iK-xM-ey2"/>
+                            <constraint firstItem="kfb-J3-lBY" firstAttribute="top" secondItem="UyO-42-0gU" secondAttribute="bottom" id="7ZY-9o-iKW"/>
+                            <constraint firstAttribute="trailing" secondItem="Q3T-da-g3b" secondAttribute="trailing" constant="30" id="AD9-1o-hVS"/>
+                            <constraint firstItem="kfb-J3-lBY" firstAttribute="leading" secondItem="VYK-5F-tS7" secondAttribute="leading" id="B5z-TA-U1i"/>
+                            <constraint firstItem="ydv-Em-HIm" firstAttribute="top" secondItem="gb4-Zn-jAN" secondAttribute="bottom" id="F3X-Jt-53q"/>
+                            <constraint firstItem="Q3T-da-g3b" firstAttribute="leading" secondItem="VYK-5F-tS7" secondAttribute="leading" constant="30" id="KqX-Uf-rwz"/>
+                            <constraint firstItem="ydv-Em-HIm" firstAttribute="leading" secondItem="VYK-5F-tS7" secondAttribute="leading" id="MVF-UR-LDm"/>
+                            <constraint firstAttribute="trailing" secondItem="Vbq-dc-WiH" secondAttribute="trailing" constant="15" id="NCD-zq-Fcd"/>
+                            <constraint firstItem="Vbq-dc-WiH" firstAttribute="leading" secondItem="VYK-5F-tS7" secondAttribute="leading" constant="15" id="QOI-fI-dUb"/>
+                            <constraint firstItem="UyO-42-0gU" firstAttribute="leading" secondItem="VYK-5F-tS7" secondAttribute="leading" id="RDn-xD-ibf"/>
+                            <constraint firstItem="UyO-42-0gU" firstAttribute="top" secondItem="ydv-Em-HIm" secondAttribute="bottom" id="VlJ-x9-8To"/>
+                            <constraint firstAttribute="trailing" secondItem="ydv-Em-HIm" secondAttribute="trailing" id="eLX-4f-9sf"/>
+                            <constraint firstItem="Q3T-da-g3b" firstAttribute="top" secondItem="Vbq-dc-WiH" secondAttribute="bottom" constant="30" id="hbM-Q0-w9T"/>
+                            <constraint firstAttribute="trailing" secondItem="kfb-J3-lBY" secondAttribute="trailing" id="moU-Fo-eDp"/>
+                            <constraint firstAttribute="trailing" secondItem="UyO-42-0gU" secondAttribute="trailing" id="ow8-tT-G3d"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="奖励提现" id="HHL-Cc-eRx"/>
+                    <connections>
+                        <outlet property="blanceOutlet" destination="hvY-wN-mRw" id="yaP-Rr-xYP"/>
+                        <outlet property="refundsAccountOutlet" destination="B5Y-Wr-2Li" id="pQ9-Kn-Pk9"/>
+                        <outlet property="refundsAmountOutlet" destination="CKu-jV-krQ" id="jUP-NR-JXV"/>
+                        <outlet property="submitOutlet" destination="Q3T-da-g3b" id="glF-hS-C2v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="23Z-vc-7zP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4916" y="1614.2428785607199"/>
+        </scene>
+        <!--开通画册-->
+        <scene sceneID="aYo-R9-a1D">
+            <objects>
+                <viewController id="LCa-bW-MRl" customClass="CAOpenAlbumViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E1P-Ka-310"/>
+                        <viewControllerLayoutGuide type="bottom" id="A2d-LT-3pt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bwx-xG-1N0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ycx-Dv-OPs" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ycx-Dv-OPs" secondAttribute="trailing" id="IHH-dR-uqE"/>
+                            <constraint firstItem="ycx-Dv-OPs" firstAttribute="top" secondItem="E1P-Ka-310" secondAttribute="bottom" id="KXW-mg-T4m"/>
+                            <constraint firstItem="A2d-LT-3pt" firstAttribute="top" secondItem="ycx-Dv-OPs" secondAttribute="bottom" id="rNK-iT-bqf"/>
+                            <constraint firstItem="ycx-Dv-OPs" firstAttribute="leading" secondItem="bwx-xG-1N0" secondAttribute="leading" id="wG9-CG-0SM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="开通画册" id="y8G-4b-31h"/>
+                    <connections>
+                        <outlet property="tabelView" destination="ycx-Dv-OPs" id="F5N-u1-6sl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="err-a5-x7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4911" y="2287"/>
+        </scene>
+        <!--我的订单-->
+        <scene sceneID="9tf-V0-K9B">
+            <objects>
+                <viewController id="86T-um-F99" customClass="CAOrderListViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uCz-47-Hob"/>
+                        <viewControllerLayoutGuide type="bottom" id="3HT-Ar-c7q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DdH-zC-ZWH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZFO-ig-NNU" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZFO-ig-NNU" secondAttribute="trailing" id="5QA-IT-a3g"/>
+                            <constraint firstAttribute="bottom" secondItem="ZFO-ig-NNU" secondAttribute="bottom" id="Lhm-0s-pUJ"/>
+                            <constraint firstItem="ZFO-ig-NNU" firstAttribute="leading" secondItem="DdH-zC-ZWH" secondAttribute="leading" id="WaN-ch-G2p"/>
+                            <constraint firstItem="ZFO-ig-NNU" firstAttribute="top" secondItem="uCz-47-Hob" secondAttribute="bottom" id="rNk-Ye-Htl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的订单" id="X1W-tm-pLR"/>
+                    <connections>
+                        <outlet property="tabelView" destination="ZFO-ig-NNU" id="WQu-Fx-h31"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZP-hJ-hOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4906" y="3051"/>
+        </scene>
         <!--修改手机号码-->
         <scene sceneID="CIc-3Y-9Ad">
             <objects>
-                <viewController title="修改手机号码" id="Zfx-h3-PId" customClass="CASetPhoneViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="修改手机号码" id="Zfx-h3-PId" customClass="CASetPhoneViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o35-9R-09K"/>
                         <viewControllerLayoutGuide type="bottom" id="2n2-Jk-Bi1"/>
@@ -960,12 +1327,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdT-rj-54c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3662" y="3846"/>
+            <point key="canvasLocation" x="3537" y="2312"/>
         </scene>
         <!--修改收款账号-->
         <scene sceneID="NrU-gi-XRt">
             <objects>
-                <viewController title="修改收款账号" id="nLQ-cA-vNp" customClass="CASetAlipayViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="修改收款账号" id="nLQ-cA-vNp" customClass="CASetAlipayViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="skL-i2-eTd"/>
                         <viewControllerLayoutGuide type="bottom" id="mYF-j8-EL9"/>
@@ -1053,12 +1420,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2g-ap-ZoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3662" y="3036"/>
+            <point key="canvasLocation" x="8590" y="1612"/>
+        </scene>
+        <!--更换收款账户-->
+        <scene sceneID="dYB-as-4W0">
+            <objects>
+                <viewController id="oyY-a3-s7A" customClass="CASetAlipayInfoViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tLv-tC-LQT"/>
+                        <viewControllerLayoutGuide type="bottom" id="MBP-hC-Nlg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NP5-Y8-dW3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JpH-YE-VAK" customClass="BaseTB" customModule="有名画册" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JpH-YE-VAK" secondAttribute="trailing" id="3Zq-5k-dOd"/>
+                            <constraint firstItem="MBP-hC-Nlg" firstAttribute="top" secondItem="JpH-YE-VAK" secondAttribute="bottom" id="lRJ-UO-6vI"/>
+                            <constraint firstItem="JpH-YE-VAK" firstAttribute="top" secondItem="tLv-tC-LQT" secondAttribute="bottom" id="nrn-DI-46f"/>
+                            <constraint firstItem="JpH-YE-VAK" firstAttribute="leading" secondItem="NP5-Y8-dW3" secondAttribute="leading" id="oAx-q7-hUv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="更换收款账户" id="Sc0-vE-HK0"/>
+                    <connections>
+                        <outlet property="tableView" destination="JpH-YE-VAK" id="da3-7i-5Vs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P72-xB-3bG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3537" y="3750"/>
         </scene>
         <!--修改昵称-->
         <scene sceneID="uRM-eu-7mS">
             <objects>
-                <viewController title="修改昵称" id="SkT-PH-Hjf" customClass="CASetNickNameViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="修改昵称" id="SkT-PH-Hjf" customClass="CASetNickNameViewController" customModule="有名画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EEB-T6-hrG"/>
                         <viewControllerLayoutGuide type="bottom" id="FmM-Oe-aQR"/>
@@ -1130,7 +1531,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7X-qK-99Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3662" y="4569"/>
+            <point key="canvasLocation" x="3537" y="3041"/>
         </scene>
     </scenes>
     <resources>
@@ -1140,9 +1541,11 @@
         <image name="corporate_un_selected" width="25" height="25"/>
         <image name="funds_record_selected" width="25" height="25"/>
         <image name="funds_record_un_selected" width="25" height="25"/>
+        <image name="location" width="210" height="210"/>
         <image name="mine_selected" width="25" height="25"/>
         <image name="mine_un_selected" width="25" height="25"/>
         <image name="navigationButtonReturn" width="40" height="25"/>
+        <image name="remind_icon" width="220" height="220"/>
         <image name="save_album" width="25" height="25"/>
     </resources>
 </document>

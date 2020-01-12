@@ -78,6 +78,7 @@
                         <constraint firstAttribute="width" secondItem="F6f-RQ-P3A" secondAttribute="height" multiplier="1:1" id="ChC-um-4Jb"/>
                         <constraint firstAttribute="width" constant="25" id="gmc-0T-QlZ"/>
                     </constraints>
+                    <state key="normal" image="arrow_right"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyG-6j-vrc">
                     <rect key="frame" x="15" y="113" width="61.5" height="18"/>
@@ -104,6 +105,7 @@
                         <constraint firstAttribute="width" secondItem="HzP-9v-z64" secondAttribute="height" multiplier="1:1" id="QBm-g3-XNp"/>
                         <constraint firstAttribute="width" constant="25" id="lo0-b9-AXl"/>
                     </constraints>
+                    <state key="normal" image="arrow_right"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scn-C9-2DB">
                     <rect key="frame" x="15" y="162" width="77" height="18"/>
@@ -149,8 +151,9 @@
                         <constraint firstAttribute="width" secondItem="K3q-WI-eNs" secondAttribute="height" multiplier="1:1" id="jAZ-UB-lha"/>
                         <constraint firstAttribute="width" constant="25" id="qiw-nC-FQv"/>
                     </constraints>
+                    <state key="normal" image="arrow_right"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所在城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8Q-Qp-1dH">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更换头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8Q-Qp-1dH">
                     <rect key="frame" x="15" y="260" width="61.5" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
@@ -169,6 +172,7 @@
                         <constraint firstAttribute="width" secondItem="FkV-Qd-yAL" secondAttribute="height" multiplier="1:1" id="Le9-vI-URl"/>
                         <constraint firstAttribute="width" constant="25" id="f0n-ek-1XP"/>
                     </constraints>
+                    <state key="normal" image="arrow_right"/>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_user_default_icon" translatesAutoresizingMaskIntoConstraints="NO" id="jwB-yi-G0V">
                     <rect key="frame" x="329" y="254" width="30" height="30"/>
@@ -176,6 +180,11 @@
                         <constraint firstAttribute="width" secondItem="jwB-yi-G0V" secondAttribute="height" multiplier="1:1" id="AN9-hn-gZN"/>
                         <constraint firstAttribute="width" constant="30" id="bsw-Ir-p3w"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGy-xZ-KS3">
                     <rect key="frame" x="0.0" y="0.0" width="364" height="48"/>
@@ -331,6 +340,7 @@
         </view>
     </objects>
     <resources>
+        <image name="arrow_right" width="6" height="11"/>
         <image name="copy" width="210" height="210"/>
         <image name="mine_user_default_icon" width="240" height="240"/>
     </resources>

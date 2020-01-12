@@ -93,6 +93,9 @@ enum API{
     /// 获取用户奖励账单列表
     case billListAward(search: String, skip: Int, limit: Int)
     
+    /// 订单列表
+    case orderList(skip: Int, limit: Int)
+    
     /**
      * 修改手机号获取邮箱验证码
      */
@@ -246,6 +249,9 @@ extension API: TargetType{
             return "Site/Online"
         case .siteResetAward(_):
             return "Site/ResetAward"
+           
+        case .orderList(_):
+            return "Order/List"
             
         case .albumPage(_):
             return "Book/ListBySite"
@@ -413,6 +419,10 @@ extension API {
         case .noticeRead(let id):
             params["token"]  = userDefault.appToken ?? ""
             params["id"] = id
+            
+        case .orderList(let skip, let limit):
+            params["skip"]   = skip
+            params["limit"]  = limit
         default:
             break
         }

@@ -23,15 +23,31 @@ class CASetPhoneViewController: BaseViewController {
         
         getAuthorCodeOutlet.layer.borderWidth = 1
         getAuthorCodeOutlet.layer.borderColor = RGB(8, 172, 222).cgColor
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction(_:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapAction(_ tap: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     override func rxBind() {
         
+        let submitSingle = submitOutlet.rx.tap.asDriver()
+            .do(onNext: { [unowned self] _ in
+                self.view.endEditing(true)
+            })
+        let codeSingle = getAuthorCodeOutlet.rx.tap.asDriver()
+            .do(onNext: { [unowned self] _ in
+                self.view.endEditing(true)
+            })
+
         viewModel = SetPhoneViewModel.init(input: (phone: phoneOutlet.rx.text.orEmpty.asDriver(),
                                                    code: codeOutlet.rx.text.orEmpty.asDriver(),
                                                    userInfo: userInfo),
-                                           tap: (getAuthorCode: getAuthorCodeOutlet.rx.tap.asDriver(),
-                                                 submit: submitOutlet.rx.tap.asDriver()))
+                                           tap: (getAuthorCode: codeSingle,
+                                                 submit: submitSingle))
         
         viewModel.enabelSubject.asObservable()
             .do(onNext: { [weak self] in

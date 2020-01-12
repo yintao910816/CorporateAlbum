@@ -26,7 +26,7 @@ class CASetAvatarViewController: BaseViewController {
             break
         case 101:
             // 发送修改头像请求
-            openPhotoLibrary()
+//            openPhotoLibrary()
             break
         default:
             break
@@ -56,31 +56,31 @@ class CASetAvatarViewController: BaseViewController {
 
 }
 
-extension CASetAvatarViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    //打开相册
-    fileprivate func openPhotoLibrary() {
-        let souceType = UIImagePickerControllerSourceType.photoLibrary
-        if UIImagePickerController.isSourceTypeAvailable(souceType) == true {
-            picker.sourceType = souceType
-            picker.delegate = self
-            picker.allowsEditing = true
-            present(picker, animated: true, completion: nil)
-        }
-    }
-    
-    //MARK:
-    //MARK: UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        picker.dismiss(animated: true) { [unowned self] in
-            if let editImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-                //裁剪后的图片
-                self.viewModel.submitAvatarSetSubject.onNext(editImage)
-            }
-        }
-    }
-}
+//extension CASetAvatarViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//
+//    //打开相册
+//    fileprivate func openPhotoLibrary() {
+//        let souceType = UIImagePickerControllerSourceType.photoLibrary
+//        if UIImagePickerController.isSourceTypeAvailable(souceType) == true {
+//            picker.sourceType = souceType
+//            picker.delegate = self
+//            picker.allowsEditing = true
+//            present(picker, animated: true, completion: nil)
+//        }
+//    }
+//
+//    //MARK:
+//    //MARK: UIImagePickerControllerDelegate
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        picker.dismiss(animated: true, completion: nil)
+//    }
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        picker.dismiss(animated: true) { [unowned self] in
+//            if let editImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+//                //裁剪后的图片
+//                self.viewModel.submitAvatarSetSubject.onNext(editImage)
+//            }
+//        }
+//    }
+//}

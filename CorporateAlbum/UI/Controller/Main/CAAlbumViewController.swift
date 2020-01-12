@@ -29,7 +29,7 @@ class CAAlbumViewController: BaseViewController {
     }
     
     override func setupUI() {
-        searchBarHeightCns.constant += LayoutSize.topVirtualArea
+        searchBarHeightCns.constant += LayoutSize.topVirtualArea_1
                 
         searchBar.tfSearchIcon = "tf_search"
         searchBar.rightItemIcon = "nav_qr_scan"

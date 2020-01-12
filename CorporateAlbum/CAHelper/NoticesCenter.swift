@@ -79,4 +79,30 @@ extension NoticesCenter { /**alert*/
         
         presentCtrl?.present(alertVC, animated: true)
     }
+    
+    public static func alertActions(title         : String? = nil,
+                                    messages      : [String],
+                                    cancleTitle   : String? = nil,
+                                    presentCtrl   : UIViewController? = NSObject().visibleViewController,
+                                    callBack      : ((Int) ->Void)? = nil) {
+    
+        let alertVC = UIAlertController.init(title: title, message: title, preferredStyle: .actionSheet)
+               
+        for idx in 0..<messages.count {
+            let action = UIAlertAction.init(title: messages[idx], style: .default) { _ in
+                callBack?(idx)
+            }
+            alertVC.addAction(action)
+        }
+        
+        if let cancle = cancleTitle {
+            let action = UIAlertAction.init(title: cancle, style: .default) { _ in
+                callBack?(messages.count)
+            }
+            alertVC.addAction(action)
+        }
+                
+        presentCtrl?.present(alertVC, animated: true)
+    }
+
 }

@@ -111,8 +111,15 @@ class CAMineViewController: BaseViewController {
 //            return
 //        }
         if viewModel.userIsLoginObser.value == true {
+            if model.isLoginOut {
+                CACoreLogic.pressentLoginVC()
+                return
+            }
+            
             if model.segue.count > 0 {
                 performSegue(withIdentifier: model.segue, sender: model.params)
+            }else {
+                NoticesCenter.alert(message: "开发中，敬请期待...")
             }
 //            switch indexPath.row {
 //            case 0:

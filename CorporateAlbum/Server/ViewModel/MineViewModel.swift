@@ -61,17 +61,23 @@ class MineViewModel: BaseViewModel , VMNavigation{
                                                                           segue: "accountSegue",
                                                                           params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "奖励提现",
-                                                                          icon: UIImage(named: "mine_funds")),
+                                                                          icon: UIImage(named: "mine_funds"),
+                                                                          segue: "refundsSegue",
+                                                                          params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "开通画册",
-                                                                          icon: UIImage(named: "mine_open_album")),
+                                                                          icon: UIImage(named: "mine_open_album"),
+                                                                          segue: "openAlbumSegue",
+                                                                          params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "我的订单",
-                                                                          icon: UIImage(named: "mine_order")),
+                                                                          icon: UIImage(named: "mine_order"),
+                                                                          segue: "orderSegue"),
                                                             MineCellModel(title: "我的画册",
                                                                           icon: UIImage(named: "mine_album"))]),
                         SectionModel.init(model: 1, items: [MineCellModel(title: "关于我们",
                                                                           icon: UIImage(named: "mine_about")),
                                                             MineCellModel(title: "退出登录",
-                                                                          icon: UIImage(named: "mine_login_out"))])]
+                                                                          icon: UIImage(named: "mine_login_out"),
+                                                                          isLoginOut: true)])]
         
         datasource.value = sections
     }
@@ -112,4 +118,6 @@ struct MineCellModel {
     var icon: UIImage?
     var segue: String = ""
     var params: [String: Any] = [:]
+    
+    var isLoginOut: Bool = false
 }

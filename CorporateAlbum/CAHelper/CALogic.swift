@@ -10,6 +10,8 @@ import Foundation
 
 class CACoreLogic {
     
+    typealias blankBlock = ()->()
+
     /**
      * 弹出登录界面
      */

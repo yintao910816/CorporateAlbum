@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class WebViewController: BaseViewController, UIWebViewDelegate, UINavigationControllerDelegate {
+class WebViewController: BaseViewController, UIWebViewDelegate {
 
     private let hud = NoticesCenter()
 

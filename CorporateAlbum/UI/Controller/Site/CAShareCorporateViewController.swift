@@ -27,7 +27,9 @@ class CAShareCorporateViewController: BaseViewController {
     }
     
     override func rxBind() {
-        
+        header.shareCallBack = { _ in
+            NoticesCenter.alert(message: "开发中，敬请期待...")
+        }
     }
     
     override func prepare(parameters: [String : Any]?) {
