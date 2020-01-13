@@ -16,7 +16,7 @@ class CAMyAlbumViewController: BaseViewController {
     
     override func setupUI() {
      
-        tableView.rowHeight = 174
+        tableView.rowHeight = 125
         
         tableView.register(UINib.init(nibName: "MyalbumCell", bundle: Bundle.main), forCellReuseIdentifier: "Cell")
     }
@@ -24,38 +24,47 @@ class CAMyAlbumViewController: BaseViewController {
     override func rxBind() {
         viewModel = MyAlbumViewModel.init()
         
-        tableView.prepare(viewModel, showFooter: false)
+        tableView.prepare(viewModel)
         
         viewModel.datasource.asDriver()
             .drive(tableView.rx.items(cellIdentifier: "Cell", cellType: MyalbumCell.self)){ [weak self] (row, model, cell) in
-                cell.delegate = self
                 cell.model = model
+                cell.siteSettingCallBack = {
+                    self?.performSegue(withIdentifier: "", sender: $0)
+                }
+                cell.siteLogCallBack = {
+                    self?.performSegue(withIdentifier: "", sender: $0)
+                }
             }
             .disposed(by: disposeBag)
         
-        tableView.headerRefreshing()
+        viewModel.reloadSubject.onNext(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
 }
 
-extension CAMyAlbumViewController: SiteOperations {
-    func rewardSetting(model: SiteInfoModel) {
-        viewModel.enableAwardSubject.onNext(model)
-    }
-    
-    func statusSetting(model: SiteInfoModel) {
-        viewModel.siteStateSubject.onNext(model)
-    }
-    
-    func resetReward(model: SiteInfoModel) {
-        viewModel.resetAwardSubject.onNext(model)
-    }
-    
-    func recharge(model: SiteInfoModel) {
-        let webVC = WebViewController()
-        webVC.htmlURL = "\(APIAssistance.recharge)=\(model.SiteName)"
-        webVC.navigationItem.title = "充值"
-        navigationController?.pushViewController(webVC, animated: true)
-    }
-    
-    
-}
+//extension CAMyAlbumViewController: SiteOperations {
+//    func rewardSetting(model: SiteInfoModel) {
+//        viewModel.enableAwardSubject.onNext(model)
+//    }
+//
+//    func statusSetting(model: SiteInfoModel) {
+//        viewModel.siteStateSubject.onNext(model)
+//    }
+//
+//    func resetReward(model: SiteInfoModel) {
+//        viewModel.resetAwardSubject.onNext(model)
+//    }
+//
+//    func recharge(model: SiteInfoModel) {
+//        let webVC = WebViewController()
+//        webVC.htmlURL = "\(APIAssistance.recharge)=\(model.SiteName)"
+//        webVC.navigationItem.title = "充值"
+//        navigationController?.pushViewController(webVC, animated: true)
+//    }
+//
+//
+//}

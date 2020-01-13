@@ -40,4 +40,46 @@ class CAOrderInfoModel: HJModel {
     var StatusTitle: String = ""
     /// 订单类型描述
     var ContractTypeTitle: String = ""
+    
+    public var priceText: String {
+        get {
+            return "￥\(Price)"
+        }
+    }
+    
+    /// 已付款
+    public var paidText: String {
+        get {
+            return "已付款: ￥\(Paid)"
+        }
+    }
+}
+
+class CAOrderItemInfoModel: HJModel {
+    var Id: String = ""
+    /// 产品Id
+    var ProductId: String = ""
+    /// 产品名称
+    var ProductTitle: String = ""
+    /// 产品介绍
+    var ProductIntro: String = ""
+    /// 产品单价
+    var Price: Double = 0.00
+    /// 单位
+    var Unit: String = ""
+    /// 订购数量
+    var Quantity: Int = 0
+    /// 处理状态ContractStatus枚举
+    var Status: String = ""
+    /// 是否赠品1是0否
+    var IsPromotion: Bool = false
+    /// 处理状态描述
+    var StatusTitle: String = ""
+
+    /// 产品单价
+    public var priceText: String {
+        get {
+            return "\(Price)/\(Unit)"
+        }
+    }
 }

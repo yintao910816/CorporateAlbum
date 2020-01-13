@@ -29,12 +29,21 @@ class CAOrderListViewController: BaseViewController {
         tabelView.prepare(viewModel)
         
         viewModel.datasource.asDriver()
-            .drive(tabelView.rx.items(cellIdentifier: CAOrderListCell_identifier, cellType: CAOrderListCell.self)){ [weak self] (row, model, cell) in
-
+            .drive(tabelView.rx.items(cellIdentifier: CAOrderListCell_identifier, cellType: CAOrderListCell.self)){ (row, model, cell) in
+                cell.model = model
         }
+            .disposed(by: disposeBag)
+        
+        tabelView.rx.modelSelected(CAOrderInfoModel.self)
+            .subscribe(onNext: { [weak self] in
+                self?.performSegue(withIdentifier: "orderInfoSegue", sender: $0)
+            })
             .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination.prepare(parameters: ["model": sender!])
+    }
 }

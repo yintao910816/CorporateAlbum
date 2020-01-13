@@ -95,7 +95,8 @@ enum API{
     
     /// 订单列表
     case orderList(skip: Int, limit: Int)
-    
+    /// 获取订单明细项表
+    case orderListItems(orderId: String)
     /**
      * 修改手机号获取邮箱验证码
      */
@@ -242,7 +243,7 @@ extension API: TargetType{
         case .notice(_, _, _):
             return "Notice"
         case .mySite(_, _):
-            return "Site/My"
+            return "MySite/List"
         case .siteEnableAward(_):
             return "Site/EnableAward"
         case .siteOnline(_):
@@ -252,6 +253,8 @@ extension API: TargetType{
            
         case .orderList(_):
             return "Order/List"
+        case .orderListItems(_):
+            return "Order/ListItems"
             
         case .albumPage(_):
             return "Book/ListBySite"
@@ -387,7 +390,6 @@ extension API {
             params["skip"]   = skip
             params["limit"]  = limit
         case .mySite(let skip, let limit):
-            params["token"]  = userDefault.appToken ?? ""
             params["skip"]   = skip
             params["limit"]  = limit
         case .siteEnableAward(let siteName):
@@ -423,6 +425,8 @@ extension API {
         case .orderList(let skip, let limit):
             params["skip"]   = skip
             params["limit"]  = limit
+        case .orderListItems(let orderId):
+            params["orderId"]  = orderId
         default:
             break
         }

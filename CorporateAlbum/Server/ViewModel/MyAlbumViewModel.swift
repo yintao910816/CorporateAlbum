@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class MyAlbumViewModel: RefreshVM<SiteInfoModel> {
+class MyAlbumViewModel: RefreshVM<CAMySiteModel> {
     
     var enableAwardSubject = PublishSubject<SiteInfoModel>()
     var siteStateSubject = PublishSubject<SiteInfoModel>()
@@ -32,13 +32,18 @@ class MyAlbumViewModel: RefreshVM<SiteInfoModel> {
             ._doNext(forNotice: hud)
             .subscribe(onNext: { [unowned self] in self.resetAwardRequest(model: $0) })
             .disposed(by: disposeBag)
+        
+        reloadSubject.subscribe(onNext: { [weak self] _ in
+            self?.requestData(true)
+        })
+        .disposed(by: disposeBag)
     }
     
     override func requestData(_ refresh: Bool) {
         super.requestData(refresh)
         
         CARProvider.rx.request(.mySite(skip: pageModel.currentPage, limit: pageModel.pageSize))
-            .map(models: SiteInfoModel.self)
+            .map(models: CAMySiteModel.self)
             .subscribe(onSuccess: { models in
                 self.updateRefresh(refresh, models)
             }) { [weak self] error in
