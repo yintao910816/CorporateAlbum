@@ -42,13 +42,7 @@ class CAListAwardViewModel: RefreshVM<BillInfoModel> {
             .subscribe(onNext: { [weak self] _ in
                 self?.requestData(true)
             })
-            .disposed(by: disposeBag)
-        
-        reloadSubject
-            .subscribe(onNext: { [unowned self] _ in
-                self.requestData(true)
-            })
-            .disposed(by: disposeBag)
+            .disposed(by: disposeBag)        
     }
     
     override func requestData(_ refresh: Bool) {

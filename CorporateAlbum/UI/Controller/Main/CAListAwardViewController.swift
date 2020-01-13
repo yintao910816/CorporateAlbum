@@ -60,7 +60,6 @@ class CAListAwardViewController: BaseViewController {
             self.viewModel.beginSearchSubject.onNext(Void())
         }
 
-//        viewModel.reloadSubject.onNext(true)
         tableView.headerRefreshing()
     }
 
