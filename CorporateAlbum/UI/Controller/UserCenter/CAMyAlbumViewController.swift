@@ -30,10 +30,10 @@ class CAMyAlbumViewController: BaseViewController {
             .drive(tableView.rx.items(cellIdentifier: "Cell", cellType: MyalbumCell.self)){ [weak self] (row, model, cell) in
                 cell.model = model
                 cell.siteSettingCallBack = {
-                    self?.performSegue(withIdentifier: "", sender: $0)
+                    self?.performSegue(withIdentifier: "mySiteSettingSegue", sender: ["model": $0])
                 }
                 cell.siteLogCallBack = {
-                    self?.performSegue(withIdentifier: "", sender: $0)
+                    self?.performSegue(withIdentifier: "mySiteLogSegue", sender: ["model": $0])
                 }
             }
             .disposed(by: disposeBag)
@@ -42,7 +42,10 @@ class CAMyAlbumViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        guard let param = sender as? [String: Any] else {
+            return
+        }
+        segue.destination.prepare(parameters: param)
     }
 }
 

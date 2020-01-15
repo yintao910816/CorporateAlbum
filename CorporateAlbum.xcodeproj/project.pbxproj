@@ -116,6 +116,10 @@
 		B8B2F40023C782BD00F50078 /* CAShareCorporateContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B2F3FF23C782BD00F50078 /* CAShareCorporateContentView.xib */; };
 		B8B2F40223C78AA300F50078 /* CAListAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F40123C78AA300F50078 /* CAListAwardViewController.swift */; };
 		B8B2F40423C78BF200F50078 /* CAListAwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B2F40323C78BF200F50078 /* CAListAwardViewModel.swift */; };
+		B8B5167223CF59D70080E633 /* CAMySiteSettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5167123CF59D70080E633 /* CAMySiteSettingHeaderView.swift */; };
+		B8B5167423CF59E00080E633 /* CAMySiteSettingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B5167323CF59E00080E633 /* CAMySiteSettingHeaderView.xib */; };
+		B8B5167623CF59F00080E633 /* CAMySiteSettingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5167523CF59F00080E633 /* CAMySiteSettingFooterView.swift */; };
+		B8B5167823CF59F70080E633 /* CAMySiteSettingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B5167723CF59F70080E633 /* CAMySiteSettingFooterView.xib */; };
 		B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF6F1421378C87004A13CE /* AppNotifications.swift */; };
 		B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8CCDD6821212C5000E94681 /* CodeScan.bundle */; };
 		B8CCDF6821212C5100E94681 /* LBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDD6B21212C5000E94681 /* LBXScanViewController.m */; };
@@ -355,6 +359,13 @@
 		B8D3985A23CCC15700D9448E /* CAOrderListItemHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D3985923CCC15700D9448E /* CAOrderListItemHeaderView.xib */; };
 		B8D3985C23CCC7B700D9448E /* CAOrderListItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3985B23CCC7B700D9448E /* CAOrderListItemsViewModel.swift */; };
 		B8D3985E23CCD1CC00D9448E /* CAMySite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3985D23CCD1CC00D9448E /* CAMySite.swift */; };
+		B8D3986023CF503D00D9448E /* CAMySiteLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3985F23CF503D00D9448E /* CAMySiteLogViewController.swift */; };
+		B8D3986223CF504E00D9448E /* CAMySiteSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3986123CF504E00D9448E /* CAMySiteSettingViewController.swift */; };
+		B8D3986423CF511400D9448E /* CAMySiteLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3986323CF511400D9448E /* CAMySiteLogViewModel.swift */; };
+		B8D3986723CF532C00D9448E /* CAMySiteLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3986523CF532C00D9448E /* CAMySiteLogCell.swift */; };
+		B8D3986823CF532C00D9448E /* CAMySiteLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D3986623CF532C00D9448E /* CAMySiteLogCell.xib */; };
+		B8D3986A23CF565400D9448E /* CAMySiteLogHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3986923CF565400D9448E /* CAMySiteLogHeaderView.swift */; };
+		B8D3986C23CF565C00D9448E /* CAMySiteLogHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D3986B23CF565C00D9448E /* CAMySiteLogHeaderView.xib */; };
 		B8D929AE21095EA900BAB001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D929AD21095EA900BAB001 /* Assets.xcassets */; };
 		B8D929B121095EA900BAB001 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D929AF21095EA900BAB001 /* LaunchScreen.storyboard */; };
 		B8D92A172109646C00BAB001 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D929BA2109646C00BAB001 /* FrameView.swift */; };
@@ -549,6 +560,10 @@
 		B8B2F3FF23C782BD00F50078 /* CAShareCorporateContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAShareCorporateContentView.xib; sourceTree = "<group>"; };
 		B8B2F40123C78AA300F50078 /* CAListAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListAwardViewController.swift; sourceTree = "<group>"; };
 		B8B2F40323C78BF200F50078 /* CAListAwardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListAwardViewModel.swift; sourceTree = "<group>"; };
+		B8B5167123CF59D70080E633 /* CAMySiteSettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteSettingHeaderView.swift; sourceTree = "<group>"; };
+		B8B5167323CF59E00080E633 /* CAMySiteSettingHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAMySiteSettingHeaderView.xib; sourceTree = "<group>"; };
+		B8B5167523CF59F00080E633 /* CAMySiteSettingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteSettingFooterView.swift; sourceTree = "<group>"; };
+		B8B5167723CF59F70080E633 /* CAMySiteSettingFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAMySiteSettingFooterView.xib; sourceTree = "<group>"; };
 		B8BF6F1421378C87004A13CE /* AppNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
 		B8CCDD6821212C5000E94681 /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		B8CCDD6921212C5000E94681 /* LBXScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanView.h; sourceTree = "<group>"; };
@@ -1035,6 +1050,13 @@
 		B8D3985923CCC15700D9448E /* CAOrderListItemHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAOrderListItemHeaderView.xib; sourceTree = "<group>"; };
 		B8D3985B23CCC7B700D9448E /* CAOrderListItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAOrderListItemsViewModel.swift; sourceTree = "<group>"; };
 		B8D3985D23CCD1CC00D9448E /* CAMySite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySite.swift; sourceTree = "<group>"; };
+		B8D3985F23CF503D00D9448E /* CAMySiteLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteLogViewController.swift; sourceTree = "<group>"; };
+		B8D3986123CF504E00D9448E /* CAMySiteSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteSettingViewController.swift; sourceTree = "<group>"; };
+		B8D3986323CF511400D9448E /* CAMySiteLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteLogViewModel.swift; sourceTree = "<group>"; };
+		B8D3986523CF532C00D9448E /* CAMySiteLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteLogCell.swift; sourceTree = "<group>"; };
+		B8D3986623CF532C00D9448E /* CAMySiteLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAMySiteLogCell.xib; sourceTree = "<group>"; };
+		B8D3986923CF565400D9448E /* CAMySiteLogHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteLogHeaderView.swift; sourceTree = "<group>"; };
+		B8D3986B23CF565C00D9448E /* CAMySiteLogHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAMySiteLogHeaderView.xib; sourceTree = "<group>"; };
 		B8D929A321095EA800BAB001 /* 得众画册.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "得众画册.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D929AD21095EA900BAB001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8D929B021095EA900BAB001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1173,6 +1195,8 @@
 				B88147AA23CB9550003B5A97 /* CAOrderListCell.xib */,
 				B827AB3223CCBDD600BC64B9 /* CAOrderListItemCell.swift */,
 				B827AB3323CCBDD600BC64B9 /* CAOrderListItemCell.xib */,
+				B8D3986523CF532C00D9448E /* CAMySiteLogCell.swift */,
+				B8D3986623CF532C00D9448E /* CAMySiteLogCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1208,6 +1232,12 @@
 				B88147A523CB86B3003B5A97 /* CAOpenAlbumContentView.xib */,
 				B8D3985723CCC15000D9448E /* CAOrderListItemHeaderView.swift */,
 				B8D3985923CCC15700D9448E /* CAOrderListItemHeaderView.xib */,
+				B8D3986923CF565400D9448E /* CAMySiteLogHeaderView.swift */,
+				B8D3986B23CF565C00D9448E /* CAMySiteLogHeaderView.xib */,
+				B8B5167123CF59D70080E633 /* CAMySiteSettingHeaderView.swift */,
+				B8B5167323CF59E00080E633 /* CAMySiteSettingHeaderView.xib */,
+				B8B5167523CF59F00080E633 /* CAMySiteSettingFooterView.swift */,
+				B8B5167723CF59F70080E633 /* CAMySiteSettingFooterView.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1311,6 +1341,8 @@
 				B88147A723CB9491003B5A97 /* CAOrderListViewController.swift */,
 				B827AB3023CCBD2D00BC64B9 /* CAOrderListItemsViewController.swift */,
 				B84FC34F210FEE7C00DA30DC /* CAMyAlbumViewController.swift */,
+				B8D3985F23CF503D00D9448E /* CAMySiteLogViewController.swift */,
+				B8D3986123CF504E00D9448E /* CAMySiteSettingViewController.swift */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -2242,6 +2274,7 @@
 				B88147AD23CB95E6003B5A97 /* CAOrderListViewModel.swift */,
 				B8D3985B23CCC7B700D9448E /* CAOrderListItemsViewModel.swift */,
 				B84FC355210FF7D100DA30DC /* MyAlbumViewModel.swift */,
+				B8D3986323CF511400D9448E /* CAMySiteLogViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2601,12 +2634,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B88147A623CB86B3003B5A97 /* CAOpenAlbumContentView.xib in Resources */,
+				B8D3986823CF532C00D9448E /* CAMySiteLogCell.xib in Resources */,
 				B8CCE0552121531C00E94681 /* CAScanRemindViewController.xib in Resources */,
 				B83B9A3821192DCF00284FE6 /* MineHeaderView.xib in Resources */,
 				B84FC344210F02BC00DA30DC /* BillCell.xib in Resources */,
 				B836AB2323C8CA25009FBA5D /* CAAccountHeaderView.xib in Resources */,
 				B84FC326210EBECF00DA30DC /* SiteInfoCell.xib in Resources */,
 				B8D92AAF210974C400BAB001 /* Login.storyboard in Resources */,
+				B8B5167823CF59F70080E633 /* CAMySiteSettingFooterView.xib in Resources */,
 				B8D92AAD210974AD00BAB001 /* Main.storyboard in Resources */,
 				B82E2FD4210AFFFF00FA299F /* AlbumCell.xib in Resources */,
 				B83B9A562119A80100284FE6 /* coin.png in Resources */,
@@ -2614,8 +2649,10 @@
 				B84FC34C210F0D3D00DA30DC /* MyNoticesCell.xib in Resources */,
 				B83F278A21142091005CA5C3 /* AlbumShareView.xib in Resources */,
 				B8B2F3FA23C625D000F50078 /* CAShareAlbumContentView.xib in Resources */,
+				B8B5167423CF59E00080E633 /* CAMySiteSettingHeaderView.xib in Resources */,
 				B83B9A552119A80100284FE6 /* bgm_coin_01.mp3 in Resources */,
 				B83185722111BA4B00F05D49 /* AlbumPagesCell.xib in Resources */,
+				B8D3986C23CF565C00D9448E /* CAMySiteLogHeaderView.xib in Resources */,
 				B84FC354210FEF7000DA30DC /* MyalbumCell.xib in Resources */,
 				B8D3985A23CCC15700D9448E /* CAOrderListItemHeaderView.xib in Resources */,
 				B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */,
@@ -2682,6 +2719,7 @@
 				B8CCE00B21212C5100E94681 /* ZXAI013x0xDecoder.m in Sources */,
 				B8CCE03221212C5100E94681 /* ZXISBNResultParser.m in Sources */,
 				B8CCDFB121212C5100E94681 /* ZXPerspectiveTransform.m in Sources */,
+				B8D3986723CF532C00D9448E /* CAMySiteLogCell.swift in Sources */,
 				B8CCDF9021212C5100E94681 /* ZXQRCodeBlockPair.m in Sources */,
 				B8CCDF9A21212C5100E94681 /* ZXQRCodeMode.m in Sources */,
 				B836AB2123C8CA1C009FBA5D /* CAAccountHeaderView.swift in Sources */,
@@ -2724,6 +2762,7 @@
 				B8CCDF8021212C5100E94681 /* ZXAztecToken.m in Sources */,
 				B84FC343210F02BC00DA30DC /* BillCell.swift in Sources */,
 				B8CCDF9121212C5100E94681 /* ZXMultiFinderPatternFinder.m in Sources */,
+				B8D3986023CF503D00D9448E /* CAMySiteLogViewController.swift in Sources */,
 				B836AB1E23C8C9AD009FBA5D /* CAAccountViewController.swift in Sources */,
 				B84FC32C210EDB8300DA30DC /* CAAccountSetTableViewController.swift in Sources */,
 				B8CCDFE721212C5100E94681 /* ZXDataMatrixDetector.m in Sources */,
@@ -2800,12 +2839,14 @@
 				B862ADA3211AF84C00B9F058 /* Person.swift in Sources */,
 				B8CCDFEA21212C5100E94681 /* ZXMaxiCodeDecodedBitStreamParser.m in Sources */,
 				B827AB3123CCBD2D00BC64B9 /* CAOrderListItemsViewController.swift in Sources */,
+				B8B5167223CF59D70080E633 /* CAMySiteSettingHeaderView.swift in Sources */,
 				B8D92A832109682E00BAB001 /* UIKit+Extension.swift in Sources */,
 				B8D92AB721097FDE00BAB001 /* CAResetPassViewController.swift in Sources */,
 				B8CCE04921212C5100E94681 /* ZXCapture.m in Sources */,
 				B8CCE04421212C5100E94681 /* ZXSMSParsedResult.m in Sources */,
 				B8F7A29023C0ACF600369B6A /* TYIcon.swift in Sources */,
 				B8D92ACD2109BA7900BAB001 /* Date+TimeInterval.swift in Sources */,
+				B8D3986A23CF565400D9448E /* CAMySiteLogHeaderView.swift in Sources */,
 				B83B9A3F211941AF00284FE6 /* ImagePickerControl.swift in Sources */,
 				B8CCDF7521212C5100E94681 /* ZXDimension.m in Sources */,
 				B84FC356210FF7D100DA30DC /* MyAlbumViewModel.swift in Sources */,
@@ -2866,6 +2907,7 @@
 				B8CCDFB321212C5100E94681 /* ZXDecoderResult.m in Sources */,
 				B8CCDFA821212C5100E94681 /* ZXByteArray.m in Sources */,
 				B8D92A1A2109646C00BAB001 /* TYIndicatorBaseView.swift in Sources */,
+				B8B5167623CF59F00080E633 /* CAMySiteSettingFooterView.swift in Sources */,
 				B8CCDFD821212C5100E94681 /* ZXDataMatrixErrorCorrection.m in Sources */,
 				B8CCDFCC21212C5100E94681 /* ZXPDF417BarcodeValue.m in Sources */,
 				B8CCDFFB21212C5100E94681 /* ZXRSSExpandedBlockParsedResult.m in Sources */,
@@ -3012,6 +3054,7 @@
 				B8CCE04721212C5100E94681 /* ZXISBNParsedResult.m in Sources */,
 				B88147B023CB966C003B5A97 /* CAOrder.swift in Sources */,
 				B82E2FD3210AFFFF00FA299F /* AlbumCell.swift in Sources */,
+				B8D3986223CF504E00D9448E /* CAMySiteSettingViewController.swift in Sources */,
 				B8E7F58223CB805900879B3A /* CAReFundsViewController.swift in Sources */,
 				B84FC32E210EDBBC00DA30DC /* UserCenter.swift in Sources */,
 				B8CCDFBB21212C5100E94681 /* ZXMultiFormatReader.m in Sources */,
@@ -3043,6 +3086,7 @@
 				B836AB2523CB0CFD009FBA5D /* UIViewController+ImagePicker.swift in Sources */,
 				B8D3985C23CCC7B700D9448E /* CAOrderListItemsViewModel.swift in Sources */,
 				B8CCE01521212C5100E94681 /* ZXCode128Writer.m in Sources */,
+				B8D3986423CF511400D9448E /* CAMySiteLogViewModel.swift in Sources */,
 				B8CCE03821212C5100E94681 /* ZXResultParser.m in Sources */,
 				B84FC33C210EFFE200DA30DC /* CABillViewController.swift in Sources */,
 				B8B2F40223C78AA300F50078 /* CAListAwardViewController.swift in Sources */,

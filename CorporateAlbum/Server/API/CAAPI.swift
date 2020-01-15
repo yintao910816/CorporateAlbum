@@ -147,6 +147,9 @@ enum API{
      */
     case mySite(skip: Int, limit: Int)
     
+    /// 获取站点日志
+    case mySiteListLog(siteName: String, skip: Int, limit: Int)
+    
     /**
      * 启用禁用我的站点浏览奖励
      */
@@ -244,6 +247,8 @@ extension API: TargetType{
             return "Notice"
         case .mySite(_, _):
             return "MySite/List"
+        case .mySiteListLog(_):
+            return "MySite/ListLog"
         case .siteEnableAward(_):
             return "Site/EnableAward"
         case .siteOnline(_):
@@ -390,6 +395,10 @@ extension API {
             params["skip"]   = skip
             params["limit"]  = limit
         case .mySite(let skip, let limit):
+            params["skip"]   = skip
+            params["limit"]  = limit
+        case .mySiteListLog(let siteName, let skip, let limit):
+            params["siteName"]  = limit
             params["skip"]   = skip
             params["limit"]  = limit
         case .siteEnableAward(let siteName):

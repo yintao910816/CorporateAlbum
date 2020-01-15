@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CAShareCorporateContentView" customModule="CorporateAlbum" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CAShareCorporateContentView" customModule="得众画册" customModuleProvider="target">
             <connections>
                 <outlet property="addressOutlet" destination="6IS-nd-VqY" id="ek2-ab-YFl"/>
                 <outlet property="birefOutlet" destination="nOv-oq-nWT" id="2Bv-AN-cXD"/>
@@ -37,14 +37,13 @@
                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSF-Lp-I6C">
+                <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSF-Lp-I6C">
                     <rect key="frame" x="369" y="9" width="30" height="29"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="29" id="3uq-Jn-Tjz"/>
                         <constraint firstAttribute="width" constant="30" id="BEg-72-IrS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="复制"/>
+                    <state key="normal" image="copy"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="omx-Vv-UW4"/>
                     </connections>
@@ -68,14 +67,13 @@
                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUB-CK-0PK">
+                <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUB-CK-0PK">
                     <rect key="frame" x="369" y="57" width="30" height="29"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="29" id="Oil-Ya-Vtl"/>
                         <constraint firstAttribute="width" constant="30" id="Rv4-L6-VrM"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="复制"/>
+                    <state key="normal" image="copy"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="yvq-Yx-EgN"/>
                     </connections>
@@ -99,14 +97,13 @@
                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQD-DI-vNw">
+                <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQD-DI-vNw">
                     <rect key="frame" x="369" y="105" width="30" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="WB9-2G-H7i"/>
                         <constraint firstAttribute="height" constant="29" id="opR-cB-lFk"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="复制"/>
+                    <state key="normal" image="copy"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="Amc-qK-6fB"/>
                     </connections>
@@ -130,14 +127,13 @@
                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbG-a9-76o">
+                <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbG-a9-76o">
                     <rect key="frame" x="369" y="153" width="30" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="T0q-vF-AQm"/>
                         <constraint firstAttribute="height" constant="29" id="h7K-6m-eri"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="复制"/>
+                    <state key="normal" image="copy"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="gce-Mc-AgT"/>
                     </connections>
@@ -199,14 +195,13 @@
                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="204" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="742-YG-3x6">
+                <button opaque="NO" tag="204" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="742-YG-3x6">
                     <rect key="frame" x="369" y="201" width="30" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="BTF-Yw-Pk1"/>
                         <constraint firstAttribute="height" constant="29" id="zv6-ZZ-gKw"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="复制"/>
+                    <state key="normal" image="copy"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="Nim-H1-W7L"/>
                     </connections>
@@ -230,14 +225,13 @@
                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="205" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-9t-rPS">
+                <button opaque="NO" tag="205" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-9t-rPS">
                     <rect key="frame" x="369" y="249" width="30" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="ccK-Qu-Ba5"/>
                         <constraint firstAttribute="height" constant="29" id="rgm-ni-c42"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="复制"/>
+                    <state key="normal" image="copy"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="NdG-tD-4No"/>
                     </connections>
@@ -327,4 +321,7 @@
             <point key="canvasLocation" x="-136.23188405797103" y="52.901785714285715"/>
         </view>
     </objects>
+    <resources>
+        <image name="copy" width="210" height="210"/>
+    </resources>
 </document>

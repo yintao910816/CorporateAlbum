@@ -489,6 +489,8 @@
                     <navigationItem key="navigationItem" title="我的画册" id="txc-Dm-sgF"/>
                     <connections>
                         <outlet property="tableView" destination="1s6-So-VIY" id="w4C-XE-PRx"/>
+                        <segue destination="X17-JD-m8F" kind="show" identifier="mySiteLogSegue" id="uIB-G5-mBF"/>
+                        <segue destination="Zwk-UK-IOX" kind="show" identifier="mySiteSettingSegue" id="elX-Aa-ShJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4IC-WZ-fcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -528,6 +530,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmZ-iv-1PZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="241" y="3360"/>
+        </scene>
+        <!--站点日志-->
+        <scene sceneID="zvP-Wm-3Sm">
+            <objects>
+                <viewController id="X17-JD-m8F" customClass="CAMySiteLogViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="npQ-Az-Uod"/>
+                        <viewControllerLayoutGuide type="bottom" id="kHc-Jt-30C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TLa-Nw-b2J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KvA-iP-Afv" customClass="BaseTB" customModule="得众画册" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KvA-iP-Afv" firstAttribute="leading" secondItem="TLa-Nw-b2J" secondAttribute="leading" id="3AT-uM-dyB"/>
+                            <constraint firstItem="KvA-iP-Afv" firstAttribute="top" secondItem="npQ-Az-Uod" secondAttribute="bottom" id="Ek6-rJ-PSK"/>
+                            <constraint firstAttribute="trailing" secondItem="KvA-iP-Afv" secondAttribute="trailing" id="VLK-BS-Sjl"/>
+                            <constraint firstAttribute="bottom" secondItem="KvA-iP-Afv" secondAttribute="bottom" id="vnB-xd-721"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="站点日志" id="uu2-F2-Jkb"/>
+                    <connections>
+                        <outlet property="tableView" destination="KvA-iP-Afv" id="9iT-tD-fT2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JoE-qS-2dA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695" y="4094"/>
+        </scene>
+        <!--站点设置-->
+        <scene sceneID="45x-f4-OVD">
+            <objects>
+                <viewController id="Zwk-UK-IOX" customClass="CAMySiteSettingViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n9j-ZV-2Xk"/>
+                        <viewControllerLayoutGuide type="bottom" id="qhK-4n-YWN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fdR-4r-t8y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-Z0-5fZ" customClass="BaseTB" customModule="得众画册" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dCR-Z0-5fZ" firstAttribute="leading" secondItem="fdR-4r-t8y" secondAttribute="leading" id="1Jf-o7-237"/>
+                            <constraint firstAttribute="trailing" secondItem="dCR-Z0-5fZ" secondAttribute="trailing" id="3cV-jB-tjU"/>
+                            <constraint firstItem="dCR-Z0-5fZ" firstAttribute="top" secondItem="n9j-ZV-2Xk" secondAttribute="bottom" id="4qH-Pe-UHn"/>
+                            <constraint firstAttribute="bottom" secondItem="dCR-Z0-5fZ" secondAttribute="bottom" id="nSK-tx-7fN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="站点设置" id="j4C-KE-qKb"/>
+                    <connections>
+                        <outlet property="tableView" destination="dCR-Z0-5fZ" id="w71-2v-l75"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0p-Fg-pQz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1498" y="4095"/>
         </scene>
         <!--我的消息-->
         <scene sceneID="T94-1J-rzP">

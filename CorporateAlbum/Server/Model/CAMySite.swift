@@ -52,3 +52,13 @@ class CAMySiteModel: HJModel {
     var ManagePassword: String = ""
 
 }
+
+class CAMySiteLogInfoModel: HJModel {
+    var Id: String = ""
+    /// 站点域名
+    var SiteName: String = ""
+    /// 备注
+    var Summary: String = ""
+    /// 创建时间
+    var CreateTime: String = ""
+}
