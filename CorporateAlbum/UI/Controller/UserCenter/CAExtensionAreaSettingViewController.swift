@@ -25,6 +25,12 @@ class CAExtensionAreaSettingViewController: BaseViewController {
     }
     
     override func rxBind() {
+        addBarItem(normal: "region_add")
+            .drive(onNext: { [unowned self] in
+                self.performSegue(withIdentifier: "extensionAreaSelectedSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel = CAExtensionAreaSettingViewModel.init(siteModel: siteModel, listData: listData)
         
         viewModel.regionDataource.asDriver()

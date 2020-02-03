@@ -628,11 +628,46 @@
                     <navigationItem key="navigationItem" title="推广区域设置" id="kFB-vq-6ng"/>
                     <connections>
                         <outlet property="tableView" destination="hfh-oc-vmS" id="rga-VS-kmt"/>
+                        <segue destination="evX-3G-SWy" kind="show" identifier="extensionAreaSelectedSegue" id="b5E-SP-uHK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjz-5h-p1l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2282" y="4090"/>
+        </scene>
+        <!--地区选择-->
+        <scene sceneID="UCw-Ye-6Fo">
+            <objects>
+                <viewController id="evX-3G-SWy" customClass="CAExtensionAreaSelectedViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fCN-yv-ppX"/>
+                        <viewControllerLayoutGuide type="bottom" id="He5-0b-TqL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="owK-IV-Nmk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-uv-ggg" customClass="BaseTB" customModule="得众画册" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ltf-uv-ggg" secondAttribute="bottom" id="Fsh-Fa-gc8"/>
+                            <constraint firstItem="ltf-uv-ggg" firstAttribute="top" secondItem="fCN-yv-ppX" secondAttribute="bottom" id="RDk-eC-rfg"/>
+                            <constraint firstAttribute="trailing" secondItem="ltf-uv-ggg" secondAttribute="trailing" id="h04-jx-0N3"/>
+                            <constraint firstItem="ltf-uv-ggg" firstAttribute="leading" secondItem="owK-IV-Nmk" secondAttribute="leading" id="wBv-Vc-1iY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="地区选择" id="OcQ-mH-blE"/>
+                    <connections>
+                        <outlet property="tableView" destination="ltf-uv-ggg" id="7wd-Jg-KJ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61O-E0-L04" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2281" y="4849"/>
         </scene>
         <!--我的消息-->
         <scene sceneID="T94-1J-rzP">

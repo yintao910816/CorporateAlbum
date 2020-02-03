@@ -436,6 +436,7 @@
 		B8E66EA523E81B3400725BD2 /* CAReginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E66EA323E81B3400725BD2 /* CAReginCell.xib */; };
 		B8E66EA723E81D1700725BD2 /* BaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EA623E81D1700725BD2 /* BaseTBCell.swift */; };
 		B8E66EA923E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EA823E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift */; };
+		B8E66EAD23E82D8F00725BD2 /* CAExtensionAreaSelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EAC23E82D8F00725BD2 /* CAExtensionAreaSelectedViewController.swift */; };
 		B8E7F58023CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7F57F23CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift */; };
 		B8E7F58223CB805900879B3A /* CAReFundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7F58123CB805900879B3A /* CAReFundsViewController.swift */; };
 		B8F7A27523C08EC700369B6A /* CADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A27423C08EC700369B6A /* CADocument.swift */; };
@@ -1137,6 +1138,7 @@
 		B8E66EA323E81B3400725BD2 /* CAReginCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAReginCell.xib; sourceTree = "<group>"; };
 		B8E66EA623E81D1700725BD2 /* BaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTBCell.swift; sourceTree = "<group>"; };
 		B8E66EA823E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAExtensionAreaSettingViewModel.swift; sourceTree = "<group>"; };
+		B8E66EAC23E82D8F00725BD2 /* CAExtensionAreaSelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAExtensionAreaSelectedViewController.swift; sourceTree = "<group>"; };
 		B8E7F57F23CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASetAlipayInfoViewModel.swift; sourceTree = "<group>"; };
 		B8E7F58123CB805900879B3A /* CAReFundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAReFundsViewController.swift; sourceTree = "<group>"; };
 		B8F7A27423C08EC700369B6A /* CADocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CADocument.swift; sourceTree = "<group>"; };
@@ -1361,6 +1363,7 @@
 				B8D3985F23CF503D00D9448E /* CAMySiteLogViewController.swift */,
 				B8D3986123CF504E00D9448E /* CAMySiteSettingViewController.swift */,
 				B8E66E9A23E8127A00725BD2 /* CAExtensionAreaSettingViewController.swift */,
+				B8E66EAC23E82D8F00725BD2 /* CAExtensionAreaSelectedViewController.swift */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -2882,6 +2885,7 @@
 				B8CCDF6E21212C5100E94681 /* LBXScanTypes.m in Sources */,
 				B8D92AC4210997D700BAB001 /* Timer.swift in Sources */,
 				B8CCDF6B21212C5100E94681 /* LBXScanLineAnimation.m in Sources */,
+				B8E66EAD23E82D8F00725BD2 /* CAExtensionAreaSelectedViewController.swift in Sources */,
 				B8CCDFCE21212C5100E94681 /* ZXPDF417Codeword.m in Sources */,
 				B8CCE00021212C5100E94681 /* ZXRSSExpandedFieldParser.m in Sources */,
 				B8CCDFA621212C5100E94681 /* ZXDetectorResult.m in Sources */,
