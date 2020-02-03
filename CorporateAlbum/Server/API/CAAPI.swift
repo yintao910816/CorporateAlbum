@@ -97,6 +97,10 @@ enum API{
     case orderList(skip: Int, limit: Int)
     /// 获取订单明细项表
     case orderListItems(orderId: String)
+    
+    /// 获取推广区域列表
+    case listRegion(siteName: String)
+    
     /**
      * 修改手机号获取邮箱验证码
      */
@@ -255,6 +259,8 @@ extension API: TargetType{
             return "Site/Online"
         case .siteResetAward(_):
             return "Site/ResetAward"
+        case .listRegion(_):
+            return "MySite/ListRegion"
            
         case .orderList(_):
             return "Order/List"
@@ -411,6 +417,9 @@ extension API {
             params["token"]  = userDefault.appToken ?? ""
             params["siteName"]   = siteName
             
+        case .listRegion(let siteName):
+            params["siteName"]   = siteName
+
         case .albumPage(let siteName, let skip, let limit):
             params["siteName"] = siteName
             params["skip"]   = skip

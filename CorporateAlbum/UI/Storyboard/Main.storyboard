@@ -395,21 +395,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zim-1L-BKk">
-                                        <rect key="frame" x="15" y="4.5" width="80" height="50"/>
+                                        <rect key="frame" x="15" y="29.5" width="40" height="25"/>
                                         <state key="normal" image="navigationButtonReturn"/>
                                         <connections>
                                             <action selector="back:" destination="ihQ-Te-Of9" eventType="touchUpInside" id="na9-RP-fuV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm5-hx-Vhk">
-                                        <rect key="frame" x="288" y="14.5" width="30" height="30"/>
+                                        <rect key="frame" x="288" y="27" width="30" height="30"/>
                                         <state key="normal" image="save_album"/>
                                         <connections>
                                             <action selector="saveAlbum:" destination="ihQ-Te-Of9" eventType="touchUpInside" id="n2Y-e6-4tq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ult-NL-VcZ">
-                                        <rect key="frame" x="330" y="14.5" width="30" height="30"/>
+                                        <rect key="frame" x="330" y="27" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="BlY-Rw-78e"/>
                                             <constraint firstAttribute="width" secondItem="ult-NL-VcZ" secondAttribute="height" multiplier="1:1" id="HqW-El-nei"/>
@@ -593,11 +593,46 @@
                     <navigationItem key="navigationItem" title="站点设置" id="j4C-KE-qKb"/>
                     <connections>
                         <outlet property="tableView" destination="dCR-Z0-5fZ" id="w71-2v-l75"/>
+                        <segue destination="Ai6-ye-I8z" kind="show" identifier="extensionAreaSettingSegue" id="aDT-5h-6Bj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0p-Fg-pQz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1498" y="4095"/>
+        </scene>
+        <!--推广区域设置-->
+        <scene sceneID="GRc-1p-GzK">
+            <objects>
+                <viewController id="Ai6-ye-I8z" customClass="CAExtensionAreaSettingViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="trn-V9-3Qg"/>
+                        <viewControllerLayoutGuide type="bottom" id="WnL-ph-Evk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dHU-UR-LHX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfh-oc-vmS" customClass="BaseTB" customModule="得众画册" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hfh-oc-vmS" secondAttribute="bottom" id="72p-ZU-LEv"/>
+                            <constraint firstItem="hfh-oc-vmS" firstAttribute="top" secondItem="trn-V9-3Qg" secondAttribute="bottom" id="afR-Pt-sYJ"/>
+                            <constraint firstItem="hfh-oc-vmS" firstAttribute="leading" secondItem="dHU-UR-LHX" secondAttribute="leading" id="teL-fm-Hpe"/>
+                            <constraint firstAttribute="trailing" secondItem="hfh-oc-vmS" secondAttribute="trailing" id="uVW-18-5hr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="推广区域设置" id="kFB-vq-6ng"/>
+                    <connections>
+                        <outlet property="tableView" destination="hfh-oc-vmS" id="rga-VS-kmt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yjz-5h-p1l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2282" y="4090"/>
         </scene>
         <!--我的消息-->
         <scene sceneID="T94-1J-rzP">

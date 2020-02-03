@@ -62,11 +62,11 @@ class MineViewModel: BaseViewModel , VMNavigation{
                                                                           params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "奖励提现",
                                                                           icon: UIImage(named: "mine_funds"),
-//                                                                          segue: "refundsSegue",
+                                                                          segue: "refundsSegue",
                                                                           params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "开通画册",
                                                                           icon: UIImage(named: "mine_open_album"),
-//                                                                          segue: "openAlbumSegue",
+                                                                          segue: "openAlbumSegue",
                                                                           params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "我的订单",
                                                                           icon: UIImage(named: "mine_order"),
@@ -75,7 +75,8 @@ class MineViewModel: BaseViewModel , VMNavigation{
                                                                           icon: UIImage(named: "mine_album"),
                                                                           segue: "myalbumSegue")]),
                         SectionModel.init(model: 1, items: [MineCellModel(title: "关于我们",
-                                                                          icon: UIImage(named: "mine_about")),
+                                                                          icon: UIImage(named: "mine_about"),
+                                                                          webURL: APIAssistance.aboutusWeb),
                                                             MineCellModel(title: "退出登录",
                                                                           icon: UIImage(named: "mine_login_out"),
                                                                           isLoginOut: true)])]
@@ -119,6 +120,8 @@ struct MineCellModel {
     var icon: UIImage?
     var segue: String = ""
     var params: [String: Any] = [:]
+    
+    var webURL: String = ""
     
     var isLoginOut: Bool = false
 }

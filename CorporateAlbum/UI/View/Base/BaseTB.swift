@@ -42,4 +42,8 @@ class BaseTB: UITableView {
             .drive(onNext: { [unowned self] in self.deselectRow(at: $0, animated: true) })
         .disposed(by: disposeBag)
     }
+    
+    deinit {
+        PrintLog("释放了：\(self)")
+    }
 }

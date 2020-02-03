@@ -48,6 +48,12 @@ struct APIAssistance {
     
     /// 注册协议
     static let registerAggrement = "http://aapi.dazongg.net/document/get?name=contract"
+    /// 关于我们
+    static let aboutusWeb = "http://aapi.dazongg.net/document/get?name=aboutus"
+    /// 关于奖励
+    static let bonusWeb = "http://aapi.dazongg.net/document/get?name=bonus"
+    /// 服务协议
+    static let serviceWeb = "http://aapi.dazongg.net/document/get?name=service"
     
     static let base     = "http://aapi.dazongg.net/"
     

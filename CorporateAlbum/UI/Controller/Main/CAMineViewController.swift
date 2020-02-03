@@ -118,6 +118,11 @@ class CAMineViewController: BaseViewController {
             
             if model.segue.count > 0 {
                 performSegue(withIdentifier: model.segue, sender: model.params)
+            }else if model.webURL.count > 0 {
+                let webVC = WebViewController()
+                webVC.htmlURL = model.webURL
+                webVC.title = "关于我们"
+                navigationController?.pushViewController(webVC, animated: true)
             }else {
                 NoticesCenter.alert(message: "开发中，敬请期待...")
             }

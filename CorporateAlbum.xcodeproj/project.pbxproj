@@ -429,6 +429,13 @@
 		B8D92AC92109990700BAB001 /* SharedSequenceConvertibleType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92AC72109990700BAB001 /* SharedSequenceConvertibleType+Extension.swift */; };
 		B8D92ACB2109B48400BAB001 /* String+Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92ACA2109B48400BAB001 /* String+Encryption.swift */; };
 		B8D92ACD2109BA7900BAB001 /* Date+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D92ACC2109BA7900BAB001 /* Date+TimeInterval.swift */; };
+		B8E66E9B23E8127B00725BD2 /* CAExtensionAreaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66E9A23E8127A00725BD2 /* CAExtensionAreaSettingViewController.swift */; };
+		B8E66E9D23E8169600725BD2 /* CAMySiteSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66E9C23E8169600725BD2 /* CAMySiteSettingViewModel.swift */; };
+		B8E66EA123E817BC00725BD2 /* CARegionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EA023E817BB00725BD2 /* CARegionInfo.swift */; };
+		B8E66EA423E81B3400725BD2 /* CAReginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EA223E81B3400725BD2 /* CAReginCell.swift */; };
+		B8E66EA523E81B3400725BD2 /* CAReginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E66EA323E81B3400725BD2 /* CAReginCell.xib */; };
+		B8E66EA723E81D1700725BD2 /* BaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EA623E81D1700725BD2 /* BaseTBCell.swift */; };
+		B8E66EA923E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EA823E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift */; };
 		B8E7F58023CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7F57F23CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift */; };
 		B8E7F58223CB805900879B3A /* CAReFundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7F58123CB805900879B3A /* CAReFundsViewController.swift */; };
 		B8F7A27523C08EC700369B6A /* CADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A27423C08EC700369B6A /* CADocument.swift */; };
@@ -1123,6 +1130,13 @@
 		B8D92AC72109990700BAB001 /* SharedSequenceConvertibleType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SharedSequenceConvertibleType+Extension.swift"; sourceTree = "<group>"; };
 		B8D92ACA2109B48400BAB001 /* String+Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Encryption.swift"; sourceTree = "<group>"; };
 		B8D92ACC2109BA7900BAB001 /* Date+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeInterval.swift"; sourceTree = "<group>"; };
+		B8E66E9A23E8127A00725BD2 /* CAExtensionAreaSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAExtensionAreaSettingViewController.swift; sourceTree = "<group>"; };
+		B8E66E9C23E8169600725BD2 /* CAMySiteSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteSettingViewModel.swift; sourceTree = "<group>"; };
+		B8E66EA023E817BB00725BD2 /* CARegionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CARegionInfo.swift; sourceTree = "<group>"; };
+		B8E66EA223E81B3400725BD2 /* CAReginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAReginCell.swift; sourceTree = "<group>"; };
+		B8E66EA323E81B3400725BD2 /* CAReginCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAReginCell.xib; sourceTree = "<group>"; };
+		B8E66EA623E81D1700725BD2 /* BaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTBCell.swift; sourceTree = "<group>"; };
+		B8E66EA823E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAExtensionAreaSettingViewModel.swift; sourceTree = "<group>"; };
 		B8E7F57F23CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASetAlipayInfoViewModel.swift; sourceTree = "<group>"; };
 		B8E7F58123CB805900879B3A /* CAReFundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAReFundsViewController.swift; sourceTree = "<group>"; };
 		B8F7A27423C08EC700369B6A /* CADocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CADocument.swift; sourceTree = "<group>"; };
@@ -1197,6 +1211,8 @@
 				B827AB3323CCBDD600BC64B9 /* CAOrderListItemCell.xib */,
 				B8D3986523CF532C00D9448E /* CAMySiteLogCell.swift */,
 				B8D3986623CF532C00D9448E /* CAMySiteLogCell.xib */,
+				B8E66EA223E81B3400725BD2 /* CAReginCell.swift */,
+				B8E66EA323E81B3400725BD2 /* CAReginCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1318,6 +1334,7 @@
 			children = (
 				B83F278B211420B6005CA5C3 /* BaseFilesOwner.swift */,
 				B84FC328210EC67500DA30DC /* BaseTB.swift */,
+				B8E66EA623E81D1700725BD2 /* BaseTBCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1343,6 +1360,7 @@
 				B84FC34F210FEE7C00DA30DC /* CAMyAlbumViewController.swift */,
 				B8D3985F23CF503D00D9448E /* CAMySiteLogViewController.swift */,
 				B8D3986123CF504E00D9448E /* CAMySiteSettingViewController.swift */,
+				B8E66E9A23E8127A00725BD2 /* CAExtensionAreaSettingViewController.swift */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -2275,6 +2293,8 @@
 				B8D3985B23CCC7B700D9448E /* CAOrderListItemsViewModel.swift */,
 				B84FC355210FF7D100DA30DC /* MyAlbumViewModel.swift */,
 				B8D3986323CF511400D9448E /* CAMySiteLogViewModel.swift */,
+				B8E66E9C23E8169600725BD2 /* CAMySiteSettingViewModel.swift */,
+				B8E66EA823E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2311,6 +2331,7 @@
 				B8F7A27423C08EC700369B6A /* CADocument.swift */,
 				B88147AF23CB966C003B5A97 /* CAOrder.swift */,
 				B8D3985D23CCD1CC00D9448E /* CAMySite.swift */,
+				B8E66EA023E817BB00725BD2 /* CARegionInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2658,6 +2679,7 @@
 				B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */,
 				B8D929B121095EA900BAB001 /* LaunchScreen.storyboard in Resources */,
 				B827AB3523CCBDD600BC64B9 /* CAOrderListItemCell.xib in Resources */,
+				B8E66EA523E81B3400725BD2 /* CAReginCell.xib in Resources */,
 				B8D929AE21095EA900BAB001 /* Assets.xcassets in Resources */,
 				B8B2F40023C782BD00F50078 /* CAShareCorporateContentView.xib in Resources */,
 				B88147AC23CB9550003B5A97 /* CAOrderListCell.xib in Resources */,
@@ -2751,6 +2773,7 @@
 				B8B2F40423C78BF200F50078 /* CAListAwardViewModel.swift in Sources */,
 				B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */,
 				B8CCDFA221212C5100E94681 /* ZXQRCodeFinderPatternFinder.m in Sources */,
+				B8E66EA923E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift in Sources */,
 				B8B2F3F823C625C400F50078 /* CAShareAlbumContentView.swift in Sources */,
 				B8CCDF8D21212C5100E94681 /* ZXQRCode.m in Sources */,
 				B82E2FBB210AB0C300FA299F /* UIControl+_Rx.swift in Sources */,
@@ -2824,6 +2847,7 @@
 				B8CCE01121212C5100E94681 /* ZXRSSPair.m in Sources */,
 				B8CCDFBD21212C5100E94681 /* ZXPDF417Common.m in Sources */,
 				B8CCE02821212C5100E94681 /* ZXVCardResultParser.m in Sources */,
+				B8E66EA723E81D1700725BD2 /* BaseTBCell.swift in Sources */,
 				B8CCE04821212C5100E94681 /* ZXImage.m in Sources */,
 				B8CCDFC421212C5100E94681 /* ZXPDF417CodewordDecoder.m in Sources */,
 				B8CCDF9621212C5100E94681 /* ZXQRCodeDecoder.m in Sources */,
@@ -2992,6 +3016,7 @@
 				B8CCDFEF21212C5100E94681 /* ZXCodaBarReader.m in Sources */,
 				B8D92ABB210982DF00BAB001 /* CAMyCorporateViewController.swift in Sources */,
 				B8D92A7B210966CA00BAB001 /* DB+Extension.swift in Sources */,
+				B8E66E9D23E8169600725BD2 /* CAMySiteSettingViewModel.swift in Sources */,
 				B8CCDF8721212C5100E94681 /* ZXAztecDecoder.m in Sources */,
 				B8CCE02721212C5100E94681 /* ZXAbstractDoCoMoResultParser.m in Sources */,
 				B83F279221144577005CA5C3 /* UINavigationController+BarButtonItem.swift in Sources */,
@@ -3023,6 +3048,7 @@
 				B8D92A172109646C00BAB001 /* FrameView.swift in Sources */,
 				B8D92A7D210966CA00BAB001 /* CacheKey.swift in Sources */,
 				B8CCDFD921212C5100E94681 /* ZXDataMatrixC40Encoder.m in Sources */,
+				B8E66EA423E81B3400725BD2 /* CAReginCell.swift in Sources */,
 				B8CCDFC721212C5100E94681 /* ZXPDF417ECErrorCorrection.m in Sources */,
 				B8F7A28223C0A40D00369B6A /* TYFont.swift in Sources */,
 				B836AB2B23CB4CC9009FBA5D /* CASetCityViewModel.swift in Sources */,
@@ -3034,6 +3060,7 @@
 				B8CCE04B21212C5100E94681 /* ZXingWrapper.m in Sources */,
 				B8F7A27C23C09EC400369B6A /* HandyJSON+MapModel.swift in Sources */,
 				B8CCE00621212C5100E94681 /* ZXRSSExpandedGeneralAppIdDecoder.m in Sources */,
+				B8E66E9B23E8127B00725BD2 /* CAExtensionAreaSettingViewController.swift in Sources */,
 				B8CCDFCA21212C5100E94681 /* ZXPDF417BarcodeMetadata.m in Sources */,
 				B8CCDFAC21212C5100E94681 /* ZXGlobalHistogramBinarizer.m in Sources */,
 				B8D92A5F2109646C00BAB001 /* BaseModel.swift in Sources */,
@@ -3063,6 +3090,7 @@
 				B8CCDF9521212C5100E94681 /* ZXQRCodeDataMask.m in Sources */,
 				B8CCDF8F21212C5100E94681 /* ZXQRCodeMatrixUtil.m in Sources */,
 				B8D92A9021096BC600BAB001 /* UIDevice+Extension.swift in Sources */,
+				B8E66EA123E817BC00725BD2 /* CARegionInfo.swift in Sources */,
 				B82E2FC9210AF33F00FA299F /* HttpImage.swift in Sources */,
 				B8CCDF9921212C5100E94681 /* ZXQRCodeDataBlock.m in Sources */,
 				B8CCDFC621212C5100E94681 /* ZXModulusGF.m in Sources */,
