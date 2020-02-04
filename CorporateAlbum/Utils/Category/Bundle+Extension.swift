@@ -42,6 +42,16 @@ extension Bundle {
 
 extension Bundle {
     
+    func resource(for fileName: String,
+                  type: String,
+                  _ dir: String = "Resource.bundle/",
+                  _ subDir: String? = nil) ->String {
+        if let _subDir = subDir, _subDir.count > 0 {
+            return Bundle.main.path(forResource: fileName, ofType: type, inDirectory: dir + _subDir) ?? ""
+        }
+        return Bundle.main.path(forResource: fileName, ofType: type, inDirectory: dir) ?? ""
+    }
+
     func resource(fileName name: String,
                   ofType type: String = "png",
                   inDirectory dir: String = "Resource.bundle/",

@@ -32,6 +32,12 @@ class CAReginCell: BaseTBCell {
         }
     }
     
+    public var localRegionModel: CARegionListModel! {
+        didSet {
+            contentOutlet.text = localRegionModel.name
+        }
+    }
+    
     public var isHiddenDelete: Bool = true {
         didSet {
             deleteOutlet.isHidden = isHiddenDelete

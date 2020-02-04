@@ -437,6 +437,8 @@
 		B8E66EA723E81D1700725BD2 /* BaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EA623E81D1700725BD2 /* BaseTBCell.swift */; };
 		B8E66EA923E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EA823E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift */; };
 		B8E66EAD23E82D8F00725BD2 /* CAExtensionAreaSelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EAC23E82D8F00725BD2 /* CAExtensionAreaSelectedViewController.swift */; };
+		B8E66EAF23E93E7C00725BD2 /* CAExtensionAreaSelectedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EAE23E93E7C00725BD2 /* CAExtensionAreaSelectedViewModel.swift */; };
+		B8E66EB123E94B9800725BD2 /* String+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E66EB023E94B9800725BD2 /* String+Operation.swift */; };
 		B8E7F58023CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7F57F23CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift */; };
 		B8E7F58223CB805900879B3A /* CAReFundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7F58123CB805900879B3A /* CAReFundsViewController.swift */; };
 		B8F7A27523C08EC700369B6A /* CADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A27423C08EC700369B6A /* CADocument.swift */; };
@@ -1139,6 +1141,8 @@
 		B8E66EA623E81D1700725BD2 /* BaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTBCell.swift; sourceTree = "<group>"; };
 		B8E66EA823E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAExtensionAreaSettingViewModel.swift; sourceTree = "<group>"; };
 		B8E66EAC23E82D8F00725BD2 /* CAExtensionAreaSelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAExtensionAreaSelectedViewController.swift; sourceTree = "<group>"; };
+		B8E66EAE23E93E7C00725BD2 /* CAExtensionAreaSelectedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAExtensionAreaSelectedViewModel.swift; sourceTree = "<group>"; };
+		B8E66EB023E94B9800725BD2 /* String+Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Operation.swift"; sourceTree = "<group>"; };
 		B8E7F57F23CB7A4A00879B3A /* CASetAlipayInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASetAlipayInfoViewModel.swift; sourceTree = "<group>"; };
 		B8E7F58123CB805900879B3A /* CAReFundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAReFundsViewController.swift; sourceTree = "<group>"; };
 		B8F7A27423C08EC700369B6A /* CADocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CADocument.swift; sourceTree = "<group>"; };
@@ -2298,6 +2302,7 @@
 				B8D3986323CF511400D9448E /* CAMySiteLogViewModel.swift */,
 				B8E66E9C23E8169600725BD2 /* CAMySiteSettingViewModel.swift */,
 				B8E66EA823E823C900725BD2 /* CAExtensionAreaSettingViewModel.swift */,
+				B8E66EAE23E93E7C00725BD2 /* CAExtensionAreaSelectedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2412,6 +2417,7 @@
 				B8D92ACA2109B48400BAB001 /* String+Encryption.swift */,
 				B8D92ACC2109BA7900BAB001 /* Date+TimeInterval.swift */,
 				B836AB2423CB0CFD009FBA5D /* UIViewController+ImagePicker.swift */,
+				B8E66EB023E94B9800725BD2 /* String+Operation.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2877,6 +2883,7 @@
 				B83B9A3F211941AF00284FE6 /* ImagePickerControl.swift in Sources */,
 				B8CCDF7521212C5100E94681 /* ZXDimension.m in Sources */,
 				B84FC356210FF7D100DA30DC /* MyAlbumViewModel.swift in Sources */,
+				B8E66EAF23E93E7C00725BD2 /* CAExtensionAreaSelectedViewModel.swift in Sources */,
 				B8D92A472109646C00BAB001 /* PageModel.swift in Sources */,
 				B8CCDFEE21212C5100E94681 /* ZXEANManufacturerOrgSupport.m in Sources */,
 				B8CCDF7E21212C5100E94681 /* ZXByQuadrantReader.m in Sources */,
@@ -3018,6 +3025,7 @@
 				B8CCDFF821212C5100E94681 /* ZXRSSExpandedRow.m in Sources */,
 				B82E2FC6210AF33F00FA299F /* DiskImage.swift in Sources */,
 				B8CCDFEF21212C5100E94681 /* ZXCodaBarReader.m in Sources */,
+				B8E66EB123E94B9800725BD2 /* String+Operation.swift in Sources */,
 				B8D92ABB210982DF00BAB001 /* CAMyCorporateViewController.swift in Sources */,
 				B8D92A7B210966CA00BAB001 /* DB+Extension.swift in Sources */,
 				B8E66E9D23E8169600725BD2 /* CAMySiteSettingViewModel.swift in Sources */,
