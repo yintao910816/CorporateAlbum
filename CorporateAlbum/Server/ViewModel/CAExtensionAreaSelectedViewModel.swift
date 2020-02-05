@@ -30,7 +30,7 @@ class CAExtensionAreaSelectedViewModel: BaseViewModel {
             
             var sectionDatas: [SectionModel<String, CARegionListModel>] = []
             for (key, value) in datas {
-                strongSelf.sectionTitles.append(key)
+                strongSelf.sectionTitles.append(key.uppercased())
                 sectionDatas.append(SectionModel.init(model: key, items: value))
             }
             

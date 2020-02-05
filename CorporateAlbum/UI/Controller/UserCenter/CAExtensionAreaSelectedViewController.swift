@@ -24,18 +24,33 @@ class CAExtensionAreaSelectedViewController: BaseViewController {
     
     override func rxBind() {
         viewModel = CAExtensionAreaSelectedViewModel.init()
-        
+                
         let datasource = RxTableViewSectionedReloadDataSource<SectionModel<String, CARegionListModel>>.init(configureCell: { _, tb, indexPath, model -> UITableViewCell in
             let cell = (tb.dequeueReusableCell(withIdentifier: CAReginCell_identifier) as! CAReginCell)
             cell.localRegionModel = model
             cell.isHiddenDelete = true
             return cell
-        })
+        }, titleForHeaderInSection: { (s, section) -> String? in
+            return s.sectionModels[section].model
+        }, titleForFooterInSection: { (_, _) -> String? in
+            return nil
+        }, canEditRowAtIndexPath: { (_, _) -> Bool in
+            return false
+        }, canMoveRowAtIndexPath: { (_, _) -> Bool in
+            return false
+        }, sectionIndexTitles: { [weak self] (_) -> [String]? in
+            return self?.viewModel.sectionTitles
+        }) { (s, t, section) -> Int in
+            return section
+        }
 
         viewModel.datasource.asDriver()
             .drive(tableView.rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
         
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+                
         viewModel.reloadSubject.onNext(true)
     }
 }
@@ -44,15 +59,16 @@ extension CAExtensionAreaSelectedViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.textColor = RGB(168, 168, 168)
-        label.font = .font(fontSize: 15)
-        label.text = viewModel.sectionTitles[section]
+        label.backgroundColor = RGB(237, 237, 237)
+        label.textColor = RGB(154, 154, 154)
+        label.font = .font(fontSize: 17)
+        label.text = "  \(viewModel.sectionTitles[section])"
         return label
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15
+        return 30
     }
-    
+ 
     
 }
