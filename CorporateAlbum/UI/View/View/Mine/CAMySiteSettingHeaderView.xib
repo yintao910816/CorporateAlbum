@@ -290,7 +290,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="GLa-iU-c5x"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="vpD-AW-eTF"/>
                     </connections>
@@ -301,7 +300,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="5da-9e-72c"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="FB5-PF-t02"/>
                     </connections>
@@ -312,7 +310,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="yHt-b9-rJk"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
                     <connections>
                         <action selector="actions:" destination="-1" eventType="touchUpInside" id="cOw-Zb-3WX"/>
                     </connections>
