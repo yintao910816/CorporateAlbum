@@ -14,7 +14,8 @@ class CAMySiteSettingViewModel: BaseViewModel {
     private var siteModel: CAMySiteModel!
     
     public let regionDataource = Variable([CARegionInfoModel]())
-    
+    public let siteInfoObser = Variable(CAMySiteModel())
+
     init(input: CAMySiteModel) {
         super.init()
         
@@ -22,12 +23,19 @@ class CAMySiteSettingViewModel: BaseViewModel {
         
         NotificationCenter.default.rx.notification(NotificationName.User.extensionRegionChanged, object: nil)
             .subscribe(onNext: { [weak self] _ in
-                self?.reloadSubject.onNext(true)
+                self?.requestRegionList()
+            })
+            .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.User.siteInfoChanged, object: nil)
+            .subscribe(onNext: { [weak self] _ in
+                self?.requestSiteInfo()
             })
             .disposed(by: disposeBag)
         
         reloadSubject.subscribe(onNext: { [weak self] _ in
             self?.requestRegionList()
+            self?.siteInfoObser.value = input
         })
         .disposed(by: disposeBag)
     }
@@ -45,10 +53,25 @@ class CAMySiteSettingViewModel: BaseViewModel {
         .disposed(by: disposeBag)
     }
     
+    private func requestSiteInfo() {
+        CARProvider.rx.request(.getMySite(siteName: siteModel.SiteName))
+            .map(model: CAMySiteModel.self)
+            .subscribe(onSuccess: { [weak self] model in
+                self?.siteModel = model
+                self?.siteInfoObser.value = model
+                NotificationCenter.default.post(name: NotificationName.User.reloadSiteInfoView, object: model)
+            }) {
+                PrintLog($0)
+        }
+        .disposed(by: disposeBag)
+    }
+    
     public func prepareParams(type: CASiteSettingType) ->[String: Any]? {
         switch type {
         case .extensionAreaSetting:
             return ["list":regionDataource.value, "site": siteModel]
+        case .editManagePwd:
+            return ["model": siteModel]
         default:
             return nil
         }

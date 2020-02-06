@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+public var actionEnableBgColor = RGB(254, 163, 41)
+
 extension Reactive where Base: UIButton {
     
     public var backColor: Binder<UIColor> {
@@ -36,7 +38,7 @@ extension Reactive where Base: UIButton {
         return Binder(self.base) { control, value in
             PrintLog("actionEnabled -- \(value)")
             if value == true {
-                control.backgroundColor = RGB(42, 176, 230)
+                control.backgroundColor = actionEnableBgColor
                 control.isUserInteractionEnabled = true
             }else {
                 control.backgroundColor = RGB(204, 204, 204)

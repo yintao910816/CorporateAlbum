@@ -36,8 +36,6 @@ class CAMySiteSettingViewController: BaseViewController {
     }
 
     override func rxBind() {
-        headerView.model = siteModel
-
         headerView.actonCallBack = { [unowned self] in
             self.performSegue(withIdentifier: $0.segue, sender: $0)
         }
@@ -50,6 +48,12 @@ class CAMySiteSettingViewController: BaseViewController {
                 cell.isHiddenDelete = true
         }
         .disposed(by: disposeBag)
+        
+        viewModel.siteInfoObser.asDriver()
+            .drive(onNext: { [weak self] in
+                self?.headerView.model = $0
+            })
+            .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(true)
     }

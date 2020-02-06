@@ -26,5 +26,9 @@ extension Notification.Name {
         public static let extensionRegionChanged = Notification.Name(rawValue: "org.album.notification.name.extensionRegionChanged")
         /// 推广区域更改，刷新界面
         public static let reloadExtensionRegionView = Notification.Name(rawValue: "org.album.notification.name.reloadExtensionRegionView")
+        /// 站点信息改变，请求新的站点信息
+        public static let siteInfoChanged = Notification.Name(rawValue: "org.album.notification.name.siteInfoChanged")
+        /// 获取到新的站点信息处理界面刷新
+        public static let reloadSiteInfoView = Notification.Name(rawValue: "org.album.notification.name.reloadSiteInfoView")
     }
 }

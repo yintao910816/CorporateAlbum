@@ -104,6 +104,10 @@ enum API{
     case addRegion(siteName: String, regionCode: String, regionText: String)
     /// 删除推广站点区域
     case removeRegion(siteName: String, regionCode: String, regionText: String)
+    /// 设置站点管理账号密码
+    case setManagePassword(siteName: String, manageName: String, managePassword: String)
+    /// 获取站点信息
+    case getMySite(siteName: String)
     
     /**
      * 修改手机号获取邮箱验证码
@@ -269,6 +273,10 @@ extension API: TargetType{
             return "MySite/AddRegion"
         case .removeRegion(_):
             return "MySite/RemoveRegion"
+        case .setManagePassword(_):
+            return "MySite/SetManagePassword"
+        case .getMySite(_):
+            return "MySite/Get"
             
         case .orderList(_):
             return "Order/List"
@@ -435,6 +443,12 @@ extension API {
             params["siteName"]   = siteName
             params["regionCode"]   = regionCode
             params["regionText"]   = regionText
+        case .setManagePassword(let siteName, let manageName, let managePassword):
+            params["siteName"]       = siteName
+            params["manageName"]     = manageName
+            params["managePassword"] = managePassword
+        case .getMySite(let siteName):
+            params["siteName"]       = siteName
 
         case .albumPage(let siteName, let skip, let limit):
             params["siteName"] = siteName

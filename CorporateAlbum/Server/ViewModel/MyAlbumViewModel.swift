@@ -37,6 +37,15 @@ class MyAlbumViewModel: RefreshVM<CAMySiteModel> {
             self?.requestData(true)
         })
         .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.User.reloadSiteInfoView, object: nil)
+            .subscribe(onNext: { [weak self] in
+                guard let strongSelf = self else { return }
+                
+                guard let model = $0.object as? CAMySiteModel else { return }
+                strongSelf.datasource.value = strongSelf.datasource.value.map { $0.SiteName == model.SiteName ? model: $0 }
+            })
+            .disposed(by: disposeBag)
     }
     
     override func requestData(_ refresh: Bool) {

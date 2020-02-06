@@ -22,7 +22,7 @@ enum CASiteSettingType {
         get {
             switch self {
             case .editManagePwd:
-                return ""
+                return "resetMySitePassWordSegue"
             case .renewal:
                 return ""
             case .recharge:
