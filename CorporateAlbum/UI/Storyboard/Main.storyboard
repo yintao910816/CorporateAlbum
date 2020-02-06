@@ -661,14 +661,14 @@
                                     <constraint firstAttribute="height" constant="1" id="F3k-2G-uQl"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入新的管理密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqe-Kw-qDs">
-                                <rect key="frame" x="15" y="108" width="345" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新的管理密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqe-Kw-qDs">
+                                <rect key="frame" x="15" y="108" width="345" height="18"/>
                                 <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="deviceRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBh-Ef-knU">
-                                <rect key="frame" x="30" y="192" width="315" height="45"/>
+                                <rect key="frame" x="30" y="176" width="315" height="45"/>
                                 <color key="backgroundColor" red="0.99607843137254903" green="0.63921568627450975" blue="0.16078431372549018" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hzt-6I-RkZ"/>
