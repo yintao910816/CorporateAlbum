@@ -9,12 +9,51 @@
 import Foundation
 import RxSwift
 
+enum CASiteSettingType {
+    /// 修改管理密码
+    case editManagePwd
+    /// 续期
+    case renewal
+    /// 充值
+    case recharge
+    /// 推广区域
+    case extensionAreaSetting
+    
+    /// 开启/关闭站点
+    case controlSite
+    /// 开启/关闭奖励
+    case controlAward
+    /// 重设奖励
+    case resetAward
+
+    public var segue: String {
+        get {
+            switch self {
+            case .editManagePwd:
+                return "resetMySitePassWordSegue"
+            case .renewal:
+                return ""
+            case .recharge:
+                return ""
+            case .extensionAreaSetting:
+                return "extensionAreaSettingSegue"
+            default:
+                return ""
+            }
+        }
+    }
+}
+
 class CAMySiteSettingViewModel: BaseViewModel {
     
     private var siteModel: CAMySiteModel!
     
     public let regionDataource = Variable([CARegionInfoModel]())
     public let siteInfoObser = Variable(CAMySiteModel())
+
+    public let footerActionsSubject = PublishSubject<CASiteSettingType>()
+    public let isOnlineObser = PublishSubject<Bool>()
+    public let isAwardObser  = PublishSubject<Bool>()
 
     init(input: CAMySiteModel) {
         super.init()
@@ -33,9 +72,27 @@ class CAMySiteSettingViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
         
+        footerActionsSubject
+            ._doNext(forNotice: hud)
+            .subscribe(onNext: { [weak self] type in
+                switch type {
+                case .controlSite:
+                    self?.requestControllerMySite()
+                case .controlAward:
+                    self?.requestControllerMySiteAward()
+                case .resetAward:
+                    self?.requestResetSiteAward()
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+
         reloadSubject.subscribe(onNext: { [weak self] _ in
             self?.requestRegionList()
             self?.siteInfoObser.value = input
+            self?.isOnlineObser.onNext(input.IsOnline)
+            self?.isAwardObser.onNext(input.EnabledAward)
         })
         .disposed(by: disposeBag)
     }
@@ -59,12 +116,77 @@ class CAMySiteSettingViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] model in
                 self?.siteModel = model
                 self?.siteInfoObser.value = model
+                self?.isOnlineObser.onNext(model.IsOnline)
+                self?.isAwardObser.onNext(model.EnabledAward)
+
                 NotificationCenter.default.post(name: NotificationName.User.reloadSiteInfoView, object: model)
             }) {
                 PrintLog($0)
         }
         .disposed(by: disposeBag)
     }
+    
+    private func requestControllerMySite() {
+        CARProvider.rx.request(.controllMySite(siteName: siteModel.SiteName))
+            .mapResponse()
+            .subscribe(onSuccess: { [weak self] res in
+                guard let strongSelf = self else { return }
+                
+                if res.error == 0 {
+                    strongSelf.requestSiteInfo()
+                    strongSelf.hud.successHidden(res.message)
+                }else {
+                    strongSelf.hud.failureHidden(res.message)
+                    strongSelf.isOnlineObser.onNext(strongSelf.siteModel.IsOnline)
+                }
+            }) { [weak self] in
+                guard let strongSelf = self else { return }
+
+                strongSelf.hud.failureHidden(strongSelf.errorMessage($0))
+                strongSelf.isOnlineObser.onNext(strongSelf.siteModel.IsOnline)
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func requestControllerMySiteAward() {
+        CARProvider.rx.request(.controlMySiteAward(siteName: siteModel.SiteName))
+            .mapResponse()
+            .subscribe(onSuccess: { [weak self] res in
+                guard let strongSelf = self else { return }
+
+                if res.error == 0 {
+                    strongSelf.requestSiteInfo()
+                    strongSelf.hud.successHidden(res.message)
+                }else {
+                    strongSelf.hud.failureHidden(res.message)
+                    strongSelf.isAwardObser.onNext(strongSelf.siteModel.EnabledAward)
+                }
+            }) { [weak self] in
+                guard let strongSelf = self else { return }
+
+                strongSelf.hud.failureHidden(strongSelf.errorMessage($0))
+                strongSelf.isAwardObser.onNext(strongSelf.siteModel.EnabledAward)
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func requestResetSiteAward() {
+        CARProvider.rx.request(.resetMySiteAward(siteName: siteModel.SiteName))
+            .mapResponse()
+            .subscribe(onSuccess: { [weak self] res in
+                if res.error == 0 {
+                    self?.hud.successHidden(res.message)
+                }else {
+                    self?.hud.failureHidden(res.message)
+                }
+            }) { [weak self] in
+                self?.hud.failureHidden(self?.errorMessage($0))
+        }
+        .disposed(by: disposeBag)
+    }
+}
+
+extension CAMySiteSettingViewModel {
     
     public func prepareParams(type: CASiteSettingType) ->[String: Any]? {
         switch type {

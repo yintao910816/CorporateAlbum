@@ -8,32 +8,6 @@
 
 import UIKit
 
-enum CASiteSettingType {
-    /// 修改管理密码
-    case editManagePwd
-    /// 续期
-    case renewal
-    /// 充值
-    case recharge
-    /// 推广区域
-    case extensionAreaSetting
-    
-    public var segue: String {
-        get {
-            switch self {
-            case .editManagePwd:
-                return "resetMySitePassWordSegue"
-            case .renewal:
-                return ""
-            case .recharge:
-                return ""
-            case .extensionAreaSetting:
-                return "extensionAreaSettingSegue"
-            }
-        }
-    }
-}
-
 class CAMySiteSettingHeaderView: UIView {
 
     public static let viewHeight: CGFloat = 499

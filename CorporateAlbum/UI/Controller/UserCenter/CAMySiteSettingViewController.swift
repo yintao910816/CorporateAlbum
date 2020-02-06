@@ -39,7 +39,7 @@ class CAMySiteSettingViewController: BaseViewController {
         headerView.actonCallBack = { [unowned self] in
             self.performSegue(withIdentifier: $0.segue, sender: $0)
         }
-        
+                
         viewModel = CAMySiteSettingViewModel.init(input: siteModel)
         
         viewModel.regionDataource.asDriver()
@@ -53,6 +53,18 @@ class CAMySiteSettingViewController: BaseViewController {
             .drive(onNext: { [weak self] in
                 self?.headerView.model = $0
             })
+            .disposed(by: disposeBag)
+        
+        viewModel.isOnlineObser
+            .bind(to: footerView.isOnlineObser)
+            .disposed(by: disposeBag)
+        
+        viewModel.isAwardObser
+            .bind(to: footerView.isAwardObser)
+            .disposed(by: disposeBag)
+
+        footerView.footerActionsSubject
+            .bind(to: viewModel.footerActionsSubject)
             .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(true)

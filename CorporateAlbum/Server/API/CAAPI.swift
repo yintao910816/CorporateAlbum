@@ -108,7 +108,12 @@ enum API{
     case setManagePassword(siteName: String, manageName: String, managePassword: String)
     /// 获取站点信息
     case getMySite(siteName: String)
-    
+    /// 开启/暂停我的站点
+    case controllMySite(siteName: String)
+    /// 启用禁用我的站点浏览奖励
+    case controlMySiteAward(siteName: String)
+    /// 重设我的站点浏览奖励
+    case resetMySiteAward(siteName: String)
     /**
      * 修改手机号获取邮箱验证码
      */
@@ -277,6 +282,12 @@ extension API: TargetType{
             return "MySite/SetManagePassword"
         case .getMySite(_):
             return "MySite/Get"
+        case .controllMySite(_):
+            return "MySite/Online"
+        case .controlMySiteAward(_):
+            return "MySite/EnableAward"
+        case .resetMySiteAward(_):
+            return "MySite/ResetAward"
             
         case .orderList(_):
             return "Order/List"
@@ -448,7 +459,13 @@ extension API {
             params["manageName"]     = manageName
             params["managePassword"] = managePassword
         case .getMySite(let siteName):
-            params["siteName"]       = siteName
+            params["siteName"] = siteName
+        case .controllMySite(let siteName):
+            params["siteName"] = siteName
+        case .controlMySiteAward(let siteName):
+            params["siteName"] = siteName
+        case .resetMySiteAward(let siteName):
+            params["siteName"] = siteName
 
         case .albumPage(let siteName, let skip, let limit):
             params["siteName"] = siteName
