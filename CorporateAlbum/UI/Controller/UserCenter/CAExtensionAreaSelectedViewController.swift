@@ -13,6 +13,7 @@ class CAExtensionAreaSelectedViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private var siteModel: CAMySiteModel!
     private var viewModel: CAExtensionAreaSelectedViewModel!
     
     override func setupUI() {
@@ -23,7 +24,7 @@ class CAExtensionAreaSelectedViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = CAExtensionAreaSelectedViewModel.init()
+        viewModel = CAExtensionAreaSelectedViewModel.init(siteModel: siteModel)
                 
         let datasource = RxTableViewSectionedReloadDataSource<SectionModel<String, CARegionListModel>>.init(configureCell: { _, tb, indexPath, model -> UITableViewCell in
             let cell = (tb.dequeueReusableCell(withIdentifier: CAReginCell_identifier) as! CAReginCell)
@@ -50,8 +51,16 @@ class CAExtensionAreaSelectedViewController: BaseViewController {
         
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(CARegionListModel.self)
+            .bind(to: viewModel.addSubject)
+            .disposed(by: disposeBag)
                 
         viewModel.reloadSubject.onNext(true)
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        siteModel = (parameters!["model"] as! CAMySiteModel)
     }
 }
 
@@ -69,6 +78,5 @@ extension CAExtensionAreaSelectedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
- 
     
 }

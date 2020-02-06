@@ -100,6 +100,10 @@ enum API{
     
     /// 获取推广区域列表
     case listRegion(siteName: String)
+    /// 添加站点推广区域
+    case addRegion(siteName: String, regionCode: String, regionText: String)
+    /// 删除推广站点区域
+    case removeRegion(siteName: String, regionCode: String, regionText: String)
     
     /**
      * 修改手机号获取邮箱验证码
@@ -261,7 +265,11 @@ extension API: TargetType{
             return "Site/ResetAward"
         case .listRegion(_):
             return "MySite/ListRegion"
-           
+        case .addRegion(_):
+            return "MySite/AddRegion"
+        case .removeRegion(_):
+            return "MySite/RemoveRegion"
+            
         case .orderList(_):
             return "Order/List"
         case .orderListItems(_):
@@ -419,6 +427,14 @@ extension API {
             
         case .listRegion(let siteName):
             params["siteName"]   = siteName
+        case .addRegion(let siteName, let regionCode, let regionText):
+            params["siteName"]   = siteName
+            params["regionCode"]   = regionCode
+            params["regionText"]   = regionText
+        case .removeRegion(let siteName, let regionCode, let regionText):
+            params["siteName"]   = siteName
+            params["regionCode"]   = regionCode
+            params["regionText"]   = regionText
 
         case .albumPage(let siteName, let skip, let limit):
             params["siteName"] = siteName

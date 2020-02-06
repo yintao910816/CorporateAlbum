@@ -20,6 +20,12 @@ class CAMySiteSettingViewModel: BaseViewModel {
         
         siteModel = input
         
+        NotificationCenter.default.rx.notification(NotificationName.User.extensionRegionChanged, object: nil)
+            .subscribe(onNext: { [weak self] _ in
+                self?.reloadSubject.onNext(true)
+            })
+            .disposed(by: disposeBag)
+        
         reloadSubject.subscribe(onNext: { [weak self] _ in
             self?.requestRegionList()
         })
@@ -31,6 +37,8 @@ class CAMySiteSettingViewModel: BaseViewModel {
             .map(models: CARegionInfoModel.self)
             .subscribe(onSuccess: { data in
                 self.regionDataource.value = data
+                
+                NotificationCenter.default.post(name: NotificationName.User.reloadExtensionRegionView, object: data)
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
         }

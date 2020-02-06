@@ -37,6 +37,10 @@ class CAExtensionAreaSettingViewController: BaseViewController {
             .drive(tableView.rx.items(cellIdentifier: CAReginCell_identifier, cellType: CAReginCell.self)) { _, model, cell in
                 cell.model = model
                 cell.isHiddenDelete = false
+                
+                cell.deleteCallBack = { [weak self] in
+                    self?.viewModel.deleteRegionSubject.onNext($0)
+                }
         }
         .disposed(by: disposeBag)
 
@@ -46,5 +50,11 @@ class CAExtensionAreaSettingViewController: BaseViewController {
     override func prepare(parameters: [String : Any]?) {
         siteModel = (parameters!["site"] as! CAMySiteModel)
         listData = (parameters!["list"] as! [CARegionInfoModel])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "extensionAreaSelectedSegue" {
+            segue.destination.prepare(parameters: ["model": siteModel])
+        }
     }
 }
