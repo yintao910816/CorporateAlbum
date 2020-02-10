@@ -55,7 +55,7 @@ open class TYIndicatorBaseView: UIView ,TYHUDAnimating{
           whiteLarge 的尺寸是（37，37)
           White 的尺寸是（22，22)
          */
-        let activity = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let activity = UIActivityIndicatorView(style: .whiteLarge)
         activity.color = UIColor.black
         return activity
     }()

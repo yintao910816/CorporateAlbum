@@ -52,7 +52,7 @@ extension NoticesCenter { /**alert*/
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .left
             paragraphStyle.lineSpacing = 5
-            let attributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]
+            let attributes = [NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
 
             let attributedTitle = NSMutableAttributedString.init(string: message)
             attributedTitle.addAttributes(attributes, range: NSRange.init(location: 0, length: message.count))

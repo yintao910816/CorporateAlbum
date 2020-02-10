@@ -37,6 +37,8 @@ import Moya
 
 struct APIAssistance {
     
+    static let base     = "http://aapi.dazongg.net/"
+
     /** 奖励提现h5 */
     static let cash = "http://aapi.dazongg.com/cash/withdraw"
     /** 续单/充值 */
@@ -55,8 +57,9 @@ struct APIAssistance {
     /// 服务协议
     static let serviceWeb = "http://aapi.dazongg.net/document/get?name=service"
     
-    static let base     = "http://aapi.dazongg.net/"
-    
+    /// 订单顶部图片
+    static let orderHeaderCover = "http://aapi.dazongg.net/images/promotion.png"
+        
     static public func baseURL(API: API) ->URL{
         /**
          获取域名

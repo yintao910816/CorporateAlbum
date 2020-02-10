@@ -12,8 +12,8 @@ class CATabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         delegate = self
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.gray], for:.normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: CA_MAIN_COLOR], for:.selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for:.normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: CA_MAIN_COLOR], for:.selected)
 
         setValue(FixTabBar(), forKey: "tabBar")
     }

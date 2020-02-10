@@ -30,7 +30,7 @@ class DropCoinAnimotion: NSObject {
                 let imageView = UIImageView.init(frame: CGRect.init(x: view.width / 2.0, y: 100, width: 50, height: 50))
                 imageView.image = UIImage.init(named: "coin")
                 view.addSubview(imageView)
-                view.bringSubview(toFront: imageView)
+                view.bringSubviewToFront(imageView)
                 
                 self?.animotionViews.append(imageView)
                 
@@ -50,7 +50,7 @@ class DropCoinAnimotion: NSObject {
         animotion.duration = 1.0
         animotion.autoreverses = false
         animotion.repeatCount = 1
-        animotion.calculationMode = kCAAnimationPaced
+        animotion.calculationMode = CAAnimationCalculationMode.paced
         animotion.delegate = self
         
         view.layer.add(animotion, forKey: nil)

@@ -38,12 +38,12 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
     public typealias T = String
     public typealias AlbumT = Int
     private struct CustomProperties {
-        static var imgType = UIImagePickerControllerOriginalImage
-        static var isAlbum = UIImagePickerControllerSourceType.photoLibrary
+        static var imgType = UIImagePickerController.InfoKey.originalImage
+        static var isAlbum = UIImagePickerController.SourceType.photoLibrary
     }
     var imgType: String {
         get {
-            return getAssociatedObject(&CustomProperties.imgType, defaultValue: CustomProperties.imgType)
+            return getAssociatedObject(&CustomProperties.imgType, defaultValue: CustomProperties.imgType.rawValue)
         }
         set {
             return objc_setAssociatedObject(self, &CustomProperties.imgType, newValue, .OBJC_ASSOCIATION_RETAIN)
@@ -63,7 +63,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         
         self.imgType = type
         self.albumType = albumT
-        if albumT == UIImagePickerControllerSourceType.photoLibrary.rawValue {
+        if albumT == UIImagePickerController.SourceType.photoLibrary.rawValue {
             self.invokeSystemPhoto()
         }else {
             self.invokeSystemCamera()
@@ -79,7 +79,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
             imagePickerController.sourceType = .photoLibrary
             imagePickerController.delegate = self
             imagePickerController.allowsEditing = false
-            if self.imgType == UIImagePickerControllerEditedImage {
+            if self.imgType == UIImagePickerController.InfoKey.editedImage.rawValue {
                 imagePickerController.allowsEditing = true
             }else {
                 imagePickerController.allowsEditing = false
@@ -104,7 +104,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
             imagePickerController.allowsEditing = false
             imagePickerController.cameraCaptureMode = .photo
             imagePickerController.mediaTypes = ["public.image"]
-            self.imgType = UIImagePickerControllerOriginalImage
+            self.imgType = UIImagePickerController.InfoKey.originalImage.rawValue
             if #available(iOS 11.0, *) {
                 UIScrollView.appearance().contentInsetAdjustmentBehavior = .automatic
             }

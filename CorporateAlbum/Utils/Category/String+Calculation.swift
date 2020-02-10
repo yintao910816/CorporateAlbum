@@ -192,9 +192,9 @@ extension String {
     public func attributed(_ range: NSRange, _ color: UIColor, _ font: UIFont?) ->NSAttributedString {
         
         let muString = NSMutableAttributedString.init(string: self)
-        var dic: [NSAttributedStringKey : Any] = [NSAttributedStringKey.foregroundColor : color]
+        var dic: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : color]
         if font != nil {
-            dic[NSAttributedStringKey.font] = font
+            dic[NSAttributedString.Key.font] = font
         }
         muString.addAttributes(dic, range: range)
         return muString
@@ -205,8 +205,8 @@ extension String {
     public func attributed(_ rangs: [NSRange], _ colors: [UIColor], _ fonts: [UIFont]) ->NSAttributedString {
         let muString = NSMutableAttributedString.init(string: self)
         for idx in 0 ..< rangs.count {
-            muString.addAttribute(NSAttributedStringKey.foregroundColor, value: colors[idx], range: rangs[idx])
-            muString.addAttribute(NSAttributedStringKey.font, value: fonts[idx], range: rangs[idx])
+            muString.addAttribute(NSAttributedString.Key.foregroundColor, value: colors[idx], range: rangs[idx])
+            muString.addAttribute(NSAttributedString.Key.font, value: fonts[idx], range: rangs[idx])
         }
         return muString
     }

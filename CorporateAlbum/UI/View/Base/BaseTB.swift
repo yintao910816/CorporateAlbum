@@ -15,7 +15,7 @@ class BaseTB: UITableView {
         return DisposeBag()
     }()
 
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
         setup()

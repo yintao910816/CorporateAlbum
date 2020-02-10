@@ -36,11 +36,11 @@ class BaseNavigationController: UINavigationController {
         
         self.navigationBar.barTintColor        =  CA_MAIN_COLOR
         self.navigationBar.isTranslucent       = false
-        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor :UIColor.white]
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor :UIColor.white]
     }
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if self.childViewControllers.count > 0
+        if self.children.count > 0
         { // 非根控制器
             viewController.hidesBottomBarWhenPushed = true
             

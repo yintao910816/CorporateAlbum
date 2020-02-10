@@ -11,9 +11,7 @@ import UIKit
 class CAOrderListViewController: BaseViewController {
 
     @IBOutlet weak var tabelView: BaseTB!
-    
-    private var contentView: CAOpenAlbumContentView!
-    
+        
     private var viewModel: CAOrderListViewModel!
     
     override func setupUI() {

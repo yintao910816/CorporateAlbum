@@ -7,27 +7,28 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
-class CAOpenAlbumContentView: UIView {
-
-    public static let viewHeight: CGFloat = 916
+class CAOpenAlbumHeaderContentView: BaseView {
     
-    @IBOutlet var contentView: UIView!
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    public static let viewHeight: CGFloat = 146
         
-        contentView = (Bundle.main.loadNibNamed("CAOpenAlbumContentView", owner: self, options: nil)?.first as! UIView)
+    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var headerCover: UIImageView!
+                
+    override func rxBind() {
+        headerCover.setImage(APIAssistance.orderHeaderCover)
+    }
+    
+    override func setupUI() {
+        contentView = (Bundle.main.loadNibNamed("CAOpenAlbumHeaderContentView", owner: self, options: nil)?.first as! UIView)
         addSubview(contentView)
         
         contentView.frame = bounds
         
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction(_:)))
         addGestureRecognizer(tap)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     @objc private func tapAction(_ tap: UITapGestureRecognizer) {
@@ -39,5 +40,6 @@ class CAOpenAlbumContentView: UIView {
         
         contentView.frame = bounds
     }
+    
 
 }

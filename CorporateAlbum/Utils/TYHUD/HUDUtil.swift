@@ -13,7 +13,7 @@ extension String {
 
     public func textSize(font: UIFont, width: CGFloat, height: CGFloat) ->CGSize {
         let size = CGSize(width: width, height: height)
-        let attributes = [NSAttributedStringKey.font: font]
+        let attributes = [NSAttributedString.Key.font: font]
         return self.boundingRect(with: size,
                                  options: [.usesLineFragmentOrigin, .truncatesLastVisibleLine, .usesFontLeading],
                                  attributes: attributes,

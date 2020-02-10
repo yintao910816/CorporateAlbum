@@ -29,7 +29,7 @@ class AccountSetViewModel: BaseViewModel {
     }
     
     private func getUserInfoRequest() {
-        CARProvider.rx.request(.getUserInfo())
+        CARProvider.rx.request(.getUserInfo)
             .map(model: UserInfoModel.self)
             .subscribe(onSuccess: { [weak self] model in
                 if model.Id.count > 0 {
@@ -281,7 +281,7 @@ class SetEmailViewModel: BaseViewModel {
     }
 
     private func getSmsCode() {
-        CARProvider.rx.request(.sendSmsCodeForMe())
+        CARProvider.rx.request(.sendSmsCodeForMe)
             .mapResponse()
             .subscribe(onSuccess: { model in
                 if model.error == 0 {
@@ -351,7 +351,7 @@ class SetAlipayViewModel: BaseViewModel {
     }
 
     private func getSmsCode() {
-        CARProvider.rx.request(.sendSmsCodeForMe())
+        CARProvider.rx.request(.sendSmsCodeForMe)
             .mapResponse()
             .subscribe(onSuccess: { model in
                 if model.error == 0 {

@@ -83,3 +83,30 @@ class CAOrderItemInfoModel: HJModel {
         }
     }
 }
+
+class CACompanyListModel: HJModel {
+    
+    /// ID
+    var Id: String = ""
+    /// 公司名称
+    var CompanyName: String = ""
+    /// 机构代码
+    var CompanyCode: String = ""
+}
+
+extension CACompanyListModel: TYPickerDatasource {
+    
+    var contentAttribute: NSAttributedString {
+        get {
+            let attr = NSMutableAttributedString.init(string: CompanyName)
+            attr.addAttribute(NSAttributedString.Key.font,
+                              value: UIFont.font(fontSize: 14),
+                              range: .init(location: 0, length: attr.length))
+            attr.addAttribute(NSAttributedString.Key.foregroundColor,
+                              value: UIColor.black,
+                              range: .init(location: 0, length: attr.length))
+
+            return attr
+        }
+    }
+}

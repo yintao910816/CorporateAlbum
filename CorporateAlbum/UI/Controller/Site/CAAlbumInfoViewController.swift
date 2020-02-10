@@ -78,7 +78,7 @@ class CAAlbumInfoViewController: BaseViewController {
     private lazy var rewardsView: CARewardsAlertView = {
         let alertView = CARewardsAlertView.init(frame: self.view.bounds)
         view.addSubview(alertView)
-        view.bringSubview(toFront: alertView)
+        view.bringSubviewToFront(alertView)
         alertView.getRewardsCallBack = { [unowned self] in
             self.viewModel.postRewordsSubject.onNext($0)
         }
@@ -126,9 +126,9 @@ class CAAlbumInfoViewController: BaseViewController {
     }
     
     private func setupPageCtrl() {
-        let options = [UIPageViewControllerOptionSpineLocationKey:NSNumber(value: UIPageViewControllerSpineLocation.min.rawValue as Int)]
+        let options = [UIPageViewController.OptionsKey.spineLocation:NSNumber(value: UIPageViewController.SpineLocation.min.rawValue as Int)]
         
-        pageViewController = UIPageViewController(transitionStyle:UIPageViewControllerTransitionStyle.pageCurl,navigationOrientation:UIPageViewControllerNavigationOrientation.horizontal,options: options)
+        pageViewController = UIPageViewController(transitionStyle:UIPageViewController.TransitionStyle.pageCurl,navigationOrientation:UIPageViewController.NavigationOrientation.horizontal,options: options)
         
         pageViewController.delegate = self
         
@@ -170,7 +170,7 @@ class CAAlbumInfoViewController: BaseViewController {
             .asDriver()
             .drive(onNext: { [unowned self] indexPath in
                 if self.currentPage != indexPath.row {
-                    let direction: UIPageViewControllerNavigationDirection = self.currentPage > indexPath.row ? .reverse : .forward
+                    let direction: UIPageViewController.NavigationDirection = self.currentPage > indexPath.row ? .reverse : .forward
                     self.currentPage = indexPath.row
                     self.pageViewController.setViewControllers([AlbumPageViewController.init(albumPageModel: self.viewModel.colDatasourceObser.value.0[self.currentPage])],
                                                                direction: direction,

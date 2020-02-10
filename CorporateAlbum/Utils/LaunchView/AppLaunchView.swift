@@ -42,7 +42,7 @@ class AppLaunchView: UIView {
         
         let awindow = UIApplication.shared.delegate?.window!
         awindow?.addSubview(self)
-        awindow?.bringSubview(toFront: self)
+        awindow?.bringSubviewToFront(self)
         
         userDefault.lanuchStatue = vLaunch
     }
@@ -78,7 +78,7 @@ class AppLaunchView: UIView {
         animotion.toValue   = NSNumber.init(value: 0.0)
         animotion.duration  = 0.2
         //以下两行同时设置才能保持移动后的位置状态不变
-        animotion.fillMode = kCAFillModeForwards
+        animotion.fillMode = CAMediaTimingFillMode.forwards
         animotion.isRemovedOnCompletion = false
         layer.add(animotion, forKey: "GuideView")
     }

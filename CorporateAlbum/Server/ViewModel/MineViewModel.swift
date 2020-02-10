@@ -85,7 +85,7 @@ class MineViewModel: BaseViewModel , VMNavigation{
     }
     
     private func getUserInfoRequest() {
-        let userInfoSignal = CARProvider.rx.request(.getUserInfo())
+        let userInfoSignal = CARProvider.rx.request(.getUserInfo)
             .map(model: UserInfoModel.self)
             .asObservable()
             .catchErrorJustReturn(UserInfoModel())

@@ -37,7 +37,7 @@ class AlbumShareFilesOwner: BaseFilesOwner {
         super.init()
         contentView = (Bundle.main.loadNibNamed("AlbumShareView", owner: self, options: nil)?.first as! UIView)
         inView.addSubview(contentView)
-        inView.bringSubview(toFront: contentView)
+        inView.bringSubviewToFront(contentView)
         
         contentView.frame = inView.bounds
         

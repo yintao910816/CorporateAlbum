@@ -95,7 +95,7 @@ func SaveImage(toSandox image: UIImage,
                 try FileManager.default.createDirectory(atPath: cacheDir, withIntermediateDirectories: true, attributes: nil)
             }
             if let cacheURL = URL(string:"file://" +  cacheDir)?.appendingPathComponent(key + imageType.typeString) {
-                try UIImageJPEGRepresentation(image, 1)?.write(to: cacheURL)
+                try image.jpegData(compressionQuality: 1)?.write(to: cacheURL)
             }
         } catch {
             PrintLog(error)

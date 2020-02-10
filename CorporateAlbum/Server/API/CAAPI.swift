@@ -59,7 +59,7 @@ enum API{
     /**
      * 获取用户个人信息
      */
-    case getUserInfo()
+    case getUserInfo
     
     /// 获取奖励账单统计 - 个人中心用到
     case sumIncome
@@ -142,12 +142,12 @@ enum API{
     /**
      * 为当前用户发送手机验证码
      */
-    case sendSmsCodeForMe()
+    case sendSmsCodeForMe
     
     /**
      * 为当前用户发送邮箱验证码
      */
-    case setEmailCodeForMe()
+    case setEmailCodeForMe
     
     /**
      * 收益明细
@@ -205,6 +205,11 @@ enum API{
      */
     case noticeRead(id: String)
     
+    /// 生成空的订单信息
+    case orderCreateNew
+    /// 会员获取我的的公司名称列表
+    case companyList
+    
 }
 
 //MARK:
@@ -227,7 +232,7 @@ extension API: TargetType{
             return "User/SetPassword"
         case .setAvatar(_):
             return "User/SetPhoto"
-        case .getUserInfo():
+        case .getUserInfo:
             return "User/Get"
         case .sumIncome:
             return "Bill/SumIncome"
@@ -253,9 +258,9 @@ extension API: TargetType{
         case .setNickName(_):
             return "User/SetName"
             
-        case .sendSmsCodeForMe():
+        case .sendSmsCodeForMe:
             return "Sms/SendCodeForMe"
-        case .setEmailCodeForMe():
+        case .setEmailCodeForMe:
             return "Email/SendCodeForMe"
             
         case .bill(_, _, _):
@@ -305,6 +310,11 @@ extension API: TargetType{
             
         case .noticeRead(_):
             return "Notice/Read"
+            
+        case .orderCreateNew:
+            return "Order/CreateNew"
+        case .companyList:
+            return "Order/CompanyList"
         }
     }
     
@@ -314,7 +324,7 @@ extension API: TargetType{
         switch self {
         case .setAvatar(let image):
             var datas = [MultipartFormData]()
-            if let data = UIImageJPEGRepresentation(image, 0.5) {
+            if let data = image.jpegData(compressionQuality: 0.5) {
                 let imageName = String.init(format: "%.0f.jpg", Date().timeIntervalSince1970 * 1000)
                 let d = MultipartFormData.init(provider: .data(data), name: "file", fileName: imageName, mimeType: "image/png")
                 datas.append(d)
@@ -346,9 +356,9 @@ extension API {
     private var parameters: [String: Any]? {
         var params = [String: Any]()
         switch self {
-        case .getUserInfo(),
-             .sendSmsCodeForMe(),
-             .setEmailCodeForMe(),
+        case .getUserInfo,
+             .sendSmsCodeForMe,
+             .setEmailCodeForMe,
              .setAvatar(_):
             params["token"]  = userDefault.appToken ?? ""
         case .verify(let sign, let timestamp):

@@ -227,7 +227,7 @@ class TYSearchBar: UIView {
         line.backgroundColor = RGB(235, 235, 235)
         line.isHidden = true
         self.addSubview(line)
-        self.bringSubview(toFront: line)
+        self.bringSubviewToFront(line)
         return line
     }()
     

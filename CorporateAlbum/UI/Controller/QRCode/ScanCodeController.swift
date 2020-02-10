@@ -82,7 +82,7 @@ class ScanCodeController: BaseViewController {
         }
         
         view.addSubview(lightButton)
-        view.bringSubview(toFront: lightButton)
+        view.bringSubviewToFront(lightButton)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
