@@ -25,20 +25,31 @@ enum CAOpenAlbumType {
 
 class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
     
-    private var companyLists: [TYPickerDatasource] = []
-    
+    public var companyListsDatasource = Variable([[CACompanyListModel]]())
     public let orderListDatasource = Variable([CAOrderItemInfoModel]())
     public let serverAgreementSubject = PublishSubject<Void>()
     
-    override init() {
+    public let reCalculatTotlePriceSubject = PublishSubject<Void>()
+    public let totlePriceObser = Variable("￥0.0元")
+    /// 填写的域名监听
+    public let hostObser = Variable("")
+    /// 填写的公司名称监听
+    public let companyObser = Variable(CACompanyListModel())
+
+    init(submit: Driver<Void>, agreement: Driver<Void>) {
         super.init()
-        
-        serverAgreementSubject
-            .subscribe(onNext: { _ in
+        agreement
+            .drive(onNext: { _ in
                 CAOpenAlbumViewModel.push(WebViewController.self, ["url": APIAssistance.serviceWeb, "title": "服务协议"])
             })
             .disposed(by: disposeBag)
-        
+                
+        reCalculatTotlePriceSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.calculatTotlePrice()
+            })
+            .disposed(by: disposeBag)
+
         reloadSubject
             .subscribe(onNext: { [weak self] _ in
                 self?.requestCompanyList()
@@ -52,6 +63,7 @@ class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
             .map(models: CAOrderItemInfoModel.self)
             .subscribe(onSuccess: { [weak self] data in
                 self?.orderListDatasource.value = data
+                self?.calculatTotlePrice()
             }) { PrintLog("获取空的订单列表信息失败：\($0)") }
             .disposed(by: disposeBag)
     }
@@ -60,15 +72,20 @@ class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
         CARProvider.rx.request(.companyList)
             .map(models: CACompanyListModel.self)
             .subscribe(onSuccess: { [weak self] data in
-                self?.companyLists.removeAll()
-                self?.companyLists.append(contentsOf: data)
+                self?.companyListsDatasource.value = [data]
             }) { PrintLog("获取公司列表出错：\($0)") }
             .disposed(by: disposeBag)
     }
+}
+
+extension CAOpenAlbumViewModel {
     
-    public var pickerSource: [[TYPickerDatasource]] {
-        get {
-            return companyLists.count > 0 ? [companyLists] : []
+    private func calculatTotlePrice() {
+        var totlePrice: Double = 0.0
+        for item in orderListDatasource.value {
+            totlePrice += item.Price * Double(item.Quantity)
         }
+        
+        totlePriceObser.value = "￥\(totlePrice)元"
     }
 }

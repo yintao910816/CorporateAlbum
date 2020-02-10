@@ -65,7 +65,7 @@
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tRw-CY-Phh">
                         <rect key="frame" x="168" y="31" width="58" height="18.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
                 </subviews>
                 <constraints>

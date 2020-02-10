@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import RxSwift
 
 class TYPickerView: TYPicker {
 
+    public let datasourceSignal = Variable([[TYPickerDatasource]]())
+
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         modalPresentationStyle = .fullScreen
+        
+        datasourceSignal.asDriver()
+            .drive(onNext: { [weak self] in self?.datasource = $0 })
+            .disposed(by: disposeBag)
     }
     
     override func didMove(toParent parent: UIViewController?) {
@@ -107,7 +116,9 @@ class TYPicker: UIViewController {
     public var isCustomCancel: Bool = false
 
     public var selectedDatas: [Int: TYPickerDatasource] = [:]
-    public var finishSelected: (((TYPickerAction, [Int: TYPickerDatasource]))->())?
+    public var finishSelected: (([Int: TYPickerDatasource])->())?
+    
+    public let finishSelectedSubject = PublishSubject<[Int: TYPickerDatasource]>()
 
     public var pickerHeight: CGFloat = 150
         
@@ -155,17 +166,16 @@ class TYPicker: UIViewController {
     
     @objc func tapAction() {
         hidden(animotion: true, complement: nil)
-        self.finishSelected?((TYPickerAction.cancel, [:]))
     }
     
     @objc func cancelAction() {
         hidden(animotion: true, complement: nil)
-        self.finishSelected?((TYPickerAction.cancel, [:]))
     }
     
     @objc func doneAction() {
         hidden(animotion: true, complement: nil)
-        self.finishSelected?((TYPickerAction.ok, selectedDatas))
+        finishSelected?(selectedDatas)
+        finishSelectedSubject.onNext(selectedDatas)
     }
         
     public func show(animotion: Bool) {

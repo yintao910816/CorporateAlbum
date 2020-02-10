@@ -207,6 +207,8 @@ enum API{
     
     /// 生成空的订单信息
     case orderCreateNew
+    /// 提交服务订单
+    case orderSubmitNew(siteName: String, companyId: String, orderJson: String)
     /// 会员获取我的的公司名称列表
     case companyList
     
@@ -313,6 +315,8 @@ extension API: TargetType{
             
         case .orderCreateNew:
             return "Order/CreateNew"
+        case .orderSubmitNew(_):
+            return "Order/SubmitNew"
         case .companyList:
             return "Order/CompanyList"
         }
@@ -502,6 +506,10 @@ extension API {
             params["limit"]  = limit
         case .orderListItems(let orderId):
             params["orderId"]  = orderId
+        case .orderSubmitNew(let siteName, let companyId, let orderJson):
+            params["siteName"]  = siteName
+            params["companyId"] = companyId
+            params["orderJson"] = orderJson
         default:
             break
         }

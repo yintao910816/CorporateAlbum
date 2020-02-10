@@ -12,6 +12,8 @@ class CAOpenAlbumViewController: BaseViewController {
 
     @IBOutlet weak var tabelView: BaseTB!
     
+    private let picker = TYPickerView.init()
+
     private var contentHeaderView: CAOpenAlbumHeaderContentView!
     private var contentFooterView: CAOpenAlbumFooterContentView!
 
@@ -32,37 +34,56 @@ class CAOpenAlbumViewController: BaseViewController {
         
         tabelView.register(UINib.init(nibName: "CAOrderListItemCell", bundle: Bundle.main),
                            forCellReuseIdentifier: CAOrderListItemCell_identifier)
+        
+        picker.view.frame = view.bounds
     }
     
     override func rxBind() {
-        viewModel = CAOpenAlbumViewModel.init()
+        viewModel = CAOpenAlbumViewModel.init(submit: contentFooterView.submitOutlet.rx.tap.asDriver(),
+                                              agreement: contentFooterView.serverAgreementOutlet.rx.tap.asDriver())
         
         viewModel.orderListDatasource.asDriver()
-            .drive(tabelView.rx.items(cellIdentifier: CAOrderListItemCell_identifier, cellType: CAOrderListItemCell.self)){ (row, model, cell) in
+            .drive(tabelView.rx.items(cellIdentifier: CAOrderListItemCell_identifier, cellType: CAOrderListItemCell.self)){  [weak self] (row, model, cell) in
                 cell.model = model
                 cell.quantityEnable = true
+                cell.didEndEditCallBack = {
+                    self?.viewModel.reCalculatTotlePriceSubject.onNext(Void())
+                }
         }
         .disposed(by: disposeBag)
         
-        contentFooterView.arrowOutlet.rx.tap.asDriver()
-            .drive(onNext: { [unowned self] _ in
-                if self.viewModel.pickerSource.count > 0 {
-                    let picker = TYPickerView.init()
-                    picker.view.frame = self.view.bounds
-                    picker.datasource = self.viewModel.pickerSource
-                    self.addChildViewController(picker)
-                    
-                    picker.finishSelected = {
-                        if $0.0 == .ok {
-                            self.contentFooterView.companyOutlet.text = $0.1[0]?.contentAttribute.string
-                        }
-                    }
-                }
-            })
+        viewModel.totlePriceObser.asDriver()
+            .drive(contentFooterView.totlePriceOutlet.rx.text)
             .disposed(by: disposeBag)
         
+        contentFooterView.hostOutlet.rx.text.orEmpty
+            .asDriver()
+            .drive(viewModel.hostObser)
+            .disposed(by: disposeBag)
+                
+        contentFooterView.arrowOutlet.rx.tap.asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.addChildViewController(self.picker)
+            })
+            .disposed(by: disposeBag)
+                
         contentFooterView.serverAgreementOutlet.rx.tap.asDriver()
             .drive(viewModel.serverAgreementSubject)
+            .disposed(by: disposeBag)
+        
+        viewModel.companyListsDatasource.asDriver()
+            .map{ $0 as [[TYPickerDatasource]] }
+            .drive(picker.datasourceSignal)
+            .disposed(by: disposeBag)
+        
+        picker.finishSelectedSubject
+            .map{ $0[0] as! CACompanyListModel }
+            .bind(to: viewModel.companyObser)
+            .disposed(by: disposeBag)
+        
+        picker.finishSelectedSubject
+            .map{ $0[0]?.contentAttribute.string ?? "" }
+            .bind(to: contentFooterView.companyOutlet.rx.text)
             .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(true)
