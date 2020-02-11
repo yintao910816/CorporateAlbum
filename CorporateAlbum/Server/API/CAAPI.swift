@@ -97,6 +97,8 @@ enum API{
     case orderList(skip: Int, limit: Int)
     /// 获取订单明细项表
     case orderListItems(orderId: String)
+    /// 请求支付,返回支付宝请求信息
+    case orderPay(orderId: String)
     
     /// 获取推广区域列表
     case listRegion(siteName: String)
@@ -221,7 +223,7 @@ extension API: TargetType{
     var path: String{
         switch self {
         case .verify(_, _):
-            return "verify"
+            return "Token/Verify"
         case .register(_, _, _, _):
             return "User/Register"
         case .smsSendCode(_):
@@ -300,6 +302,8 @@ extension API: TargetType{
             return "Order/List"
         case .orderListItems(_):
             return "Order/ListItems"
+        case .orderPay(_):
+            return "Order/Pay"
             
         case .albumPage(_):
             return "Book/ListBySite"
@@ -349,7 +353,9 @@ extension API: TargetType{
 
     var validate: Bool { return false }
     
-    var headers: [String : String]? { return nil }
+    var headers: [String : String]? {
+        return ["ApiToken": userDefault.appToken ?? ""]
+    }
     
 }
 
@@ -366,7 +372,7 @@ extension API {
              .setAvatar(_):
             params["token"]  = userDefault.appToken ?? ""
         case .verify(let sign, let timestamp):
-            params["key"]  = "apple200"
+            params["key"]  = "ebooke_ios"
             params["sign"] = sign
             params["timestamp"]  = timestamp
         case .register(let phone, let nickName, let password, let smscode):
@@ -505,6 +511,8 @@ extension API {
             params["skip"]   = skip
             params["limit"]  = limit
         case .orderListItems(let orderId):
+            params["orderId"]  = orderId
+        case .orderPay(let orderId):
             params["orderId"]  = orderId
         case .orderSubmitNew(let siteName, let companyId, let orderJson):
             params["siteName"]  = siteName

@@ -1403,7 +1403,7 @@
         <!--我的订单-->
         <scene sceneID="9tf-V0-K9B">
             <objects>
-                <viewController id="86T-um-F99" customClass="CAOrderListViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="orderListViewCtrl" id="86T-um-F99" customClass="CAOrderListViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uCz-47-Hob"/>
                         <viewControllerLayoutGuide type="bottom" id="3HT-Ar-c7q"/>
@@ -1438,7 +1438,7 @@
         <!--订单详情-->
         <scene sceneID="ewy-nx-tKS">
             <objects>
-                <viewController id="tJN-XZ-q8C" customClass="CAOrderListItemsViewController" customModule="得众画册" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="orderListItemsCtrl" id="tJN-XZ-q8C" customClass="CAOrderListItemsViewController" customModule="得众画册" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OdB-gx-QLs"/>
                         <viewControllerLayoutGuide type="bottom" id="HEh-pq-iws"/>

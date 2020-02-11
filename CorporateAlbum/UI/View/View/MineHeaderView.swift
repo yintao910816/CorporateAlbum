@@ -26,6 +26,8 @@ class MineHeaderView: BaseFilesOwner {
     
     var userInfoObser = Variable((UserInfoModel(), CASumIncomeModel()))
 
+    public let avatarTapSubject = PublishSubject<UserInfoModel>()
+    
     init(disposebag: DisposeBag) {
         super.init()
         
@@ -63,6 +65,11 @@ class MineHeaderView: BaseFilesOwner {
                     self.avatarOutlet.setImage(nil, .userIcon)
                 }
             })
+            .disposed(by: disposebag)
+        
+        avatarOutlet.rx.tap.asObservable()
+            .map{ [unowned self] _ in self.userInfoObser.value.0 }
+            .bind(to: avatarTapSubject)
             .disposed(by: disposebag)
     }
 }

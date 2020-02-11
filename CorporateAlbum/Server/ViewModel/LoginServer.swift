@@ -173,6 +173,7 @@ class LoginViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     userDefault.userType = .platform
+                    NotificationCenter.default.post(name: NotificationName.User.reloadUserInfo, object: nil)
                     self?.popSubject.onNext(true)
                 }else {
                     self?.hud.failureHidden(model.message)

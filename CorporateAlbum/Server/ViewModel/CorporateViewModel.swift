@@ -83,6 +83,11 @@ class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
                 self.requestData(true)
             })
             .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.User.reloadUserInfo, object: nil)
+            .map{ _ in true }
+            .bind(to: reloadSubject)
+            .disposed(by: disposeBag)
     }
     
     override func requestData(_ refresh: Bool) {

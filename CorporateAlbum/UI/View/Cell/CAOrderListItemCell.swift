@@ -30,7 +30,7 @@ class CAOrderListItemCell: UITableViewCell {
 
     public var model: CAOrderItemInfoModel! {
         didSet {
-            productNameOutlet.text = model.ProductTitle
+            productNameOutlet.text = model.IsPromotion == 1 ? "【赠】\(model.ProductTitle)" : model.ProductTitle
             priceOutlet.text = model.priceText
             if model.Quantity > 0 { quantityOutlet.text = "\(model.Quantity)" }
             productIntroOutlet.text = model.ProductIntro

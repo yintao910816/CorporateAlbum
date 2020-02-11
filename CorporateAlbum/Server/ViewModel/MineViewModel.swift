@@ -22,16 +22,8 @@ class MineViewModel: BaseViewModel , VMNavigation{
     
     override init() {
         super.init()
-                
-        UserInfoModel.loginUser { [unowned self] user in
-            if let _user = user, _user.Id.count > 0 {
-                self.userInfoObser.value = (_user, CASumIncomeModel())
-                self.prepareCellData()
-                self.userIsLoginObser.value = true
-            }else {
-                self.userIsLoginObser.value = false
-            }
-        }
+                     
+        loadLocalUser()
         
         reloadSubject.subscribe(onNext: { [weak self] _ in
             self?.getUserInfoRequest()
@@ -52,6 +44,11 @@ class MineViewModel: BaseViewModel , VMNavigation{
 //                tempDatas.append(model)
 //                self.datasource.value = tempDatas
             })
+            .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.User.reloadUserInfo, object: nil)
+            .map{ _ in true }
+            .bind(to: reloadSubject)
             .disposed(by: disposeBag)
     }
     
@@ -96,13 +93,15 @@ class MineViewModel: BaseViewModel , VMNavigation{
             .catchErrorJustReturn(CASumIncomeModel())
 
         Observable.combineLatest(userInfoSignal, sumInfoSignal)
-            .subscribe(onNext: { data in
+            .subscribe(onNext: { [unowned self] data in
                 if data.0.Id.count > 0 {
                     self.userInfoObser.value = data
                     
                     self.userIsLoginObser.value = true
                     userDefault.uid = data.0.Id
-                    data.0.insertUser()
+                    data.0.insertUser {
+                        self.loadLocalUser()
+                    }
                 }else {
                     self.userIsLoginObser.value = false
                     userDefault.uid = nil
@@ -113,6 +112,17 @@ class MineViewModel: BaseViewModel , VMNavigation{
             .disposed(by: disposeBag)
     }
     
+    private func loadLocalUser() {
+        UserInfoModel.loginUser { [unowned self] user in
+            if let _user = user, _user.Id.count > 0 {
+                self.userInfoObser.value = (_user, CASumIncomeModel())
+                self.prepareCellData()
+                self.userIsLoginObser.value = true
+            }else {
+                self.userIsLoginObser.value = false
+            }
+        }
+    }
 }
 
 struct MineCellModel {

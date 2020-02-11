@@ -86,8 +86,10 @@ extension UserInfoModel {
     /**
      * 向数据库插入用户,存在则更新
      */
-    public func insertUser() {
-        DBQueue.share.insterOrUpdateQueue(model: self, userTB, UserInfoModel.self)
+    public func insertUser(complement: (() ->())? = nil) {
+        DBQueue.share.insterOrUpdateQueue(model: self, userTB, UserInfoModel.self) {
+            complement?()
+        }
     }
 
     /**

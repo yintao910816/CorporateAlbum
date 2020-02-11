@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController {
+class BaseNavigationController: UINavigationController, VMNavigation {
     
     /**
      * 是否开启右滑返回手势
@@ -70,12 +70,14 @@ class BaseNavigationController: UINavigationController {
             }
         }
 
-        guard let webVC = viewControllers.last as? WebViewController else {
-            popViewController(animated: true)
+        if let orderInfoVC = viewControllers.last as? CAOrderListItemsViewController, orderInfoVC.isPopToOrderList == true {
+            popToRootViewController(animated: false)
+            BaseNavigationController.sbPush("Main", "orderListViewCtrl")
             return
         }
         
-        if webVC.webView != nil && webVC.webView.canGoBack == true {
+        if let webVC = viewControllers.last as? WebViewController,
+            webVC.webView != nil && webVC.webView.canGoBack == true {
             if userDefault.isPopToRoot == true {
                 webVC.navigationController?.popToRootViewController(animated: true)
                 userDefault.isPopToRoot = false
@@ -84,7 +86,7 @@ class BaseNavigationController: UINavigationController {
             webVC.webView.goBack()
             return
         }
-        
+                
         popViewController(animated: true)
     }
     

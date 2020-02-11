@@ -72,7 +72,7 @@ class CAOrderItemInfoModel: HJModel {
     /// 处理状态ContractStatus枚举
     var Status: String = ""
     /// 是否赠品1是0否
-    var IsPromotion: Bool = false
+    var IsPromotion: Int = 0
     /// 处理状态描述
     var StatusTitle: String = ""
 
@@ -109,4 +109,9 @@ extension CACompanyListModel: TYPickerDatasource {
             return attr
         }
     }
+}
+
+class CAPaymentInfoModel: HJModel {
+    /// 支付请求内容字符串
+    var Body: String = ""
 }

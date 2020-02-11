@@ -26,9 +26,11 @@ extension DBQueue {
 
     public final func insterOrUpdateQueue<T: DBOperation>(model: T,
                                                           _ tbName: String,
-                                                          _ type: T.Type){
+                                                          _ type: T.Type,
+                                                          complement: (() ->())? = nil){
         queue.async {
             type.dbInsterOrUpdate(model.insertFilier(), model.setters(), tbName, type)
+            complement?()
         }
     }
     

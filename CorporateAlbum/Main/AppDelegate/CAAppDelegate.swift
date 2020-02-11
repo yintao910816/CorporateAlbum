@@ -23,7 +23,8 @@ class CAAppDelegate: UIResponder, UIApplicationDelegate {
         
         DbManager.dbSetup()
         
-        APIAssistance.requestToken()
+        _ = APIAssistance.requestToken()
+            .subscribe(onNext: { _ in })
         
         window?.makeKeyAndVisible()
 
@@ -42,29 +43,81 @@ class CAAppDelegate: UIResponder, UIApplicationDelegate {
         PrintLog(NSTemporaryDirectory())
         return true
     }
+    
+}
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+extension CAAppDelegate {
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+
+        PrintLog(url.absoluteString)
+        
+        if url.host == "safepay"{
+            AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: { (resultDic) in
+                PrintLog("支付宝支付结果：\(String(describing: resultDic))")
+                let status = resultDic?["resultStatus"] as! String
+                
+                let alipayResult = resultDic?["result"] as! String
+                var resultDic: [String : Any]?
+                do{
+                    let dic = try JSONSerialization.jsonObject(with: alipayResult.data(using: .utf8)!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : Any]
+                    resultDic = dic["alipay_trade_app_pay_response"] as? [String : Any]
+                }
+                catch{}
+
+                if status == "9000"{
+                    NotificationCenter.default.post(name: NotificationName.Pay.alipaySuccess, object: nil)
+                }else{
+                    var message = "支付失败"
+                    if let code = resultDic?["code"] as? String {
+                        message = "支付失败：\(code)"
+                    }
+                    NotificationCenter.default.post(name: NotificationName.Pay.alipayFailure, object: message)
+                }
+            })
+            return true
+        }
+//        else if url.absoluteString.contains("tencent" + tencentAppid){
+//            TencentOAuth.handleOpen(url)
+//            let vc = ShowShareViewController()
+//            return QQApiInterface.handleOpen(url, delegate: vc)
+//        }else if url.scheme == weixinAppid{
+//            return WXApi.handleOpen(url, delegate: self)
+//        }
+        
+        return true
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
+//    func onReq(_ req: BaseReq!) {
+//    }
+    
+//    func onResp(_ resp: BaseResp!) {
+//        if resp.isKind(of: SendAuthResp.self) {
+//            if resp.errCode == 0{
+//                let obj = resp as! SendAuthResp
+//                HttpClient.shareIntance.getWeixinOpenId(code: obj.code!)
+//            }else{
+//                HCShowError(info: "授权失败")
+//            }
+//        }else if resp.isKind(of: PayResp.self){
+//            let obj = resp as! PayResp
+//            if obj.errCode == 0{
+//                //支付成功  发送通知
+//                let not = Notification.init(name: NSNotification.Name.init(WEIXIN_SUCCESS), object: nil, userInfo: nil)
+//                NotificationCenter.default.post(not)
+//            }else{
+//                //支付失败
+//                let not = Notification.init(name: NSNotification.Name.init(PAY_FAIL), object: nil, userInfo: nil)
+//                NotificationCenter.default.post(not)
+//            }
+//        }else if resp.isKind(of: SendMessageToWXResp.self){
+//            if resp.errCode == 0{
+//                //分享成功
+//                showAlert(title: "分享成功", message: "")
+//            }else{
+//                showAlert(title: "分享不成功", message: "")
+//            }
+//        }
+//    }
 }
 

@@ -85,27 +85,28 @@ struct APIAssistance {
     }
 }
 
+import RxSwift
 extension APIAssistance {
     
     /**
      * 获取token
      */
-    static func requestToken() {
+    static func requestToken() ->Observable<[String: Any]> {
         let timestamp = Date().milliStamp
         let signString = timestamp + AppSetup.instance.secret
         
-        let _ = CARProvider.rx.request(.verify(sign: signString.sha1(), timestamp: timestamp))
+        return CARProvider.rx.request(.verify(sign: signString.sha1(), timestamp: timestamp))
             .mapJSON()
-            .subscribe(onSuccess: { result in
-                PrintLog(result)
-                guard let ret = result as? [String: Any], let token = ret["Data"] as? String else{
+            .map{ return ($0 as? [String: Any]) ?? [:] }
+            .do(onSuccess: { data in
+                guard let token = data["Data"] as? String, token.count > 0 else{
                     NoticesCenter.alert(title: "提示", message: "令牌获取失败，请重新启动App")
                     return
                 }
                 userDefault.appToken = token
-            }) { error in
+            }, onError: { error in
                 NoticesCenter.alert(title: "提示", message: "网络连接失败，请检查网络后重新打开app")
-        }
+            })
+            .asObservable()
     }
-
 }

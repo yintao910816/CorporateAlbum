@@ -70,17 +70,39 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
                 self.requestData(true)
             })
             .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.User.reloadUserInfo, object: nil)
+            .map{ _ in true }
+            .bind(to: reloadSubject)
+            .disposed(by: disposeBag)
     }
     
     override func requestData(_ refresh: Bool) {
         super.updatePage(for: "\(dataType)", refresh: refresh)
         
-        CARProvider.rx.request(.bookList(search: searchTextObser.value,
-                                         skip: pageModel.currentPage,
-                                         limit: pageModel.pageSize,
-                                         category: dataType))
+        let dataSignal = CARProvider.rx.request(.bookList(search: searchTextObser.value,
+                                                          skip: pageModel.currentPage,
+                                                          limit: pageModel.pageSize,
+                                                          category: dataType))
             .map(models: AlbumBookModel.self)
-            .subscribe(onSuccess: { [unowned self] datas in
+        
+        if userDefault.appToken == nil || userDefault.appToken?.count == 0 {
+            APIAssistance.requestToken().concatMap{ _ in dataSignal }
+                .subscribe(onNext: { [unowned self] datas in
+                    self.updateRefresh(refresh: refresh, models: datas,
+                                       dataModels: &(self.allData["\(self.dataType)"]!),
+                                       pageKey: "\(self.dataType)")
+                    self.datasource.value = self.allData["\(self.dataType)"]!
+                    AlbumBookModel.insert(datas: datas)
+                    }, onError: { [unowned self] error in
+                        self.revertCurrentPageAndRefreshStatus()
+                })
+                .disposed(by: disposeBag)
+            
+            return
+        }
+        
+        dataSignal.subscribe(onSuccess: { [unowned self] datas in
                 self.updateRefresh(refresh: refresh, models: datas,
                                    dataModels: &(self.allData["\(self.dataType)"]!),
                                    pageKey: "\(self.dataType)")

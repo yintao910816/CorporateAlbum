@@ -87,9 +87,9 @@ class CAMineViewController: BaseViewController {
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-        headerView.avatarOutlet.rx.tap.asDriver()
-            .drive(onNext: { [unowned self] in
-                self.performSegue(withIdentifier: avatarSetSegue, sender: nil)
+        headerView.avatarTapSubject
+            .subscribe(onNext: { [unowned self] in
+                self.performSegue(withIdentifier: "accountSegue", sender: ["model":$0])
             })
             .disposed(by: disposeBag)
     }

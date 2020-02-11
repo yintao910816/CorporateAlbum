@@ -30,5 +30,14 @@ extension Notification.Name {
         public static let siteInfoChanged = Notification.Name(rawValue: "org.album.notification.name.siteInfoChanged")
         /// 获取到新的站点信息处理界面刷新
         public static let reloadSiteInfoView = Notification.Name(rawValue: "org.album.notification.name.reloadSiteInfoView")
+        /// 登录成功，获取用户信息
+        public static let reloadUserInfo = Notification.Name(rawValue: "org.album.notification.name.reloadUserInfo")
+    }
+    
+    public struct Pay {
+        /// 支付宝支付成功
+        public static let alipaySuccess = Notification.Name(rawValue: "org.album.notification.name.alipaySuccess")
+        /// 支付宝支付失败
+        public static let alipayFailure = Notification.Name(rawValue: "org.album.notification.name.alipayFailure")
     }
 }
