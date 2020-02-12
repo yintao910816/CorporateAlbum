@@ -26,8 +26,8 @@ extension CAAppDelegate {
                                               redirectURL: "http://mobile.umeng.com/social")
         
         UMSocialManager.default()?.setPlaform(.QQ,
-                                              appKey: qq_appKey,
-                                              appSecret: qq_secret,
+                                              appKey: qq_appID,
+                                              appSecret: qq_appKey,
                                               redirectURL: "http://mobile.umeng.com/social")
     }
 }

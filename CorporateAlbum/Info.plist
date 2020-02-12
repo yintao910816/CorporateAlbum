@@ -30,7 +30,16 @@
 				<string>CorporateAlbum.dazongg.com</string>
 			</array>
 		</dict>
-		<dict/>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>qq</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ6122340</string>
+			</array>
+		</dict>
 		<dict/>
 	</array>
 	<key>CFBundleVersion</key>

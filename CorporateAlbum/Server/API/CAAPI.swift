@@ -141,6 +141,9 @@ enum API{
      */
     case setAvatar(image: UIImage)
     
+    /// 更改用户所在地区
+    case userSetRegion(regionCode: String, regionText: String)
+    
     /**
      * 为当前用户发送手机验证码
      */
@@ -236,6 +239,8 @@ extension API: TargetType{
             return "User/SetPassword"
         case .setAvatar(_):
             return "User/SetPhoto"
+        case .userSetRegion(_):
+            return "User/SetRegion"
         case .getUserInfo:
             return "User/Get"
         case .sumIncome:
@@ -371,6 +376,10 @@ extension API {
              .setEmailCodeForMe,
              .setAvatar(_):
             params["token"]  = userDefault.appToken ?? ""
+        case .userSetRegion(let regionCode, let regionText):
+            params["regionCode"] = regionCode
+            params["regionText"] = regionText
+
         case .verify(let sign, let timestamp):
             params["key"]  = "ebooke_ios"
             params["sign"] = sign

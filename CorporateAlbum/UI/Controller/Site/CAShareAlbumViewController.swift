@@ -26,8 +26,9 @@ class CAShareAlbumViewController: BaseViewController {
     }
     
     override func rxBind() {
-        header.shareCallBack = {
-            ShareUtils.presentShare(thumbURL: $0.Picture, title: $0.Title, descr: $0.Summary, webpageUrl: $0.AlbumUrl)
+        header.shareCallBack = { _ in
+            NoticesCenter.alert(message: "开发中，敬请期待...")
+//            ShareUtils.presentShare(thumbURL: $0.Picture, title: $0.Title, descr: $0.Summary, webpageUrl: $0.AlbumUrl)
         }
     }
     

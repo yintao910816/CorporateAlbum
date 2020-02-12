@@ -18,6 +18,6 @@ public let wx_appKey: String = ""
 public let wx_secret: String = ""
 
 /// QQ平台
-public let qq_appKey: String = ""
-public let qq_secret: String = ""
+public let qq_appID: String  = "101851968"
+public let qq_appKey: String = "3d7988725b3d1e8641c8d99d52350459"
 

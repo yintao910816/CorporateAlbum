@@ -395,21 +395,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zim-1L-BKk">
-                                        <rect key="frame" x="15" y="29.5" width="40" height="25"/>
+                                        <rect key="frame" x="15" y="4.5" width="80" height="50"/>
                                         <state key="normal" image="navigationButtonReturn"/>
                                         <connections>
                                             <action selector="back:" destination="ihQ-Te-Of9" eventType="touchUpInside" id="na9-RP-fuV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm5-hx-Vhk">
-                                        <rect key="frame" x="288" y="27" width="30" height="30"/>
+                                        <rect key="frame" x="288" y="14.5" width="30" height="30"/>
                                         <state key="normal" image="save_album"/>
                                         <connections>
                                             <action selector="saveAlbum:" destination="ihQ-Te-Of9" eventType="touchUpInside" id="n2Y-e6-4tq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ult-NL-VcZ">
-                                        <rect key="frame" x="330" y="27" width="30" height="30"/>
+                                        <rect key="frame" x="330" y="14.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="BlY-Rw-78e"/>
                                             <constraint firstAttribute="width" secondItem="ult-NL-VcZ" secondAttribute="height" multiplier="1:1" id="HqW-El-nei"/>
@@ -810,6 +810,7 @@
                         <segue destination="Zfx-h3-PId" kind="show" identifier="editPhoneSegue" id="uRT-p0-Hgk"/>
                         <segue destination="hbx-nB-lEf" kind="show" identifier="setCitySegue" id="nDc-hb-4rN"/>
                         <segue destination="oyY-a3-s7A" kind="show" identifier="setAlipaySegue" id="RXe-qa-ohX"/>
+                        <segue destination="evX-3G-SWy" kind="show" identifier="userSetRegionSegue" id="JF2-Fp-z8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJB-t5-2yM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1798,4 +1799,7 @@
         <image name="remind_icon" width="220" height="220"/>
         <image name="save_album" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JF2-Fp-z8R"/>
+    </inferredMetricsTieBreakers>
 </document>
