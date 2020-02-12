@@ -119,6 +119,7 @@
 		B8B5167623CF59F00080E633 /* CAMySiteSettingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5167523CF59F00080E633 /* CAMySiteSettingFooterView.swift */; };
 		B8B5167823CF59F70080E633 /* CAMySiteSettingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B5167723CF59F70080E633 /* CAMySiteSettingFooterView.xib */; };
 		B8BF6F1521378C87004A13CE /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BF6F1421378C87004A13CE /* AppNotifications.swift */; };
+		B8C59B7723F3AECC0032F42C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C59B7623F3AECC0032F42C /* libsqlite3.tbd */; };
 		B8CCDF6721212C5100E94681 /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8CCDD6821212C5000E94681 /* CodeScan.bundle */; };
 		B8CCDF6821212C5100E94681 /* LBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDD6B21212C5000E94681 /* LBXScanViewController.m */; };
 		B8CCDF6921212C5100E94681 /* LBXScanViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDD6C21212C5000E94681 /* LBXScanViewStyle.m */; };
@@ -364,6 +365,8 @@
 		B8D3986823CF532C00D9448E /* CAMySiteLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D3986623CF532C00D9448E /* CAMySiteLogCell.xib */; };
 		B8D3986A23CF565400D9448E /* CAMySiteLogHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3986923CF565400D9448E /* CAMySiteLogHeaderView.swift */; };
 		B8D3986C23CF565C00D9448E /* CAMySiteLogHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D3986B23CF565C00D9448E /* CAMySiteLogHeaderView.xib */; };
+		B8D4143723F3D78E002B9892 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4143623F3D78E002B9892 /* ShareUtils.swift */; };
+		B8D4143923F3E1A2002B9892 /* CAAppDelegate+UM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4143823F3E1A2002B9892 /* CAAppDelegate+UM.swift */; };
 		B8D929AE21095EA900BAB001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D929AD21095EA900BAB001 /* Assets.xcassets */; };
 		B8D929B121095EA900BAB001 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D929AF21095EA900BAB001 /* LaunchScreen.storyboard */; };
 		B8D92A172109646C00BAB001 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D929BA2109646C00BAB001 /* FrameView.swift */; };
@@ -596,6 +599,7 @@
 		B8B5167523CF59F00080E633 /* CAMySiteSettingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteSettingFooterView.swift; sourceTree = "<group>"; };
 		B8B5167723CF59F70080E633 /* CAMySiteSettingFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAMySiteSettingFooterView.xib; sourceTree = "<group>"; };
 		B8BF6F1421378C87004A13CE /* AppNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
+		B8C59B7623F3AECC0032F42C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B8CCDD6821212C5000E94681 /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		B8CCDD6921212C5000E94681 /* LBXScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanView.h; sourceTree = "<group>"; };
 		B8CCDD6A21212C5000E94681 /* LBXScanNetAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanNetAnimation.h; sourceTree = "<group>"; };
@@ -1088,6 +1092,8 @@
 		B8D3986623CF532C00D9448E /* CAMySiteLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAMySiteLogCell.xib; sourceTree = "<group>"; };
 		B8D3986923CF565400D9448E /* CAMySiteLogHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMySiteLogHeaderView.swift; sourceTree = "<group>"; };
 		B8D3986B23CF565C00D9448E /* CAMySiteLogHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAMySiteLogHeaderView.xib; sourceTree = "<group>"; };
+		B8D4143623F3D78E002B9892 /* ShareUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareUtils.swift; sourceTree = "<group>"; };
+		B8D4143823F3E1A2002B9892 /* CAAppDelegate+UM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAAppDelegate+UM.swift"; sourceTree = "<group>"; };
 		B8D929A321095EA800BAB001 /* 得众画册.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "得众画册.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D929AD21095EA900BAB001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8D929B021095EA900BAB001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1209,6 +1215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C59B7723F3AECC0032F42C /* libsqlite3.tbd in Frameworks */,
 				B8E66EE423F2739300725BD2 /* libz.tbd in Frameworks */,
 				B8E66EE223F2738600725BD2 /* libc++.tbd in Frameworks */,
 				B8E66EE023F2734600725BD2 /* CoreText.framework in Frameworks */,
@@ -2227,6 +2234,14 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		B8D4143523F3D782002B9892 /* ShareUtil */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4143623F3D78E002B9892 /* ShareUtils.swift */,
+			);
+			path = ShareUtil;
+			sourceTree = "<group>";
+		};
 		B8D9299A21095EA800BAB001 = {
 			isa = PBXGroup;
 			children = (
@@ -2265,6 +2280,7 @@
 		B8D929B82109646C00BAB001 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B8D4143523F3D782002B9892 /* ShareUtil */,
 				B8E66ECD23F2720700725BD2 /* Lib */,
 				B8E66EB823F1165E00725BD2 /* TYPicker */,
 				B8F7A28C23C0AC8E00369B6A /* TYView */,
@@ -2318,6 +2334,7 @@
 			isa = PBXGroup;
 			children = (
 				B8D929C42109646C00BAB001 /* CAAppDelegate.swift */,
+				B8D4143823F3E1A2002B9892 /* CAAppDelegate+UM.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -2687,6 +2704,7 @@
 		C1672C0D5214A67A0857E8DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8C59B7623F3AECC0032F42C /* libsqlite3.tbd */,
 				B8E66EE323F2739200725BD2 /* libz.tbd */,
 				B8E66EE123F2738600725BD2 /* libc++.tbd */,
 				B8E66EDF23F2734600725BD2 /* CoreText.framework */,
@@ -2718,6 +2736,7 @@
 				B8D929A021095EA800BAB001 /* Frameworks */,
 				B8D929A121095EA800BAB001 /* Resources */,
 				963E20A305118B786A31967E /* [CP] Embed Pods Frameworks */,
+				894305EA82CC7A22B3657C03 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2807,6 +2826,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		894305EA82CC7A22B3657C03 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CorporateAlbum/Pods-CorporateAlbum-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CorporateAlbum/Pods-CorporateAlbum-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CorporateAlbum/Pods-CorporateAlbum-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		963E20A305118B786A31967E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2909,6 +2945,7 @@
 				B8CCE02E21212C5100E94681 /* ZXGeoResultParser.m in Sources */,
 				B8CCE02A21212C5100E94681 /* ZXVEventResultParser.m in Sources */,
 				B8CCDF7621212C5100E94681 /* ZXResultPoint.m in Sources */,
+				B8D4143923F3E1A2002B9892 /* CAAppDelegate+UM.swift in Sources */,
 				B8CCDFD321212C5100E94681 /* ZXPDF417Reader.m in Sources */,
 				B8D3985823CCC15000D9448E /* CAOrderListItemHeaderView.swift in Sources */,
 				B83185682111B4E000F05D49 /* CAAlbumInfoViewController.swift in Sources */,
@@ -2935,6 +2972,7 @@
 				B8CCE00A21212C5100E94681 /* ZXAI01392xDecoder.m in Sources */,
 				B8CCE03321212C5100E94681 /* ZXAddressBookParsedResult.m in Sources */,
 				B8CCDFF221212C5100E94681 /* ZXUPCAReader.m in Sources */,
+				B8D4143723F3D78E002B9892 /* ShareUtils.swift in Sources */,
 				B83185662111AAB700F05D49 /* CASiteAlbumBookViewController.swift in Sources */,
 				B8CCE02121212C5100E94681 /* ZXCode39Writer.m in Sources */,
 				B8CCDFC121212C5100E94681 /* ZXPDF417HighLevelEncoder.m in Sources */,

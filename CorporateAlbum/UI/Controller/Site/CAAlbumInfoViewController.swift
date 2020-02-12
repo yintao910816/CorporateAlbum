@@ -105,7 +105,7 @@ class CAAlbumInfoViewController: BaseViewController {
     }
     
     override func setupUI() {
-        topBarHeightCns.constant = 64 + LayoutSize.topVirtualArea
+        topBarHeightCns.constant = 64 + LayoutSize.fitTopArea
         botomBarHeightCns.constant = 100 + LayoutSize.bottomVirtualArea
         
         tapGes = UITapGestureRecognizer.init(target: self, action: #selector(toolBarAnimotion))
@@ -123,6 +123,9 @@ class CAAlbumInfoViewController: BaseViewController {
         collectionView.register(UINib.init(nibName: "AlbumPagesCell", bundle: Bundle.main), forCellWithReuseIdentifier: "AlbumPagesCellID")
         
         setupPageCtrl()
+        
+        view.bringSubviewToFront(topToolBar)
+        view.bringSubviewToFront(bottomToolBar)
     }
     
     private func setupPageCtrl() {

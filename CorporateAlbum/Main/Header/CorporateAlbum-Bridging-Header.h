@@ -23,4 +23,10 @@
 
 #import <AlipaySDK/AlipaySDK.h>
 
+#import <UMCommon/UMCommon.h>
+#import <UMCommon/UMConfigure.h>
+#import <UMShare/UMShare.h>
+#import "WXApi.h"
+#import <UShareUI/UShareUI.h>
+
 #endif /* Bridge_OC_Swift_h */

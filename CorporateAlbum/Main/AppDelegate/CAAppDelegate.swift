@@ -23,6 +23,8 @@ class CAAppDelegate: UIResponder, UIApplicationDelegate {
         
         DbManager.dbSetup()
         
+        setupUM()
+        
         _ = APIAssistance.requestToken()
             .subscribe(onNext: { _ in })
         

@@ -17,4 +17,11 @@ pod 'SQLite.swift', '~> 0.11.5'
 pod 'MJRefresh', '~> 3.1.15.3'
 pod 'Kingfisher', '~> 4.6.1'
 
+#分享
+pod 'UMCCommon'
+pod 'UMCSecurityPlugins'
+pod 'UMCShare/UI'
+pod 'UMCShare/Social/WeChat'
+pod 'UMCShare/Social/QQ'
+
 end

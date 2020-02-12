@@ -9,3 +9,15 @@
 import Foundation
 
 public let appScheme: String = "CorporateAlbum.dazongg.com"
+
+/// 友盟key
+public let um_appKey: String = "5e43a9fe570df308c60004de"
+
+/// 微信平台
+public let wx_appKey: String = ""
+public let wx_secret: String = ""
+
+/// QQ平台
+public let qq_appKey: String = ""
+public let qq_secret: String = ""
+

@@ -24,6 +24,27 @@ PODS:
   - SQLite.swift (0.11.6):
     - SQLite.swift/standard (= 0.11.6)
   - SQLite.swift/standard (0.11.6)
+  - UMCCommon (2.1.1)
+  - UMCSecurityPlugins (1.0.6)
+  - UMCShare/Core (6.9.6):
+    - UMCCommon
+  - UMCShare/Social/QQ (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedQQ
+  - UMCShare/Social/ReducedQQ (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/WeChat (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedWeChat
+  - UMCShare/UI (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
 
 DEPENDENCIES:
   - HandyJSON (~> 5.0.0-beta.1)
@@ -35,6 +56,11 @@ DEPENDENCIES:
   - RxSwift (~> 4.4.0)
   - SnapKit (~> 4.0.0)
   - SQLite.swift (~> 0.11.5)
+  - UMCCommon
+  - UMCSecurityPlugins
+  - UMCShare/Social/QQ
+  - UMCShare/Social/WeChat
+  - UMCShare/UI
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -51,6 +77,9 @@ SPEC REPOS:
     - RxSwift
     - SnapKit
     - SQLite.swift
+    - UMCCommon
+    - UMCSecurityPlugins
+    - UMCShare
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -66,7 +95,10 @@ SPEC CHECKSUMS:
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SQLite.swift: 46d890be8601964454bd3392527f863d1b802d45
+  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
 
-PODFILE CHECKSUM: 1e4431104ebb75b2a90d39b13c25ad626d718b88
+PODFILE CHECKSUM: 5eef5aeee6e03e13384533229fbbb11f139a22b7
 
 COCOAPODS: 1.8.3
