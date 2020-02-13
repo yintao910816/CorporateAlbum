@@ -10,7 +10,7 @@
         <!--Main Navagation Controller-->
         <scene sceneID="S6t-Ya-xeW">
             <objects>
-                <navigationController storyboardIdentifier="loginControllerID" modalPresentationStyle="fullScreen" id="gFk-Qc-JAm" customClass="MainNavagationController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginControllerID" modalPresentationStyle="fullScreen" id="gFk-Qc-JAm" customClass="MainNavagationController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W93-yc-1hh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -26,7 +26,7 @@
         <!--登录-->
         <scene sceneID="oaQ-hp-3Yw">
             <objects>
-                <viewController id="I35-Bv-PZx" customClass="CALoginViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I35-Bv-PZx" customClass="CALoginViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hAG-4s-H3b"/>
                         <viewControllerLayoutGuide type="bottom" id="nww-wW-7xW"/>
@@ -133,8 +133,8 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIj-mj-t8C">
-                                        <rect key="frame" x="226.5" y="116" width="62" height="30"/>
-                                        <state key="normal" title="注册赚钱">
+                                        <rect key="frame" x="242" y="116" width="31" height="30"/>
+                                        <state key="normal" title="注册">
                                             <color key="titleColor" red="0.10980392156862745" green="0.67450980392156867" blue="0.87058823529411766" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
                                         <connections>
@@ -196,7 +196,7 @@
         <!--注册-->
         <scene sceneID="oFA-AQ-OOu">
             <objects>
-                <viewController title="注册" id="mXf-50-ehE" customClass="CARegisterViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="注册" id="mXf-50-ehE" customClass="CARegisterViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zrW-JT-84N"/>
                         <viewControllerLayoutGuide type="bottom" id="NGQ-Yq-I0B"/>
@@ -470,7 +470,7 @@
         <!--找回密码-->
         <scene sceneID="ypa-PJ-kcb">
             <objects>
-                <viewController title="找回密码" id="zk7-2E-ude" customClass="CAResetPassViewController" customModule="CorporateAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="找回密码" id="zk7-2E-ude" customClass="CAResetPassViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zXL-AC-Fnh"/>
                         <viewControllerLayoutGuide type="bottom" id="q0F-FY-tEY"/>

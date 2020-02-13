@@ -15,6 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.12549019607843137" green="0.52941176470588236" blue="0.078431372549019607" alpha="1" colorSpace="deviceRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="zF1-0K-yOj" kind="relationship" relationship="viewControllers" id="Hvq-rl-sIz"/>
@@ -395,21 +396,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zim-1L-BKk">
-                                        <rect key="frame" x="15" y="4.5" width="80" height="50"/>
+                                        <rect key="frame" x="15" y="29.5" width="40" height="25"/>
                                         <state key="normal" image="navigationButtonReturn"/>
                                         <connections>
                                             <action selector="back:" destination="ihQ-Te-Of9" eventType="touchUpInside" id="na9-RP-fuV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm5-hx-Vhk">
-                                        <rect key="frame" x="288" y="14.5" width="30" height="30"/>
+                                        <rect key="frame" x="288" y="27" width="30" height="30"/>
                                         <state key="normal" image="save_album"/>
                                         <connections>
                                             <action selector="saveAlbum:" destination="ihQ-Te-Of9" eventType="touchUpInside" id="n2Y-e6-4tq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ult-NL-VcZ">
-                                        <rect key="frame" x="330" y="14.5" width="30" height="30"/>
+                                        <rect key="frame" x="330" y="27" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="BlY-Rw-78e"/>
                                             <constraint firstAttribute="width" secondItem="ult-NL-VcZ" secondAttribute="height" multiplier="1:1" id="HqW-El-nei"/>

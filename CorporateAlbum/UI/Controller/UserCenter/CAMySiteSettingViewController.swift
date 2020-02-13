@@ -37,7 +37,11 @@ class CAMySiteSettingViewController: BaseViewController {
 
     override func rxBind() {
         headerView.actonCallBack = { [unowned self] in
-            self.performSegue(withIdentifier: $0.segue, sender: $0)
+            if $0.segue.count > 0 {
+                self.performSegue(withIdentifier: $0.segue, sender: $0)
+            }else {
+                NoticesCenter.alert(message: "开发中，敬请期待...")
+            }
         }
                 
         viewModel = CAMySiteSettingViewModel.init(input: siteModel)

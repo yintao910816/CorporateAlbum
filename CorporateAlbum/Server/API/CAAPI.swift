@@ -359,7 +359,8 @@ extension API: TargetType{
     var validate: Bool { return false }
     
     var headers: [String : String]? {
-        return ["ApiToken": userDefault.appToken ?? ""]
+        return ["ApiToken": userDefault.appToken ?? "",
+                "version":Bundle.main.version]
     }
     
 }
