@@ -21,13 +21,10 @@ class CAAppDelegate: UIResponder, UIApplicationDelegate {
 
         application.statusBarStyle = .lightContent
         
-        DbManager.dbSetup()
+        setupAppLogic()
         
         setupUM()
-        
-        _ = APIAssistance.requestToken()
-            .subscribe(onNext: { _ in })
-        
+                
         window?.makeKeyAndVisible()
 
         if userDefault.lanuchStatue != vLaunch {

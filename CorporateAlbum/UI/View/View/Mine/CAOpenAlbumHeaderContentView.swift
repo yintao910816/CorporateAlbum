@@ -12,13 +12,12 @@ import RxSwift
 
 class CAOpenAlbumHeaderContentView: BaseView {
     
-    public static let viewHeight: CGFloat = 146
+    public static let viewHeight: CGFloat = 46
         
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var headerCover: UIImageView!
                 
     override func rxBind() {
-        headerCover.setImage(APIAssistance.orderHeaderCover)
+
     }
     
     override func setupUI() {

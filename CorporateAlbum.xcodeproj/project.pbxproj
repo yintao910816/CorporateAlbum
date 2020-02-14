@@ -367,6 +367,8 @@
 		B8D3986C23CF565C00D9448E /* CAMySiteLogHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D3986B23CF565C00D9448E /* CAMySiteLogHeaderView.xib */; };
 		B8D4143723F3D78E002B9892 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4143623F3D78E002B9892 /* ShareUtils.swift */; };
 		B8D4143923F3E1A2002B9892 /* CAAppDelegate+UM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4143823F3E1A2002B9892 /* CAAppDelegate+UM.swift */; };
+		B8D4143B23F6979C002B9892 /* CAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4143A23F6979C002B9892 /* CAApp.swift */; };
+		B8D4143D23F698D2002B9892 /* CAAppDelegate+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4143C23F698D2002B9892 /* CAAppDelegate+Logic.swift */; };
 		B8D929AE21095EA900BAB001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D929AD21095EA900BAB001 /* Assets.xcassets */; };
 		B8D929B121095EA900BAB001 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D929AF21095EA900BAB001 /* LaunchScreen.storyboard */; };
 		B8D92A172109646C00BAB001 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D929BA2109646C00BAB001 /* FrameView.swift */; };
@@ -1094,6 +1096,8 @@
 		B8D3986B23CF565C00D9448E /* CAMySiteLogHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAMySiteLogHeaderView.xib; sourceTree = "<group>"; };
 		B8D4143623F3D78E002B9892 /* ShareUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareUtils.swift; sourceTree = "<group>"; };
 		B8D4143823F3E1A2002B9892 /* CAAppDelegate+UM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAAppDelegate+UM.swift"; sourceTree = "<group>"; };
+		B8D4143A23F6979C002B9892 /* CAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAApp.swift; sourceTree = "<group>"; };
+		B8D4143C23F698D2002B9892 /* CAAppDelegate+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAAppDelegate+Logic.swift"; sourceTree = "<group>"; };
 		B8D929A321095EA800BAB001 /* 得众画册.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "得众画册.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D929AD21095EA900BAB001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8D929B021095EA900BAB001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2335,6 +2339,7 @@
 			children = (
 				B8D929C42109646C00BAB001 /* CAAppDelegate.swift */,
 				B8D4143823F3E1A2002B9892 /* CAAppDelegate+UM.swift */,
+				B8D4143C23F698D2002B9892 /* CAAppDelegate+Logic.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -2423,6 +2428,7 @@
 				B88147AF23CB966C003B5A97 /* CAOrder.swift */,
 				B8D3985D23CCD1CC00D9448E /* CAMySite.swift */,
 				B8E66EA023E817BB00725BD2 /* CARegionInfo.swift */,
+				B8D4143A23F6979C002B9892 /* CAApp.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3142,6 +3148,7 @@
 				B8CCE01821212C5100E94681 /* ZXITFReader.m in Sources */,
 				B8CCDF6921212C5100E94681 /* LBXScanViewStyle.m in Sources */,
 				B831856C2111B77C00F05D49 /* Page.swift in Sources */,
+				B8D4143D23F698D2002B9892 /* CAAppDelegate+Logic.swift in Sources */,
 				B8CCDF7321212C5100E94681 /* ZXResult.m in Sources */,
 				B8B2F3FC23C781A800F50078 /* CAShareCorporateViewController.swift in Sources */,
 				B8D92A652109646C00BAB001 /* CAAPI.swift in Sources */,
@@ -3265,6 +3272,7 @@
 				B8CCDFE321212C5100E94681 /* ZXDataMatrixBitMatrixParser.m in Sources */,
 				B8CCDFF621212C5100E94681 /* ZXOneDimensionalCodeWriter.m in Sources */,
 				B8D92A1E2109646C00BAB001 /* HUDUtil.swift in Sources */,
+				B8D4143B23F6979C002B9892 /* CAApp.swift in Sources */,
 				B82E2FC7210AF33F00FA299F /* ImageCacheCenter.swift in Sources */,
 				B8CCDFE421212C5100E94681 /* ZXDataMatrixDataBlock.m in Sources */,
 				B85BC1482112DAA80002F36E /* Animotions.swift in Sources */,
@@ -3441,7 +3449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 1.9;
 				DEVELOPMENT_TEAM = D8GAW87JJD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3471,7 +3479,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 1.9;
 				DEVELOPMENT_TEAM = D8GAW87JJD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

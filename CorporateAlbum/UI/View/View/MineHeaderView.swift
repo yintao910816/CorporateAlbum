@@ -23,8 +23,9 @@ class MineHeaderView: BaseFilesOwner {
     @IBOutlet weak var totleFundsOutlet: UILabel!
     
     @IBOutlet weak var remindOutlet: UILabel!
+    @IBOutlet weak var avatarBottomCns: NSLayoutConstraint!
     
-    var userInfoObser = Variable((UserInfoModel(), CASumIncomeModel()))
+    var userInfoObser = Variable((UserInfoModel(), CASumIncomeModel(), false))
 
     public let avatarTapSubject = PublishSubject<UserInfoModel>()
     
@@ -33,11 +34,16 @@ class MineHeaderView: BaseFilesOwner {
         
         contentView = (Bundle.main.loadNibNamed("MineHeaderView", owner: self, options: nil)?.first as! UIView)
         
+        if CACoreLogic.share.isInCheck {
+            avatarBottomCns.constant = -25
+        }
+        
         userInfoObser.asDriver()
             .skip(1)
             .drive(onNext: { [unowned self] data in
                 let user = data.0
                 let sumInfo = data.1
+                
                 if user.Id.count > 0 {
                     self.remindOutlet.isHidden = true
                     self.nickNameOutlet.isHidden = false
@@ -54,6 +60,11 @@ class MineHeaderView: BaseFilesOwner {
                     self.todayFoundsOutlet.attributedText = sumInfo.todayIncomeText
                     self.monthFoundsOutlet.attributedText = sumInfo.monthIncomeText
                     self.totleFundsOutlet.attributedText = sumInfo.totalIncomeText
+                    
+                    self.fundsOutlet.isHidden = data.2
+                    self.todayFoundsOutlet.isHidden = data.2
+                    self.monthFoundsOutlet.isHidden = data.2
+                    self.totleFundsOutlet.isHidden = data.2
                 }else {
                     self.remindOutlet.isHidden = false
                     self.nickNameOutlet.isHidden = true

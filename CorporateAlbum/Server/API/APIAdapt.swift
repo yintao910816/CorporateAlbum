@@ -109,4 +109,11 @@ extension APIAssistance {
             })
             .asObservable()
     }
+    
+    /// 获取当前版本app信息
+    static func requestAppInfo() ->Observable<CAApkInfoModel> {
+        return CARProvider.rx.request(.appGet)
+            .map(model: CAApkInfoModel.self)
+            .asObservable()
+    }
 }

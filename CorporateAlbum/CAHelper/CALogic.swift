@@ -7,11 +7,28 @@
 //
 
 import Foundation
+import RxSwift
 
 class CACoreLogic {
     
     typealias blankBlock = ()->()
 
+    public static let share = CACoreLogic()
+    
+    /// app 信息
+    public var appInfo: CAApkInfoModel?
+    
+    public let reloadAppInfo = PublishSubject<Void>()
+    
+    public var isInCheck: Bool {
+        get {
+            return appInfo == nil ? false : appInfo!.IsInCheck
+        }
+    }
+}
+
+extension CACoreLogic {
+    
     /**
      * 弹出登录界面
      */
@@ -19,6 +36,10 @@ class CACoreLogic {
         let controller = UIStoryboard.init(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "loginControllerID")
         NSObject().visibleViewController?.present(controller, animated: true, completion: nil)
     }
+
+}
+
+extension CACoreLogic {
     
     /**
      * 清除cookie
@@ -54,8 +75,8 @@ class CACoreLogic {
         }
         return false
     }
-}
 
+}
 
 //MARK:
 //MARK: -- 用户类型

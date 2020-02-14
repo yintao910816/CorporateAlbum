@@ -45,7 +45,7 @@
                     <color key="textColor" red="0.82352941180000006" green="0.1529411765" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申请域名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oS-3I-Uja">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oS-3I-Uja">
                     <rect key="frame" x="10" y="63" width="58" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="58" id="51f-uJ-cV5"/>
@@ -78,7 +78,7 @@
                     </constraints>
                 </view>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="字母或数字" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBZ-sd-Gki">
-                    <rect key="frame" x="98" y="59" width="226" height="25"/>
+                    <rect key="frame" x="98" y="59" width="301" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="j1t-DE-b1t"/>
                     </constraints>
@@ -86,7 +86,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名称" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-BD-SQX">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择公司名称" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-BD-SQX">
                     <rect key="frame" x="83" y="111" width="271" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
@@ -119,15 +119,6 @@
                         <constraint firstAttribute="height" constant="10" id="vzd-H5-Ss0"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=".ebooke.cn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UB-NY-PYA">
-                    <rect key="frame" x="329" y="63" width="75" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="75" id="STY-Wi-ZSF"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击提交代表您同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXe-Tt-UX9">
                     <rect key="frame" x="30" y="278" width="110.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -160,11 +151,10 @@
             <constraints>
                 <constraint firstItem="IWh-4f-svh" firstAttribute="leading" secondItem="Hka-rw-IwR" secondAttribute="leading" id="2EM-dC-dtf"/>
                 <constraint firstItem="GKK-BD-SQX" firstAttribute="leading" secondItem="cHy-aS-X9V" secondAttribute="trailing" constant="15" id="2hK-hb-4aK"/>
-                <constraint firstAttribute="trailing" secondItem="3UB-NY-PYA" secondAttribute="trailing" constant="10" id="3wQ-Vl-eGU"/>
                 <constraint firstItem="cHy-aS-X9V" firstAttribute="leading" secondItem="2oS-3I-Uja" secondAttribute="leading" id="49x-aJ-1jm"/>
+                <constraint firstAttribute="trailing" secondItem="SBZ-sd-Gki" secondAttribute="trailing" constant="15" id="69Q-Jb-2HC"/>
                 <constraint firstItem="6as-mt-dZj" firstAttribute="leading" secondItem="Hka-rw-IwR" secondAttribute="leading" id="6ap-EB-drr"/>
                 <constraint firstAttribute="trailing" secondItem="NbH-zH-9mg" secondAttribute="trailing" id="7GL-aI-5rM"/>
-                <constraint firstItem="3UB-NY-PYA" firstAttribute="leading" secondItem="SBZ-sd-Gki" secondAttribute="trailing" constant="5" id="7Lr-Wc-hFw"/>
                 <constraint firstItem="1b0-Y6-uYR" firstAttribute="centerY" secondItem="cHy-aS-X9V" secondAttribute="centerY" id="9jo-6E-Zok"/>
                 <constraint firstItem="0SB-PG-ueQ" firstAttribute="leading" secondItem="Hka-rw-IwR" secondAttribute="leading" id="Ae5-yf-uCf"/>
                 <constraint firstAttribute="trailing" secondItem="Jwk-GP-Wf9" secondAttribute="trailing" id="BJO-2v-emQ"/>
@@ -173,7 +163,6 @@
                 <constraint firstItem="5qQ-mF-lEp" firstAttribute="centerY" secondItem="JXe-Tt-UX9" secondAttribute="centerY" id="P6O-Cs-SLE"/>
                 <constraint firstItem="IWh-4f-svh" firstAttribute="top" secondItem="Jwk-GP-Wf9" secondAttribute="bottom" id="Qg9-Ac-ZHb"/>
                 <constraint firstItem="SBZ-sd-Gki" firstAttribute="leading" secondItem="2oS-3I-Uja" secondAttribute="trailing" constant="30" id="RfE-Rz-VzX"/>
-                <constraint firstItem="3UB-NY-PYA" firstAttribute="centerY" secondItem="2oS-3I-Uja" secondAttribute="centerY" id="SkS-Yr-ISs"/>
                 <constraint firstItem="2oS-3I-Uja" firstAttribute="top" secondItem="0SB-PG-ueQ" secondAttribute="bottom" constant="15" id="TB2-kd-hvZ"/>
                 <constraint firstAttribute="trailing" secondItem="IWh-4f-svh" secondAttribute="trailing" id="U4g-qR-IXg"/>
                 <constraint firstAttribute="trailing" secondItem="0O1-aM-VNO" secondAttribute="trailing" id="VK5-qd-LmX"/>

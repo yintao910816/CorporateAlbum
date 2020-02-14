@@ -164,7 +164,7 @@
                         <constraint firstAttribute="height" constant="1" id="xFN-Ax-5e8"/>
                     </constraints>
                 </view>
-                <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOU-9A-ith">
+                <button opaque="NO" tag="501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOU-9A-ith">
                     <rect key="frame" x="384" y="258" width="25" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="tOU-9A-ith" secondAttribute="height" multiplier="25:22" id="FdU-87-Y0S"/>
@@ -172,7 +172,7 @@
                     </constraints>
                     <state key="normal" image="arrow_right"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="续期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDz-os-Tnc">
+                <label opaque="NO" userInteractionEnabled="NO" tag="500" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="续期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDz-os-Tnc">
                     <rect key="frame" x="355" y="260.5" width="29" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="29" id="ATC-ng-j9B"/>
@@ -200,7 +200,7 @@
                         <constraint firstAttribute="height" constant="1" id="nV8-0R-cQk"/>
                     </constraints>
                 </view>
-                <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndC-BH-JDS">
+                <button opaque="NO" tag="503" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndC-BH-JDS">
                     <rect key="frame" x="384" y="307" width="25" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="H8v-Gh-FiX"/>
@@ -208,7 +208,7 @@
                     </constraints>
                     <state key="normal" image="arrow_right"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6y-e6-hk0">
+                <label opaque="NO" userInteractionEnabled="NO" tag="502" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6y-e6-hk0">
                     <rect key="frame" x="355" y="309.5" width="29" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="29" id="SrI-la-3Ct"/>

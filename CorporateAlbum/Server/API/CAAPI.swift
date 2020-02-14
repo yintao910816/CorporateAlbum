@@ -23,6 +23,9 @@ enum CAH5Type: String {
 //MARK:
 //MARK: 接口定义
 enum API{
+    /// app控制
+    case appGet
+    
     /**
      * 获取token，访问令牌,24小时内有效
      * sign：使用SHA1算法 对 时间戳+SECRET 进行摘要得到
@@ -225,6 +228,9 @@ extension API: TargetType{
     
     var path: String{
         switch self {
+        case .appGet:
+            return "App/Get"
+            
         case .verify(_, _):
             return "Token/Verify"
         case .register(_, _, _, _):
@@ -360,7 +366,8 @@ extension API: TargetType{
     
     var headers: [String : String]? {
         return ["ApiToken": userDefault.appToken ?? "",
-                "version":Bundle.main.version]
+                "appVersion": Bundle.main.version,
+                "appName": "ebooke_ios"]
     }
     
 }
@@ -372,6 +379,9 @@ extension API {
     private var parameters: [String: Any]? {
         var params = [String: Any]()
         switch self {
+        case .appGet:
+            params["appName"] = "ebooke_ios"
+
         case .getUserInfo,
              .sendSmsCodeForMe,
              .setEmailCodeForMe,

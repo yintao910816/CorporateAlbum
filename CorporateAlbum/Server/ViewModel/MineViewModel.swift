@@ -13,36 +13,36 @@ import RxDataSources
 
 class MineViewModel: BaseViewModel , VMNavigation{
     
-    var datasource = Variable([SectionModel<Int, MineCellModel>]())
-    var userInfoObser = Variable((UserInfoModel(), CASumIncomeModel()))
+    private var isInCheck: Bool = CACoreLogic.share.isInCheck
     
-//    var userIsLogin = false
-    
-    let userIsLoginObser = Variable(true)
+    public var datasource = Variable([SectionModel<Int, MineCellModel>]())
+    public var userInfoObser = Variable((UserInfoModel(), CASumIncomeModel(), true))
+    //    var userIsLogin = false
+    public let userIsLoginObser = Variable(true)
     
     override init() {
         super.init()
-                     
+        
         loadLocalUser()
         
         reloadSubject.subscribe(onNext: { [weak self] _ in
             self?.getUserInfoRequest()
         })
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
         userIsLoginObser.asDriver()
             .distinctUntilChanged()
             .drive(onNext: { [unowned self] ret in
-//                var tempDatas = self.datasource.value
-//                var model = tempDatas.last!
-//                if model.title == "去登录" && ret == true {
-//                    model.title = "退出登录"
-//                }else if  model.title == "退出登录" && ret == false {
-//                    model.title = "去登录"
-//                }
-//                tempDatas.removeLast()
-//                tempDatas.append(model)
-//                self.datasource.value = tempDatas
+                //                var tempDatas = self.datasource.value
+                //                var model = tempDatas.last!
+                //                if model.title == "去登录" && ret == true {
+                //                    model.title = "退出登录"
+                //                }else if  model.title == "退出登录" && ret == false {
+                //                    model.title = "去登录"
+                //                }
+                //                tempDatas.removeLast()
+                //                tempDatas.append(model)
+                //                self.datasource.value = tempDatas
             })
             .disposed(by: disposeBag)
         
@@ -50,18 +50,27 @@ class MineViewModel: BaseViewModel , VMNavigation{
             .map{ _ in true }
             .bind(to: reloadSubject)
             .disposed(by: disposeBag)
+        
+        CACoreLogic.share.reloadAppInfo
+            .subscribe(onNext: { [unowned self] _ in
+                let isCheck = CACoreLogic.share.isInCheck
+                if self.isInCheck != isCheck {
+                    self.isInCheck = isCheck
+                    self.userInfoObser.value = (self.userInfoObser.value.0, self.userInfoObser.value.1, self.isInCheck)
+                    self.prepareCellData()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     private func prepareCellData() {
-        let sections = [SectionModel.init(model: 0, items: [MineCellModel(title: "账号设置",
+        var sections: [SectionModel<Int, MineCellModel>] = []
+        if isInCheck {
+            sections = [SectionModel.init(model: 0, items: [MineCellModel(title: "账号设置",
                                                                           icon: UIImage(named: "mine_account_setting"),
                                                                           segue: "accountSegue",
                                                                           params: ["model":userInfoObser.value.0]),
-                                                            MineCellModel(title: "奖励提现",
-                                                                          icon: UIImage(named: "mine_funds"),
-//                                                                          segue: "refundsSegue",
-                                                                          params: ["model":userInfoObser.value.0]),
-                                                            MineCellModel(title: "开通画册",
+                                                            MineCellModel(title: "我要下单",
                                                                           icon: UIImage(named: "mine_open_album"),
                                                                           segue: "openAlbumSegue",
                                                                           params: ["model":userInfoObser.value.0]),
@@ -77,6 +86,32 @@ class MineViewModel: BaseViewModel , VMNavigation{
                                                             MineCellModel(title: "退出登录",
                                                                           icon: UIImage(named: "mine_login_out"),
                                                                           isLoginOut: true)])]
+        }else {
+            sections = [SectionModel.init(model: 0, items: [MineCellModel(title: "账号设置",
+                                                                          icon: UIImage(named: "mine_account_setting"),
+                                                                          segue: "accountSegue",
+                                                                          params: ["model":userInfoObser.value.0]),
+                                                            MineCellModel(title: "奖励提现",
+                                                                          icon: UIImage(named: "mine_funds"),
+                                                                          //                                                                          segue: "refundsSegue",
+                                                                params: ["model":userInfoObser.value.0]),
+                                                            MineCellModel(title: "我要下单",
+                                                                          icon: UIImage(named: "mine_open_album"),
+                                                                          segue: "openAlbumSegue",
+                                                                          params: ["model":userInfoObser.value.0]),
+                                                            MineCellModel(title: "我的订单",
+                                                                          icon: UIImage(named: "mine_order"),
+                                                                          segue: "orderSegue"),
+                                                            MineCellModel(title: "我的画册",
+                                                                          icon: UIImage(named: "mine_album"),
+                                                                          segue: "myalbumSegue")]),
+                        SectionModel.init(model: 1, items: [MineCellModel(title: "关于我们",
+                                                                          icon: UIImage(named: "mine_about"),
+                                                                          webURL: APIAssistance.aboutusWeb),
+                                                            MineCellModel(title: "退出登录",
+                                                                          icon: UIImage(named: "mine_login_out"),
+                                                                          isLoginOut: true)])]
+        }
         
         datasource.value = sections
     }
@@ -86,16 +121,16 @@ class MineViewModel: BaseViewModel , VMNavigation{
             .map(model: UserInfoModel.self)
             .asObservable()
             .catchErrorJustReturn(UserInfoModel())
-
+        
         let sumInfoSignal = CARProvider.rx.request(.sumIncome)
             .map(model: CASumIncomeModel.self)
             .asObservable()
             .catchErrorJustReturn(CASumIncomeModel())
-
+        
         Observable.combineLatest(userInfoSignal, sumInfoSignal)
             .subscribe(onNext: { [unowned self] data in
                 if data.0.Id.count > 0 {
-                    self.userInfoObser.value = data
+                    self.userInfoObser.value = (data.0, data.1, self.isInCheck)
                     
                     self.userIsLoginObser.value = true
                     userDefault.uid = data.0.Id
@@ -106,8 +141,8 @@ class MineViewModel: BaseViewModel , VMNavigation{
                     self.userIsLoginObser.value = false
                     userDefault.uid = nil
                 }
-            }, onError: { [weak self] error in
-                self?.hud.failureHidden(self?.errorMessage(error))
+                }, onError: { [weak self] error in
+                    self?.hud.failureHidden(self?.errorMessage(error))
             })
             .disposed(by: disposeBag)
     }
@@ -115,7 +150,7 @@ class MineViewModel: BaseViewModel , VMNavigation{
     private func loadLocalUser() {
         UserInfoModel.loginUser { [unowned self] user in
             if let _user = user, _user.Id.count > 0 {
-                self.userInfoObser.value = (_user, CASumIncomeModel())
+                self.userInfoObser.value = (_user, CASumIncomeModel(), self.isInCheck)
                 self.prepareCellData()
                 self.userIsLoginObser.value = true
             }else {

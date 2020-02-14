@@ -20,7 +20,6 @@
                     <connections>
                         <segue destination="zF1-0K-yOj" kind="relationship" relationship="viewControllers" id="Hvq-rl-sIz"/>
                         <segue destination="g6N-Ak-gom" kind="relationship" relationship="viewControllers" id="bYp-Z7-QgR"/>
-                        <segue destination="0kc-op-vkg" kind="relationship" relationship="viewControllers" id="cBO-W3-vWU"/>
                         <segue destination="m6M-M9-Tfr" kind="relationship" relationship="viewControllers" id="WUw-zf-2ac"/>
                     </connections>
                 </tabBarController>
@@ -141,7 +140,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A7W-3A-elj" customClass="BaseTB" customModule="得众画册" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -1368,7 +1367,7 @@
             </objects>
             <point key="canvasLocation" x="4916" y="1614.2428785607199"/>
         </scene>
-        <!--开通画册-->
+        <!--我要下单-->
         <scene sceneID="aYo-R9-a1D">
             <objects>
                 <viewController id="LCa-bW-MRl" customClass="CAOpenAlbumViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
@@ -1393,7 +1392,7 @@
                             <constraint firstItem="ycx-Dv-OPs" firstAttribute="leading" secondItem="bwx-xG-1N0" secondAttribute="leading" id="wG9-CG-0SM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="开通画册" id="y8G-4b-31h"/>
+                    <navigationItem key="navigationItem" title="我要下单" id="y8G-4b-31h"/>
                     <connections>
                         <outlet property="tabelView" destination="ycx-Dv-OPs" id="F5N-u1-6sl"/>
                     </connections>

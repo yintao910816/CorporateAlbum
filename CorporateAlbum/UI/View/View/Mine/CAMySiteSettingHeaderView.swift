@@ -35,10 +35,14 @@ class CAMySiteSettingHeaderView: UIView {
             actonCallBack?(.editManagePwd)
         case 301:
             // 续期
-            actonCallBack?(.renewal)
+            if !CACoreLogic.share.isInCheck {
+                actonCallBack?(.renewal)
+            }
         case 302:
             // 充值
-            actonCallBack?(.recharge)
+            if !CACoreLogic.share.isInCheck {
+                actonCallBack?(.recharge)
+            }
         case 303:
             // 推广区域
             actonCallBack?(.extensionAreaSetting)
@@ -59,6 +63,12 @@ class CAMySiteSettingHeaderView: UIView {
         addSubview(contentView)
         
         contentView.frame = bounds
+        
+        if CACoreLogic.share.isInCheck {
+            for idx in 500...503 {
+                contentView.viewWithTag(idx)?.isHidden = true
+            }
+        }
     }
     
     required init?(coder: NSCoder) {

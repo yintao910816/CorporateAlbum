@@ -48,7 +48,11 @@ class CAMineViewController: BaseViewController {
         headerView = MineHeaderView.init(disposebag: disposeBag)
         
         var rect = headerView.contentView.frame
-        rect.size.height += LayoutSize.topVirtualArea
+        if CACoreLogic.share.isInCheck {
+            rect.size.height = rect.size.height - 70 + LayoutSize.topVirtualArea
+        }else {
+            rect.size.height += LayoutSize.topVirtualArea
+        }
         headerView.contentView.frame = rect
         
         tableView.tableHeaderView = headerView.contentView
