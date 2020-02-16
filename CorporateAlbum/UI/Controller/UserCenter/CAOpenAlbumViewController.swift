@@ -47,7 +47,7 @@ class CAOpenAlbumViewController: BaseViewController {
                 cell.model = model
                 cell.quantityEnable = true
                 cell.didEndEditCallBack = {
-                    self?.viewModel.reCalculatTotlePriceSubject.onNext(Void())
+                    self?.viewModel.reCalculatTotlePriceSubject.onNext($0)
                 }
         }
         .disposed(by: disposeBag)

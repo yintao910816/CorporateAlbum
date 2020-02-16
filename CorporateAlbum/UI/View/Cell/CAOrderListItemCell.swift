@@ -11,14 +11,14 @@ import UIKit
 public let CAOrderListItemCell_identifier = "CAOrderListItemCell"
 public let CAOrderListItemCell_height: CGFloat = 80
 
-class CAOrderListItemCell: UITableViewCell {
+class CAOrderListItemCell: BaseTBCell {
 
     @IBOutlet weak var productNameOutlet: UILabel!
     @IBOutlet weak var priceOutlet: UILabel!
     @IBOutlet weak var quantityOutlet: UITextField!
     @IBOutlet weak var productIntroOutlet: UILabel!
     
-    public var didEndEditCallBack: (()->())?
+    public var didEndEditCallBack: ((CAOrderItemInfoModel)->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,12 +50,12 @@ extension CAOrderListItemCell: UITextFieldDelegate {
         let text = textField.text?.replacingOccurrences(of: " ", with: "")
         if text == nil {
             model.Quantity = 0
-            didEndEditCallBack?()
+            didEndEditCallBack?(model)
             return
         }
 
         model.Quantity = Int(text!) ?? 0
-        didEndEditCallBack?()
+        didEndEditCallBack?(model)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

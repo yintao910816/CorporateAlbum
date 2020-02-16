@@ -29,7 +29,7 @@ class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
     public let orderListDatasource = Variable([CAOrderItemInfoModel]())
     public let serverAgreementSubject = PublishSubject<Void>()
     
-    public let reCalculatTotlePriceSubject = PublishSubject<Void>()
+    public let reCalculatTotlePriceSubject = PublishSubject<CAOrderItemInfoModel>()
     public let totlePriceObser = Variable("￥0.0元")
     /// 填写的域名监听
     public let hostObser = Variable("")
@@ -55,8 +55,12 @@ class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
             .disposed(by: disposeBag)
         
         reCalculatTotlePriceSubject
-            .subscribe(onNext: { [weak self] _ in
-                self?.calculatTotlePrice()
+            .subscribe(onNext: { [weak self] in
+                guard let strongSelf = self else { return }
+                if let idx = strongSelf.orderListDatasource.value.firstIndex(of: $0) {
+                    strongSelf.orderListDatasource.value[idx] = $0
+                }
+                strongSelf.calculatTotlePrice()
             })
             .disposed(by: disposeBag)
 
@@ -117,7 +121,7 @@ extension CAOpenAlbumViewModel {
             return false
         }
         
-        if companyId == "0" {
+        if companyId == "0" || companyId.count == 0 {
             NoticesCenter.alert(message: "请选择所属公司")
             return false
         }

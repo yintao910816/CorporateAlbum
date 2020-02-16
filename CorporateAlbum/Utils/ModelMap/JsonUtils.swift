@@ -31,6 +31,7 @@ class JsonUtils {
             return nil
         }
         
+        PrintLog("订单json：\(jsonString)")
         return "\(jsonString)]"
     }
 }
