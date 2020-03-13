@@ -17,6 +17,7 @@ class MyalbumCell: UITableViewCell {
     @IBOutlet weak var fundsOutlet: UILabel!
     @IBOutlet weak var siteOnLineOutlet: UIButton!
     @IBOutlet weak var enabledAwardOutlet: UIButton!
+    @IBOutlet weak var fundsRemindOutlet: UILabel!
     
     public var siteSettingCallBack: ((CAMySiteModel)->())?
     public var siteLogCallBack: ((CAMySiteModel)->())?
@@ -36,6 +37,10 @@ class MyalbumCell: UITableViewCell {
     
     var model: CAMySiteModel! {
         didSet {
+            enabledAwardOutlet.isHidden = CACoreLogic.share.isInCheck
+            fundsOutlet.isHidden        = CACoreLogic.share.isInCheck
+            fundsRemindOutlet.isHidden  = CACoreLogic.share.isInCheck
+
             coverOutlet.setImage(model.Logo)
             titleOutlet.text = model.SiteTitle
             expireDateOutlet.text = model.ExpireDate

@@ -16,7 +16,8 @@ class CAMySiteSettingHeaderView: UIView {
     public var actonCallBack:((CASiteSettingType)->())?
     
     @IBOutlet var contentView: UIView!
-
+    @IBOutlet weak var viewForCheck: UIImageView!
+    
     @IBAction func actions(_ sender: UIButton) {
         var copyText: String?
         switch sender.tag {
@@ -77,6 +78,13 @@ class CAMySiteSettingHeaderView: UIView {
         
     public var model: CAMySiteModel! {
         didSet {
+            if CACoreLogic.share.isInCheck {
+                viewForCheck.isHidden = false
+                viewForCheck.setImage(model.Logo)
+            }else {
+                viewForCheck.isHidden = true
+            }
+            
             let validataDate = "\(model.CreateDate) 至 \(model.ExpireDate)"
             let textArr = [model.SiteTitle, model.SiteUrl, model.ManageUrl, model.ManageUserName, model.ManagePassword, validataDate, "￥\(model.Funds)元", "￥\(model.TotalAward)元", "\(model.AwardPageCount)页"]
             for idx in 0..<textArr.count {

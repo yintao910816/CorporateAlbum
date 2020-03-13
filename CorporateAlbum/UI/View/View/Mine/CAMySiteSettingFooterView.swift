@@ -47,6 +47,11 @@ class CAMySiteSettingFooterView: UIView {
         contentView = (Bundle.main.loadNibNamed("CAMySiteSettingFooterView", owner: self, options: nil)?.first as! UIView)
         addSubview(contentView)
         
+        let inCheck = CACoreLogic.share.isInCheck
+        resetAwardsOutlet.isHidden = inCheck
+        contentView.viewWithTag(101)?.isHidden = inCheck
+        awardInfoOutlet.isHidden = inCheck
+        
         resetAwardsOutlet.layer.cornerRadius = 17.5
         resetAwardsOutlet.layer.borderColor = RGB(245, 245, 245).cgColor
         resetAwardsOutlet.layer.borderWidth = 1

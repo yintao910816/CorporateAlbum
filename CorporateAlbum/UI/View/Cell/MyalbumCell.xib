@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -153,6 +153,7 @@
                 <outlet property="enabledAwardOutlet" destination="MkH-n7-i3N" id="sD3-pc-zti"/>
                 <outlet property="expireDateOutlet" destination="rWZ-a4-0e9" id="ghj-D6-esB"/>
                 <outlet property="fundsOutlet" destination="eKx-V5-SlK" id="XUm-Kk-Tg8"/>
+                <outlet property="fundsRemindOutlet" destination="d3M-Rl-HhN" id="4iJ-r2-2U9"/>
                 <outlet property="siteOnLineOutlet" destination="AFZ-vO-mk2" id="qfD-9X-rLE"/>
                 <outlet property="titleOutlet" destination="LFU-M9-zvR" id="p2O-MO-fdG"/>
             </connections>
