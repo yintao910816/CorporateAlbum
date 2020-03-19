@@ -26,18 +26,6 @@ class CAAppDelegate: UIResponder, UIApplicationDelegate {
         setupUM()
                 
         window?.makeKeyAndVisible()
-
-//        if userDefault.lanuchStatue != vLaunch {
-//            AppLaunchView().show(complement: {
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//                    CACoreLogic.userLogin()
-//                }
-//            })
-//        }else {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                CACoreLogic.userLogin()
-            }
-//        }
         
         PrintLog(NSTemporaryDirectory())
         return true

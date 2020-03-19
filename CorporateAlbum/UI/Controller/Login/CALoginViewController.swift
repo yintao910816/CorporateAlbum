@@ -18,6 +18,8 @@ class CALoginViewController: BaseViewController {
     
     @IBOutlet weak internal var loginOutlet: UIButton!
 
+    @IBOutlet weak var closeOutlet: UIButton!
+    
     private var viewModel: LoginViewModel!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +29,8 @@ class CALoginViewController: BaseViewController {
     }
     
     override func setupUI() {
+        closeOutlet.isHidden = !CACoreLogic.share.isInCheck
+        
         #if DEBUG
         phoneOutlet.text = "15002746898"
         passOutlet.text  = "11111111"
@@ -36,6 +40,11 @@ class CALoginViewController: BaseViewController {
     }
     
     override func rxBind() {
+        closeOutlet.rx.tap.asDriver()
+            .drive(onNext: { [unowned self] in
+                self.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
         
         viewModel = LoginViewModel.init(input: (phone: phoneOutlet.rx.text.orEmpty.asDriver(),
                                                 pass: passOutlet.rx.text.orEmpty.asDriver()),

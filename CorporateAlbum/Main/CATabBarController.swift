@@ -24,4 +24,15 @@ class CATabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidAppear(animated)
     }
 
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if let nav = viewController as? UINavigationController, nav.viewControllers.first?.isKind(of: CAMineViewController.self) == true {
+            if CACoreLogic.isUserLogin() {
+                return true
+            }
+            CACoreLogic.pressentLoginVC()
+            return false
+        }
+        return true
+    }
+
 }

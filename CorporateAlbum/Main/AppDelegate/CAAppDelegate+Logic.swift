@@ -14,8 +14,9 @@ extension CAAppDelegate {
         DbManager.dbSetup()
 
         _ = APIAssistance.requestAppInfo()
-            .subscribe(onNext: {
+            .subscribe(onNext: { [unowned self] in
                 CACoreLogic.share.appInfo = $0
+                self.presentLoginVC(isInCheck: $0.IsInCheck)
                 CACoreLogic.share.reloadAppInfo.onNext(Void())
             }, onError: {
                 NoticesCenter.alert(message: "获取app配置信息出错：\($0)")
@@ -23,5 +24,24 @@ extension CAAppDelegate {
         
         _ = APIAssistance.requestToken()
             .subscribe(onNext: { _ in })
+    }
+    
+    private func presentLoginVC(isInCheck: Bool) {
+        if !isInCheck {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                CACoreLogic.userLogin()
+            }
+        }
+        //        if userDefault.lanuchStatue != vLaunch {
+        //            AppLaunchView().show(complement: {
+        //                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        //                    CACoreLogic.userLogin()
+        //                }
+        //            })
+        //        }else {
+//                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//                        CACoreLogic.userLogin()
+//                    }
+        //        }
     }
 }
