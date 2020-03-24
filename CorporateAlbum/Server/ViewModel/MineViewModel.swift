@@ -93,7 +93,7 @@ class MineViewModel: BaseViewModel , VMNavigation{
                                                                           params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "奖励提现",
                                                                           icon: UIImage(named: "mine_funds"),
-                                                                          //                                                                          segue: "refundsSegue",
+                                                                          segue: "refundsSegue",
                                                                 params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "我要下单",
                                                                           icon: UIImage(named: "mine_open_album"),

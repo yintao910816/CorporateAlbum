@@ -18,6 +18,7 @@ class CAAccountViewController: BaseViewController {
     private var viewModel: CAAccountViewModel!
     
     override func setupUI() {
+
         headerView = CAAccountHeaderView.init(frame: .init(x: 0, y: 0, width: view.width, height: CAAccountHeaderView.viewHeight))
         headerView.model = userModel
         tableView.tableHeaderView = headerView
@@ -41,6 +42,14 @@ class CAAccountViewController: BaseViewController {
     
     override func rxBind() {
         viewModel = CAAccountViewModel.init()
+        
+        NotificationCenter.default.rx.notification(NotificationName.User.userInfoEditSuccess, object: nil)
+            .subscribe(onNext: { [weak self] no in
+                if let user = no.object as? UserInfoModel {
+                    self?.headerView.model = user
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     override func prepare(parameters: [String : Any]?) {

@@ -13,7 +13,9 @@ class CAExtensionAreaSelectedViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var siteModel: CAMySiteModel!
+    private var siteModel: CAMySiteModel?
+    private var userInfoModel: UserInfoModel?
+    
     private var viewModel: CAExtensionAreaSelectedViewModel!
     
     override func setupUI() {
@@ -24,7 +26,13 @@ class CAExtensionAreaSelectedViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = CAExtensionAreaSelectedViewModel.init(siteModel: siteModel)
+        if let _siteModel = siteModel {
+            navigationItem.title = "地区选择"
+            viewModel = CAExtensionAreaSelectedViewModel.init(siteModel: _siteModel)
+        }else if let _user = userInfoModel {
+            navigationItem.title = "更换城市"
+            viewModel = CAExtensionAreaSelectedViewModel.init(user: _user)
+        }
                 
         let datasource = RxTableViewSectionedReloadDataSource<SectionModel<String, CARegionListModel>>.init(configureCell: { _, tb, indexPath, model -> UITableViewCell in
             let cell = (tb.dequeueReusableCell(withIdentifier: CAReginCell_identifier) as! CAReginCell)
@@ -53,14 +61,24 @@ class CAExtensionAreaSelectedViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(CARegionListModel.self)
-            .bind(to: viewModel.addSubject)
+            .bind(to: viewModel.didSelectedSubject)
+            .disposed(by: disposeBag)
+        
+        viewModel.popSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            })
             .disposed(by: disposeBag)
                 
         viewModel.reloadSubject.onNext(true)
     }
     
     override func prepare(parameters: [String : Any]?) {
-        siteModel = (parameters!["model"] as! CAMySiteModel)
+        if let userInfoModel = parameters!["model"] as? UserInfoModel {
+            self.userInfoModel = userInfoModel
+        }else if let siteModel = parameters!["model"] as? CAMySiteModel {
+            self.siteModel = siteModel
+        }
     }
 }
 

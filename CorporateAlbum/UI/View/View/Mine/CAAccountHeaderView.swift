@@ -47,12 +47,12 @@ class CAAccountHeaderView: UIView {
             selectedCallBack?((.phone ,"editPhoneSegue", ["model": model]))
         case 204:
             // 支付宝账号
-//            selectedCallBack?((.alipay ,"setAlipaySegue", ["model": model]))
-            NoticesCenter.alert(message: "开发中，敬请期待...")
+            selectedCallBack?((.alipay ,"setAlipaySegue", ["model": model]))
+//            NoticesCenter.alert(message: "开发中，敬请期待...")
         case 205:
             // 所在城市
-//            selectedCallBack?((.city ,"userSetRegionSegue", ["model": model]))
-            NoticesCenter.alert(message: "开发中，敬请期待...")
+            selectedCallBack?((.city ,"userSetRegionSegue", ["model": model]))
+//            NoticesCenter.alert(message: "开发中，敬请期待...")
         case 206:
             // 更换头像
             selectedCallBack?((.avatar ,"", [:]))

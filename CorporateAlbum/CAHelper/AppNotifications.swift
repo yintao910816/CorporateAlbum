@@ -32,6 +32,8 @@ extension Notification.Name {
         public static let reloadSiteInfoView = Notification.Name(rawValue: "org.album.notification.name.reloadSiteInfoView")
         /// 登录成功，获取用户信息
         public static let reloadUserInfo = Notification.Name(rawValue: "org.album.notification.name.reloadUserInfo")
+        /// 修改用户信息成功后，刷新用户信息
+        public static let userInfoEditSuccess = Notification.Name(rawValue: "org.album.notification.name.userInfoEditSuccess")
     }
     
     public struct Pay {

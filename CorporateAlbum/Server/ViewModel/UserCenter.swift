@@ -95,6 +95,9 @@ class SetNickNameViewModel: BaseViewModel {
                 guard let strongSelf = self else { return }
                 if model.error == 0 {
                     UserInfoModel.update(nickName: strongSelf.nickName)
+                    strongSelf.userinfoModel.NickName = strongSelf.nickName
+                    NotificationCenter.default.post(name: NotificationName.User.userInfoEditSuccess, object: strongSelf.userinfoModel)
+
                     strongSelf.hud.successHidden(model.message, {
                         strongSelf.popSubject.onNext(true)
                     })
@@ -192,6 +195,8 @@ class SetPhoneViewModel: BaseViewModel {
             .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
+                    self?.userInfo.Mobile = phone
+                    NotificationCenter.default.post(name: NotificationName.User.userInfoEditSuccess, object: self?.userInfo)
                     self?.hud.successHidden(model.message, {
                         self?.popSubject.onNext(true)
                     })

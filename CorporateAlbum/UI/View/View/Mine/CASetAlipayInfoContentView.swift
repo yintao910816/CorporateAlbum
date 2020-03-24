@@ -9,8 +9,8 @@
 import UIKit
 
 class CASetAlipayInfoContentView: UIView {
-    public static let normalHeight: CGFloat = 427
-    public static let heigherHeight: CGFloat = 327
+    public static let normalHeight: CGFloat = 327
+    public static let heigherHeight: CGFloat = 427
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var codeOutlet: UITextField!
