@@ -26,7 +26,8 @@ class ShareUtils {
         PrintLog("分享链接：\(String(describing: shareObject.webpageUrl))")
         UMSocialUIManager.setPreDefinePlatforms([NSNumber(integerLiteral:UMSocialPlatformType.wechatSession.rawValue),
                                                  NSNumber(integerLiteral:UMSocialPlatformType.wechatTimeLine.rawValue),
-                                                 NSNumber(integerLiteral:UMSocialPlatformType.QQ.rawValue)])
+                                                 NSNumber(integerLiteral:UMSocialPlatformType.QQ.rawValue),
+                                                 NSNumber(integerLiteral:UMSocialPlatformType.qzone.rawValue)])
         
         UMSocialUIManager.showShareMenuViewInWindow { (platformType, info) in
             UMSocialManager.default()?.share(to: platformType, messageObject: messageObject, currentViewController: NSObject().visibleViewController!, completion: { (data, error) in
