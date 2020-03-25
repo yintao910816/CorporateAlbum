@@ -127,7 +127,7 @@ enum API{
     /**
      * 修改收款账号（支付宝）
      */
-    case setAlipay(account: String, smsCode: String)
+    case setAlipay(smsCode: String, account: String, accountName: String, cardNo: String, idCardImage: UIImage)
     
     /**
      * 修改手机号获取邮箱验证码
@@ -266,8 +266,8 @@ extension API: TargetType{
             
         case .setPhone(_, _):
             return "User/SetPhone"
-        case .setAlipay(_, _):
-            return "User/SetPay"
+        case .setAlipay(_):
+            return "User/SetAliPay"
         case .setEmail(_, _):
             return "User/SetEmail"
         case .setNickName(_):
@@ -349,6 +349,15 @@ extension API: TargetType{
                 datas.append(d)
             }
             return .uploadCompositeMultipart(datas, urlParameters: parameters!)
+        case .setAlipay(let data):
+            var datas = [MultipartFormData]()
+            if let imageData = data.idCardImage.jpegData(compressionQuality: 0.5) {
+                let imageName = String.init(format: "%.0f.jpg", Date().timeIntervalSince1970 * 1000)
+                let d = MultipartFormData.init(provider: .data(imageData), name: "file", fileName: imageName, mimeType: "image/png")
+                datas.append(d)
+            }
+            return .uploadCompositeMultipart(datas, urlParameters: parameters!)
+
         default:
             if let _parameters = parameters {
                 return .requestParameters(parameters: _parameters, encoding: URLEncoding.default)
@@ -449,10 +458,11 @@ extension API {
             params["token"]  = userDefault.appToken ?? ""
             params["email"] = email
             params["smscode"]  = smsCode
-        case .setAlipay(let account, let smsCode):
-            params["token"]  = userDefault.appToken ?? ""
-            params["account"] = account
-            params["smscode"]  = smsCode
+        case .setAlipay(let smsCode, let account, let accountName, let cardNo, _):
+            params["smsCode"]  = smsCode
+            params["account"]  = account
+            params["accountName"]  = accountName
+            params["cardNo"]  = cardNo
             break
         case .setNickName(let nickName):
             params["nickName"] = nickName

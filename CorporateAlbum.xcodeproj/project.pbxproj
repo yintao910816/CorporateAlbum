@@ -75,7 +75,6 @@
 		B84FC332210EE1C700DA30DC /* AccountSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84FC331210EE1C700DA30DC /* AccountSetCell.swift */; };
 		B84FC334210EE55F00DA30DC /* CASetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84FC333210EE55F00DA30DC /* CASetEmailViewController.swift */; };
 		B84FC336210EE56900DA30DC /* CASetPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84FC335210EE56900DA30DC /* CASetPhoneViewController.swift */; };
-		B84FC338210EE59500DA30DC /* CASetAlipayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84FC337210EE59500DA30DC /* CASetAlipayViewController.swift */; };
 		B84FC33A210EEA3E00DA30DC /* CASetNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84FC339210EEA3E00DA30DC /* CASetNickNameViewController.swift */; };
 		B84FC33C210EFFE200DA30DC /* CABillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84FC33B210EFFE200DA30DC /* CABillViewController.swift */; };
 		B84FC33E210F001800DA30DC /* BillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84FC33D210F001800DA30DC /* BillViewModel.swift */; };
@@ -557,7 +556,6 @@
 		B84FC331210EE1C700DA30DC /* AccountSetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetCell.swift; sourceTree = "<group>"; };
 		B84FC333210EE55F00DA30DC /* CASetEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASetEmailViewController.swift; sourceTree = "<group>"; };
 		B84FC335210EE56900DA30DC /* CASetPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASetPhoneViewController.swift; sourceTree = "<group>"; };
-		B84FC337210EE59500DA30DC /* CASetAlipayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASetAlipayViewController.swift; sourceTree = "<group>"; };
 		B84FC339210EEA3E00DA30DC /* CASetNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASetNickNameViewController.swift; sourceTree = "<group>"; };
 		B84FC33B210EFFE200DA30DC /* CABillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABillViewController.swift; sourceTree = "<group>"; };
 		B84FC33D210F001800DA30DC /* BillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewModel.swift; sourceTree = "<group>"; };
@@ -1423,7 +1421,6 @@
 				B84FC32B210EDB8300DA30DC /* CAAccountSetTableViewController.swift */,
 				B84FC333210EE55F00DA30DC /* CASetEmailViewController.swift */,
 				B84FC335210EE56900DA30DC /* CASetPhoneViewController.swift */,
-				B84FC337210EE59500DA30DC /* CASetAlipayViewController.swift */,
 				B84FC339210EEA3E00DA30DC /* CASetNickNameViewController.swift */,
 				B84FC33B210EFFE200DA30DC /* CABillViewController.swift */,
 				B84FC345210F0B2200DA30DC /* CAMyNoticesViewController.swift */,
@@ -2989,7 +2986,6 @@
 				B8D92A462109646C00BAB001 /* BaseViewModel.swift in Sources */,
 				B8CCDFF421212C5100E94681 /* ZXMultiFormatUPCEANReader.m in Sources */,
 				B8D92A77210966CA00BAB001 /* DBQueue.swift in Sources */,
-				B84FC338210EE59500DA30DC /* CASetAlipayViewController.swift in Sources */,
 				B8CCDFFD21212C5100E94681 /* ZXRSSExpandedDecodedChar.m in Sources */,
 				B84FC348210F0BA600DA30DC /* MyNoticesVeiwModel.swift in Sources */,
 				B8D92A1F2109646C00BAB001 /* CAAppDelegate.swift in Sources */,

@@ -339,20 +339,20 @@ class SetAlipayViewModel: BaseViewModel {
     }
 
     private func postRequest(account: String, smsCode: String) {
-        CARProvider.rx.request(.setAlipay(account: account, smsCode: smsCode))
-            .mapResponse()
-            .subscribe(onSuccess: { [weak self] model in
-                if model.error == 0 {
-                    self?.hud.successHidden(model.message, {
-                        self?.popSubject.onNext(true)
-                    })
-                }else {
-                    self?.hud.failureHidden(model.message)
-                }
-            }) { [weak self] error in
-                self?.hud.failureHidden(self?.errorMessage(error))
-            }
-            .disposed(by: disposeBag)
+//        CARProvider.rx.request(.setAlipay(account: account, smsCode: smsCode))
+//            .mapResponse()
+//            .subscribe(onSuccess: { [weak self] model in
+//                if model.error == 0 {
+//                    self?.hud.successHidden(model.message, {
+//                        self?.popSubject.onNext(true)
+//                    })
+//                }else {
+//                    self?.hud.failureHidden(model.message)
+//                }
+//            }) { [weak self] error in
+//                self?.hud.failureHidden(self?.errorMessage(error))
+//            }
+//            .disposed(by: disposeBag)
     }
 
     private func getSmsCode() {

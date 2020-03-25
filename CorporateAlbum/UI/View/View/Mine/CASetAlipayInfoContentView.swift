@@ -9,14 +9,15 @@
 import UIKit
 
 class CASetAlipayInfoContentView: UIView {
-    public static let normalHeight: CGFloat = 327
-    public static let heigherHeight: CGFloat = 427
+    public static let normalHeight: CGFloat = 377
+    public static let heigherHeight: CGFloat = 477
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var codeOutlet: UITextField!
     @IBOutlet weak var getCodeOutlet: UIButton!
     @IBOutlet weak var alipayOutlet: UITextField!
     @IBOutlet weak var idCardOutlet: UITextField!
+    @IBOutlet weak var alipayNameOutlet: UITextField!
     @IBOutlet weak var cameraOutlet: UIButton!
     @IBOutlet weak var idCardImageOutlet: UIImageView!
     @IBOutlet weak var saveOutlet: UIButton!
@@ -61,8 +62,16 @@ class CASetAlipayInfoContentView: UIView {
     }
 
     public func reloadIdCardImage(_ image: UIImage?) {
+        if image == nil { return }
+        
         idCardImageOutlet.image = image
         idCardImageOutlet.isHidden = false
+        
+        if remindTopCns.constant != 130 {
+            var rect = frame
+            rect.size.height += 100
+            frame = rect
+        }
         remindTopCns.constant = 130
     }
 

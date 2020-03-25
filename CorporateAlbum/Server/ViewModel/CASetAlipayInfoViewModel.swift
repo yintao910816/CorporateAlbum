@@ -13,63 +13,63 @@ import RxCocoa
 class CASetAlipayInfoViewModel: BaseViewModel {
     
     private var timer: CountdownTimer!
-    private var userInfo: UserInfoModel!
-
-    public let enabelSubject = Variable(false)
+    
+    public let userInfoObser = Variable(UserInfoModel())
     public let codeEnableSubject = Variable(true)
     public let secondsSubject = PublishSubject<String>()
 
-    init(input:(code: Driver<String>, alipayAccount: Driver<String>, idCard: Driver<String>, userInfo: UserInfoModel),
+    public var idCardImage: UIImage?
+
+    init(input:(code: Driver<String>, alipayAccount: Driver<String>, idCard: Driver<String>, alipayName: Driver<String>),
          tap:(getAuthorCode: Driver<Void>, submit: Driver<Void>)) {
         super.init()
         
-        self.userInfo = input.userInfo
+        UserInfoModel.loginUser { [weak self] in
+            if let user = $0 {
+                self?.userInfoObser.value = user
+            }
+        }
+                
+        tap.getAuthorCode
+            ._doNext(forNotice: hud)
+            .drive(onNext: { [weak self] in
+                self?.getAuthorCodeRequest()
+            })
+            .disposed(by: disposeBag)
         
-//        let phoneObser = input.phone.map{ ValidateNum.phoneNum($0).isRight }
-//        let authorCodeObser = input.code.map{ $0.count > 0 }
-//        
-//        // 判断是否可以提交修的请求
-//        let validate = Driver.combineLatest(input.phone, input.code, phoneObser, authorCodeObser)
-//            .map { data -> (String, String, Bool) in
-//                PrintLog("手机号码: \(data.0) 验证码: \(data.1) - 手机号通过：\(data.2) - 验证码通过：\(data.3)")
-//                return (data.0, data.1, data.2 && data.3)
-//        }
-//        .do(onNext: { [unowned self] in
-//            PrintLog("可以提交：\($0.2)")
-//            self.enabelSubject.value = $0.2
-//        })
-//        
-//        let enableCode = input.phone
-//            .map { data -> (String, Bool) in
-//                return (data, data.count > 0)
-//        }
-//        
-//        tap.getAuthorCode.withLatestFrom(enableCode)
-//            .filter { data -> Bool in
-//                if data.1 { return true }
-//                
-//                NoticesCenter.alert(message: "请输入正确的手机号码")
-//                return false
-//            }
-//            ._doNext(forNotice: hud)
-//            .drive(onNext: { [unowned self] in self.getAuthorCodeRequest(phone: $0.0) })
-//            .disposed(by: disposeBag)
-//        
-//        tap.submit.withLatestFrom(validate)
-//            .filter({ data -> Bool in
-//                if data.2 == false {
-//                    NoticesCenter.alert(title: "提示", message: "信息填写不正确！")
-//                }
-//                return data.2
-//            })
-//            ._doNext(forNotice: hud)
-//            .drive(onNext: { [unowned self] data in
-//                self.postRequest(phone: data.1, emailCode: data.0)
-//            })
-//            .disposed(by: disposeBag)
+        let submitSignal = Driver.combineLatest(input.code, input.alipayAccount, input.idCard, input.alipayName)
+            .map{ ($0, $1, $2, $3) }
+        tap.submit.withLatestFrom(submitSignal)
+            .filter { [unowned self] data -> Bool in
+                if data.0.count == 0 {
+                    NoticesCenter.alert(message: "请输入验证码")
+                    return false
+                }
+                if data.1.count == 0 {
+                    NoticesCenter.alert(message: "请输入支付宝账号")
+                    return false
+                }
+                if data.2.count == 0 {
+                    NoticesCenter.alert(message: "请输入身份证号码")
+                    return false
+                }
+                if data.3.count == 0 {
+                    NoticesCenter.alert(message: "请输入支付宝实名")
+                    return false
+                }
+                if self.idCardImage == nil {
+                    NoticesCenter.alert(message: "请上传身份证照片")
+                    return false
+                }
+                return true
+        }
+        ._doNext(forNotice: hud)
+        .drive(onNext: { [weak self] in
+            self?.setAlipayRequest(data: $0)
+        })
+            .disposed(by: disposeBag)
         
         prepareTimer()
-
     }
     
     private func prepareTimer() {
@@ -88,11 +88,11 @@ class CASetAlipayInfoViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
 
-    private func getAuthorCodeRequest(phone: String) {
+    private func getAuthorCodeRequest() {
         timer.timerStar()
         codeEnableSubject.value = false
 
-        CARProvider.rx.request(.smsSendCode(phone: phone))
+        CARProvider.rx.request(.sendSmsCodeForMe)
             .mapResponse()
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
@@ -104,8 +104,24 @@ class CASetAlipayInfoViewModel: BaseViewModel {
             }) { [weak self] error in
                 self?.codeEnableSubject.value = true
                 self?.hud.failureHidden(self?.errorMessage(error))
-            }
-            .disposed(by: disposeBag)
+        }
+        .disposed(by: disposeBag)
     }
 
+    private func setAlipayRequest(data: (String, String, String, String)) {
+        CARProvider.rx.request(.setAlipay(smsCode: data.0, account: data.1, accountName: data.3, cardNo: data.2, idCardImage: idCardImage!))
+            .mapResponse()
+            .subscribe(onSuccess: { [weak self] model in
+                if model.error == 0 {
+                    self?.hud.successHidden(model.message, {
+                        self?.popSubject.onNext(true)
+                    })
+                }else {
+                    self?.hud.failureHidden(model.message)
+                }
+            }) { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+        }
+        .disposed(by: disposeBag)
+    }
 }
