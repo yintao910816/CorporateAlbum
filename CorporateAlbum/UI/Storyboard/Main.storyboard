@@ -1360,6 +1360,7 @@
                         <outlet property="blanceOutlet" destination="hvY-wN-mRw" id="yaP-Rr-xYP"/>
                         <outlet property="refundsAccountOutlet" destination="B5Y-Wr-2Li" id="pQ9-Kn-Pk9"/>
                         <outlet property="refundsAmountOutlet" destination="CKu-jV-krQ" id="jUP-NR-JXV"/>
+                        <outlet property="remindOutlet" destination="Vbq-dc-WiH" id="KaV-kW-cFd"/>
                         <outlet property="submitOutlet" destination="Q3T-da-g3b" id="glF-hS-C2v"/>
                     </connections>
                 </viewController>

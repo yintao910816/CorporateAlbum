@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		39B0F83F46CFA61C0F004E37 /* Pods_CorporateAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9547636C5E34B6BE2643A7D0 /* Pods_CorporateAlbum.framework */; };
+		B81D3FFA242AFBC300630BE0 /* CAReFundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D3FF9242AFBC300630BE0 /* CAReFundsViewModel.swift */; };
+		B81D3FFC242AFE0A00630BE0 /* CAFunds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D3FFB242AFE0A00630BE0 /* CAFunds.swift */; };
 		B827AB3123CCBD2D00BC64B9 /* CAOrderListItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827AB3023CCBD2D00BC64B9 /* CAOrderListItemsViewController.swift */; };
 		B827AB3423CCBDD600BC64B9 /* CAOrderListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827AB3223CCBDD600BC64B9 /* CAOrderListItemCell.swift */; };
 		B827AB3523CCBDD600BC64B9 /* CAOrderListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B827AB3323CCBDD600BC64B9 /* CAOrderListItemCell.xib */; };
@@ -483,6 +485,8 @@
 /* Begin PBXFileReference section */
 		7D7646BB7BC4765079D2234D /* Pods-CorporateAlbum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorporateAlbum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorporateAlbum/Pods-CorporateAlbum.debug.xcconfig"; sourceTree = "<group>"; };
 		9547636C5E34B6BE2643A7D0 /* Pods_CorporateAlbum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorporateAlbum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B81D3FF9242AFBC300630BE0 /* CAReFundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAReFundsViewModel.swift; sourceTree = "<group>"; };
+		B81D3FFB242AFE0A00630BE0 /* CAFunds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAFunds.swift; sourceTree = "<group>"; };
 		B827AB3023CCBD2D00BC64B9 /* CAOrderListItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAOrderListItemsViewController.swift; sourceTree = "<group>"; };
 		B827AB3223CCBDD600BC64B9 /* CAOrderListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAOrderListItemCell.swift; sourceTree = "<group>"; };
 		B827AB3323CCBDD600BC64B9 /* CAOrderListItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAOrderListItemCell.xib; sourceTree = "<group>"; };
@@ -2388,6 +2392,7 @@
 				B8E66EAE23E93E7C00725BD2 /* CAExtensionAreaSelectedViewModel.swift */,
 				B8E66EB423EBD5BA00725BD2 /* CAResetMySitePassWordViewModel.swift */,
 				B8E66EB623F114B200725BD2 /* CAOpenAlbumViewModel.swift */,
+				B81D3FF9242AFBC300630BE0 /* CAReFundsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2426,6 +2431,7 @@
 				B8D3985D23CCD1CC00D9448E /* CAMySite.swift */,
 				B8E66EA023E817BB00725BD2 /* CARegionInfo.swift */,
 				B8D4143A23F6979C002B9892 /* CAApp.swift */,
+				B81D3FFB242AFE0A00630BE0 /* CAFunds.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3191,6 +3197,7 @@
 				B8CCDFF721212C5100E94681 /* ZXEAN13Reader.m in Sources */,
 				B8CCE00221212C5100E94681 /* ZXRSSExpandedDecodedObject.m in Sources */,
 				B8CCE0542121531C00E94681 /* CAScanRemindViewController.swift in Sources */,
+				B81D3FFC242AFE0A00630BE0 /* CAFunds.swift in Sources */,
 				B8D92ACB2109B48400BAB001 /* String+Encryption.swift in Sources */,
 				B8CCDF6C21212C5100E94681 /* LBXScanView.m in Sources */,
 				B862AD9F211ACDDB00B9F058 /* ArchiverTools.swift in Sources */,
@@ -3278,6 +3285,7 @@
 				B8D92ABF210993AD00BAB001 /* LoginServer.swift in Sources */,
 				B8F7A28823C0A46000369B6A /* TYSlideMenuView.swift in Sources */,
 				B8CCDFBF21212C5100E94681 /* ZXPDF417BarcodeMatrix.m in Sources */,
+				B81D3FFA242AFBC300630BE0 /* CAReFundsViewModel.swift in Sources */,
 				B8CCE03A21212C5100E94681 /* ZXAddressBookAUResultParser.m in Sources */,
 				B8D92AC3210997D700BAB001 /* Validate.swift in Sources */,
 				B83B9A3A2119360800284FE6 /* CASetAvatarViewController.swift in Sources */,

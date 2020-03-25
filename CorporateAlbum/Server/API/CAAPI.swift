@@ -220,6 +220,10 @@ enum API{
     /// 会员获取我的的公司名称列表
     case companyList
     
+    ///  获取提现资费信息和用户账号信息
+    case withdraw
+    ///  提取现金
+    case withdrawSubmit(amount: Double)
 }
 
 //MARK:
@@ -334,6 +338,11 @@ extension API: TargetType{
             return "Order/SubmitNew"
         case .companyList:
             return "Order/CompanyList"
+            
+        case .withdraw:
+            return "Withdraw/Account"
+        case .withdrawSubmit(_):
+            return "Withdraw/Submit"
         }
     }
     
@@ -462,7 +471,7 @@ extension API {
             params["smsCode"]  = smsCode
             params["account"]  = account
             params["accountName"]  = accountName
-            params["cardNo"]  = cardNo
+            params["cardNo"]  = cardNo.sha1()
             break
         case .setNickName(let nickName):
             params["nickName"] = nickName
@@ -548,6 +557,9 @@ extension API {
             params["siteName"]  = siteName
             params["companyId"] = companyId
             params["orderJson"] = orderJson
+            
+        case .withdrawSubmit(let amount):
+            params["amount"] = amount
         default:
             break
         }
