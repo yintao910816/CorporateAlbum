@@ -49,6 +49,7 @@ class AlbumCell: UICollectionViewCell {
             summaryOutlet.text = model.Summary
             bundsOutlet.isHidden = !model.EnabledAward
             siteLogoButton.setImage(model.AppLogo)
+            collecteButton.isSelected = model.IsFavorite
         }
     }
     
