@@ -117,11 +117,40 @@ class AlbumViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
     private func collectBook(model: AlbumBookModel) {
         CARProvider.rx.request(.addBook(bookId: model.Id))
             .mapResponse()
-            .subscribe(onSuccess: { [unowned self] model in
-                if model.error == 0 {
-                    self.hud.successHidden(model.message)
+            .subscribe(onSuccess: { [unowned self] in
+                if $0.error == 0 {
+                    if self.allData["0"] != nil {
+                        self.allData["0"] = self.allData["0"]!.map({ m -> AlbumBookModel in
+                            if m.Id == model.Id {
+                                m.IsFavorite = model.IsFavorite
+                            }
+                            return m
+                        })
+                    }
+                    if self.allData["1"] != nil {
+                        self.allData["1"] = self.allData["1"]!.map({ m -> AlbumBookModel in
+                            if m.Id == model.Id {
+                                m.IsFavorite = model.IsFavorite
+                            }
+                            return m
+                        })
+                    }
+                    if self.allData["2"] != nil {
+                        if !model.IsFavorite {
+                            self.allData["2"] = self.allData["2"]!.filter{ $0.Id != model.Id }
+                        }else {
+                            self.allData["2"]!.append(model)
+                        }
+                    }
+
+                    if self.dataType == 2 {
+                        // 在收藏菜单栏点取消收藏
+                        self.datasource.value = self.allData["2"]!
+                    }
+                    
+                    self.hud.successHidden($0.message)
                 }else {
-                    self.hud.failureHidden(model.message)
+                    self.hud.failureHidden($0.message)
                 }
             }) { [unowned self] error in
                 self.hud.failureHidden(self.errorMessage(error))
