@@ -15,9 +15,9 @@ class AlbumCell: UICollectionViewCell {
     @IBOutlet weak var summaryOutlet: UILabel!
     @IBOutlet weak var bundsOutlet: UIImageView!
     
-    @IBOutlet weak var siteLogoButton: UIButton!
-    @IBOutlet weak var collecteButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var siteLogoButton: TYClickedButton!
+    @IBOutlet weak var collecteButton: TYClickedButton!
+    @IBOutlet weak var shareButton: TYClickedButton!
 
     @IBOutlet weak var shareTrailingCns: NSLayoutConstraint!
     

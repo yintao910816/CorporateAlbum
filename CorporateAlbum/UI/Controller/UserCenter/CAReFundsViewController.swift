@@ -32,7 +32,7 @@ class CAReFundsViewController: BaseViewController {
         
         viewModel.drawInfoObser.asDriver()
             .drive(onNext: { [weak self] in
-                self?.refundsAccountOutlet.text = $0.UserNickName
+                self?.refundsAccountOutlet.text = $0.Alipay
                 self?.blanceOutlet.text = "\($0.UserFunds)"
                 self?.remindOutlet.text = "最低提现额度：\($0.MinWithdwaw)元 服务费率: \($0.Poundage)"
             })

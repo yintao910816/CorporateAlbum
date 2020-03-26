@@ -13,8 +13,8 @@ class SiteInfoCell: UITableViewCell {
     @IBOutlet weak var coverOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var summaryoutlet: UILabel!
-    @IBOutlet weak var collectOutlet: UIButton!
-    @IBOutlet weak var shareOutlet: UIButton!
+    @IBOutlet weak var collectOutlet: TYClickedButton!
+    @IBOutlet weak var shareOutlet: TYClickedButton!
     @IBOutlet weak var awardOutlet: UIImageView!
     
     weak var delegate: SiteInfoCellActions?

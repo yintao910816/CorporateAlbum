@@ -13,9 +13,9 @@ class AlbumPageViewController: UIViewController {
 
     var imageView: UIImageView!
     
-    private var albumPageModel: AlbumPageModel!
+    private var albumPageModel: CAPageListModel!
     
-    init(albumPageModel: AlbumPageModel) {
+    init(albumPageModel: CAPageListModel) {
         super.init(nibName: nil, bundle: nil)
         
         self.albumPageModel = albumPageModel

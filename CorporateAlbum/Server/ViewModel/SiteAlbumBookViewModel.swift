@@ -32,6 +32,12 @@ class SiteAlbumBookViewModel: RefreshVM<AlbumBookModel> {
                 self?.requestData(true)
             })
             .disposed(by: disposeBag)
+        
+        reloadSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.requestSiteInfo()
+            })
+            .disposed(by: disposeBag)
     }
     
     override func requestData(_ refresh: Bool) {
@@ -40,12 +46,20 @@ class SiteAlbumBookViewModel: RefreshVM<AlbumBookModel> {
         CARProvider.rx.request(.bookList(search: siteName, skip: pageModel.currentPage, limit: pageModel.pageSize, category: 0))
             .map(models: AlbumBookModel.self)
             .subscribe(onSuccess: { [weak self] datas in
-                self?.navTitleObser.value = datas.first?.Title ?? ""
                 self?.updateRefresh(refresh, datas)
             }) { [weak self] error in
                 self?.revertCurrentPageAndRefreshStatus()
                 self?.hud.failureHidden(self?.errorMessage(error))
             }
+            .disposed(by: disposeBag)
+    }
+    
+    private func requestSiteInfo() {
+        CARProvider.rx.request(.siteGet(siteName: siteName))
+            .map(model: CASiteInfoModel.self)
+            .subscribe(onSuccess: { [weak self] in
+                self?.navTitleObser.value = $0.SiteTitle
+            })
             .disposed(by: disposeBag)
     }
     

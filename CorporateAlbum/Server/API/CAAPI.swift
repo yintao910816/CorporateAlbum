@@ -195,6 +195,13 @@ enum API{
      *  bookId - 画册id
      */
     case albumPage(siteName: String, skip: Int, limit: Int)
+    
+    /// 获取画册所有页面列表
+    case pageList(bookId: String, skip: Int, limit: Int)
+    
+    /// 获取企业详情信息
+    case siteGet(siteName: String)
+    
     /**
      * 阅读画册页面,执行奖励
      */
@@ -202,7 +209,7 @@ enum API{
     /**
      * 添加站点收藏
      */
-    case siteFavorite(siteName: String, isFavorite: Bool)
+    case siteFavorite(siteName: String)
     /**
      *  添加画册收藏
      */
@@ -322,6 +329,11 @@ extension API: TargetType{
             
         case .albumPage(_):
             return "Book/ListBySite"
+        case .pageList(_):
+            return "Page/List"
+        case .siteGet(_):
+            return "Site/Get"
+            
         case .readAward(_):
             return "Page/Read"
         case .siteFavorite(_):
@@ -530,15 +542,21 @@ extension API {
             params["siteName"] = siteName
             params["skip"]   = skip
             params["limit"]  = limit
+        case .pageList(let bookId, let skip, let limit):
+            params["bookId"] = bookId
+            params["skip"]   = skip
+            params["limit"]  = limit
+        case .siteGet(let siteName):
+            params["siteName"] = siteName
+
         case .readAward(let siteName, let bookId, let bookTitle, let pageId, let pageTitle):
             params["siteName"] = siteName
             params["bookId"] = bookId
             params["bookTitle"] = bookTitle
             params["pageId"] = pageId
             params["pageTitle"] = pageTitle
-        case .siteFavorite(let siteName, let isFavorite):
+        case .siteFavorite(let siteName):
             params["siteName"]   = siteName
-            params["isFavorite"] = isFavorite
         case .addBook(let bookId):
             params["bookId"] = bookId
             

@@ -13,10 +13,10 @@ class AlbumPagesCell: UICollectionViewCell {
     @IBOutlet weak var coverOutlet: UIImageView!
     @IBOutlet weak var awardOutlet: UIImageView!
     
-    var model: AlbumPageModel! {
+    var model: CAPageListModel! {
         didSet {
             coverOutlet.setImage(model.Picture)
-            awardOutlet.isHidden = !model.EnabledAward
+            awardOutlet.isHidden = !(model.EnabledAward && !model.IsAwarded)
         }
     }
     

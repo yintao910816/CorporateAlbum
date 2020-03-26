@@ -81,7 +81,7 @@ class CAAccountHeaderView: UIView {
             phoneOutlet.text = model.Mobile
             alipayOutlet.text = model.Alipay
             cityOutlet.text = model.RegionTitle
-            iconOutlet.setImage(model.PhotoUrl)
+            iconOutlet.setImage(model.PhotoUrl, .userIcon)
         }
     }
     

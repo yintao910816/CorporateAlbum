@@ -32,6 +32,8 @@ class CAAlbumInfoViewController: BaseViewController {
     
     private var coinView: CoinView!
     
+    private var bookId: String = ""
+    
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .default
 
@@ -80,7 +82,7 @@ class CAAlbumInfoViewController: BaseViewController {
         view.addSubview(alertView)
         view.bringSubviewToFront(alertView)
         alertView.getRewardsCallBack = { [unowned self] in
-            self.viewModel.postRewordsSubject.onNext($0)
+            self.viewModel.postRewordsSubject.onNext($0.0)
         }
         return alertView
     }()
@@ -142,17 +144,18 @@ class CAAlbumInfoViewController: BaseViewController {
     }
     
     override func rxBind() {
-        
+        viewModel = AlbumInfoViewModel.init(bookId: bookId, tapIconDriver: iconOutlet.rx.tap.asDriver())
+
         viewModel.shouldShowAlertSubject
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
-                self?.rewardsView.model = $0
+                self?.rewardsView.configData(page: $0.0, book: $0.1)
                 self?.rewardsView.excuteAnimotion()
             })
             .disposed(by: disposeBag)
         
         viewModel.colDatasourceObser.asDriver()
-            .map({ [weak self] data -> [AlbumPageModel] in
+            .map({ [weak self] data -> [CAPageListModel] in
                 if data.0.count > 0 && data.1 == true {
                     self?.pageViewController.setViewControllers([AlbumPageViewController.init(albumPageModel: data.0.first!)], direction: .forward, animated: true, completion: nil)
                     
@@ -183,7 +186,7 @@ class CAAlbumInfoViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        collectionView.rx.modelSelected(AlbumPageModel.self)
+        collectionView.rx.modelSelected(CAPageListModel.self)
             .bind(to: viewModel.pageSelctedAward)
             .disposed(by: disposeBag)
 
@@ -201,8 +204,7 @@ class CAAlbumInfoViewController: BaseViewController {
     }
     
     override func prepare(parameters: [String : Any]?) {
-        let bookId = parameters!["bookId"] as! String
-        viewModel = AlbumInfoViewModel.init(bookId: bookId)
+        bookId = parameters!["bookId"] as! String
     }
 }
 
@@ -253,6 +255,8 @@ extension CAAlbumInfoViewController: UIPageViewControllerDelegate, UIPageViewCon
             let pageVC = AlbumPageViewController.init(albumPageModel: viewModel.colDatasourceObser.value.0[currentPage])
             return pageVC
         }
+        
+        NoticesCenter.alert(message: "已经是第一页了！")
         return nil
     }
     
@@ -268,6 +272,8 @@ extension CAAlbumInfoViewController: UIPageViewControllerDelegate, UIPageViewCon
             let pageVC = AlbumPageViewController.init(albumPageModel: viewModel.colDatasourceObser.value.0[currentPage])
             return pageVC
         }
+        
+        NoticesCenter.alert(message: "已经是最后一页了！")
         return nil
     }
 

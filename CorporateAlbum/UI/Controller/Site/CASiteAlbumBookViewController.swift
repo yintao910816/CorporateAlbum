@@ -56,14 +56,13 @@ class CASiteAlbumBookViewController: BaseViewController {
             .drive(navigationItem.rx.title)
             .disposed(by: disposeBag)
         
+        viewModel.reloadSubject.onNext(true)
         collectionView.headerRefreshing()
     }
     
     override func prepare(parameters: [String : Any]?) {
         let siteName = parameters!["siteName"] as! String
-        let navTitle = parameters!["title"] as? String
         viewModel = SiteAlbumBookViewModel.init(siteName: siteName)
-        title = navTitle
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

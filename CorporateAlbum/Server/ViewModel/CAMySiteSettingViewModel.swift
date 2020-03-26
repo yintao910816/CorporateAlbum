@@ -73,15 +73,19 @@ class CAMySiteSettingViewModel: BaseViewModel {
             .disposed(by: disposeBag)
         
         footerActionsSubject
-            ._doNext(forNotice: hud)
             .subscribe(onNext: { [weak self] type in
                 switch type {
                 case .controlSite:
+                    self?.hud.noticeLoading()
                     self?.requestControllerMySite()
                 case .controlAward:
+                    self?.hud.noticeLoading()
                     self?.requestControllerMySiteAward()
                 case .resetAward:
-                    self?.requestResetSiteAward()
+                    NoticesCenter.alert(title: "提示", message: "确定要重新开始奖励吗？", cancleTitle: "取消", okTitle: "确定") {
+                        self?.hud.noticeLoading()
+                        self?.requestResetSiteAward()
+                    }
                 default:
                     break
                 }

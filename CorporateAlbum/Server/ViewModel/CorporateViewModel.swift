@@ -67,7 +67,7 @@ class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
             let model = self.datasource.value[indexPath.row]
            CorporateViewModel.sbPush("Main", "siteAlbumCtrlID",
                                      bundle: Bundle.main,
-                                     parameters: ["siteName": model.SiteName, "title": model.SiteTitle])
+                                     parameters: ["siteName": model.SiteName])
         })
             .disposed(by: disposeBag)
         
@@ -111,7 +111,7 @@ class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
     }
     
     private func collectSite(model: SiteInfoModel) {
-        CARProvider.rx.request(.siteFavorite(siteName: model.SiteName, isFavorite: model.IsFavorite))
+        CARProvider.rx.request(.siteFavorite(siteName: model.SiteName))
             .mapResponse()
             .subscribe(onSuccess: { [unowned self] res in
                 if res.error == 0 {

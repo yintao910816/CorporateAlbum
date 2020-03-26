@@ -15,8 +15,8 @@ class MyalbumCell: UITableViewCell {
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var expireDateOutlet: UILabel!
     @IBOutlet weak var fundsOutlet: UILabel!
-    @IBOutlet weak var siteOnLineOutlet: UIButton!
-    @IBOutlet weak var enabledAwardOutlet: UIButton!
+    @IBOutlet weak var siteOnLineOutlet: TYClickedButton!
+    @IBOutlet weak var enabledAwardOutlet: TYClickedButton!
     @IBOutlet weak var fundsRemindOutlet: UILabel!
     
     public var siteSettingCallBack: ((CAMySiteModel)->())?
@@ -37,6 +37,9 @@ class MyalbumCell: UITableViewCell {
     
     var model: CAMySiteModel! {
         didSet {
+            siteOnLineOutlet.backgroundColor = model.IsOnline ? RGB(24, 168, 28) : .red
+            enabledAwardOutlet.backgroundColor = model.EnabledAward ? RGB(24, 168, 28) : .red
+
             enabledAwardOutlet.isHidden = CACoreLogic.share.isInCheck
             fundsOutlet.isHidden        = CACoreLogic.share.isInCheck
             fundsRemindOutlet.isHidden  = CACoreLogic.share.isInCheck

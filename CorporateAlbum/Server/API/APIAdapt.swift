@@ -77,7 +77,9 @@ struct APIAssistance {
              .bill(_),
              .mySite(_),
              .albumPage(_),
+             .pageList(_),
              .favoriteBook(_),
+             .siteGet(_),
              .withdraw:
             return .get
         default:

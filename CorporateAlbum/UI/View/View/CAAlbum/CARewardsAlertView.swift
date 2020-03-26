@@ -19,11 +19,14 @@ class CARewardsAlertView: UIView {
     @IBOutlet weak var coverOutlet: UIImageView!
     @IBOutlet weak var getRewardsOutlet: UIButton!
     
-    public var getRewardsCallBack: ((AlbumPageModel)->())?
+    public var getRewardsCallBack: (((CAPageListModel, AlbumBookModel))->())?
+    
+    private var pageModel: CAPageListModel!
+    private var bookInfo: AlbumBookModel!
     
     @IBAction func actions(_ sender: UIButton) {
         excuteAnimotion()
-        getRewardsCallBack?(model)
+        getRewardsCallBack?((pageModel, bookInfo))
     }
     
     override init(frame: CGRect) {
@@ -63,16 +66,17 @@ class CARewardsAlertView: UIView {
         contentView.frame = bounds
     }
     
-    public var model: AlbumPageModel! {
-        didSet {
-            iconOutlet.setImage(model.AppLogo)
-            coverOutlet.setImage(model.SiteLogo)
-            
-            let rewardsText = String.init(format: "%.2f元", Float(model.PageAward) / 100.00)
-            rewardsMoneyOutlet.attributedText = rewardsText.attributed(NSRange.init(location: rewardsText.count - 1, length: 1),
-                                                                       rewardsMoneyOutlet.textColor,
-                                                                       .systemFont(ofSize: 13))
-        }
+    public func configData(page: CAPageListModel, book: AlbumBookModel) {
+        pageModel = page
+        bookInfo = book
+        
+        iconOutlet.setImage(bookInfo.AppLogo)
+        coverOutlet.setImage(bookInfo.SiteLogo)
+        
+        let rewardsText = String.init(format: "%.2f元", Float(bookInfo.PageAward) / 100.00)
+        rewardsMoneyOutlet.attributedText = rewardsText.attributed(NSRange.init(location: rewardsText.count - 1, length: 1),
+                                                                   rewardsMoneyOutlet.textColor,
+                                                                   .systemFont(ofSize: 13))
     }
 }
 

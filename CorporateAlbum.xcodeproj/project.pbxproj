@@ -10,6 +10,7 @@
 		39B0F83F46CFA61C0F004E37 /* Pods_CorporateAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9547636C5E34B6BE2643A7D0 /* Pods_CorporateAlbum.framework */; };
 		B81D3FFA242AFBC300630BE0 /* CAReFundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D3FF9242AFBC300630BE0 /* CAReFundsViewModel.swift */; };
 		B81D3FFC242AFE0A00630BE0 /* CAFunds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D3FFB242AFE0A00630BE0 /* CAFunds.swift */; };
+		B8260C66242C6ABC00290F9F /* CASite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8260C65242C6ABC00290F9F /* CASite.swift */; };
 		B827AB3123CCBD2D00BC64B9 /* CAOrderListItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827AB3023CCBD2D00BC64B9 /* CAOrderListItemsViewController.swift */; };
 		B827AB3423CCBDD600BC64B9 /* CAOrderListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827AB3223CCBDD600BC64B9 /* CAOrderListItemCell.swift */; };
 		B827AB3523CCBDD600BC64B9 /* CAOrderListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B827AB3323CCBDD600BC64B9 /* CAOrderListItemCell.xib */; };
@@ -487,6 +488,7 @@
 		9547636C5E34B6BE2643A7D0 /* Pods_CorporateAlbum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorporateAlbum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81D3FF9242AFBC300630BE0 /* CAReFundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAReFundsViewModel.swift; sourceTree = "<group>"; };
 		B81D3FFB242AFE0A00630BE0 /* CAFunds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAFunds.swift; sourceTree = "<group>"; };
+		B8260C65242C6ABC00290F9F /* CASite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASite.swift; sourceTree = "<group>"; };
 		B827AB3023CCBD2D00BC64B9 /* CAOrderListItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAOrderListItemsViewController.swift; sourceTree = "<group>"; };
 		B827AB3223CCBDD600BC64B9 /* CAOrderListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAOrderListItemCell.swift; sourceTree = "<group>"; };
 		B827AB3323CCBDD600BC64B9 /* CAOrderListItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAOrderListItemCell.xib; sourceTree = "<group>"; };
@@ -2432,6 +2434,7 @@
 				B8E66EA023E817BB00725BD2 /* CARegionInfo.swift */,
 				B8D4143A23F6979C002B9892 /* CAApp.swift */,
 				B81D3FFB242AFE0A00630BE0 /* CAFunds.swift */,
+				B8260C65242C6ABC00290F9F /* CASite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2938,6 +2941,7 @@
 				B8CCDF8D21212C5100E94681 /* ZXQRCode.m in Sources */,
 				B82E2FBB210AB0C300FA299F /* UIControl+_Rx.swift in Sources */,
 				B836AB2923CB4570009FBA5D /* CASetCityViewController.swift in Sources */,
+				B8260C66242C6ABC00290F9F /* CASite.swift in Sources */,
 				B8CCDF8621212C5100E94681 /* ZXAztecSimpleToken.m in Sources */,
 				B8E66EC423F13A9100725BD2 /* CAOpenAlbumFooterContentView.swift in Sources */,
 				B8CCDF7221212C5100E94681 /* ZXErrors.m in Sources */,
@@ -3465,7 +3469,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.02;
+				MARKETING_VERSION = 1.0.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dazongg.CorporateAlbum;
 				PRODUCT_NAME = "得众画册";
 				PROVISIONING_PROFILE = "8d5c131a-313f-41b4-b1eb-ac1b7106b67b";
@@ -3495,7 +3499,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.02;
+				MARKETING_VERSION = 1.0.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dazongg.CorporateAlbum;
 				PRODUCT_NAME = "得众画册";
 				PROVISIONING_PROFILE = "bdce01c0-5a76-444b-8743-a3e885d85f77";

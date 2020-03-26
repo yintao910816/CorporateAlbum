@@ -13,7 +13,7 @@ public let CAReginCell_identifier = "CAReginCell"
 class CAReginCell: BaseTBCell {
 
     @IBOutlet weak var contentOutlet: UILabel!
-    @IBOutlet weak var deleteOutlet: UIButton!
+    @IBOutlet weak var deleteOutlet: TYClickedButton!
     
     public var deleteCallBack: ((CARegionInfoModel)->())?
     

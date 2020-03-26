@@ -88,14 +88,14 @@
                         <color key="textColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-9k-mUJ">
+                    <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-9k-mUJ" customClass="TYClickedButton" customModule="得众画册" customModuleProvider="target">
                         <rect key="frame" x="328" y="89" width="25" height="25"/>
                         <state key="normal" image="site_setting"/>
                         <connections>
                             <action selector="userActions:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tqg-x5-nWJ"/>
                         </connections>
                     </button>
-                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlt-YD-fcR">
+                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlt-YD-fcR" customClass="TYClickedButton" customModule="得众画册" customModuleProvider="target">
                         <rect key="frame" x="360" y="89" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Dlt-YD-fcR" secondAttribute="height" multiplier="1:1" id="DGw-4V-1qd"/>

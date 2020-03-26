@@ -8,26 +8,27 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-class AlbumInfoViewModel: BaseViewModel {
+class AlbumInfoViewModel: BaseViewModel, VMNavigation {
     
     private var bookId: String!
     private var bookInfo: AlbumBookModel!
     
     private let timer = CountdownTimer.init(totleCount: 3)
-    private var pageModel: AlbumPageModel?
+    private var pageModel: CAPageListModel?
     
     // (collectionView数据源，刷新col时是否重新设置pageVC)
-    public var colDatasourceObser = Variable(([AlbumPageModel](), true))
+    public var colDatasourceObser = Variable(([CAPageListModel](), true))
     
-    public var pageSelctedAward = PublishSubject<AlbumPageModel>()
-    public var shouldShowAlertSubject = PublishSubject<AlbumPageModel>()
-    public var postRewordsSubject = PublishSubject<AlbumPageModel>()
+    public var pageSelctedAward = PublishSubject<CAPageListModel>()
+    public var shouldShowAlertSubject = PublishSubject<(CAPageListModel, AlbumBookModel)>()
+    public var postRewordsSubject = PublishSubject<CAPageListModel>()
 
-    public var dropCoinObser = PublishSubject<(Int, AlbumPageModel)>()
+    public var dropCoinObser = PublishSubject<(Int, CAPageListModel)>()
     public var iconObser = PublishSubject<String>()
 
-    init(bookId: String) {
+    init(bookId: String, tapIconDriver: Driver<Void>) {
         super.init()
         
         self.bookId = bookId
@@ -44,7 +45,7 @@ class AlbumInfoViewModel: BaseViewModel {
                 }
                 return false
             })
-            .map { [weak self] _ in (self?.pageModel ?? AlbumPageModel()) }
+            .map { [weak self] _ in (self?.pageModel ?? CAPageListModel(), self?.bookInfo ?? AlbumBookModel()) }
             .bind(to: shouldShowAlertSubject)
             .disposed(by: disposeBag)
         
@@ -64,6 +65,13 @@ class AlbumInfoViewModel: BaseViewModel {
             ._doNext(forNotice: hud)
             .subscribe(onNext: { [weak self] in
                 self?.postAward(pageModel: $0)
+            })
+            .disposed(by: disposeBag)
+        
+        tapIconDriver
+            .drive(onNext: { [weak self] in
+                guard let strongSelf = self else { return }
+                AlbumInfoViewModel.sbPush("Main", "siteAlbumCtrlID", parameters: ["siteName": strongSelf.bookInfo.SiteName])
             })
             .disposed(by: disposeBag)
         
@@ -89,20 +97,30 @@ class AlbumInfoViewModel: BaseViewModel {
     }
     
     private func loadBookPages() {
-        CARProvider.rx.request(.albumPage(siteName: bookInfo.SiteName, skip: 0, limit: 32))
-            .map(models: AlbumPageModel.self)
+//        CARProvider.rx.request(.albumPage(siteName: bookInfo.SiteName, skip: 0, limit: 32))
+//            .map(models: AlbumPageModel.self)
+//            .subscribe(onSuccess: { datas in
+//                self.hud.noticeHidden()
+//                self.colDatasourceObser.value = (datas, true)
+//            }) { [weak self] error in
+//                self?.hud.failureHidden(self?.errorMessage(error))
+//            }
+//            .disposed(by: disposeBag)
+        
+        CARProvider.rx.request(.pageList(bookId: bookId, skip: 0, limit: 100))
+            .map(models: CAPageListModel.self)
             .subscribe(onSuccess: { datas in
                 self.hud.noticeHidden()
                 self.colDatasourceObser.value = (datas, true)
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
-            }
-            .disposed(by: disposeBag)
+        }
+        .disposed(by: disposeBag)
     }
     
-    private func postAward(pageModel: AlbumPageModel) {                
+    private func postAward(pageModel: CAPageListModel) {
         CARProvider.rx.request(.readAward(siteName: pageModel.SiteName,
-                                          bookId: bookInfo.Id,
+                                          bookId: pageModel.BookId,
                                           bookTitle: bookInfo.Title,
                                           pageId: pageModel.Id,
                                           pageTitle: pageModel.Title))
@@ -110,8 +128,8 @@ class AlbumInfoViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] model in
                 if model.error == 0 {
                     var data = self?.colDatasourceObser.value.0
-                    if let idx = data?.index(of: pageModel) {
-                        pageModel.EnabledAward = false
+                    if let idx = data?.firstIndex(of: pageModel) {
+                        pageModel.IsAwarded = true
                         data?[idx] = pageModel
                         if let tempData = data {
                             self?.colDatasourceObser.value = (tempData, false)
