@@ -27,8 +27,8 @@ class CAShareCorporateViewController: BaseViewController {
     }
     
     override func rxBind() {
-        header.shareCallBack = { _ in
-            NoticesCenter.alert(message: "开发中，敬请期待...")
+        header.shareCallBack = {
+            ShareUtils.presentShare(thumbURL: $0.AppLogo, title: $0.SiteTitle, descr: $0.Summary, webpageUrl: $0.SiteUrl)
         }
     }
     

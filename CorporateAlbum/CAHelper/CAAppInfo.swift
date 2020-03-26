@@ -14,8 +14,8 @@ public let appScheme: String = "CorporateAlbum.dazongg.com"
 public let um_appKey: String = "5e43a9fe570df308c60004de"
 
 /// 微信平台
-public let wx_appKey: String = ""
-public let wx_secret: String = ""
+public let wx_appKey: String = "wx5bea166b681048da"
+public let wx_secret: String = "06d87f3b3d9ea38e9a48157179059887"
 
 /// QQ平台
 public let qq_appID: String  = "101851968"

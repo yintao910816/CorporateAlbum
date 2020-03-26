@@ -22,8 +22,7 @@ class CACoreLogic {
     
     public var isInCheck: Bool {
         get {
-//            return appInfo == nil ? false : appInfo!.IsInCheck
-            return false
+            return appInfo == nil ? false : appInfo!.IsInCheck
         }
     }
 }

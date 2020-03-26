@@ -38,6 +38,12 @@ class CAReFundsViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.popSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.reloadSubject.onNext(true)
     }
 }
