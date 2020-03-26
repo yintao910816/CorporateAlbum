@@ -23,7 +23,18 @@ enum CAOpenAlbumType {
     case exclusiveHost(num: Int)
 }
 
+enum CAOpenAlbumFunctionType {
+    /// 下单
+    case order
+    /// 续期
+    case renewal
+    /// 充值
+    case recharge
+}
+
 class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
+    
+    private var functionType: CAOpenAlbumFunctionType = .order
     
     public var companyListsDatasource = Variable([[CACompanyListModel]]())
     public let orderListDatasource = Variable([CAOrderItemInfoModel]())
@@ -36,8 +47,10 @@ class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
     /// 填写的公司名称监听
     public let companyObser = Variable(CACompanyListModel())
 
-    init(submit: Driver<Void>, agreement: Driver<Void>) {
+    init(submit: Driver<Void>, agreement: Driver<Void>, functionType: CAOpenAlbumFunctionType) {
         super.init()
+        self.functionType = functionType
+        
         agreement
             .drive(onNext: { _ in
                 CAOpenAlbumViewModel.push(WebViewController.self, ["url": APIAssistance.serviceWeb, "title": "服务协议"])
@@ -66,20 +79,33 @@ class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
 
         reloadSubject
             .subscribe(onNext: { [weak self] _ in
-                self?.requestCompanyList()
+                guard let strongSelf = self else { return }
+                if strongSelf.functionType == .order {
+                    strongSelf.requestCompanyList()
+                }
                 self?.requestOrderList()
             })
             .disposed(by: disposeBag)
     }
     
     private func requestOrderList() {
-        CARProvider.rx.request(.orderCreateNew)
-            .map(models: CAOrderItemInfoModel.self)
-            .subscribe(onSuccess: { [weak self] data in
-                self?.orderListDatasource.value = data
-                self?.calculatTotlePrice()
-            }) { PrintLog("获取空的订单列表信息失败：\($0)") }
-            .disposed(by: disposeBag)
+        if functionType == .order {
+            CARProvider.rx.request(.orderCreateNew)
+                .map(models: CAOrderItemInfoModel.self)
+                .subscribe(onSuccess: { [weak self] data in
+                    self?.orderListDatasource.value = data
+                    self?.calculatTotlePrice()
+                }) { PrintLog("获取空的订单列表信息失败：\($0)") }
+                .disposed(by: disposeBag)
+        }else {
+            CARProvider.rx.request(.orderCreateRenew)
+                .map(models: CAOrderItemInfoModel.self)
+                .subscribe(onSuccess: { [weak self] data in
+                    self?.orderListDatasource.value = data
+                    self?.calculatTotlePrice()
+                }) { PrintLog("获取空的续费或充值订单列表信息失败：\($0)") }
+                .disposed(by: disposeBag)
+        }
     }
     
     private func requestCompanyList() {
@@ -92,15 +118,27 @@ class CAOpenAlbumViewModel: BaseViewModel, VMNavigation {
     }
     
     private func requestSubmitOrder(siteName: String, companyId: String, orderJson: String) {
-        CARProvider.rx.request(.orderSubmitNew(siteName: siteName, companyId: companyId, orderJson: orderJson))
-            .map(model: CAOrderInfoModel.self)
-            .subscribe(onSuccess: { [weak self] data in
-                self?.hud.noticeHidden()
-                CAOpenAlbumViewModel.sbPush("Main", "orderListItemsCtrl", parameters: ["model": data, "isPopToOrderList":true])
-            }) { [weak self] in
-                self?.hud.failureHidden(self?.errorMessage($0))
+        if functionType == .order {
+            CARProvider.rx.request(.orderSubmitNew(siteName: siteName, companyId: companyId, orderJson: orderJson))
+                .map(model: CAOrderInfoModel.self)
+                .subscribe(onSuccess: { [weak self] data in
+                    self?.hud.noticeHidden()
+                    CAOpenAlbumViewModel.sbPush("Main", "orderListItemsCtrl", parameters: ["model": data, "isPopToOrderList":true])
+                }) { [weak self] in
+                    self?.hud.failureHidden(self?.errorMessage($0))
+            }
+            .disposed(by: disposeBag)
+        }else {
+            CARProvider.rx.request(.orderSubmitRenew(siteName: siteName, orderJson: orderJson))
+                .map(model: CAOrderInfoModel.self)
+                .subscribe(onSuccess: { [weak self] data in
+                    self?.hud.noticeHidden()
+                    CAOpenAlbumViewModel.sbPush("Main", "orderListItemsCtrl", parameters: ["model": data, "isPopToOrderList":true])
+                }) { [weak self] in
+                    self?.hud.failureHidden(self?.errorMessage($0))
+            }
+            .disposed(by: disposeBag)
         }
-        .disposed(by: disposeBag)
     }
 }
 
@@ -121,7 +159,7 @@ extension CAOpenAlbumViewModel {
             return false
         }
         
-        if companyId == "0" || companyId.count == 0 {
+        if functionType == .order && (companyId == "0" || companyId.count == 0) {
             NoticesCenter.alert(message: "请选择所属公司")
             return false
         }

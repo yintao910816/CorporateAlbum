@@ -220,12 +220,17 @@ enum API{
      */
     case noticeRead(id: String)
     
-    /// 生成空的订单信息
+    /// 生成空的订单信息（下单使用）
     case orderCreateNew
     /// 提交服务订单
     case orderSubmitNew(siteName: String, companyId: String, orderJson: String)
     /// 会员获取我的的公司名称列表
     case companyList
+    
+    /// 生成空的订单信息（充值和续费使用）
+    case orderCreateRenew
+    /// 提交续费服务订单（充值和续费使用）
+    case orderSubmitRenew(siteName: String, orderJson: String)
     
     ///  获取提现资费信息和用户账号信息
     case withdraw
@@ -350,6 +355,11 @@ extension API: TargetType{
             return "Order/SubmitNew"
         case .companyList:
             return "Order/CompanyList"
+            
+        case .orderCreateRenew:
+            return "Order/CreateRenew"
+        case .orderSubmitRenew(_):
+            return "Order/SubmitRenew"
             
         case .withdraw:
             return "Withdraw/Account"
@@ -502,7 +512,7 @@ extension API {
             params["skip"]   = skip
             params["limit"]  = limit
         case .mySiteListLog(let siteName, let skip, let limit):
-            params["siteName"]  = limit
+            params["siteName"]  = siteName
             params["skip"]   = skip
             params["limit"]  = limit
         case .siteEnableAward(let siteName):
@@ -575,7 +585,11 @@ extension API {
             params["siteName"]  = siteName
             params["companyId"] = companyId
             params["orderJson"] = orderJson
-            
+        
+        case .orderSubmitRenew(let siteName, let orderJson):
+            params["siteName"]  = siteName
+            params["orderJson"] = orderJson
+
         case .withdrawSubmit(let amount):
             params["amount"] = amount
         default:

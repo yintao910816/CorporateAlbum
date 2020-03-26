@@ -69,7 +69,7 @@ class MineViewModel: BaseViewModel , VMNavigation{
             sections = [SectionModel.init(model: 0, items: [MineCellModel(title: "账号设置",
                                                                           icon: UIImage(named: "mine_account_setting"),
                                                                           segue: "accountSegue",
-                                                                          params: ["model":userInfoObser.value.0]),
+                                                                          params: ["model":userInfoObser.value.0, "functionType": CAOpenAlbumFunctionType.order]),
                                                             MineCellModel(title: "我要下单",
                                                                           icon: UIImage(named: "mine_open_album"),
                                                                           segue: "openAlbumSegue",
@@ -98,7 +98,7 @@ class MineViewModel: BaseViewModel , VMNavigation{
                                                             MineCellModel(title: "我要下单",
                                                                           icon: UIImage(named: "mine_open_album"),
                                                                           segue: "openAlbumSegue",
-                                                                          params: ["model":userInfoObser.value.0]),
+                                                                          params: ["model":userInfoObser.value.0, "functionType": CAOpenAlbumFunctionType.order]),
                                                             MineCellModel(title: "我的订单",
                                                                           icon: UIImage(named: "mine_order"),
                                                                           segue: "orderSegue"),
@@ -150,7 +150,7 @@ class MineViewModel: BaseViewModel , VMNavigation{
     private func loadLocalUser() {
         UserInfoModel.loginUser { [unowned self] user in
             if let _user = user, _user.Id.count > 0 {
-                self.userInfoObser.value = (_user, CASumIncomeModel(), self.isInCheck)
+                self.userInfoObser.value = (_user, self.userInfoObser.value.1, self.isInCheck)
                 self.prepareCellData()
                 self.userIsLoginObser.value = true
             }else {

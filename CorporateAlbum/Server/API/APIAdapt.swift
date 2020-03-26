@@ -80,6 +80,7 @@ struct APIAssistance {
              .pageList(_),
              .favoriteBook(_),
              .siteGet(_),
+             .mySiteListLog(_),
              .withdraw:
             return .get
         default:

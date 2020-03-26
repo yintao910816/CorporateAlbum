@@ -44,7 +44,7 @@ enum CASiteSettingType {
     }
 }
 
-class CAMySiteSettingViewModel: BaseViewModel {
+class CAMySiteSettingViewModel: BaseViewModel, VMNavigation {
     
     private var siteModel: CAMySiteModel!
     
@@ -54,6 +54,8 @@ class CAMySiteSettingViewModel: BaseViewModel {
     public let footerActionsSubject = PublishSubject<CASiteSettingType>()
     public let isOnlineObser = PublishSubject<Bool>()
     public let isAwardObser  = PublishSubject<Bool>()
+    
+    public let gotoPaySubject = PublishSubject<CAOpenAlbumFunctionType>()
 
     init(input: CAMySiteModel) {
         super.init()
@@ -92,6 +94,13 @@ class CAMySiteSettingViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
 
+        gotoPaySubject
+            .subscribe(onNext: {
+                CAMySiteSettingViewModel.sbPush("Main", "openAlbumCtrlId",
+                                                parameters: ["functionType": $0, "siteInfo": input])
+            })
+            .disposed(by: disposeBag)
+        
         reloadSubject.subscribe(onNext: { [weak self] _ in
             self?.requestRegionList()
             self?.siteInfoObser.value = input

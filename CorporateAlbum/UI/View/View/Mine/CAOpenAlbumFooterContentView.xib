@@ -13,6 +13,7 @@
                 <outlet property="companyOutlet" destination="GKK-BD-SQX" id="MZC-EH-6dn"/>
                 <outlet property="contentView" destination="Hka-rw-IwR" id="LNU-nS-uB1"/>
                 <outlet property="hostOutlet" destination="SBZ-sd-Gki" id="Dba-Tq-Z4G"/>
+                <outlet property="optionTopCns" destination="NrI-ta-wey" id="Bfs-F2-MTx"/>
                 <outlet property="serverAgreementOutlet" destination="5qQ-mF-lEp" id="gYQ-eK-lUy"/>
                 <outlet property="submitOutlet" destination="XxA-xN-mXW" id="YPu-Lg-AJd"/>
                 <outlet property="totlePriceOutlet" destination="Gc2-X8-jR0" id="a1Y-er-XxI"/>
@@ -108,6 +109,7 @@
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alipay_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6as-mt-dZj">
                     <rect key="frame" x="0.0" y="154" width="414" height="89"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="89" id="w55-cO-UL4"/>
                     </constraints>
@@ -128,7 +130,7 @@
                 <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qQ-mF-lEp">
                     <rect key="frame" x="145.5" y="272.5" width="113" height="26"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="《有名画册服务协议》"/>
+                    <state key="normal" title="《得众画册服务协议》"/>
                 </button>
                 <button opaque="NO" clipsSubviews="YES" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxA-xN-mXW">
                     <rect key="frame" x="35" y="318.5" width="344" height="45"/>
@@ -165,8 +167,8 @@
                 <constraint firstAttribute="trailing" secondItem="Jwk-GP-Wf9" secondAttribute="trailing" id="BJO-2v-emQ"/>
                 <constraint firstAttribute="trailing" secondItem="1b0-Y6-uYR" secondAttribute="trailing" constant="10" id="Cea-7J-Rb7"/>
                 <constraint firstItem="XxA-xN-mXW" firstAttribute="leading" secondItem="Hka-rw-IwR" secondAttribute="leading" constant="35" id="I4d-V4-kfH"/>
+                <constraint firstItem="IWh-4f-svh" firstAttribute="top" secondItem="NbH-zH-9mg" secondAttribute="bottom" constant="48" id="NrI-ta-wey"/>
                 <constraint firstItem="5qQ-mF-lEp" firstAttribute="centerY" secondItem="JXe-Tt-UX9" secondAttribute="centerY" id="P6O-Cs-SLE"/>
-                <constraint firstItem="IWh-4f-svh" firstAttribute="top" secondItem="Jwk-GP-Wf9" secondAttribute="bottom" id="Qg9-Ac-ZHb"/>
                 <constraint firstItem="SBZ-sd-Gki" firstAttribute="leading" secondItem="2oS-3I-Uja" secondAttribute="trailing" constant="30" id="RfE-Rz-VzX"/>
                 <constraint firstItem="2oS-3I-Uja" firstAttribute="top" secondItem="0SB-PG-ueQ" secondAttribute="bottom" constant="15" id="TB2-kd-hvZ"/>
                 <constraint firstAttribute="trailing" secondItem="IWh-4f-svh" secondAttribute="trailing" id="U4g-qR-IXg"/>

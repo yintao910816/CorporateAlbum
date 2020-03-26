@@ -11,6 +11,8 @@ import UIKit
 class CAOpenAlbumFooterContentView: BaseView {
 
     public static let viewHeight: CGFloat = 364
+    /// 不显示公司名称的高度
+    public static let viewShorterHeight: CGFloat = 364 - 48
 
     @IBOutlet var contentView: UIView!
 
@@ -20,6 +22,23 @@ class CAOpenAlbumFooterContentView: BaseView {
     @IBOutlet weak var hostOutlet: UITextField!
     @IBOutlet weak var companyOutlet: UILabel!
     @IBOutlet weak var totlePriceOutlet: UILabel!
+    
+    @IBOutlet weak var optionTopCns: NSLayoutConstraint!
+    
+    public func reloadUI(functionType: CAOpenAlbumFunctionType) {
+        if functionType == .order {
+            optionTopCns.constant = 48
+        }else {
+            optionTopCns.constant = 0
+            hostOutlet.isUserInteractionEnabled = false
+        }
+    }
+    
+    public var siteInfo: CAMySiteModel? {
+        didSet {
+            hostOutlet.text = siteInfo?.SiteName
+        }
+    }
     
     override func rxBind() {
 

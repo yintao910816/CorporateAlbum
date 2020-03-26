@@ -1368,7 +1368,7 @@
         <!--我要下单-->
         <scene sceneID="aYo-R9-a1D">
             <objects>
-                <viewController id="LCa-bW-MRl" customClass="CAOpenAlbumViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="openAlbumCtrlId" id="LCa-bW-MRl" customClass="CAOpenAlbumViewController" customModule="得众画册" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E1P-Ka-310"/>
                         <viewControllerLayoutGuide type="bottom" id="A2d-LT-3pt"/>

@@ -40,7 +40,11 @@ class CAMySiteSettingViewController: BaseViewController {
             if $0.segue.count > 0 {
                 self.performSegue(withIdentifier: $0.segue, sender: $0)
             }else {
-                NoticesCenter.alert(message: "开发中，敬请期待...")
+                if $0 == .renewal {
+                    self.viewModel.gotoPaySubject.onNext(.renewal)
+                }else if $0 == .recharge {
+                    self.viewModel.gotoPaySubject.onNext(.recharge)
+                }
             }
         }
                 
