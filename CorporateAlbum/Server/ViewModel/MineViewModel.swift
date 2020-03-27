@@ -69,11 +69,11 @@ class MineViewModel: BaseViewModel , VMNavigation{
             sections = [SectionModel.init(model: 0, items: [MineCellModel(title: "账号设置",
                                                                           icon: UIImage(named: "mine_account_setting"),
                                                                           segue: "accountSegue",
-                                                                          params: ["model":userInfoObser.value.0, "functionType": CAOpenAlbumFunctionType.order]),
+                                                                          params: ["model":userInfoObser.value.0]),
                                                             MineCellModel(title: "我要下单",
                                                                           icon: UIImage(named: "mine_open_album"),
                                                                           segue: "openAlbumSegue",
-                                                                          params: ["model":userInfoObser.value.0]),
+                                                                          params: ["model":userInfoObser.value.0, "functionType": CAOpenAlbumFunctionType.order]),
                                                             MineCellModel(title: "我的订单",
                                                                           icon: UIImage(named: "mine_order"),
                                                                           segue: "orderSegue"),
@@ -83,7 +83,7 @@ class MineViewModel: BaseViewModel , VMNavigation{
                         SectionModel.init(model: 1, items: [MineCellModel(title: "关于我们",
                                                                           icon: UIImage(named: "mine_about"),
                                                                           webURL: APIAssistance.aboutusWeb),
-                                                            MineCellModel(title: "退出登录",
+                                                            MineCellModel(title: "切换账号",
                                                                           icon: UIImage(named: "mine_login_out"),
                                                                           isLoginOut: true)])]
         }else {
@@ -108,7 +108,7 @@ class MineViewModel: BaseViewModel , VMNavigation{
                         SectionModel.init(model: 1, items: [MineCellModel(title: "关于我们",
                                                                           icon: UIImage(named: "mine_about"),
                                                                           webURL: APIAssistance.aboutusWeb),
-                                                            MineCellModel(title: "退出登录",
+                                                            MineCellModel(title: "切换账号",
                                                                           icon: UIImage(named: "mine_login_out"),
                                                                           isLoginOut: true)])]
         }

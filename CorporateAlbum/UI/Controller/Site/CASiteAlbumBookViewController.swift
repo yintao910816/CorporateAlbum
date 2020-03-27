@@ -82,7 +82,7 @@ extension CASiteAlbumBookViewController: AlbumCellActions {
     
     func share(model: AlbumBookModel) {
 //        qrViewFilesOwner.show(shareBook: model)
-        ShareUtils.presentShare(thumbURL: model.Picture, title: model.Title, descr: model.Summary, webpageUrl: model.AlbumUrl)
+        viewModel.sharePublic.onNext(model)
     }
     
     func collecte(model: AlbumBookModel) {

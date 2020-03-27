@@ -29,7 +29,7 @@ class CARegisterViewController: BaseViewController {
     override func setupUI() {
         timer = CountdownTimer.init(totleCount: 60)
 
-        let agreeText = "同意《有名画册注册协议》"
+        let agreeText = "同意《得众画册注册协议》"
         registerRemindOutlet.setAttributedTitle(agreeText.attributed([NSMakeRange(0, 2), NSMakeRange(2, 10)],
                                                                      [RGB(130, 130, 130), RGB(8, 172, 222)],
                                                                      [.systemFont(ofSize: 10), .systemFont(ofSize: 10)]),

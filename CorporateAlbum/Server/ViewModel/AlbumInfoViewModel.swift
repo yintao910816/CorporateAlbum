@@ -21,45 +21,60 @@ class AlbumInfoViewModel: BaseViewModel, VMNavigation {
     // (collectionView数据源，刷新col时是否重新设置pageVC)
     public var colDatasourceObser = Variable(([CAPageListModel](), true))
     
-    public var pageSelctedAward = PublishSubject<CAPageListModel>()
-    public var shouldShowAlertSubject = PublishSubject<(CAPageListModel, AlbumBookModel)>()
+    public let navTitleObser = Variable("")
+    
+    public var pageSelctedAward = PublishSubject<Int>()
+    public var shouldShowAlertSubject = PublishSubject<(CAPageListModel, AlbumBookModel, Int)>()
     public var postRewordsSubject = PublishSubject<CAPageListModel>()
 
     public var dropCoinObser = PublishSubject<(Int, CAPageListModel)>()
     public var iconObser = PublishSubject<String>()
+    
+    private var lastPage: Int = 0
 
     init(bookId: String, tapIconDriver: Driver<Void>) {
         super.init()
         
         self.bookId = bookId
         
-        timer.showText.asObservable()
-            .skip(1)
-            .observeOn(MainScheduler.instance)
-            .filter({ [weak self] seconds -> Bool in
-                guard let strongSelf = self else { return false }
-                if seconds == 0 {
-                    PrintLog("暂停")
-                    strongSelf.timer.timerPause()
-                    return true
-                }
-                return false
-            })
-            .map { [weak self] _ in (self?.pageModel ?? CAPageListModel(), self?.bookInfo ?? AlbumBookModel()) }
-            .bind(to: shouldShowAlertSubject)
-            .disposed(by: disposeBag)
+//        timer.showText.asObservable()
+//            .skip(1)
+//            .observeOn(MainScheduler.instance)
+//            .filter({ [weak self] seconds -> Bool in
+//                guard let strongSelf = self else { return false }
+//                if seconds == 0 {
+//                    PrintLog("暂停")
+//                    strongSelf.timer.timerPause()
+//                    return true
+//                }
+//                return false
+//            })
+//            .map { [weak self] _ in (self?.pageModel ?? CAPageListModel(), self?.bookInfo ?? AlbumBookModel(), self?.lastPage ?? 0) }
+//            .bind(to: shouldShowAlertSubject)
+//            .disposed(by: disposeBag)
         
         pageSelctedAward
-            .filter{ _ in CACoreLogic.isUserLogin() }
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] model in
-                if model.EnabledAward == true {
-                    self?.timer.timerPause()
-                    self?.pageModel = model
-                    self?.timer.timerStar()
-                }
-            })
+            .map{ [unowned self] in (self.colDatasourceObser.value.0[$0], $0) }
+            .filter{ CACoreLogic.isUserLogin() && !$0.0.IsAwarded && $0.0.EnabledAward }
+            .map{ [unowned self] in ($0.0, self.bookInfo, $0.1) }
+            .delay(3, scheduler: MainScheduler.instance)
+            .bind(to: shouldShowAlertSubject)
             .disposed(by: disposeBag)
+
+        
+//        pageSelctedAward
+//            .map({ [unowned self] page -> CAPageListModel? in
+//                self.pageModel = self.colDatasourceObser.value.0[page]
+//                self.lastPage = page
+//                return self.pageModel
+//            })
+//            .filter{ CACoreLogic.isUserLogin() && $0 != nil && !$0!.IsAwarded && $0!.EnabledAward }
+//            .observeOn(MainScheduler.instance)
+//            .subscribe(onNext: { [weak self] _ in
+//                self?.timer.timerPause()
+//                self?.timer.timerStar()
+//            })
+//            .disposed(by: disposeBag)
         
         postRewordsSubject
             ._doNext(forNotice: hud)
@@ -88,6 +103,7 @@ class AlbumInfoViewModel: BaseViewModel, VMNavigation {
             .map(model: AlbumBookModel.self)
             .subscribe(onSuccess: { [weak self] book in
                 self?.bookInfo = book
+                self?.navTitleObser.value = book.Title
                 self?.iconObser.onNext(book.AppLogo)
                 self?.loadBookPages()
             }) { [weak self] error in
@@ -135,8 +151,9 @@ class AlbumInfoViewModel: BaseViewModel, VMNavigation {
                             self?.colDatasourceObser.value = (tempData, false)
                         }
                     }
-                    
-                    self?.hud.successHidden("领取成功！")
+                    if let count = Int(model.message), count > 0 {
+                        self?.hud.successHidden("领取成功")
+                    }
                 }else {
                     self?.hud.failureHidden(model.message)
                 }

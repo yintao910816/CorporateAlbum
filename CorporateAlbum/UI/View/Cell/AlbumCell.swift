@@ -47,7 +47,7 @@ class AlbumCell: UICollectionViewCell {
             coverOutlet.setImage(model.Picture)
             titleOutlet.text = model.Title
             summaryOutlet.text = model.Summary
-            bundsOutlet.isHidden = !model.EnabledAward
+            bundsOutlet.isHidden = !(model.EnabledAward && model.ReadCount < model.PageCount)
             siteLogoButton.setImage(model.AppLogo)
             collecteButton.isSelected = model.IsFavorite
         }

@@ -9,10 +9,11 @@
 import Foundation
 import RxSwift
 
-class SiteAlbumBookViewModel: RefreshVM<AlbumBookModel> {
+class SiteAlbumBookViewModel: RefreshVM<AlbumBookModel>, VMNavigation {
     
-    var collectePublic = PublishSubject<AlbumBookModel>()
-    
+    public let collectePublic = PublishSubject<AlbumBookModel>()
+    public let sharePublic = PublishSubject<AlbumBookModel>()
+
     var navTitleObser = Variable("")
 
     private var siteName: String!
@@ -26,6 +27,13 @@ class SiteAlbumBookViewModel: RefreshVM<AlbumBookModel> {
             ._doNext(forNotice: hud)
             .subscribe(onNext: { [unowned self] in self.collectBook(model: $0) })
             .disposed(by: disposeBag)
+                
+        sharePublic
+            .subscribe(onNext: { [unowned self] in
+                SiteAlbumBookViewModel.sbPush("Main", "shareAlbumCtrlID", parameters: ["model": $0])
+            })
+            .disposed(by: disposeBag)
+            
         
         NotificationCenter.default.rx.notification(NotificationName.Album.SiteAlbumRewardChanged, object: nil)
             .subscribe(onNext: { [weak self] _ in

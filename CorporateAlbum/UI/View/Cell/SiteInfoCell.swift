@@ -35,7 +35,7 @@ class SiteInfoCell: UITableViewCell {
             coverOutlet.setImage(model.AppLogo)
             titleOutlet.text   = model.SiteTitle
             summaryoutlet.text = model.Summary
-            awardOutlet.isHidden = !model.EnableAward
+            awardOutlet.isHidden = !(model.EnableAward && model.ReadCount < model.AwardPageCount)
             collectOutlet.isSelected = model.IsFavorite
         }
     }

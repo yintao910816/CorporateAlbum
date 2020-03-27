@@ -9,8 +9,8 @@
 import UIKit
 
 private let urlFormat = "^http[s]?://([\\w-]+\\.)+[\\w-]+([\\w-./?%&*=]*)$"
-private let siteUrlFormat = "dazongg.com"
-private let bookUrlFormat = "yangguang.dazongg.com/?book="
+private let siteUrlFormat = "^http[s]?://([\\w-]+\\.ebooke.cn)[/]?$"
+private let bookUrlFormat = "^http[s]?://([\\w-]+\\.ebooke.cn)[/]?album\\?book=([\\w-]+)$"
 //private let siteUrlFormat = "^http[s]?://([\\w-]+\\.yangguang.dazongg.com)[\\/]?$"
 //private let bookUrlFormat = "^http[s]?://([\\w-]+\\.yangguang.dazongg.com)\\?book=([\\w-]+)$"
 
@@ -26,26 +26,29 @@ class CAScanViewController: ScanCodeController {
             return
         }
         
-//        var predicate =  NSPredicate(format: "SELF MATCHES %@" ,bookUrlFormat)
-        if resultObj.contains(bookUrlFormat) == true {
+        var predicate =  NSPredicate(format: "SELF MATCHES %@" ,bookUrlFormat)
+        if predicate.evaluate(with: resultObj) {
+//        if resultObj.contains(bookUrlFormat) == true {
             let bookInfoVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "bookInfoID") as! CAAlbumInfoViewController
-            bookInfoVC.prepare(parameters: ["bookId": resultObj.components(separatedBy: "=").last!])
+            bookInfoVC.prepare(parameters: ["bookId": resultObj.components(separatedBy: "book=").last ?? ""])
             navigationController?.pushViewController(bookInfoVC, animated: true)
             
             userDefault.isPopToRoot = true
             return
         }
 
-//        predicate =  NSPredicate(format: "SELF MATCHES %@" ,siteUrlFormat)
-        if resultObj.contains(siteUrlFormat) == true {
-            let temp = resultObj.components(separatedBy: "/")
-            var siteName = ""
-            for content in temp {
-                if content.contains(siteUrlFormat) == true {
-                    siteName = content
-                    break
-                }
-            }
+        predicate =  NSPredicate(format: "SELF MATCHES %@" ,siteUrlFormat)
+        if predicate.evaluate(with: resultObj) {
+//        if resultObj.contains(siteUrlFormat) == true {
+            let temp = resultObj.components(separatedBy: "//")
+            let siteName = temp.last ?? ""
+//            var siteName = ""
+//            for content in temp {
+//                if content.contains(siteUrlFormat) == true {
+//                    siteName = content
+//                    break
+//                }
+//            }
             let bookInfoVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "siteAlbumCtrlID") as! CASiteAlbumBookViewController
             bookInfoVC.prepare(parameters: ["siteName": siteName])
             navigationController?.pushViewController(bookInfoVC, animated: true)
@@ -54,7 +57,7 @@ class CAScanViewController: ScanCodeController {
             return
         }
 
-        let predicate =  NSPredicate(format: "SELF MATCHES %@" ,urlFormat)
+        predicate =  NSPredicate(format: "SELF MATCHES %@" ,urlFormat)
         if predicate.evaluate(with: resultObj) {
             let webVC = WebViewController()
             webVC.htmlURL = resultObj

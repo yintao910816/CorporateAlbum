@@ -16,6 +16,7 @@ class CAAlbumInfoViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var iconOutlet: UIButton!
     
+    @IBOutlet weak var navTitleOutlet: UILabel!
     @IBOutlet weak var botomBarHeightCns: NSLayoutConstraint!
     @IBOutlet weak var botomBarCns: NSLayoutConstraint!
 
@@ -148,6 +149,7 @@ class CAAlbumInfoViewController: BaseViewController {
 
         viewModel.shouldShowAlertSubject
             .observeOn(MainScheduler.instance)
+            .filter{ [weak self] in $0.2 == self?.currentPage }
             .subscribe(onNext: { [weak self] in
                 self?.rewardsView.configData(page: $0.0, book: $0.1)
                 self?.rewardsView.excuteAnimotion()
@@ -159,7 +161,7 @@ class CAAlbumInfoViewController: BaseViewController {
                 if data.0.count > 0 && data.1 == true {
                     self?.pageViewController.setViewControllers([AlbumPageViewController.init(albumPageModel: data.0.first!)], direction: .forward, animated: true, completion: nil)
                     
-                    self?.viewModel.pageSelctedAward.onNext(data.0.first!)
+                    self?.viewModel.pageSelctedAward.onNext(0)
                 }
                 return data.0
             })
@@ -170,6 +172,10 @@ class CAAlbumInfoViewController: BaseViewController {
         
         viewModel.iconObser
             .bind(to: iconOutlet.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel.navTitleObser.asDriver()
+            .drive(navTitleOutlet.rx.text)
             .disposed(by: disposeBag)
         
         collectionView.rx.itemSelected
@@ -186,7 +192,8 @@ class CAAlbumInfoViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        collectionView.rx.modelSelected(CAPageListModel.self)
+        collectionView.rx.itemSelected
+            .map{ $0.row }
             .bind(to: viewModel.pageSelctedAward)
             .disposed(by: disposeBag)
 
@@ -251,7 +258,7 @@ extension CAAlbumInfoViewController: UIPageViewControllerDelegate, UIPageViewCon
             }
             
             currentPage -= 1
-            viewModel.pageSelctedAward.onNext(viewModel.colDatasourceObser.value.0[currentPage])
+            viewModel.pageSelctedAward.onNext(currentPage)
             let pageVC = AlbumPageViewController.init(albumPageModel: viewModel.colDatasourceObser.value.0[currentPage])
             return pageVC
         }
@@ -268,7 +275,7 @@ extension CAAlbumInfoViewController: UIPageViewControllerDelegate, UIPageViewCon
             }
 
             currentPage += 1
-            viewModel.pageSelctedAward.onNext(viewModel.colDatasourceObser.value.0[currentPage])
+            viewModel.pageSelctedAward.onNext(currentPage)
             let pageVC = AlbumPageViewController.init(albumPageModel: viewModel.colDatasourceObser.value.0[currentPage])
             return pageVC
         }

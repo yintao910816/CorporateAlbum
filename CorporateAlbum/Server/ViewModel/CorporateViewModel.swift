@@ -115,6 +115,35 @@ class CorporateViewModel: RefreshVM<SiteInfoModel>, VMNavigation {
             .mapResponse()
             .subscribe(onSuccess: { [unowned self] res in
                 if res.error == 0 {
+                    if self.allData["0"] != nil {
+                        self.allData["0"] = self.allData["0"]!.map({ m -> SiteInfoModel in
+                            if m.Id == model.Id {
+                                m.IsFavorite = model.IsFavorite
+                            }
+                            return m
+                        })
+                    }
+                    if self.allData["1"] != nil {
+                        self.allData["1"] = self.allData["1"]!.map({ m -> SiteInfoModel in
+                            if m.Id == model.Id {
+                                m.IsFavorite = model.IsFavorite
+                            }
+                            return m
+                        })
+                    }
+                    if self.allData["2"] != nil {
+                        if !model.IsFavorite {
+                            self.allData["2"] = self.allData["2"]!.filter{ $0.Id != model.Id }
+                        }else {
+                            self.allData["2"]!.append(model)
+                        }
+                    }
+
+                    if self.dataType == 2 {
+                        // 在收藏菜单栏点取消收藏
+                        self.datasource.value = self.allData["2"]!
+                    }
+
                     self.hud.successHidden(res.message)
                 }else {
                     self.hud.failureHidden(res.message)
