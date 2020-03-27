@@ -2533,7 +2533,6 @@
 			children = (
 				B8D92A942109708B00BAB001 /* Storyboard */,
 				B8D92A952109708B00BAB001 /* Controller */,
-				B8D92A962109708B00BAB001 /* View */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2550,6 +2549,7 @@
 		B8D92A952109708B00BAB001 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B8D92A962109708B00BAB001 /* View */,
 				B8CCE04D21212CB600E94681 /* QRCode */,
 				B831855E2111A55D00F05D49 /* Site */,
 				B84FC32A210EDB6D00DA30DC /* UserCenter */,
